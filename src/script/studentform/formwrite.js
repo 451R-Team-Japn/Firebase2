@@ -40,7 +40,7 @@ function removeChecked(){
 	var list = document.getElementsByClassName("lab");
 	//console.log(list);
 	for(var j=0; j<list.length; ++j){ 
-		console.log(list[j]);
+		//console.log(list[j]);
 		list[j].checked = false;
 		validateCourses();
 	}

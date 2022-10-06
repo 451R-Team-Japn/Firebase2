@@ -191,7 +191,7 @@ async function sort(colName){
   const q = query(docRef, orderBy("CourseNumber", "asc"));
   
   const querySnapshot = await getDocs(q);
-  console.log(querySnapshot);
+  //console.log(querySnapshot);
   
   /*querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
