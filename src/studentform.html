@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Link Added for bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style/css.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="script/data.js"></script>
+  <script src="script/studentform/formiteration.js"></script>
+  <script src="script/studentform/formwrite.js"></script>
+  <script src="script/studentform/formsubmit.js"></script>
+  <script type="module" src="script/studentform/formdatabase.js"></script>
+  <link rel="icon" href="assets/umkc-logo.png">
+  <title>Application</title>
+</head>
+
+<body>
+  <div class="page-logo">
+    <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
+  </div>
+
+  <div class="position-container">
+    <div class="row">
+      <div class="col-lg-11-auto">
+          <div class="card my-5">
+              <div class="card-body cardbody-color p-lg-5">
+                <h4 class="mt-2">Application Form</h4>
+                <form name="Form" action="" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" onsubmit="return submitForm()" class="needs-validation" novalidate>
+                 
+                  <div id="basics">
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="fname">First name:</label>
+                        <input class="form-control" type="text" id="fname" name="fname" required>
+                      </div>
+                      <div class="col">
+                        <label for="lname">Last name:</label>
+                        <input class="form-control" type="text" id="lname" name="lname" required>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="studentID">Student ID:</label>
+                        <input class="form-control" type="text" id="studentID" name="studentID" required>
+                      </div>
+                      <div class="col">
+                        <label for="email">UMKC Email:</label>
+                        <input class="form-control" type="email" id="email" name="email" required>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="undergraduatedegree">Undergraduate Degree (if applicable):</label>
+                        <input class="form-control" type="text" id="undergraduatedegree" name="undergraduatedegree">
+                      </div>
+                      <div class="col">
+                        <label for="GPA">UMKC Cumulative GPA:</label>
+                        <input class="form-control" type="number" onchange="gpaChange(this.value)" min="0" max="4" step="0.01" id="GPA" name="GPA" required>
+                        <div class="invalid-feedback" id="GPAmessage">
+                          Please enter your GPA.
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="hours">Hours Completed at UMKC:</label>
+                        <input class="form-control" type="number" onchange="hoursChange(this.value)" min="0" id="hours" name="hours" required>
+                        <div class="invalid-feedback"  id="hoursmessage">
+                          Please enter your completed hours.
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div id="gradterm">
+                          <label for='grad'>Graduating Semester:</label>
+                          <select required name='grad' id='grad' class="form-select">
+                          <option selected disabled value=''>Choose Term...</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please select your graduating semester.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                    <div class="row mb-3">
+                      <div class="col">
+                        <div id="majordiv">
+                          <label class="form-label" for="major">Current Major:</label>
+                          <select required name="major" id="major" class="form-select">
+                            <option selected disabled value=''>Choose Major...</option>
+                            <option value='CS'>Computer Science</option>
+                            <option value='IT'>Information Technology</option>
+                            <option value='ECE'>Electrical Computer Engineering</option>
+                            <option value='ECE'>Electrical Engineering</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please select your major.
+                          </div>
+                        </div>
+                      </div>                      
+                    
+                      <div class="col">
+                        <label class="form-label" for="level">Current Level:</label>
+                        <div>
+                          <input class="form-check-input" type="radio" required id="BS" name="level" value="BS" onclick="checklevel(this.value)">
+                          <label class="form-check-label" for="BS" id="BSlabel">BS</label>
+                        
+                          <input class="form-check-input" type="radio" required id="MS" name="level" value="MS" onclick="checklevel(this.value)">
+                          <label class="form-check-label" for="MS">MS</label>
+
+                          <input class="form-check-input" type="radio" required id="PhD" name="level" value="Phd" onclick="checklevel(this.value)">
+                          <label class="form-check-label" for="PhD">PhD</label>
+                          <div class="invalid-feedback">
+                            Please select your current level.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                                                                                
+                    <div id="gta" class="col" hidden>
+                        <label class="form-label" for="GTA">Are you GTA Certified?</label>
+                        <div>
+                          <input class="form-check-input" type="radio" required id="yes" name="GTA" value="yes" onclick="addoptions(this.value)">
+                          <label class="form-check-label" for="yes" id="BSlabel">Yes</label>
+                        
+                          <input class="form-check-input" type="radio" required id="no" name="GTA" value="no" onclick="addoptions(this.value)">
+                          <label class="form-check-label" for="no">No</label>
+
+                          <input type="radio" required id="null" name="GTA" hidden>
+						  <input type="radio" required id="onrecord" name="GTA" hidden>
+                          <div class="invalid-feedback">
+                            Please select an Option.
+                          </div>
+                        </div>
+                    </div><br>
+
+                    <div>
+						<fieldset class="field_set">
+						<legend id="courseslegend">Courses (choose of up to 5):</legend>
+							<div id="graderlist" class="control-group">
+							</div>
+
+							<div id="lablist" class="control-group">
+							</div>
+						
+							<div id="courseinput" class="input-group is-invalid">
+							</div>
+							<div class="invalid-feedback" id="submiterror" hidden>
+							</div>
+						</fieldset>
+					</div>
+					
+					
+                
+					<p id="uploadtext">You may attach your updated resume and transcript</p>
+					<div class="input-group mb-3 col">
+						<input class="form-control" type="file" id="myFile" name="filename" multiple>
+						<label class="input-group-text" for="myFile">Upload</label>
+						<div class="invalid-feedback">
+                          You must upload proof of GTA certification or a waiver.
+                        </div>
+					</div>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+	function gpaChange(value){
+		var message="";
+		setTwoNumberDecimal();
+	
+		if(value>4)
+			message="Value must be less than or equal to 4.";
+		else if(value<0)
+			message="Value must be greater than or equal to 0.";
+		else
+			message="Please enter your GPA.";
+	
+		$("#GPAmessage").html(message);
+	}
+	function hoursChange(value){
+		var message="";
+	
+		if(value<0)
+			message="Value must be greater than or equal to 0.";
+		else
+			message="Please enter your completed hours.";
+	
+		$("#hoursmessage").html(message);
+	}
+  </script>
+    <!--Script added for bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit], button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover, button:hover {
+  background-color: #45a049;
+}
+
+input[readOnly] {
+  background-color: #D3D3D3;
+}*/
+
+.input-group.is-invalid {
+  ~ .invalid-feedback {
+    display: block;
+  }
+}
+
+.courselist label { display: block; width: 80px; }
+
+.field_set {
+  background-color: #eeeeee;
+  border-color: #F00;
+  border-style: solid;
+}
+
+.container {
+  align:center;
+  border-radius: 5px;
+  background-color: #ebf2fa;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.error {
+  color: red;
+}
+
+/*Style for Login Page*/
+.login-container{
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}
+
+.img-login{
+  background-color: transparent;
+  border:none;
+}
+
+/*Style for Create Position*/
+.position-container{
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropdown{
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.createbtn{
+  float:right;
+}
