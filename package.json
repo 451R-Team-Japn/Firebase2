@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/451R-Team-Japn/Firebase2#readme",
   "dependencies": {
-    "firebase": "9.10.0"
+    "firebase": "^9.10.0"
+	"firebase-tools": "^11.14.0"
   }
 }
