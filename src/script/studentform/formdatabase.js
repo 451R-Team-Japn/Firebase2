@@ -64,9 +64,15 @@ function populateFields(){
 }
 $('.level').click(function(){
 	var level = document.querySelector('input[name="level"]:checked').value;
-	
 	var gtaradiobtn = document.getElementById("null");
 
+	if(level=="BS"){
+		document.getElementsByClassName("grad").hidden = true;
+		gtaradiobtn.checked = false;
+	}
+	else{
+		document.getElementsByClassName("grad").hidden = false;
+	}
 	if(level!="BS" && user.GTACertified == 0){
 		document.getElementById("gta").hidden = false;
 		gtaradiobtn.checked = false;
@@ -165,7 +171,10 @@ function addclass(coursenumber,coursetype,id,position){
 	var html="";
 	var data = coursetype+" "+coursenumber;
 	//console.log(id, ", ", coursetype, ", ", coursenumber);
-	html+="<input required onclick='validateCourses()' class='"+position+" courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label' for='"+data+"'>"+data+"</label>";
+	if(coursenumber.startsWith('5'))
+		html+="<input required onclick='validateCourses()' class='"+position+" grad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label' for='"+data+" hidden'>"+data+"</label>";
+	else
+		html+="<input required onclick='validateCourses()' class='"+position+" undergrad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label' for='"+data+"'>"+data+"</label>";
 	
     return html;
 }
