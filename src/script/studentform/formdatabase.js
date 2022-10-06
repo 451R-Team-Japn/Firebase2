@@ -1,8 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { adminLogin, studentLogin } from "./login/login.js";
-//import { listclasses } from "./form/formwrite.js";
+//import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -20,26 +19,20 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 var user;
-
-
-// Get a list of cities from your database
-/*async function getCities(db) {
-  const citiesCol = collection(db, 'cities');
-  const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map(doc => doc.data());
-  return cityList;
-}*/
+module.updateGTA = updateGTA;
 
 $(document).ready(function () { 
-	
-	
 	getUser();
 	addGraderoptions();
+	addLaboptions();
 });
 
 $('#login').submit(function(){
 	if(!submitlogin());
 		event.preventDefault();
+})
+$('.gtainput').click(function(){
+
 })
 
 async function getUser() {
@@ -48,17 +41,12 @@ async function getUser() {
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
 	var gtaradiobtn = document.getElementById("onrecord");
-	for(var i=0;i<data.length;i++){
-		current=data[i];
-		if(currentuser==current.StudentKeyID)
-			break;
-	}
-	if(current.GTACertified >= 0){
+	if(user.GTACertified > 0){
 		gtaradiobtn.checked = true;
 		document.getElementById("BS").hidden = true;
 		document.getElementById("BSlabel").hidden = true;
 		document.getElementById("gta").value = "yes";
-		addoptions('certified');
+		updateGTA('certified');
 		document.getElementById("gta").hidden = true;
 	}
 	populateFields();
@@ -74,7 +62,23 @@ function populateFields(){
 	document.getElementById("email").readOnly = true;
 	document.getElementById("major").value = user.Major;
 }
+$('.level').click(function(){
+	var level = document.querySelector('input[name="level"]:checked').value;
+	
+	var gtaradiobtn = document.getElementById("null");
 
+	if(level!="BS" && user.GTACertified == 0){
+		document.getElementById("gta").hidden = false;
+		gtaradiobtn.checked = false;
+	}
+	else if(user.GTACertified == 0){
+		document.getElementById("gta").hidden = true;
+		gtaradiobtn.checked = true;
+		updateGTA('null');
+	}
+	else if(user.GTACertified >= 0)
+		document.getElementById("gta").hidden = true;
+})
 async function addGraderoptions() {
 	var data = await sort('GraderCourses');
 
@@ -89,7 +93,20 @@ async function addGraderoptions() {
 	//console.log(html);
 	$("#graderlist").html(html);
 }
+async function addLaboptions() {
+	var data = await sort('InstructorCourses');
 
+	var html="";
+	//var data=await getCollectionID('GraderCourses');
+	
+	html+="<label class='form-label' for='lab'>Lab Classes</label>";
+	//var graderclasses = data["CourseID"];
+	html+= await listclasses(data, "lab");
+	html+="<br>";
+	
+	//console.log(html);
+	$("#lablist").html(html);
+}
 async function listclasses(list, position) {
 	//anyavailable = false;
 	var docRef;

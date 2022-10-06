@@ -28,25 +28,31 @@
                             <div class="row">
                               <div class="col">
                                 <label for="class">Class: </label>
-                                <div class="input-group" id="class">
-									<select style="max-width:25%;" class="form-select" id="CourseType" required>
-										<option selected disabled value=''>Choose...</option>
-										<option value="CS">CS</option>
-										<option value="ECE">ECE</option>
-										<option value="IT">IT</option>  
-									</select>
-                  <div class="invalid-feedback">
-                    Please choose course type.
-                  </div>
+                                <div style="width:100%;" class="input-group " id="class">
+									<select style="max-width:25%;" id="CourseType" class="dropdown dropdown-toggle form-control" required>
+                                          <ul class="dropdown-menu">
+										    <option selected disabled value=''>Choose...</option>
+											<option value="CS">CS</option>
+											<option value="ECE">ECE</option>
+											<option value="IT">IT</option>  
+                                          </ul>   
+                                    </select>
 									<input type="text" class="form-control" id="CourseNumber" onchange="coursenumberChange(this.value)" pattern="(([1-4][0-9]{2}|[5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)" required>
-                  <div class="invalid-feedback">
-                    Please input a valid course number.
-                  </div>
+									<div class="invalid-feedback">
+									Please input a valid course number.
+									</div>
 								</div>
                               </div>
                               <div class="col">
                                 <label for="position">Position: </label>
-                                <input type="text" class="form-control" id="position" required>
+										<select id="position" class="dropdown dropdown-toggle" required>
+                                          <ul class="dropdown-menu">
+										    <option selected disabled value=''>Choose Position...</option>
+											<option value="0">Grader</option>
+											<option value="1">Lab Instructor</option>
+											<option value="2">Both</option>
+                                          </ul>    
+                                        </select>
                                 <div class="invalid-feedback">
                                   Please input position.
                                 </div>
@@ -88,7 +94,7 @@
 
                                 <div class="col">
                                     <label for="notes">Notes:</label>
-                                    <textarea class="form-control" id="notes" rows="3"></textarea>
+                                    <textarea class="form-control" style="resize: none; height: 108px;" id="notes" rows="3"></textarea>
                                 </div>
                               </div>
 							  <input action="admin.html" type="submit" value="Create" class="btn btn-primary px-5 mt-4 createbtn">

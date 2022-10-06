@@ -96,10 +96,10 @@
                           <label class="form-label" for="major">Current Major:</label>
                           <select required name="major" id="major" class="form-select">
                             <option selected disabled value=''>Choose Major...</option>
-                            <option value='CS'>Computer Science</option>
-                            <option value='IT'>Information Technology</option>
-                            <option value='ECE'>Electrical Computer Engineering</option>
-                            <option value='ECE'>Electrical Engineering</option>
+                            <option value='Computer Science'>Computer Science</option>
+                            <option value='Information Technology'>Information Technology</option>
+                            <option value='Electrical Computer Engineering'>Electrical Computer Engineering</option>
+                            <option value='Electrical Engineering'>Electrical Engineering</option>
                           </select>
                           <div class="invalid-feedback">
                             Please select your major.
@@ -110,13 +110,13 @@
                       <div class="col">
                         <label class="form-label" for="level">Current Level:</label>
                         <div>
-                          <input class="form-check-input" type="radio" required id="BS" name="level" value="BS" onclick="checklevel(this.value)">
+                          <input class="form-check-input level" type="radio" required id="BS" name="level" value="BS">
                           <label class="form-check-label" for="BS" id="BSlabel">BS</label>
                         
-                          <input class="form-check-input" type="radio" required id="MS" name="level" value="MS" onclick="checklevel(this.value)">
+                          <input class="form-check-input level" type="radio" required id="MS" name="level" value="MS">
                           <label class="form-check-label" for="MS">MS</label>
 
-                          <input class="form-check-input" type="radio" required id="PhD" name="level" value="Phd" onclick="checklevel(this.value)">
+                          <input class="form-check-input level" type="radio" required id="PhD" name="level" value="Phd">
                           <label class="form-check-label" for="PhD">PhD</label>
                           <div class="invalid-feedback">
                             Please select your current level.
@@ -128,10 +128,10 @@
                     <div id="gta" class="col" hidden>
                         <label class="form-label" for="GTA">Are you GTA Certified?</label>
                         <div>
-                          <input class="form-check-input" type="radio" required id="yes" name="GTA" value="yes" onclick="addoptions(this.value)">
+                          <input class="form-check-input gtainput" type="radio" required id="yes" name="GTA" value="yes" onclick="updateGTA(this.value)">
                           <label class="form-check-label" for="yes" id="BSlabel">Yes</label>
                         
-                          <input class="form-check-input" type="radio" required id="no" name="GTA" value="no" onclick="addoptions(this.value)">
+                          <input class="form-check-input gtainput" type="radio" required id="no" name="GTA" value="no" onclick="updateGTA(this.value)">
                           <label class="form-check-label" for="no">No</label>
 
                           <input type="radio" required id="null" name="GTA" hidden>
@@ -148,7 +148,12 @@
 							<div id="graderlist" class="control-group">
 							</div>
 
-							<div id="lablist" class="control-group">
+							<div id="lablist" class="control-group" hidden>
+							</div>
+							
+							<div id="lablistna" class="control-group" hidden>
+							<label class='form-label' for='lab'>Lab Classes</label>
+							<p class="error">You must be GTA certified to work as a lab instructor. <a href="https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/">Click here</a> to learn more about GTA certification process.</p>
 							</div>
 						
 							<div id="courseinput" class="input-group is-invalid">
