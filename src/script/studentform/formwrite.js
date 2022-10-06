@@ -45,6 +45,16 @@ function removeChecked(){
 		validateCourses();
 	}
 }
+function setremovehidden(classname, ser){
+	//var list = document.querySelector('input[class="courses"]:checked');
+	var list = document.getElementsByClassName();
+	//console.log(list);
+	for(var j=0; j<list.length; ++j){ 
+		//console.log(list[j]);
+		list[j].checked = false;
+		validateCourses();
+	}
+}
 function setTwoNumberDecimal() {
 	var GPA = document.getElementById("GPA");
     GPA.value = parseFloat(GPA.value).toFixed(2);
