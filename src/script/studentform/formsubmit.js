@@ -151,7 +151,7 @@ function getData(){
     stringExample: "Hello world!",
     booleanExample: true,
     numberExample: 3.14159265,
-    dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
+    dateExample: "December 10, 1815",
     arrayExample: [5, true, "hello"],
     nullExample: null,
     objectExample: {
