@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card my-5">
-                    <form id="login" class="card-body cardbody-color p-lg-5 needs-validation" novalidate accept-charset="UTF-8" enctype="multipart/form-data" method="GET" onsubmit="return submitlogin()">
+                    <form id="login" class="card-body cardbody-color p-lg-5 needs-validation" novalidate accept-charset="UTF-8" enctype="multipart/form-data" method="GET" onsubmit="">
                         <h2 class="text-center mt-4">GTA Application Portal</h2>
                         
                         <div class="text-center">
@@ -67,7 +67,6 @@
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
-          validatelogin()
         }
         form.classList.add('was-validated');  }, false)
     })

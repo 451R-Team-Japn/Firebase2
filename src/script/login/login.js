@@ -48,11 +48,13 @@ async function submitlogin(){
 		html='<p>Email and/or password is not in our records.</p>';
 		$("#loginerror").html(html);
 		return false;
+	
 	}
 }
 
 async function validatelogin(col){
 	var html="";
+	let passpattern = new RegExp('^().{6,24}$');
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
@@ -77,8 +79,8 @@ async function validatelogin(col){
 			}
 		}
 	}
-	
-	return false;
+	if(email != "" && (password != "" || !passpattern.test(password)))
+		return false;
 }
 
 // Get a list of courses from your database
