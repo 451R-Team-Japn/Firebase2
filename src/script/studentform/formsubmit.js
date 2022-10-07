@@ -1,16 +1,26 @@
 var validating = false;
+var totalCourses
 
 function submitForm(){
 	if(validateForm()){
 		getData();
+		return true;
 	}else
 		return false;
+}
+
+$('#application').submit(function(){
+	if(!submitForm());
+		event.preventDefault();
+})
+function modal(){
+	$('#exampleModal').modal('toggle');
 }
 function validateForm(){
 	var html='';
 	var courses = document.getElementsByClassName("courses");
 	
-	var totalCourses = courseLimitcheck(courses);
+	totalCourses = courseLimitcheck(courses);
 	
 	validating = true;
 	if(!courseChecked(courses)){
@@ -39,7 +49,7 @@ function courseChecked(list){
 }
 function validateCourses(){
 	var courses = document.getElementsByClassName("courses");
-	var totalCourses = courseLimitcheck(courses);
+	totalCourses = courseLimitcheck(courses);
 	
 	if(validating)
 		validateForm();
@@ -86,24 +96,42 @@ function courseLimitcheck(courses){
 	return coursesamount;
 }
 function getData(){
-	var level;
-	var gradterm;
-	var gradtermtext;
+	var fname = document.getElementById("fname").value;
+	var lname = document.getElementById("lname").value;
+	var stuID = document.getElementById("studentID").value;
+	var email = document.getElementById("email").value;
+	var degree = document.getElementById("undergraduatedegree").value;;
+	var gpa = document.getElementById("GPA").value;;
+	var hours = document.getElementById("hours").value;;
+	var gradterm = document.getElementById("grad").value;;
+	var major = document.getElementById("major").value;
+	var level = document.querySelector('input[name="level"]:checked').value;
+	var courses = listCourses();
+	var file;
+	
+	console.log("fname => "+fname);
+	console.log("lname => "+lname);
+	console.log("stuID => "+stuID);
+	console.log("email => "+email);
+	console.log("degree => "+degree);
+	console.log("gpa => "+gpa);
+	console.log("hours => "+hours);
+	console.log("gradterm => "+gradterm);
+	console.log("major => "+major);
+	console.log("level => "+level);
+	console.log("courses => "+courses);
+	
 	//var graderlist = [graderCourses];
 	//var lablist = [labCourses];
-	var major;
-	var majortext;
 	
 	//get Current Level
-	level = document.querySelector('input[name="level"]:checked').value;
+	//level = document.querySelector('input[name="level"]:checked').value;
 
 	//get Major
-	major = document.getElementById("major");
-	majortext = major.options[major.selectedIndex].value;
+	//major = document.getElementById("major").options[major.selectedIndex].value;
 
 	//get Graduating Semester
-	gradterm = document.getElementById("grad");
-	gradtermtext = gradterm.options[gradterm.selectedIndex].text;
+	//gradterm = document.getElementById("grad").options[gradterm.selectedIndex].value;
 
 	//get grader courses
 	//if(courseChecked('grader'))
@@ -116,6 +144,19 @@ function getData(){
 	//writeData(level, gradtermtext, graderlist, lablist);
 	//writeData(level, majortext, gradtermtext);
 	
+}
+function listCourses(){
+	var list = document.getElementsByClassName("courses");
+	var courses = [];
+	var j = 0;
+	for(var i=0; list[i]; ++i){
+      if(list[i].checked){
+		   console.log(list[i].value);
+           courses[j] = list[i].value;
+		   j++;
+	  }
+	}
+	return courses;
 }
 function writeData(level, gradtermtext, majortext){
 	//var courses = graderlist.concat(lablist);

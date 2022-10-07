@@ -45,10 +45,9 @@ async function submitlogin(){
 	}
 	else{
 		console.log("failed");
-		html='<p>Email and/or password is not in our records.</p>';
+		html=validateloginmessage();
 		$("#loginerror").html(html);
 		return false;
-	
 	}
 }
 
@@ -79,8 +78,22 @@ async function validatelogin(col){
 			}
 		}
 	}
-	if(email != "" && (password != "" || !passpattern.test(password)))
-		return false;
+	return false;
+}
+function validateloginmessage(){
+	var html="";
+	let pattern = new RegExp('^().{6,24}$');
+	var email = document.getElementById('email').value.toLowerCase();
+	var password = document.getElementById('password').value;
+	
+	console.log(pattern.test(password))
+	if(email != ""){
+		if(pattern.test(password))
+			html='<p>Email and/or password is not in our records.</p>';
+		else
+			html="";
+	}
+	return html;
 }
 
 // Get a list of courses from your database

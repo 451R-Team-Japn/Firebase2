@@ -17,14 +17,14 @@ function updateGTA(GTA) {
 	else if(GTA == "no"){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = false;
-		removeChecked();
+		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
 		fileinput.removeAttribute('required');
 	}
 	else if(GTA == "null"){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = true;
-		removeChecked();
+		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
 		fileinput.removeAttribute('required');
 	}
@@ -35,9 +35,9 @@ function updateGTA(GTA) {
 	
 	validateCourses();
 }
-function removeChecked(){
+function removeChecked(classname){
 	//var list = document.querySelector('input[class="courses"]:checked');
-	var list = document.getElementsByClassName("lab");
+	var list = document.getElementsByClassName(classname);
 	//console.log(list);
 	for(var j=0; j<list.length; ++j){ 
 		//console.log(list[j]);
@@ -45,14 +45,17 @@ function removeChecked(){
 		validateCourses();
 	}
 }
-function setremovehidden(classname, ser){
-	//var list = document.querySelector('input[class="courses"]:checked');
-	var list = document.getElementsByClassName();
+function setremovehidden(set, classname){
+	var list = document.getElementsByClassName(classname);
+	removeChecked(classname);
 	//console.log(list);
-	for(var j=0; j<list.length; ++j){ 
-		//console.log(list[j]);
-		list[j].checked = false;
-		validateCourses();
+	for(var j=0; list[j]; ++j){
+		if(set){
+			if(!list[j].checked)
+				list[j].hidden = true;
+		} else {
+			list[j].hidden = false;
+		}
 	}
 }
 function setTwoNumberDecimal() {
