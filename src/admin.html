@@ -8,9 +8,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/css.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="script/data.js"></script>
-  <script src="script/login.js"></script>
-  <script type="module" src="script/database.js"></script>
+   <script src="script/data.js"></script>
+  <script src="script/admin/adminwrite.js"></script>
+  <script type="module" src="script/admin/admindatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Dashboard</title>
@@ -31,14 +31,15 @@
         </h2>
     </div>
 
-    <div class="open-position-container">
-        <div class="card">
-            <h5 class="card-header">IT 390 (Class Name)</h5>
+	<button class="btn btn-primary" onclick="run()">Copy</button>
+    <div class="open-position-container" id="open-position-container">
+        <div class="card" id="card">
+            <h5 class="card-header" id="classname">IT 390 (Class Name)</h5>
             <div class="card-body">
-                <label class="card-title mt-2 mb-3">Position:</label> Grader
+                <label class="card-title mt-2 mb-3">Position:</label><span id="position">Grader</span>
                 <a href="applicants.html" class="open-position-btn btn btn-primary float-end">See Applicants</a>
                 <br>
-                <label class="card-title ">Notes:</label> None
+                <label class="card-title">Notes:</label><span id="notes">None</span>
                 <a href="#" class="open-position-btn btn btn-primary float-end">Close Position</a>
                 <br>
             </div>

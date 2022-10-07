@@ -17,3 +17,16 @@ var users={"users":[
       
       {"StudentKeyID":[2], "StudentID":["9ABCDEF0"], "Email":["test2@umkc.edu"], "Password":["password2"], "FirstName":["Jane"], "LastName":["Doe"], "Major":["Philosophy"], "Admin":[0], "GTA":[0]},
 ]};
+var classes={"classes":[
+	  {"Class":["CS 490"], "Position":["Grader"], "Notes":["ghuewfjiewfjimefw"]},
+	  
+      {"Class":["CS 449"], "Position":["Grader"], "Notes":["gfeg"]},
+	  
+	  {"Class":["CS 404"], "Position":["Grader"], "Notes":["egegeg"]},
+	  
+      {"Class":["CS 303"], "Position":["Grader"], "Notes":["eggege"]},
+	  
+      {"Class":["CS 451R"], "Position":["Grader"], "Notes":["egegegeg"]}
+	  
+	  
+]};

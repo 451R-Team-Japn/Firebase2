@@ -4,12 +4,12 @@ var totalCourses
 function submitForm(){
 	console.log("submitForm");
 	if(validateForm()){
+		console.log("validateForm true");
 		return true;
 	}else
 		return false;
 }
 function modal(){
-	getData();
 	$('#exampleModal').modal('toggle');
 }
 function validateForm(){
@@ -134,6 +134,10 @@ function getData(){
 	
 	
 	applicant = {
+	FirstName: fname,
+	LastName: lname,
+	StudentID: stuID,
+	Email: email,
     Course1: courses[0],
 	Course2: courses[1],
 	Course3: courses[2],
@@ -147,22 +151,9 @@ function getData(){
     Major: major,
     UndergradDegree: degree
 	};
-	const docData = {
-    stringExample: "Hello world!",
-    booleanExample: true,
-    numberExample: 3.14159265,
-    dateExample: "December 10, 1815",
-    arrayExample: [5, true, "hello"],
-    nullExample: null,
-    objectExample: {
-        a: 5,
-        b: {
-            nested: "foo"
-        }
-    }
-};
 	console.log("applicant => "+applicant);
-		console.log("docData => "+docData);
+	
+	return applicant;
 
 	
 }
@@ -175,6 +166,12 @@ function listCourses(){
 		   console.log(list[i].value);
            courses[j] = list[i].value;
 		   j++;
+	  }
+	}
+	for(var k=0; k<5; ++k){
+		console.log(courses[k]);
+      if(courses[k]==null){
+           courses[k] = "";
 	  }
 	}
 	return courses;
