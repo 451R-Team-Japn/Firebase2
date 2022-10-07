@@ -69,14 +69,14 @@ $('.level').click(function(){
 	var level = document.querySelector('input[name="level"]:checked').value;
 	var gtaradiobtn = document.getElementById("null");
 
-	if(level=="BS"){
+	if(level==0){
 		setremovehidden(true, 'grad');
 		gtaradiobtn.checked = false;
 	}
 	else{
 		setremovehidden(false, 'grad');
 	}
-	if(level!="BS" && user.GTACertified == 0){
+	if(level!=0 && user.GTACertified == 0){
 		document.getElementById("gta").hidden = false;
 		gtaradiobtn.checked = false;
 	}

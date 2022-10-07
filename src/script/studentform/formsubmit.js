@@ -2,18 +2,14 @@ var validating = false;
 var totalCourses
 
 function submitForm(){
+	console.log("submitForm");
 	if(validateForm()){
-		getData();
 		return true;
 	}else
 		return false;
 }
-
-$('#application').submit(function(){
-	if(!submitForm());
-		event.preventDefault();
-})
 function modal(){
+	getData();
 	$('#exampleModal').modal('toggle');
 }
 function validateForm(){
@@ -28,12 +24,12 @@ function validateForm(){
 		document.getElementById("submiterror").hidden = false;
 		$("#submiterror").html(html);
 		return false;
-	} else if(totalCourses > totalCoursesllowed){
+	/*} else if(totalCourses > totalCoursesllowed){
 		html='You must check less than '+totalCoursesllowed+' courses.';
 		setremoveDisabled(true, courses);
 		document.getElementById("submiterror").hidden = false;
 		$("#submiterror").html(html);
-		return false;
+		return false;*/
 	} else {
 		setremoveDisabled(false, courses);
 		return true;	
@@ -96,6 +92,10 @@ function courseLimitcheck(courses){
 	return coursesamount;
 }
 function getData(){
+	var applicant = {};
+	var termsplit;
+	var term;
+	var year;
 	var fname = document.getElementById("fname").value;
 	var lname = document.getElementById("lname").value;
 	var stuID = document.getElementById("studentID").value;
@@ -109,6 +109,16 @@ function getData(){
 	var courses = listCourses();
 	var file;
 	
+	termsplit = gradterm.split(' ');
+	year=parseInt(termsplit[1]);
+	
+	if(termsplit[0]=="Fall")
+		term=0;
+	else if(termsplit[0]=="Spring")
+		term=1;
+	else
+		term=2;
+	
 	console.log("fname => "+fname);
 	console.log("lname => "+lname);
 	console.log("stuID => "+stuID);
@@ -116,33 +126,44 @@ function getData(){
 	console.log("degree => "+degree);
 	console.log("gpa => "+gpa);
 	console.log("hours => "+hours);
-	console.log("gradterm => "+gradterm);
+	console.log("term => "+term);
+	console.log("year => "+year);
 	console.log("major => "+major);
 	console.log("level => "+level);
 	console.log("courses => "+courses);
 	
-	//var graderlist = [graderCourses];
-	//var lablist = [labCourses];
 	
-	//get Current Level
-	//level = document.querySelector('input[name="level"]:checked').value;
+	applicant = {
+    Course1: courses[0],
+	Course2: courses[1],
+	Course3: courses[2],
+    Course4: courses[3],
+    Course5: courses[4],
+    CurrentLevel: level,
+	GPA: gpa,
+	GraduatingTerm: term,
+	GraduatingYear: year,
+	Hours: hours,
+    Major: major,
+    UndergradDegree: degree
+	};
+	const docData = {
+    stringExample: "Hello world!",
+    booleanExample: true,
+    numberExample: 3.14159265,
+    dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
+    arrayExample: [5, true, "hello"],
+    nullExample: null,
+    objectExample: {
+        a: 5,
+        b: {
+            nested: "foo"
+        }
+    }
+};
+	console.log("applicant => "+applicant);
+		console.log("docData => "+docData);
 
-	//get Major
-	//major = document.getElementById("major").options[major.selectedIndex].value;
-
-	//get Graduating Semester
-	//gradterm = document.getElementById("grad").options[gradterm.selectedIndex].value;
-
-	//get grader courses
-	//if(courseChecked('grader'))
-		//graderlist = writeCourses('grader', graderCourses);
-	
-	//get lab courses
-	//if(courseChecked('lab'))
-		//lablist = writeCourses('lab', labCourses)
-	
-	//writeData(level, gradtermtext, graderlist, lablist);
-	//writeData(level, majortext, gradtermtext);
 	
 }
 function listCourses(){

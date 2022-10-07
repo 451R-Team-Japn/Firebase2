@@ -29,7 +29,7 @@
           <div class="card my-5">
               <div class="card-body cardbody-color p-lg-5">
                 <h4 class="mt-2">Application Form</h4>
-                <form id="application" name="Form" action="javascript:modal()" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate>
+                <form name="Form" action="javascript:modal()" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" onsubmit="return submitForm()" class="needs-validation" novalidate>
                  
                   <div id="basics">
                     <div class="row mb-3">
@@ -96,10 +96,10 @@
                           <label class="form-label" for="major">Current Major:</label>
                           <select required name="major" id="major" class="form-select">
                             <option selected disabled value=''>Choose Major...</option>
-                            <option value='Computer Science'>Computer Science</option>
-                            <option value='Information Technology'>Information Technology</option>
-                            <option value='Electrical Computer Engineering'>Electrical Computer Engineering</option>
-                            <option value='Electrical Engineering'>Electrical Engineering</option>
+                            <option value='0'>Computer Science</option>
+                            <option value='1'>Information Technology</option>
+                            <option value='2'>Electrical Computer Engineering</option>
+                            <option value='3'>Electrical Engineering</option>
                           </select>
                           <div class="invalid-feedback">
                             Please select your major.
@@ -110,14 +110,14 @@
                       <div class="col">
                         <label class="form-label" for="level">Current Level:</label>
                         <div>
-                          <input class="form-check-input level" type="radio" required id="BS" name="level" value="BS">
-                          <label class="form-check-label" for="BS" id="BSlabel">BS</label>
+                          <input class="form-check-input level" type="radio" required id="BS" name="level" value="0">
+                          <label class="form-check-label" for="0" id="BSlabel">BS</label>
                         
-                          <input class="form-check-input level" type="radio" required id="MS" name="level" value="MS">
-                          <label class="form-check-label" for="MS">MS</label>
+                          <input class="form-check-input level" type="radio" required id="MS" name="level" value="1">
+                          <label class="form-check-label" for="1">MS</label>
 
-                          <input class="form-check-input level" type="radio" required id="PhD" name="level" value="Phd">
-                          <label class="form-check-label" for="PhD">PhD</label>
+                          <input class="form-check-input level" type="radio" required id="PhD" name="level" value="2">
+                          <label class="form-check-label" for="2">PhD</label>
                           <div class="invalid-feedback">
                             Please select your current level.
                           </div>
