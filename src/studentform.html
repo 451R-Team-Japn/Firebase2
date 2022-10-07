@@ -29,7 +29,7 @@
           <div class="card my-5">
               <div class="card-body cardbody-color p-lg-5">
                 <h4 class="mt-2">Application Form</h4>
-                <form name="Form" action="" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" onsubmit="return submitForm()" class="needs-validation" novalidate>
+                <form name="Form" action="javascript:modal()" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" onsubmit="return submitForm()" class="needs-validation" novalidate>
                  
                   <div id="basics">
                     <div class="row mb-3">
@@ -162,9 +162,7 @@
 							</div>
 						</fieldset>
 					</div>
-					
-					
-                
+					      
 					<p id="uploadtext">You may attach your updated resume and transcript</p>
 					<div class="input-group mb-3 col">
 						<input class="form-control" type="file" id="myFile" name="filename" multiple>
@@ -175,6 +173,24 @@
 					</div>
                     <input type="submit" value="Submit" class="btn btn-primary">
                 </form>
+                   <!-- Message Form was submitted successfully-->
+                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Application</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Your form was successfully submitted!
+                        </div>
+                        <div class="modal-footer">
+                          <a href="index.html" class="btn btn-primary ">Close</i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
               </div>
           </div>
       </div>
