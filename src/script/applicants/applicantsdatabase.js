@@ -57,8 +57,6 @@ async function writeApplicants(courseName) {
 	for(var j=0;j<index.length;j++){
 		queryCourse(courseName,index[j]);
 	}
-	
-
 }
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
@@ -69,7 +67,11 @@ async function queryCourse(courseName,index){
   
   const querySnapshot = await getDocs(q);
   
-  console.log(index+" => "+querySnapshot);
+  //console.log(index+" => "+querySnapshot);
+  querySnapshot.forEach((doc) => {
+		// doc.data() is never undefined for query doc snapshots
+		console.log(index," => ",doc.id, " => ", doc.data());
+	});
   
   return querySnapshot;
 }
