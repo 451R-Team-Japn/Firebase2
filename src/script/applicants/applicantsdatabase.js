@@ -53,6 +53,15 @@ async function getCourse(){
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
 	console.log(await applicants);
+	writeStudents(applicants);
+}
+async function writeStudents(applicants) {
+	var index=["Course1","Course2","Course3","Course4","Course5"];
+	
+	for(var j=0;j<index.length;j++){
+		applicants=await queryCourse(courseName,index[j],applicants);
+	}
+	return applicants;
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
@@ -84,6 +93,19 @@ async function queryCourse(courseName,index,applicants){
   console.log(applicants);
   
   return applicants;
+}
+async function sort(colName,index,order){
+  const docRef = collection(db, colName);
+  const q = query(docRef, orderBy(index, order));
+  
+  const querySnapshot = await getDocs(q);
+  
+  /*querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+  });*/
+  
+  return querySnapshot;
 }
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);

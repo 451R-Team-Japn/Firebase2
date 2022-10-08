@@ -91,9 +91,9 @@ async function getCollection(colName,index,d){
   
   return querySnapshot;
 }
-async function sort(colName,index,d){
+async function sort(colName,index,order){
   const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
+  const q = query(docRef, orderBy(index, order));
   
   const querySnapshot = await getDocs(q);
   

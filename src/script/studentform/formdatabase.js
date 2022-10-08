@@ -195,9 +195,9 @@ async function getCollection(colName) {
   const list = snapshot.docs.map(doc => doc.data());
   return list;
 }
-async function sort(colName,index,d){
+async function sort(colName,index,order){
   const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
+  const q = query(docRef, orderBy(index, order));
   
   const querySnapshot = await getDocs(q);
   
