@@ -6,6 +6,11 @@ function run() {
 	step++;
 	console.log(step);
 }
+function writeApplicants(course){
+	localStorage.setItem("Course", course);
+	window.parent.location=(applicants.html);
+}
+localStorage.setItem("ID", current.StudentKeyID);
 function sort() {
 	$('.sortTable').DataTable();
 }
