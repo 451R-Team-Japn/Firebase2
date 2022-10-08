@@ -8,9 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/css.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="script/data.js"></script>
-  <script src="script/login.js"></script>
-  <!--<script type="module" src="index.js"></script>-->
+  <script src="script/applicants/applicantswrite.js"></script>
+  <script type="module" src="script/applicants/applicantsdatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -43,7 +42,7 @@
         </div>
     
         <div class="container applicants my-5" style="width:70%";>
-            <h2> Applicants for "Class" "Position" position:</h2>
+            <h2> Applicants for <span id="course">"Class"</span> <span id="position">"Position"</span> position:</h2>
             <table class="table table-striped table-bordered" id="sortTable">
                 <thead>
                     <tr>
