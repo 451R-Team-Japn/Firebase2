@@ -37,10 +37,18 @@ $('.level').click(function(){
 
 })
 async function writeCourseIDs() {
-	GraderCourses = await getCollectionID('GraderCourses2');
-	InstructorCourses = await getCollectionID('InstructorCourses2');
-	await console.log(GraderCourses);
-	await console.log(InstructorCourses);
+	GraderCourses = await getCollection('GraderCourses2');
+	GraderCourses.forEach((Graderdoc) => {
+		// doc.data() is never undefined for query doc snapshots
+		console.log(Graderdoc.id, " => ", Graderdoc.data());
+	});
+	InstructorCourses = await getCollection('InstructorCourses2');
+	InstructorCourses.forEach((Instructordoc) => {
+		// doc.data() is never undefined for query doc snapshots
+		console.log(Instructordoc.id, " => ", Instructordoc.data());
+	});
+	//await console.log(GraderCourses);
+	//await console.log(InstructorCourses);
 	
 }
 async function addLaboptions() {
@@ -48,11 +56,18 @@ async function addLaboptions() {
 
 }
 // Get a list of courses from your database
-async function getCollection(colName) {
-  const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.data());
-  return list;
+async function getCollection(colName){
+  const docRef = collection(db, colName);
+  const q = query(docRef, orderBy("CourseNumber", "asc"));
+  
+  const querySnapshot = await getDocs(q);
+  
+  /*querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+  });*/
+  
+  return querySnapshot;
 }
 async function sort(colName){
   const docRef = collection(db, colName);
