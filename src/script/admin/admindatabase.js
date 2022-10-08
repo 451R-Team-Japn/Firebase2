@@ -54,7 +54,7 @@ async function writeCourseIDs() {
 	//await console.log(InstructorCourses);
 	
 }
-function cloneCard(name,data,position) {
+async function cloneCard(name,data,position) {
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
 	var id;
@@ -68,14 +68,14 @@ function cloneCard(name,data,position) {
 	document.getElementById('open-position-container').appendChild(g);
 	
 	document.getElementById(name).appendChild(clone);			
-	classname='#'+name+' #classname'; 
-	position='#'+name+' #position'; 
-	notes='#'+name+' #notes'; 
-	button='#'+name+' #button'; 
-	$(classname).html(data.CourseType+' '+data.CourseNumber);
+	classname=await'#'+name+' #classname'; 
+	position=await'#'+name+' #position'; 
+	notes=await'#'+name+' #notes'; 
+	button=await'#'+name+' #button'; 
+	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(position);
-	$(notes).html(data.Notes);
-	$(button).attr("value", name);
+	$(notes).html(await data.Notes);
+	$(button).attr(await "value", name);
 
 	console.log(document.getElementById('open-position-container').innerHTML);
 }
