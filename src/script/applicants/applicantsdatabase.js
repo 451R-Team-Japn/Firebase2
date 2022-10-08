@@ -38,7 +38,7 @@ $('.level').click(function(){
 })
 async function getCourse(){
 	var position;
-	var applicants;
+	var applicants = [];
 	currentCourse = await localStorage.getItem("Course");
 	var docSnap=await getCoursedoc('GraderCourses2',currentCourse);
 	if (await docSnap.exists()) {
@@ -50,26 +50,26 @@ async function getCourse(){
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	writeTitle(courseObj,position);
-	applicants=await writeApplicants(currentCourse);
-	//console.log(applicants);
+	applicants=await writeApplicants(currentCourse,applicants);
+	console.log(applicants);
 }
-async function writeApplicants(courseName) {
+async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
 	for(var j=0;j<index.length;j++){
-		queryCourse(courseName,index[j]);
+		applicants=await queryCourse(courseName,index[j],applicants);
 	}
 }
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
 	$(position).html(positionname);	
 }
-async function queryCourse(courseName,index){
+async function queryCourse(courseName,index,applicants){
   const q = query(collection(db, "applicant"), where(index, "==", courseName));
   
   const querySnapshot = await getDocs(q);
   
-  var applicants = [];
+  //var applicants = [];
   var i = 0;
   
   //console.log(index+" => "+querySnapshot);
