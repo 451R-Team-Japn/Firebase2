@@ -23,7 +23,7 @@
     <div>
         <h2 class="m-5 mt-2">Open Positions:
             <div class="input-group float-end">
-                <input type="search" class="form-control rounded" placeholder="Search Class" aria-label="Search Position" aria-describedby="search-addon" />
+                <input type="text" id="Search" onkeyup="Search()" class="form-control rounded" placeholder="Search Class" aria-label="Search Position" aria-describedby="search-addon" />
                 <button class="btn btn-primary" id="advanced-search-button" type="button">
                     <i class="fa fa-search"></i>
                   </button>            
@@ -33,11 +33,11 @@
 
 	<button class="btn btn-primary" onclick="run()">Copy</button>
     <div class="open-position-container" id="open-position-container">
-        <div class="card mb-3" id="card">
+        <div class="card mb-3 target" id="card">
             <h5 class="card-header" id="classname">IT 390 (Class Name)</h5>
             <div class="card-body">
                 <label class="card-title mt-2 mb-3">Position:</label><span id="position">Grader</span>
-                <a href="applicants.html" class="open-position-btn btn btn-primary float-end">See Applicants</a>
+                <button id="button" onClick="parent.location=(this.value)" value="applicants.html" class="open-position-btn btn btn-primary float-end">See Applicants</button>
                 <br>
                 <label class="card-title">Notes:</label><span id="notes">None</span>
                 <a href="#" class="open-position-btn btn btn-primary float-end">Close Position</a>
