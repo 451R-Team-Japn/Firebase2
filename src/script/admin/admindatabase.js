@@ -18,12 +18,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const GraderCourses = await getCollectionID('GraderCourses2');
-const InstructorCourses = await getCollectionID('InstructorCourses2');
+const GraderCourses;
+const InstructorCourses;
 
 $(document).ready(async function () { 
-	await console.log(GraderCourses);
-	await console.log(InstructorCourses);
+	writeCourseIDs();
 });
 
 $('#application').submit(async function(){
@@ -36,9 +35,11 @@ $('.gtainput').click(function(){
 $('.level').click(function(){
 
 })
-async function getCourseIDs() {
-	//var GraderCourses = await getCollectionID('GraderCourses2');
-	//var InstructorCourses = await getCollectionID('InstructorCourses2');
+async function writeCourseIDs() {
+	GraderCourses = await getCollectionID('GraderCourses2');
+	InstructorCourses = await getCollectionID('InstructorCourses2');
+	await console.log(GraderCourses);
+	await console.log(InstructorCourses);
 	
 }
 async function addLaboptions() {
