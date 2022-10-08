@@ -18,8 +18,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const GraderCourses;
-const InstructorCourses;
+var GraderCourses;
+var InstructorCourses;
 
 $(document).ready(function () { 
 	console.log("ready");
