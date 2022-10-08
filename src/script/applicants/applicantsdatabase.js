@@ -61,7 +61,6 @@ async function writeStudents(applicants) {
 	for(var j=0;j<applicants.length;j++){
 		student=await getCoursedoc('StudentAccounts',applicants[j]);
 		application=await getCoursedoc('applicant',applicants[j]);
-		console.log(docSnap.data());
 		writeTable(student.data(),application.data());
 	}
 }
