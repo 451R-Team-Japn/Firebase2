@@ -49,16 +49,27 @@ async function getCourse(){
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	writeTitle(courseObj,position);
+	writeApplicants(currentCourse);
+}
+async function writeApplicants(courseName) {
+	var index=["Course1","Course2","Course3","Course4","Course5"];
+	
+	for(var j=0;j<index.length;j++){
+		queryCourse(courseName,index[j]);
+	}
+	
+
 }
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
 	$(position).html(positionname);	
 }
-async function sort(colName,index,d){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
+async function queryCourse(courseName,index){
+  const q = query(collection(db, "applicant"), where(index, "==", courseName));
   
   const querySnapshot = await getDocs(q);
+  
+  console.log(index+" => "+querySnapshot);
   
   return querySnapshot;
 }
