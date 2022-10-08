@@ -39,7 +39,7 @@ $('.level').click(function(){
 async function getCourse(){
 	var position;
 	currentCourse = await localStorage.getItem("Course");
-	docSnap=await getCoursedoc('GraderCourses2',currentCourse);
+	var docSnap=await getCoursedoc('GraderCourses2',currentCourse);
 	if (await docSnap.exists()) {
 		position="Grader";
 	} else {
