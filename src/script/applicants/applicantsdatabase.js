@@ -37,9 +37,10 @@ $('.gtainput').click(function(){
 $('.level').click(function(){
 
 })
-function getCourse(){
+async function getCourse(){
 	currentCourse = await localStorage.getItem("Course");
 	courseObj=db.collection('GraderCourses2').doc(currentCourse).get();
+	console.log(courseObj);
 }
 async function writeCourseIDs() {
 	var GraderCourses = await getCollection('GraderCourses2', 'CourseNumber', 'asc');
@@ -58,19 +59,6 @@ async function writeCourseIDs() {
 	
 }
 async function writeTitle() {
-	var GraderCourses = await getCollection('GraderCourses2', 'CourseNumber', 'asc');
-	GraderCourses.forEach((Graderdoc) => {
-		// doc.data() is never undefined for query doc snapshots
-		//console.log(Graderdoc.id, " => ", Graderdoc.data());
-		cloneCard(Graderdoc.id,Graderdoc.data(),'Grader');
-		
-	});
-	var InstructorCourses = await getCollection('InstructorCourses2', 'CourseNumber', 'asc');
-	InstructorCourses.forEach((Instructordoc) => {
-		// doc.data() is never undefined for query doc snapshots
-		//console.log(Instructordoc.id, " => ", Instructordoc.data());
-		cloneCard(Instructordoc.id,Instructordoc.data(),'Instructor');
-	});
 	
 }
 async function cloneCard(name,data,positionname) {
