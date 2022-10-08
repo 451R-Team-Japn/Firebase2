@@ -40,14 +40,14 @@ async function getCourse(){
 	var position;
 	currentCourse = await localStorage.getItem("Course");
 	courseObj=getCoursedoc('GraderCourses2',currentCourse);
-	if (!courseObj.exists()) {
+	/*if (!courseObj.exists()) {
 		position="Instructor";
 		courseObj=getCoursedoc('InstructorCourses2',currentCourse);
 	} else {
 		position="Grader";
 	}
 	console.log(courseObj);
-	writeTitle(courseObj,position);
+	writeTitle(courseObj,position);*/
 }
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
@@ -65,7 +65,7 @@ async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
 	const docSnap = await getDoc(docRef);
 	
-	return docSnap;
+	//return docSnap;
 
 	if (docSnap.exists()) {
 		console.log("Document data:", docSnap.data());
