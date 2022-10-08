@@ -21,7 +21,8 @@ const auth = getAuth(app);
 const GraderCourses;
 const InstructorCourses;
 
-$(document).ready(async function () { 
+$(document).ready(function () { 
+	console.log("ready");
 	writeCourseIDs();
 });
 
