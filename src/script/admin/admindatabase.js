@@ -63,15 +63,15 @@ async function cloneCard(name,data,position) {
 	var g;
 
 	g = document.createElement('div');
-	g.setAttribute("id", name);
+	g.setAttribute(await "id", name);
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
 	document.getElementById(name).appendChild(clone);			
-	classname=await'#'+name+' #classname'; 
-	position=await'#'+name+' #position'; 
-	notes=await'#'+name+' #notes'; 
-	button=await'#'+name+' #button'; 
+	var classname=await'#'+name+' #classname'; 
+	var position=await'#'+name+' #position'; 
+	var notes=await'#'+name+' #notes'; 
+	var button=await'#'+name+' #button'; 
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(position);
 	$(notes).html(await data.Notes);
