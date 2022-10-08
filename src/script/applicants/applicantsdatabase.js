@@ -51,7 +51,7 @@ async function getCourse(){
 	console.log(courseObj);
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse);
-	console.log(await applicants);
+	//console.log(applicants);
 }
 async function writeApplicants(courseName) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
@@ -79,6 +79,8 @@ async function queryCourse(courseName,index){
 		applicants[i] = doc.id;
 		i++;
 	});
+  
+  console.log(applicants);
   
   return applicants;
 }
