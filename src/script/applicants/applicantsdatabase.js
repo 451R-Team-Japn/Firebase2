@@ -56,12 +56,12 @@ async function getCourse(){
 	writeStudents(applicants);
 }
 async function writeStudents(applicants) {
-	var index=["Course1","Course2","Course3","Course4","Course5"];
-	
-	for(var j=0;j<index.length;j++){
-		applicants=await queryCourse(courseName,index[j],applicants);
+	for(var j=0;j<applicants.length;j++){
+		docSnap=await getCoursedoc('StudentAccounts',applicants[j]);
+		console.log(docSnap.data());
 	}
-	return applicants;
+	
+	//return applicants;
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
@@ -94,31 +94,18 @@ async function queryCourse(courseName,index,applicants){
   
   return applicants;
 }
-async function sort(colName,index,order){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, order));
-  
-  const querySnapshot = await getDocs(q);
-  
-  /*querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  });*/
-  
-  return querySnapshot;
-}
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
 	const docSnap = await getDoc(docRef);
 	
 	return docSnap;
 
-	if (docSnap.exists()) {
+	/*if (docSnap.exists()) {
 		console.log("Document data:", docSnap.data());
 	} else {
 		// doc.data() will be undefined in this case
 		console.log("No such document!");
-	}
+	}*/
 }
 
 onAuthStateChanged(auth, user => {
