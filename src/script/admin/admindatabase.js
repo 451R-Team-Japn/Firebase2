@@ -54,7 +54,7 @@ async function writeCourseIDs() {
 	//await console.log(InstructorCourses);
 	
 }
-async function cloneCard(name,data,position) {
+async function cloneCard(name,data,positionname) {
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
 	var id;
@@ -73,7 +73,7 @@ async function cloneCard(name,data,position) {
 	var notes=await'#'+name+' #notes'; 
 	var button=await'#'+name+' #button'; 
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
-	$(position).html(position);
+	$(position).html(positionname);
 	$(notes).html(await data.Notes);
 	$(button).attr(await "value", name);
 
