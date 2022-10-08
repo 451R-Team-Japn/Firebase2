@@ -23,7 +23,7 @@ const auth = getAuth(app);
 
 $(document).ready(function () { 
 	console.log("ready");
-	writeCourseIDs();
+	writeCourses();
 });
 
 $('#application').submit(async function(){
@@ -36,19 +36,18 @@ $('.gtainput').click(function(){
 $('.level').click(function(){
 
 })
-async function writeCourseIDs() {
-	var GraderCourses = await getCollection('GraderCourses2', 'CourseNumber', 'asc');
-	GraderCourses.forEach((Graderdoc) => {
-		// doc.data() is never undefined for query doc snapshots
-		//console.log(Graderdoc.id, " => ", Graderdoc.data());
-		cloneCard(Graderdoc.id,Graderdoc.data(),'Grader');
-		
-	});
-	var InstructorCourses = await getCollection('InstructorCourses2', 'CourseNumber', 'asc');
-	InstructorCourses.forEach((Instructordoc) => {
+async function writeCourses(Courses,Position) {
+	await writeCourseIDs('GraderCourses2','Grader');
+	await writeCourseIDs('InstructorCourses2','Instructor');
+	document.getElementById("card").hidden = true;
+}
+async function writeCourseIDs(Courses,Position) {
+	console.log(Courses, " => ", Position);
+	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
+	Courses.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
 		//console.log(Instructordoc.id, " => ", Instructordoc.data());
-		cloneCard(Instructordoc.id,Instructordoc.data(),'Instructor');
+		cloneCard(doc.id,doc.data(),Position);
 	});
 	
 }
@@ -74,8 +73,6 @@ async function cloneCard(name,data,positionname) {
 	$(button).attr(await "value", name);
 
 	console.log(document.getElementById('open-position-container').innerHTML);
-	
-	document.getElementById("card").hidden = true;
 }
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
