@@ -8,7 +8,7 @@ function run() {
 }
 function writeApplicants(course){
 	localStorage.setItem("Course", course);
-	window.parent.location=(applicants.html);
+	location.href=applicants.html;
 }
 function sort() {
 	$('.sortTable').DataTable();
