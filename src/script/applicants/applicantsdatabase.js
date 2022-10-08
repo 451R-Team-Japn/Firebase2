@@ -20,7 +20,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 var currentCourse;
 var courseObj;
-var i = 0;
+var applicantcount = 0;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -60,6 +60,7 @@ async function writeApplicants(courseName,applicants) {
 	for(var j=0;j<index.length;j++){
 		applicants=await queryCourse(courseName,index[j],applicants);
 	}
+	return applicants;
 }
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
@@ -76,8 +77,8 @@ async function queryCourse(courseName,index,applicants){
   querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
 		console.log(index," => ",doc.id, " => ", doc.data());
-		applicants[i] = doc.id;
-		i++;
+		applicants[applicantcount] = doc.id;
+		applicantcount++;
 	});
   
   console.log(applicants);
