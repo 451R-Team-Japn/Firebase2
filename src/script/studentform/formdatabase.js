@@ -94,7 +94,7 @@ $('.level').click(function(){
 		document.getElementById("gta").hidden = true;
 })
 async function addGraderoptions() {
-	var data = await sort('GraderCourses1');
+	var data = await sort('GraderCourses2');
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -108,7 +108,7 @@ async function addGraderoptions() {
 	$("#graderlist").html(html);
 }
 async function addLaboptions() {
-	var data = await sort('InstructorCourses1');
+	var data = await sort('InstructorCourses2');
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
