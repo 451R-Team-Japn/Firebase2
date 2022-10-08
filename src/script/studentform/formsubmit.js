@@ -134,10 +134,10 @@ function getData(){
 	
 	
 	applicant = {
-	FirstName: fname,
-	LastName: lname,
-	StudentID: stuID,
-	Email: email,
+	//FirstName: fname,
+	//LastName: lname,
+	//StudentID: stuID,
+	//Email: email,
     Course1: courses[0],
 	Course2: courses[1],
 	Course3: courses[2],

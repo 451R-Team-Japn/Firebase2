@@ -18,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const currentuser;
 var user;
 var applicant;
 
@@ -33,7 +34,7 @@ $('#application').submit(async function(){
 		event.preventDefault();
 	else{
 		applicant=getData();
-		await setDoc(doc(db, "applicant", applicant.StudentID), applicant);
+		await setDoc(doc(db, "applicant", currentuser), applicant);
 	}
 })
 $('.gtainput').click(function(){
@@ -41,7 +42,7 @@ $('.gtainput').click(function(){
 })
 
 async function getUser() {
-	const currentuser = await localStorage.getItem("ID");
+	currentuser = await localStorage.getItem("ID");
 	const docRef = doc(db, "StudentAccounts", currentuser);
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
