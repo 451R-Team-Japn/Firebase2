@@ -94,7 +94,7 @@ $('.level').click(function(){
 		document.getElementById("gta").hidden = true;
 })
 async function addGraderoptions() {
-	var data = await sort('GraderCourses2');
+	var data = await sort('GraderCourses2', 'CourseNumber', 'asc');
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -108,7 +108,7 @@ async function addGraderoptions() {
 	$("#graderlist").html(html);
 }
 async function addLaboptions() {
-	var data = await sort('InstructorCourses2');
+	var data = await sort('InstructorCourses2', 'CourseNumber', 'asc');
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -194,12 +194,11 @@ async function getCollection(colName) {
   const list = snapshot.docs.map(doc => doc.data());
   return list;
 }
-async function sort(colName){
+async function sort(colName,index,d){
   const docRef = collection(db, colName);
-  const q = query(docRef, orderBy("CourseNumber", "asc"));
+  const q = query(docRef, orderBy(index, d));
   
   const querySnapshot = await getDocs(q);
-  //console.log(querySnapshot);
   
   /*querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
@@ -207,12 +206,6 @@ async function sort(colName){
   });*/
   
   return querySnapshot;
-	
-  //const col = collection(db, colName);
-  //const snapshot = await getDocs(col);
-  //const list = snapshot.docs.map(doc => doc.data());
-  //console.log(q);
-  //return list;
 }
 async function getCollectionID(colName) {
 const col = collection(db, colName);

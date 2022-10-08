@@ -37,21 +37,19 @@ $('.level').click(function(){
 
 })
 async function writeCourseIDs() {
-	var GraderCourses = await getCollection('GraderCourses2');
+	var GraderCourses = await getCollection('GraderCourses2', 'CourseNumber', 'asc');
 	GraderCourses.forEach((Graderdoc) => {
 		// doc.data() is never undefined for query doc snapshots
 		//console.log(Graderdoc.id, " => ", Graderdoc.data());
 		cloneCard(Graderdoc.id,Graderdoc.data(),'Grader');
 		
 	});
-	var InstructorCourses = await getCollection('InstructorCourses2');
+	var InstructorCourses = await getCollection('InstructorCourses2', 'CourseNumber', 'asc');
 	InstructorCourses.forEach((Instructordoc) => {
 		// doc.data() is never undefined for query doc snapshots
 		//console.log(Instructordoc.id, " => ", Instructordoc.data());
 		cloneCard(Instructordoc.id,Instructordoc.data(),'Instructor');
 	});
-	//await console.log(GraderCourses);
-	//await console.log(InstructorCourses);
 	
 }
 async function cloneCard(name,data,positionname) {
@@ -78,15 +76,13 @@ async function cloneCard(name,data,positionname) {
 	$(button).attr(await "value", name);
 
 	console.log(document.getElementById('open-position-container').innerHTML);
-}
-async function addLaboptions() {
-	var data = await sort('InstructorCourses2');
-
+	
+	document.getElementById("card").hidden = true;
 }
 // Get a list of courses from your database
-async function getCollection(colName){
+async function getCollection(colName,index,d){
   const docRef = collection(db, colName);
-  const q = query(docRef, orderBy("CourseNumber", "asc"));
+  const q = query(docRef, orderBy(index, d));
   
   const querySnapshot = await getDocs(q);
   
@@ -97,12 +93,11 @@ async function getCollection(colName){
   
   return querySnapshot;
 }
-async function sort(colName){
+async function sort(colName,index,d){
   const docRef = collection(db, colName);
-  const q = query(docRef, orderBy("CourseNumber", "asc"));
+  const q = query(docRef, orderBy(index, d));
   
   const querySnapshot = await getDocs(q);
-  //console.log(querySnapshot);
   
   /*querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
@@ -110,12 +105,6 @@ async function sort(colName){
   });*/
   
   return querySnapshot;
-	
-  //const col = collection(db, colName);
-  //const snapshot = await getDocs(col);
-  //const list = snapshot.docs.map(doc => doc.data());
-  //console.log(q);
-  //return list;
 }
 async function getCollectionID(colName) {
 const col = collection(db, colName);
@@ -124,10 +113,6 @@ const col = collection(db, colName);
   return list;
 }
 
-// Detect auth state
-//auth.onAuthStateChanged(user => {
-
-//});
 onAuthStateChanged(auth, user => {
   if(user != null){
 	console.log('logged in!');
