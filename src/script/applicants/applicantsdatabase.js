@@ -51,7 +51,7 @@ async function getCourse(){
 	console.log(courseObj);
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
-	console.log(applicants);
+	console.log(await applicants);
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
