@@ -56,13 +56,37 @@ async function getCourse(){
 	writeStudents(applicants);
 }
 async function writeStudents(applicants) {
-	var docSnap;
+	var student;
+	var application;
 	for(var j=0;j<applicants.length;j++){
-		docSnap=await getCoursedoc('StudentAccounts',applicants[j]);
+		student=await getCoursedoc('StudentAccounts',applicants[j]);
+		application=await getCoursedoc('applicant',applicants[j]);
 		console.log(docSnap.data());
+		writeTable(student.data(),application.data());
 	}
-	
-	//return applicants;
+}
+async function writeTable(student,application) {
+	var table = document.getElementById("sortTable");
+
+	var row = table.insertRow(0);
+
+	var Namecell = row.insertCell(0);
+	var GPAcell = row.insertCell(1);
+	var Hourscell = row.insertCell(2);
+	var Levelcell = row.insertCell(3);
+	var Majorcell = row.insertCell(4);
+	var IDcell = row.insertCell(5);
+	var Emailcell = row.insertCell(6);
+	var Documentscell = row.insertCell(7);
+
+	Namecell.innerHTML = student.FirstName+" "+student.LastName;
+	GPAcell.innerHTML = application.GPA;
+	Hourscell.innerHTML = application.Hours;
+	Levelcell.innerHTML = application.CurrentLevel;
+	Majorcell.innerHTML = application.Major;
+	IDcell.innerHTML = student.StudentID;
+	Emailcell.innerHTML = student.Email;
+	Documentscell.innerHTML = "<button>Document</button>";
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
