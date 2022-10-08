@@ -21,6 +21,7 @@ const auth = getAuth(app);
 var currentCourse;
 var courseObj;
 var applicantcount = 0;
+var done = false;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -52,10 +53,11 @@ async function getCourse(){
 	console.log(courseObj);
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
-	console.log(await applicants);
-	writeStudents(applicants);
+	console.log(applicants);
+	await writeStudents(applicants);
+	$('#sortTable').DataTable();
 }
-async function writeStudents(applicants) {
+async function writeStudents(applicants, _callback) {
 	var student;
 	var application;
 	for(var j=0;j<applicants.length;j++){
@@ -67,7 +69,7 @@ async function writeStudents(applicants) {
 async function writeTable(student,application) {
 	var table = document.getElementById("sortTable");
 
-	var row = table.insertRow(0);
+	var row = table.insertRow(-1);
 
 	var Namecell = row.insertCell(0);
 	var GPAcell = row.insertCell(1);
