@@ -33,8 +33,8 @@ async function submitlogin(){
 		window.location.href = '/studentform.html';
 		document.getElementById('login').action = 'studentform.html';
 		//localStorage.setItem("ID", current.StudentKeyID);
-		var currentuser = await localStorage.getItem("ID");
-		console.log(currentuser);
+		//var currentuser = await localStorage.getItem("ID");
+		//console.log(currentuser);
 		return true;
 	}
 	else if(await validatelogin('AdminAccounts')){

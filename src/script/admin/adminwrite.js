@@ -7,6 +7,7 @@ function run() {
 	console.log(step);
 }
 function writeApplicants(course){
+	console.log("writeApplicants");
 	localStorage.setItem("Course", course);
 	location.href=applicants.html;
 }
