@@ -10,11 +10,10 @@ function writeApplicants(course){
 	localStorage.setItem("Course", course);
 	window.parent.location=(applicants.html);
 }
-localStorage.setItem("ID", current.StudentKeyID);
 function sort() {
 	$('.sortTable').DataTable();
 }
-function cloneCard(i) {
+/*function cloneCard(i) {
 	var html = "";
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
@@ -49,7 +48,7 @@ function cloneCard(i) {
 		console.log(document.getElementById('open-position-container').innerHTML);
 	
 	
-}
+}*/
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
