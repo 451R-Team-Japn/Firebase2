@@ -38,6 +38,7 @@ $('.level').click(function(){
 })
 async function getCourse(){
 	var position;
+	var applicants;
 	currentCourse = await localStorage.getItem("Course");
 	var docSnap=await getCoursedoc('GraderCourses2',currentCourse);
 	if (await docSnap.exists()) {
@@ -49,7 +50,8 @@ async function getCourse(){
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	writeTitle(courseObj,position);
-	writeApplicants(currentCourse);
+	applicants=writeApplicants(currentCourse);
+	console.log(applicants);
 }
 async function writeApplicants(courseName) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
@@ -67,13 +69,18 @@ async function queryCourse(courseName,index){
   
   const querySnapshot = await getDocs(q);
   
+  var applicants = [];
+  var i = 0;
+  
   //console.log(index+" => "+querySnapshot);
   querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
 		console.log(index," => ",doc.id, " => ", doc.data());
+		applicants[i] = doc.id;
+		i++;
 	});
   
-  return querySnapshot;
+  return applicants;
 }
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
