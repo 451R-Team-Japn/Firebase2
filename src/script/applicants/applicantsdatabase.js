@@ -20,6 +20,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 var currentCourse;
 var courseObj;
+var i = 0;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -70,7 +71,6 @@ async function queryCourse(courseName,index,applicants){
   const querySnapshot = await getDocs(q);
   
   //var applicants = [];
-  var i = 0;
   
   //console.log(index+" => "+querySnapshot);
   querySnapshot.forEach((doc) => {
