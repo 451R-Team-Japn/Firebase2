@@ -44,9 +44,9 @@ async function getCourse(){
 		position="Grader";
 	} else {
 		position="Instructor";
-		courseObj=getCoursedoc('InstructorCourses2',currentCourse);
-		courseObj=docSnap.data();
+		docSnap=await getCoursedoc('InstructorCourses2',currentCourse);
 	}
+	courseObj=docSnap.data();
 	console.log(courseObj);
 	writeTitle(courseObj,position);
 }
