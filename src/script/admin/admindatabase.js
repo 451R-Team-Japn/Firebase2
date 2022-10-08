@@ -18,8 +18,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-var GraderCourses;
-var InstructorCourses;
+//var GraderCourses;
+//var InstructorCourses;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -37,19 +37,47 @@ $('.level').click(function(){
 
 })
 async function writeCourseIDs() {
-	GraderCourses = await getCollection('GraderCourses2');
+	var GraderCourses = await getCollection('GraderCourses2');
 	GraderCourses.forEach((Graderdoc) => {
 		// doc.data() is never undefined for query doc snapshots
-		console.log(Graderdoc.id, " => ", Graderdoc.data());
+		//console.log(Graderdoc.id, " => ", Graderdoc.data());
+		cloneCard(Graderdoc.id,Graderdoc.data(),'Grader');
+		
 	});
-	InstructorCourses = await getCollection('InstructorCourses2');
+	var InstructorCourses = await getCollection('InstructorCourses2');
 	InstructorCourses.forEach((Instructordoc) => {
 		// doc.data() is never undefined for query doc snapshots
-		console.log(Instructordoc.id, " => ", Instructordoc.data());
+		//console.log(Instructordoc.id, " => ", Instructordoc.data());
+		cloneCard(Instructordoc.id,Instructordoc.data(),'Instructor');
 	});
 	//await console.log(GraderCourses);
 	//await console.log(InstructorCourses);
 	
+}
+function cloneCard(name,data,position) {
+	const node = document.getElementById("card");
+	const clone = node.cloneNode(true);
+	var id;
+	//var data=[{"id":"one", "Class":"CS 490", "Position": "Grader" , "Notes": "ghuewfjiewfjimefw", "Button":"index.html" },{"id":"two", "Class": "CS 449" , "Position": "Grader" , "Notes": "gfeg", "Button":"index.html" },{"id":"three", "Class": "CS 404" , "Position": "Grader" , "Notes": "egegeg", "Button":"index.html" },{"id":"four", "Class": "CS 303" , "Position": "Grader" , "Notes": "eggege", "Button":"index.html" },{"id":"five", "Class": "CS 451R" , "Position": "Grader" , "Notes": "egegegeg", "Button":"index.html" }];
+	//var classes=["CS 490","CS 449","CS 404","CS 303","CS 451R"];
+	var g;
+
+	g = document.createElement('div');
+	g.setAttribute("id", name);
+	
+	document.getElementById('open-position-container').appendChild(g);
+	
+	document.getElementById(name).appendChild(clone);			
+	classname='#'+name+' #classname'; 
+	position='#'+name+' #position'; 
+	notes='#'+name+' #notes'; 
+	button='#'+name+' #button'; 
+	$(classname).html(data.CourseType+' '+data.CourseNumber);
+	$(position).html(position);
+	$(notes).html(data.Notes);
+	$(button).attr("value", name);
+
+	console.log(document.getElementById('open-position-container').innerHTML);
 }
 async function addLaboptions() {
 	var data = await sort('InstructorCourses2');

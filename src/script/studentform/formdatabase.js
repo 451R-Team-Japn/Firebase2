@@ -138,7 +138,7 @@ async function listclasses(list, position) {
 		id = doc.id;
 	
 		html+="<div class='form-check form-check-inline'>";
-		html+=addclass((course.CourseNumber), (course.CourseType),id, position);
+		html+=addclass((course.CourseNumber), (course.CourseType),(course.GradCourse),id, position);
 		html+="</div>";
 		j++;
 		if(j==col){
@@ -175,11 +175,11 @@ async function listclasses(list, position) {
 	
 	return html;
 }
-function addclass(coursenumber,coursetype,id,position){
+function addclass(coursenumber,coursetype,gradcourse,id,position){
 	var html="";
 	var data = coursetype+" "+coursenumber;
 	//console.log(id, ", ", coursetype, ", ", coursenumber);
-	if(coursenumber.startsWith('5'))
+	if(gradcourse)
 		html+="<input required onclick='validateCourses()' class='"+position+" grad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label grad' for='"+data+" hidden'>"+data+"</label>";
 	else
 		html+="<input required onclick='validateCourses()' class='"+position+" undergrad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label undergrad' for='"+data+"'>"+data+"</label>";
