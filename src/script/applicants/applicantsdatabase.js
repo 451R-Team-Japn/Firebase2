@@ -19,12 +19,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 var currentCourse;
-//var InstructorCourses;
+var courseObj;
 
 $(document).ready(function () { 
 	console.log("ready");
 	getCourse();
-	writeTitle();
 });
 
 $('#application').submit(async function(){
@@ -38,69 +37,21 @@ $('.level').click(function(){
 
 })
 async function getCourse(){
+	var position;
 	currentCourse = await localStorage.getItem("Course");
-	courseObj=db.collection('GraderCourses2').doc(currentCourse).get();
+	courseObj=getCoursedoc('GraderCourses2',currentCourse);
+	if (!courseObj.exists()) {
+		position="Instructor";
+		courseObj=getCoursedoc('InstructorCourses2',currentCourse);
+	} else {
+		position="Grader";
+	}
 	console.log(courseObj);
+	writeTitle(courseObj,position);
 }
-async function writeCourseIDs() {
-	var GraderCourses = await getCollection('GraderCourses2', 'CourseNumber', 'asc');
-	GraderCourses.forEach((Graderdoc) => {
-		// doc.data() is never undefined for query doc snapshots
-		//console.log(Graderdoc.id, " => ", Graderdoc.data());
-		cloneCard(Graderdoc.id,Graderdoc.data(),'Grader');
-		
-	});
-	var InstructorCourses = await getCollection('InstructorCourses2', 'CourseNumber', 'asc');
-	InstructorCourses.forEach((Instructordoc) => {
-		// doc.data() is never undefined for query doc snapshots
-		//console.log(Instructordoc.id, " => ", Instructordoc.data());
-		cloneCard(Instructordoc.id,Instructordoc.data(),'Instructor');
-	});
-	
-}
-async function writeTitle() {
-	
-}
-async function cloneCard(name,data,positionname) {
-	const node = document.getElementById("card");
-	const clone = node.cloneNode(true);
-	var id;
-	//var data=[{"id":"one", "Class":"CS 490", "Position": "Grader" , "Notes": "ghuewfjiewfjimefw", "Button":"index.html" },{"id":"two", "Class": "CS 449" , "Position": "Grader" , "Notes": "gfeg", "Button":"index.html" },{"id":"three", "Class": "CS 404" , "Position": "Grader" , "Notes": "egegeg", "Button":"index.html" },{"id":"four", "Class": "CS 303" , "Position": "Grader" , "Notes": "eggege", "Button":"index.html" },{"id":"five", "Class": "CS 451R" , "Position": "Grader" , "Notes": "egegegeg", "Button":"index.html" }];
-	//var classes=["CS 490","CS 449","CS 404","CS 303","CS 451R"];
-	var g;
-
-	g = document.createElement('div');
-	g.setAttribute(await "id", name);
-	
-	document.getElementById('open-position-container').appendChild(g);
-	
-	document.getElementById(name).appendChild(clone);			
-	var classname=await'#'+name+' #classname'; 
-	var position=await'#'+name+' #position'; 
-	var notes=await'#'+name+' #notes'; 
-	var button=await'#'+name+' #button'; 
-	$(classname).html(await data.CourseType+' '+data.CourseNumber);
-	$(position).html(positionname);
-	$(notes).html(await data.Notes);
-	$(button).attr(await "value", name);
-
-	console.log(document.getElementById('open-position-container').innerHTML);
-	
-	document.getElementById("card").hidden = true;
-}
-// Get a list of courses from your database
-async function getCollection(colName,index,d){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
-  
-  const querySnapshot = await getDocs(q);
-  
-  /*querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  });*/
-  
-  return querySnapshot;
+async function writeTitle(course,positionname) {
+	$(classname).html(await course.CourseType+' '+course.CourseNumber);
+	$(position).html(positionname);	
 }
 async function sort(colName,index,d){
   const docRef = collection(db, colName);
@@ -108,18 +59,20 @@ async function sort(colName,index,d){
   
   const querySnapshot = await getDocs(q);
   
-  /*querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  });*/
-  
   return querySnapshot;
 }
-async function getCollectionID(colName) {
-const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.id);
-  return list;
+async function getCoursedoc(colName, docName) {
+	const docRef = doc(db, colName, docName);
+	const docSnap = await getDoc(docRef);
+	
+	return docSnap;
+
+	if (docSnap.exists()) {
+		console.log("Document data:", docSnap.data());
+	} else {
+		// doc.data() will be undefined in this case
+		console.log("No such document!");
+	}
 }
 
 onAuthStateChanged(auth, user => {
