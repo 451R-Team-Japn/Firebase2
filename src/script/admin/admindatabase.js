@@ -18,175 +18,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-var user;
-var applicant;
+const GraderCourses = await getCollectionID('GraderCourses2');
+const InstructorCourses = await getCollectionID('InstructorCourses2');
 
-$(document).ready(function () { 
-	getUser();
-	addGraderoptions();
-	addLaboptions();
+$(document).ready(async function () { 
+	await console.log(GraderCourses);
+	await console.log(InstructorCourses);
 });
 
 $('#application').submit(async function(){
-	console.log("login");
-	if(!submitForm())
-		event.preventDefault();
-	else{
-		applicant=getData();
-		await setDoc(doc(db, "applicant", applicant.StudentID), applicant);
-	}
+
 })
 $('.gtainput').click(function(){
 
 })
 
-async function getUser() {
-	const currentuser = await localStorage.getItem("ID");
-	const docRef = doc(db, "StudentAccounts", currentuser);
-	const docSnap = await getDoc(docRef);
-	user = docSnap.data();
-	var gtaradiobtn = document.getElementById("onrecord");
-	if(user.GTACertified > 0){
-		gtaradiobtn.checked = true;
-		document.getElementById("BS").hidden = true;
-		document.getElementById("BSlabel").hidden = true;
-		document.getElementById("gta").value = "yes";
-		updateGTA('certified');
-		document.getElementById("gta").hidden = true;
-	}
-	else{
-		setremovehidden(true, 'grad');
-	}
-	populateFields();
-}
-function populateFields(){
-	document.getElementById("fname").value = user.FirstName;
-	document.getElementById("fname").readOnly = true;
-	document.getElementById("lname").value = user.LastName;
-	document.getElementById("lname").readOnly = true;
-	document.getElementById("studentID").value = user.StudentID;
-	document.getElementById("studentID").readOnly = true;
-	document.getElementById("email").value = user.Email;
-	document.getElementById("email").readOnly = true;
-	document.getElementById("major").value = user.Major;
-}
 $('.level').click(function(){
-	var level = document.querySelector('input[name="level"]:checked').value;
-	var gtaradiobtn = document.getElementById("null");
 
-	if(level==0){
-		setremovehidden(true, 'grad');
-		gtaradiobtn.checked = false;
-	}
-	else{
-		setremovehidden(false, 'grad');
-	}
-	if(level!=0 && user.GTACertified == 0){
-		document.getElementById("gta").hidden = false;
-		gtaradiobtn.checked = false;
-	}
-	else if(user.GTACertified == 0){
-		document.getElementById("gta").hidden = true;
-		gtaradiobtn.checked = true;
-		updateGTA('null');
-	}
-	else if(user.GTACertified >= 0)
-		document.getElementById("gta").hidden = true;
 })
-async function addGraderoptions() {
-	var data = await sort('GraderCourses2');
-
-	var html="";
-	//var data=await getCollectionID('GraderCourses');
+async function getCourseIDs() {
+	//var GraderCourses = await getCollectionID('GraderCourses2');
+	//var InstructorCourses = await getCollectionID('InstructorCourses2');
 	
-	html+="<label class='form-label' for='grader'>Grader Classes</label>";
-	//var graderclasses = data["CourseID"];
-	html+= await listclasses(data, "grader");
-	html+="<br>";
-	
-	//console.log(html);
-	$("#graderlist").html(html);
 }
 async function addLaboptions() {
 	var data = await sort('InstructorCourses2');
 
-	var html="";
-	//var data=await getCollectionID('GraderCourses');
-	
-	html+="<label class='form-label' for='lab'>Lab Classes</label>";
-	//var graderclasses = data["CourseID"];
-	html+= await listclasses(data, "lab");
-	html+="<br>";
-	
-	//console.log(html);
-	$("#lablist").html(html);
 }
-async function listclasses(list, position) {
-	//anyavailable = false;
-	var docRef;
-	var docSnap;
-	var course;
-	var id;
-	var html="<div class='courselist'>";
-	var j=0;
-	//list=[];
-	//var col =  Math.ceil(list.length / 8);
-	var col =  7;
-	
-	list.forEach(async(doc) => {
-		course = doc.data();
-		id = doc.id;
-	
-		html+="<div class='form-check form-check-inline'>";
-		html+=addclass((course.CourseNumber), (course.CourseType),id, position);
-		html+="</div>";
-		j++;
-		if(j==col){
-			j=0;
-			html+="<br>";
-		}
-	});
-		
-	/*for(var i=0;i<list.length;i++){
-		data.forEach((doc) => {
-		course = doc.data();
-		id = doc.id;
-		});
-		//docRef = doc(db, "GraderCourses", list[i]);
-		//docSnap = await getDoc(docRef);
-		course = docSnap.data();
-		
-		console.log(id, ", ", course.CourseNumber, ", ", course.CourseType);
-	
-		html+="<div class='form-check form-check-inline'>";
-		html+=addclass((course.CourseNumber), (course.CourseType), position);
-		html+="</div>";
-		j++;
-		if(j==col){
-			j=0;
-			html+="<br>";
-		}
-	}*/
-	html+="</div>"
-	//if(list.length==0)
-		//html='<p class="error">There are no ' + position + ' positions available at this time.</p>'
-	
-	validateCourses();
-	
-	return html;
-}
-function addclass(coursenumber,coursetype,id,position){
-	var html="";
-	var data = coursetype+" "+coursenumber;
-	//console.log(id, ", ", coursetype, ", ", coursenumber);
-	if(coursenumber.startsWith('5'))
-		html+="<input required onclick='validateCourses()' class='"+position+" grad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label grad' for='"+data+" hidden'>"+data+"</label>";
-	else
-		html+="<input required onclick='validateCourses()' class='"+position+" undergrad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label undergrad' for='"+data+"'>"+data+"</label>";
-	
-    return html;
-}
-
 // Get a list of courses from your database
 async function getCollection(colName) {
   const col = collection(db, colName);
