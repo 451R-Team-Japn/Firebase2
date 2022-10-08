@@ -50,8 +50,8 @@ async function getCourse(){
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	writeTitle(courseObj,position);
-	applicants=writeApplicants(currentCourse);
-	console.log(applicants);
+	applicants=await writeApplicants(currentCourse);
+	console.log(await applicants);
 }
 async function writeApplicants(courseName) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
