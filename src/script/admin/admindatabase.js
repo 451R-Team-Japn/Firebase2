@@ -40,6 +40,7 @@ async function writeCourses(Courses,Position) {
 	await writeCourseIDs('GraderCourses2','Grader');
 	await writeCourseIDs('InstructorCourses2','Instructor');
 	document.getElementById("card").hidden = true;
+	console.log(document.getElementById('open-position-container').innerHTML);
 }
 async function writeCourseIDs(Courses,Position) {
 	console.log(Courses, " => ", Position);
@@ -66,6 +67,7 @@ async function cloneCard(name,data,positionname) {
 	
 	g = document.createElement('div');
 	await g.setAttribute("id", name);
+	await g.classList.add("all");
 	await g.classList.add(data.CourseType);
 	await g.classList.add(positionname);
 	await g.classList.add(grad);
