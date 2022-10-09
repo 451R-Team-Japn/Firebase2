@@ -56,8 +56,8 @@ async function getCourse(){
 	console.log(applicants);
 	await writeStudents(applicants);
 	await document.getElementById("sortTable").deleteRow(1);
-	$('#sortTable').DataTable();
-	setFilters();
+	$('#sortTable').DataTable().draw();
+	//setFilters();
 }
 async function writeStudents(applicants) {
 	var student;
@@ -69,27 +69,25 @@ async function writeStudents(applicants) {
 	}
 }
 async function writeTable(student,application) {
-	var table = document.getElementById("sortTable");
+	console.log("add");
+	
+	var table = $('#sortTable').DataTable();
+	
+	var majortext = ["CS","IT","ECE","EE"];
+	var leveltext = ["BS","MS","PhD"];
 
-	var row = table.insertRow(-1);
-
-	var Namecell = row.insertCell(0);
-	var GPAcell = row.insertCell(1);
-	var Hourscell = row.insertCell(2);
-	var Levelcell = row.insertCell(3);
-	var Majorcell = row.insertCell(4);
-	var IDcell = row.insertCell(5);
-	var Emailcell = row.insertCell(6);
-	var Documentscell = row.insertCell(7);
-
-	Namecell.innerHTML = student.FirstName+" "+student.LastName;
-	GPAcell.innerHTML = application.GPA;
-	Hourscell.innerHTML = application.Hours;
-	Levelcell.innerHTML = application.CurrentLevel;
-	Majorcell.innerHTML = application.Major;
-	IDcell.innerHTML = student.StudentID;
-	Emailcell.innerHTML = student.Email;
-	Documentscell.innerHTML = "<button>Document</button>";
+	
+	//var row = table.insertRow(-1);
+	var Namecell = student.FirstName+" "+student.LastName;
+	var GPAcell = application.GPA;
+	var Hourscell = application.Hours;
+	var Levelcell = leveltext[application.CurrentLevel];
+	var Majorcell = majortext[application.Major];
+	var IDcell = student.StudentID;
+	var Emailcell = student.Email;
+	var Documentscell = "<button>Document</button>";
+	
+	table.row.add([Namecell,GPAcell,Hourscell,Levelcell,Majorcell,IDcell,Emailcell,Documentscell]).draw();
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];

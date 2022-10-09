@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style/css.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="script/applicants/applicantswrite.js"></script>
+  <script src="script/applicants/applicantsfilter.js"></script>
   <script type="module" src="script/applicants/applicantsdatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,61 +45,87 @@
         <div class="container applicants my-5" style="width:70%";>
             <h2> Applicants for <span id="classname">"Class"</span> <span id="position">"Position"</span> position:</h2>
 	<div class="" id="filter">	
-      <hr>
-      <div id="position">
-        <input type="checkbox" name="pos" value="Director">Director
-        <input type="checkbox" name="pos" value="Integration Specialist">Integration Specialist
-        <input type="checkbox" name="pos" value="Javascript Developer">Javascript Developer
-        <input type="checkbox" name="pos" value="System Architect">System Architect
-      </div>
-      <hr>
-      <div id="ofice">
-        <input type="checkbox" name="ofc" value="Edinburgh">Edinburgh
-        <input type="checkbox" name="ofc" value="New York">New York
-        <input type="checkbox" name="ofc" value="San Francisco">San Francisco
-      </div>
-      <hr>
-	  </div>
-            <table class="table table-striped table-bordered" id="sortTable">
-                <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>GPA</th>
-					<th>Hours</th>
-                    <th>Level</th>
-					<th>Major</th>
-                    <th>Student Id</th>
-                    <th>Email</th>
-                    <th>Documents</th>
-                    </tr>
-                </thead>
+	<div id="major">
+        <input type="checkbox" name="maj" value="CS">CS
+        <input type="checkbox" name="maj" value="IT">IT
+        <input type="checkbox" name="maj" value="ECE">ECE
+		<input type="checkbox" name="maj" value="EE">EE
+	</div>
+	<div id="level">
+		<input type="checkbox" name="lev" value="BS">BS
+		<input type="checkbox" name="lev" value="MS">MS
+		<input type="checkbox" name="lev" value="PhD">PhD
+	</div>
+	</div>
+        <table class="table table-striped table-bordered" id="sortTable">
+			<thead>
+				<tr>
+				<th>Name</th>
+				<th>GPA</th>
+				<th>Hours</th>
+				<th>Level</th>
+				<th>Major</th>
+				<th>Student Id</th>
+				<th>Email</th>
+				<th>Documents</th>
+				</tr>
+			</thead>
             
-                <tbody>
-                    <tr hidden>
-                        <td>Student1</td>
-                        <td>4.00</td>
+			<tbody>
+				<!--<tr>
+					<td>Student1</td>
+						<td>4.00</td>
 						<td>96</td>
-                        <td>Bachelor</td>
+						<td>Bachelor</td>
 						<td>CS</td>
-                        <td>S111111</td>
-                        <td>student@umsystem.edu</td>
-                        <td><button>Document</button></td>
-                    </tr>
-    
-                    <!--<tr>
-                        <td>Student2</td>
-                        <td>3.00</td>
+						<td>S111111</td>
+						<td>student@umsystem.edu</td>
+						<td><button>Document</button></td>
+					</tr>
+					<tr>
+						<td>Student2</td>
+						<td>3.00</td>
 						<td>156</td>
-                        <td>Master</td>
+						<td>PhD</td>
+						<td>IT</td>
+						<td>S111112</td>
+						<td>student2@umsystem.edu</td>
+						<td><button>Document</button></td>
+					</tr>
+					<tr>
+						<td>Student3</td>
+						<td>3.00</td>
+						<td>156</td>
+						<td>MS</td>
 						<td>CS</td>
-                        <td>S111112</td>
-                        <td>student2@umsystem.edu</td>
-                        <td><button>Document</button></td>-->
-                    </tr>
-                </tbody>
-            </table>
+						<td>S111112</td>
+						<td>student2@umsystem.edu</td>
+						<td><button>Document</button></td>
+					</tr>
+					<tr>
+						<td>Student4</td>
+						<td>3.00</td>
+						<td>156</td>
+						<td>BS</td>
+						<td>IT</td>
+						<td>S111112</td>
+						<td>student2@umsystem.edu</td>
+						<td><button>Document</button></td>
+					</tr>
+					<tr>
+						<td>Student5</td>
+						<td>3.00</td>
+						<td>156</td>
+						<td>BS</td>
+						<td>ECE</td>
+						<td>S111112</td>
+						<td>student2@umsystem.edu</td>
+						<td><button>Document</button></td>
+					</tr>-->
+				</tbody>
+			</table>
             <a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
 
-            </div>
+	</div>
 </body>
 </html>
