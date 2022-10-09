@@ -3,9 +3,6 @@ function writeApplicants(course){
 	localStorage.setItem("Course", course);
 	location.href='applicants.html';
 }
-function sort() {
-	$('.sortTable').DataTable();
-}
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();

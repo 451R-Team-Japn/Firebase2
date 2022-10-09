@@ -56,21 +56,36 @@ async function cloneCard(name,data,positionname) {
 	const clone = node.cloneNode(true);
 	var id;
 	var g;
-
+	var semester=["Fall","Spring","Summer"]
+	var grad;
+	
+	if(data.GradCourse)
+		grad = "grad";
+	else
+		grad = "undergrad";
+	
 	g = document.createElement('div');
-	g.setAttribute(await "id", name);
+	await g.setAttribute("id", name);
+	await g.classList.add(data.CourseType);
+	await g.classList.add(positionname);
+	await g.classList.add(grad);
+	await g.classList.add(semester[data.Semester]);
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
-	document.getElementById(name).appendChild(clone);			
+	document.getElementById(name).appendChild(clone);
 	var classname=await'#'+name+' #classname'; 
 	var position=await'#'+name+' #position'; 
 	var notes=await'#'+name+' #notes'; 
-	var button=await'#'+name+' #button'; 
+	var semesterclass=await'#'+name+' #semester';
+	var seebutton=await'#'+name+' #seebutton'; 
+	var editbutton=await'#'+name+' #editbutton'; 
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
 	$(notes).html(await data.Notes);
-	$(button).attr(await "value", name);
+	$(semesterclass).html(await semester[data.Semester]);
+	$(seebutton).attr(await "value", name);
+	$(editbutton).attr(await "value", name);
 
 	console.log(document.getElementById('open-position-container').innerHTML);
 }
