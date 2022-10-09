@@ -57,6 +57,7 @@ async function getCourse(){
 	await writeStudents(applicants);
 	await document.getElementById("sortTable").deleteRow(1);
 	$('#sortTable').DataTable();
+	setFilters();
 }
 async function writeStudents(applicants) {
 	var student;
