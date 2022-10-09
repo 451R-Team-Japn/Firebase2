@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/css.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <script src="script/data.js"></script>
+   <script src="script/admin/adminfilter.js"></script>
   <script src="script/admin/adminwrite.js"></script>
   <script type="module" src="script/admin/admindatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
@@ -30,15 +30,52 @@
             </div>
         </h2>
     </div>
+<!--<div class="filter">
+    <div class="checkbox">
+        <label><input type="checkbox" rel="CS" onchange="change('typecheckbox')"/>CS</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="IT" onchange="change('typecheckbox')"/>IT</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="ECE" onchange="change('typecheckbox')"/>ECE</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="EE" onchange="change('typecheckbox')"/>EE</label>
+    </div>
+	<div class="checkbox">
+        <label><input type="checkbox" rel="Grader" onchange="change('positioncheckbox')"/>Grader</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="Instructor" onchange="change('positioncheckbox')"/>Instructor</label>
+    </div>
+	<div class="checkbox">
+        <label><input type="checkbox" rel="Fall" onchange="change('semestercheckbox')"/>Fall</label>
+    </div>
+	<div class="checkbox">
+        <label><input type="checkbox" rel="Spring" onchange="change('semestercheckbox')"/>Spring</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="Summer" onchange="change('semestercheckbox')"/>Summer</label>
+    </div>
+	<div class="checkbox">
+        <label><input type="checkbox" rel="grad" onchange="change('gradcheckbox')"/>Graduate</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" rel="undergrad" onchange="change('gradcheckbox')"/>Undergraduate </label>
+    </div>
+</div>-->
 
     <div class="open-position-container" id="open-position-container">
         <div class="card mb-3 target" id="card">
             <h5 class="card-header" id="classname">IT 390 (Class Name)</h5>
             <div class="card-body">
                 <label class="card-title mt-2 mb-3">Position:</label><span id="position">Grader</span>
-                <button id="button" onClick="writeApplicants(this.value)" value="" class="open-position-btn btn btn-primary float-end">See Applicants</button>
+                <button id="seebutton" onClick="writeApplicants(this.value)" value="" class="open-position-btn btn btn-primary float-end">See Applicants</button>
                 <br>
-                <label class="card-title">Notes:</label><span id="notes">None</span>
+				<label class="card-title  mt-2 mb-3">Semester:</label><span id="semester">Summer</span> <button id="editbutton" onClick="editCourse(this.value)" value="" class="open-position-btn btn btn-primary float-end">Edit Position</button>
+                <br>
+                <label class="card-title">Notes:</label><span id="notes">None</span>				
                 <a href="#" class="open-position-btn btn btn-primary float-end">Close Position</a>
                 <br>
             </div>
@@ -46,7 +83,7 @@
     </div>
 
     <div class="text-center mt-3">
-        <a href="createposition.html" class="mt-5 btn btn-primary ">Add Position</a><br><br>
+        <a href="createposition.html" class="mt-5 btn btn-primary ">Add Position</a>
     </div>
 
  <!--Script added for bootstrap-->
