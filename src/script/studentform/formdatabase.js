@@ -23,13 +23,20 @@ var user;
 var applicant;
 
 $(document).ready(function () { 
+	var term = getCurrentterm();
+	console.log(term);
 	getUser();
-	addGraderoptions();
-	addLaboptions();
+	$("input[name=applyterm][value="+term.toString()+"]").attr('checked', true);
+	addGraderoptions(term);
+	addLaboptions(term);
+});
+$(document).on("click", ".applyterm" ,async function() {
+	var value = parseInt($(this).attr("value"));
+	addGraderoptions(value);
+	addLaboptions(value);
 });
 
 $('#application').submit(async function(){
-	console.log("login");
 	if(!submitForm())
 		event.preventDefault();
 	else{
@@ -94,8 +101,8 @@ $('.level').click(function(){
 	else if(user.GTACertified >= 0)
 		document.getElementById("gta").hidden = true;
 })
-async function addGraderoptions() {
-	var data = await sort('GraderCourses2', 'CourseNumber', 'asc');
+async function addGraderoptions(semester) {
+	var data = await querysemester('GraderCourses2', semester);
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -108,8 +115,8 @@ async function addGraderoptions() {
 	//console.log(html);
 	$("#graderlist").html(html);
 }
-async function addLaboptions() {
-	var data = await sort('InstructorCourses2', 'CourseNumber', 'asc');
+async function addLaboptions(semester) {
+	var data = await querysemester('InstructorCourses2', semester);
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -128,6 +135,7 @@ async function listclasses(list, position) {
 	var docSnap;
 	var course;
 	var id;
+	var blank = true;
 	var html="<div class='courselist'>";
 	var j=0;
 	//list=[];
@@ -135,6 +143,7 @@ async function listclasses(list, position) {
 	var col =  7;
 	
 	list.forEach(async(doc) => {
+		blank = false;
 		course = doc.data();
 		id = doc.id;
 	
@@ -169,8 +178,8 @@ async function listclasses(list, position) {
 		}
 	}*/
 	html+="</div>"
-	//if(list.length==0)
-		//html='<p class="error">There are no ' + position + ' positions available at this time.</p>'
+	if(blank)
+		html='<p class="error">There are no ' + position + ' positions available at this time.</p>'
 	
 	validateCourses();
 	
@@ -195,18 +204,20 @@ async function getCollection(colName) {
   const list = snapshot.docs.map(doc => doc.data());
   return list;
 }
-async function sort(colName,index,order){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, order));
+async function querysemester(colName,semester){
+	const docRef = collection(db, colName);
+	const q = query(docRef, where("Semester", "==", semester), orderBy('CourseNumber', 'asc'));
+
+	//const q = query(docRef, orderBy(index, order));
   
-  const querySnapshot = await getDocs(q);
+	const querySnapshot = await getDocs(q);
   
-  /*querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  });*/
+	/*querySnapshot.forEach((doc) => {
+	// doc.data() is never undefined for query doc snapshots
+	console.log(doc.id, " => ", doc.data());
+	});*/
   
-  return querySnapshot;
+	return querySnapshot;
 }
 async function getCollectionID(colName) {
 const col = collection(db, colName);

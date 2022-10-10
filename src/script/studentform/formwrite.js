@@ -102,5 +102,18 @@ function addclass(data,col,position){
 
     return html;
 }
-
+function getCurrentterm(){
+	const d = new Date();
+	let month = d.getMonth()+1;
+	var term;
+	
+	if(month>=8)
+		term = 0;
+	else if(month<=5)
+		term = 1;
+	else 
+		term = 2;
+	
+	return term;
+}
 

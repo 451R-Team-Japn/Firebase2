@@ -115,10 +115,12 @@ async function queryCourse(courseName,index,applicants){
 		applicants[applicantcount] = doc.id;
 		applicantcount++;
 	});
+	
+	console.log(applicantcount);
   
-  console.log(applicants);
+	console.log(applicants);
   
-  return applicants;
+	return applicants;
 }
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);

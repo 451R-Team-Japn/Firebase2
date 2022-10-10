@@ -2,9 +2,10 @@ var validating = false;
 var totalCourses
 
 function submitForm(){
-	console.log("submitForm");
-	if(validateForm()){
-		console.log("validateForm true");
+	var form = $("#application");
+	validateForm();
+	if(form[0].checkValidity() === true){
+		console.log("submitForm");
 		return true;
 	}else
 		return false;
@@ -100,10 +101,10 @@ function getData(){
 	var lname = document.getElementById("lname").value;
 	var stuID = document.getElementById("studentID").value;
 	var email = document.getElementById("email").value;
-	var degree = document.getElementById("undergraduatedegree").value;;
-	var gpa = document.getElementById("GPA").value;;
-	var hours = document.getElementById("hours").value;;
-	var gradterm = document.getElementById("grad").value;;
+	var degree = document.getElementById("undergraduatedegree").value;
+	var gpa = document.getElementById("GPA").value;
+	var hours = document.getElementById("hours").value;
+	var gradterm = document.getElementById("grad").value;
 	var major = document.getElementById("major").value;
 	var level = document.querySelector('input[name="level"]:checked').value;
 	var courses = listCourses();
