@@ -16,3 +16,10 @@ function Search() {
     }
   }
 }
+$(document).ready(function () { 
+	
+	//$('.remove').click(function(event){
+		//var value = event.target.value;
+		//alert(value); 
+	//});
+});

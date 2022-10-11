@@ -27,18 +27,19 @@ $(document).ready(function () {
 	console.log("ready");
 	getCourse();
 });
-
 $('#application').submit(async function(){
 
 })
 $('.gtainput').click(function(){
 
 })
+$(document).on('click','.remove',function(event){
+	var value = event.target.value;
+	alert(currentCourse+" => "+value);
+});
 
-$('.level').click(function(){
-
-})
 async function getCourse(){
+	var table = $('#sortTable').DataTable();
 	var position;
 	var applicants = [];
 	//currentCourse = await localStorage.getItem("Course");
@@ -52,16 +53,19 @@ async function getCourse(){
 	}*/
 	courseObj=docSnap.data();
 	console.log(courseObj);
-	if(courseObj.GraderOrLab=="G")
+	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
+		table.column(7).visible(false);
+	}
 	else 
 		position="Instructor";
+	
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
 	console.log(applicants);
 	await writeStudents(applicants);
-	await document.getElementById("sortTable").deleteRow(1);
-	$('#sortTable').DataTable().draw();
+	//await document.getElementById("sortTable").deleteRow(1);
+	table.draw();
 	//setFilters();
 }
 async function writeStudents(applicants) {
@@ -70,29 +74,40 @@ async function writeStudents(applicants) {
 	for(var j=0;j<applicants.length;j++){
 		student=await getCoursedoc('AccountStudent',applicants[j]);
 		application=await getCoursedoc('Applicants',applicants[j]);
-		writeTable(student.data(),application.data());
+		writeTable(student,application.data());
 	}
 }
 async function writeTable(student,application) {
+	
+	var studentdata=student.data();
+	var x = document.createElement('button');
 	console.log("add");
 	
 	var table = $('#sortTable').DataTable();
 	
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
+	var GTAtext = ["Not Certified","Pending","Certified"];
+	
+	x.classList.add("remove");
+	x.setAttribute("value", student.id);
 
 	
 	//var row = table.insertRow(-1);
-	var Namecell = student.FirstName+" "+student.LastName;
+	var Namecell = studentdata.FirstName+" "+studentdata.LastName;
 	var GPAcell = application.GPA;
 	var Hourscell = application.Hours;
 	var Levelcell = leveltext[application.CurrentLevel];
-	var Majorcell = majortext[student.Major];
-	var IDcell = student.StudentID;
-	var Emailcell = student.Email;
+	var Majorcell = majortext[studentdata.Major];
+	var IDcell = studentdata.StudentID;
+	var Emailcell = studentdata.Email;
+	var GTAcell = GTAtext[studentdata.GTACertified];
 	var Documentscell = "<button>Document</button>";
+	var removecell = "<button class='remove' value='"+student.id+"'>X</button>";
 	
-	table.row.add([Namecell,GPAcell,Hourscell,Levelcell,Majorcell,IDcell,Emailcell,Documentscell]).draw();
+	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
+	
+	console.log(removecell);
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
