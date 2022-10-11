@@ -36,21 +36,21 @@ $('.gtainput').click(function(){
 $('.level').click(function(){
 
 })
-async function writeCourses(Courses,Position) {
-	await writeCourseIDs('GraderCourses2','Grader');
-	await writeCourseIDs('InstructorCourses2','Instructor');
+async function writeCourses() {
+	await writeCourseIDs('Courses');
+	//await writeCourseIDs('InstructorCourses2','Instructor');
 	document.getElementById("card").hidden = true;
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourseIDs(Courses,Position) {
-	console.log(Courses, " => ", Position);
+async function writeCourseIDs(Courses) {
+	//console.log(Courses, " => ", Position);
 	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
 	Courses.forEach((doc) => {
-		cloneCard(doc.id,doc.data(),Position);
+		cloneCard(doc.id,doc.data());
 	});
 	
 }
-async function cloneCard(name,data,positionname) {
+async function cloneCard(name,data) {
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
 	var id;
@@ -60,13 +60,20 @@ async function cloneCard(name,data,positionname) {
 	var applicantcount=0;
 	var applicantsbool;
 	var applicantstext;
+	var positionname;
 	
 	await writeApplicants(name);
+	
+	if(data.GraderOrLab=="G")
+		positionname = "Grader";
+	else
+		positionname = "Instructor";
 	
 	if(data.GradCourse)
 		grad = "grad";
 	else
 		grad = "undergrad";
+	
 	if(applicantcount!=0)
 		applicantsbool = "applicants";
 	else
@@ -134,14 +141,13 @@ $(document).on("click", "#closebutton" ,async function() {
 	var value = $(this).attr("value");
 	console.log(value);
 	var card=await'#'+value; 
-	await deleteDoc(doc(db, "GraderCourses2", value));
-	await deleteDoc(doc(db, "InstructorCourses2", value));
+	await deleteDoc(doc(db, "Courses", value));
 	$(card).prop("hidden",true);
 });
-async function closeCourse(course){
+/*async function closeCourse(course){
 	await deleteDoc(doc(db, "GraderCourses2", course));
 	await deleteDoc(doc(db, "InstructorCourses2", course));
-}
+}*/
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
   const docRef = collection(db, colName);

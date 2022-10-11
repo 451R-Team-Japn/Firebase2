@@ -102,7 +102,7 @@ $('.level').click(function(){
 		document.getElementById("gta").hidden = true;
 })
 async function addGraderoptions(semester) {
-	var data = await querysemester('GraderCourses2', semester);
+	var data = await querysemester('G', semester);
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -116,7 +116,7 @@ async function addGraderoptions(semester) {
 	$("#graderlist").html(html);
 }
 async function addLaboptions(semester) {
-	var data = await querysemester('InstructorCourses2', semester);
+	var data = await querysemester('R', semester);
 
 	var html="";
 	//var data=await getCollectionID('GraderCourses');
@@ -204,9 +204,9 @@ async function getCollection(colName) {
   const list = snapshot.docs.map(doc => doc.data());
   return list;
 }
-async function querysemester(colName,semester){
-	const docRef = collection(db, colName);
-	const q = query(docRef, where("Semester", "==", semester), orderBy('CourseNumber', 'asc'));
+async function querysemester(coursetype,semester){
+	const docRef = collection(db, "Courses");
+	const q = query(docRef, where("GraderOrLab", "==", coursetype), where("Semester", "==", semester), orderBy('CourseNumber', 'asc'));
 
 	//const q = query(docRef, orderBy(index, order));
   

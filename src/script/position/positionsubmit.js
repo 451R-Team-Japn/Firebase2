@@ -16,6 +16,7 @@ function getData(){
 	var grad;
 	var ctype = document.getElementById("CourseType").value;
 	var cnumber = document.getElementById("CourseNumber").value;
+	var position = document.getElementById("position").value;
 	
 	var level = document.getElementById("level").value;
 	
@@ -29,7 +30,7 @@ function getData(){
 	
 	console.log("ctype => "+ctype);
 	console.log("cnumber => "+cnumber);
-	//console.log("position => "+position);
+	console.log("position => "+position);
 	console.log("level => "+level);
 	
 	console.log("notes => "+notes);
@@ -40,6 +41,7 @@ function getData(){
     CourseNumber: cnumber,
 	CourseType: ctype,
 	GradCourse: grad,
+	GraderOrLab: position,
     Notes: notes,
 	Semester: null
 	};

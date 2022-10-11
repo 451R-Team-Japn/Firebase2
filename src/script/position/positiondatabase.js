@@ -42,22 +42,22 @@ async function submitform() {
 	var semester = document.querySelectorAll('input[name="semester"]:checked');
 	var semesters=[];
 	var id;
-	var applicant = await getData();
+	var course = await getData();
 	semester.forEach(async function(item){
-		applicant.Semester=parseInt(item.id);
-		console.log(applicant.Semester);
-		id=applicant.CourseType+applicant.CourseNumber+applicant.Semester;
+		course.Semester=parseInt(item.id);
+		console.log(course.Semester);
+		id=course.CourseType+course.CourseNumber+course.Semester+course.GraderOrLab;
 		console.log(position);
-		if(position=="Grader")
-			await setDoc(doc(db, "GraderCourses2", id+"G"), applicant);
-		else //if(position=="Instructor")
-			await setDoc(doc(db, "InstructorCourses2", id+"L"), applicant);
+		//if(position=="Grader")
+		await setDoc(doc(db, "Courses", id), course);
+		//else //if(position=="Instructor")
+			//await setDoc(doc(db, "InstructorCourses2", id), course);
 		/*else{
 			console.log("GraderCourses2");
-			await setDoc(doc(db, "GraderCourses2", id+"G"), applicant);
+			await setDoc(doc(db, "GraderCourses2", id+"G"), course);
 			await setTimeout(5000);
 			console.log("InstructorCourses2");
-			await setDoc(doc(db, "InstructorCourses2", id+"L"), applicant);
+			await setDoc(doc(db, "InstructorCourses2", id+"L"), course);
 		}*/
 	});
 	
