@@ -162,3 +162,6 @@ body{
   background-color: white;
 }
 
+.form-check{
+  min-height: auto;
+}
