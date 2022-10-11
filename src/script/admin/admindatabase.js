@@ -118,15 +118,15 @@ async function cloneCard(name,data) {
 	else
 		$(seebutton).prop("disabled",false);
 
-	//filter();
+	filter();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 
 	async function writeApplicants(courseName) {
 		var index=["Course1","Course2","Course3","Course4","Course5"];
 	
-		/*for(var j=0;j<index.length;j++){
+		for(var j=0;j<index.length;j++){
 			await getApplicantcount(courseName,index[j]);
-		}*/
+		}
 	}
 	async function getApplicantcount(courseName,index){
 		const q = query(collection(db, "Applicants"), where(index, "==", courseName));

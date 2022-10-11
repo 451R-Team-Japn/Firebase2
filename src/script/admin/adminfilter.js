@@ -38,17 +38,12 @@
 }*/
 
 function filter(){
-	//alert('test');
     if ($('input[type="checkbox"]:checked').length > 0) {
-		alert('test');
 		$('.all').hide();
         $('input[type="checkbox"]:checked').each(function() {
 			classname="."+this.value;
-			alert(this.value);
+			//alert(this.value);
 			$(classname).fadeIn();
-			//Array.from(document.querySelectorAll("." + input.getAttribute("rel"))).forEach(function(item){
-				//item.style.display = 'block';
-			//});
         });
     } else {
         $('.open-position-container > div').fadeIn();
