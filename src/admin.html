@@ -62,18 +62,21 @@
             <div class="card-body">
                 <label class="card-title mt-2 mb-3">Position:</label><span id="position">Grader</span>
 				
-                <button id="seebutton" onClick="writeApplicants(this.value)" value="" class="open-position-btn btn btn-primary float-end">See Applicants</button><br>
-				<!--<label class="card-title  mt-2 mb-3">Semester:</label><span id="semester">Summer</span> 
-				<button id="editbutton" onClick="editCourse(this.value)" value="" class="open-position-btn btn btn-primary float-end">Edit Position</button><br>-->
+				<a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
+				<!--<a id="editbutton" href="" value="" class="open-position-btn btn btn-primary float-end">Edit Position</a><br>--> 
+				<div class = "open-position-input-group btn-primary input-group float-end">
+					 <a id="editbutton" href="" value=""class="input-group-btn btn btn-primary">Edit Notes</a>
+					<button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
+				</div>
                 <label class="card-title">Notes:</label><span id="notes">None</span>				
-				<button id="closebutton" value="" class="open-position-btn btn btn-primary float-end">Close Position</button>
+				<!--<button id="closebutton" value="" class="open-position-btn btn btn-primary float-end">Close Position</button>-->
                 <br>
             </div>
         </div>
     </div>
 
     <div class="text-center mt-3">
-		<button id="editbutton" onClick="editCourse(this.value)" value="new" class="open-position-btn btn btn-primary">Add Position</button>
+		<a id="newbutton" href="createposition.html?new" value="" class="open-position-btn btn btn-primary">Add Position</a>
         <!--<a href="createposition.html" class="mt-5 btn btn-primary ">Add Position</a>-->
     </div>
 

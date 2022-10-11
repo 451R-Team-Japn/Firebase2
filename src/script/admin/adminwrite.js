@@ -15,9 +15,10 @@ $('#closebutton').click(function(){
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
-  var nodes = document.getElementsByClassName('target');
+  var nodes = document.getElementsByClassName('all');
 
   for (i = 0; i < nodes.length; i++) {
+	  console.log(nodes[i].style.display);
     if (nodes[i].innerText.toLowerCase().includes(filter)) {
       nodes[i].style.display = "block";
     } else {

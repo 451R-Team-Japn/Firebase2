@@ -18,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-var currentCourse;
+var currentCourse = location.search.substring(1);
 var courseObj;
 var applicantcount = 0;
 var done = false;
@@ -41,16 +41,21 @@ $('.level').click(function(){
 async function getCourse(){
 	var position;
 	var applicants = [];
-	currentCourse = await localStorage.getItem("Course");
-	var docSnap=await getCoursedoc('GraderCourses2',currentCourse);
-	if (await docSnap.exists()) {
+	//currentCourse = await localStorage.getItem("Course");
+	var docSnap=await getCoursedoc('Courses',currentCourse);
+	position="Grader";
+	/*if (await docSnap.exists()) {
 		position="Grader";
 	} else {
 		position="Instructor";
 		docSnap=await getCoursedoc('InstructorCourses2',currentCourse);
-	}
+	}*/
 	courseObj=docSnap.data();
 	console.log(courseObj);
+	if(courseObj.GraderOrLab=="G")
+		position="Grader";
+	else 
+		position="Instructor";
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
 	console.log(applicants);
@@ -63,8 +68,8 @@ async function writeStudents(applicants) {
 	var student;
 	var application;
 	for(var j=0;j<applicants.length;j++){
-		student=await getCoursedoc('StudentAccounts',applicants[j]);
-		application=await getCoursedoc('applicant',applicants[j]);
+		student=await getCoursedoc('AccountStudent',applicants[j]);
+		application=await getCoursedoc('Applicants',applicants[j]);
 		writeTable(student.data(),application.data());
 	}
 }
@@ -82,7 +87,7 @@ async function writeTable(student,application) {
 	var GPAcell = application.GPA;
 	var Hourscell = application.Hours;
 	var Levelcell = leveltext[application.CurrentLevel];
-	var Majorcell = majortext[application.Major];
+	var Majorcell = majortext[student.Major];
 	var IDcell = student.StudentID;
 	var Emailcell = student.Email;
 	var Documentscell = "<button>Document</button>";
@@ -102,7 +107,7 @@ async function writeTitle(course,positionname) {
 	$(position).html(positionname);	
 }
 async function queryCourse(courseName,index,applicants){
-  const q = query(collection(db, "applicant"), where(index, "==", courseName));
+  const q = query(collection(db, "Applicants"), where(index, "==", courseName));
   
   const querySnapshot = await getDocs(q);
   

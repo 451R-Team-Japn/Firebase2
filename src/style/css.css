@@ -127,6 +127,13 @@ a{
 .open-position-btn{
   width: 150px;
 }
+.open-position-input-group{
+  border-radius: 5px;
+}
+.input-group-btn{
+  font-size: 0.75em;
+  width: 75px;
+}
 
 .input-group{
   width:fit-content;

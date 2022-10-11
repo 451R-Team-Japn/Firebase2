@@ -108,8 +108,8 @@ async function cloneCard(name,data) {
 	$(position).html(positionname);
 	$(notes).html(await data.Notes);
 	$(semesterclass).html(await semester[data.Semester]);
-	$(seebutton).attr(await "value", name);
-	$(editbutton).attr(await "value", name);
+	$(seebutton).attr(await "href", "applicants.html?"+name);
+	$(editbutton).attr(await "href", "applicants.html?"+name);
 	$(closebutton).attr(await "value", name);
 	$(applicants).html(applicantstext);
 	
@@ -129,7 +129,7 @@ async function cloneCard(name,data) {
 		}
 	}
 	async function getApplicantcount(courseName,index){
-		const q = query(collection(db, "applicant"), where(index, "==", courseName));
+		const q = query(collection(db, "Applicants"), where(index, "==", courseName));
   
 		const querySnapshot = await getDocs(q);
 		querySnapshot.forEach((doc) => {

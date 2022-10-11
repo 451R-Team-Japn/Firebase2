@@ -41,7 +41,7 @@ $('#application').submit(async function(){
 		event.preventDefault();
 	else{
 		applicant=getData();
-		await setDoc(doc(db, "applicant", currentuser), applicant);
+		await setDoc(doc(db, "Applicants", currentuser), applicant);
 	}
 })
 $('.gtainput').click(function(){
@@ -50,7 +50,7 @@ $('.gtainput').click(function(){
 
 async function getUser() {
 	currentuser = await localStorage.getItem("ID");
-	const docRef = doc(db, "StudentAccounts", currentuser);
+	const docRef = doc(db, "AccountStudent", currentuser);
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
 	var gtaradiobtn = document.getElementById("onrecord");

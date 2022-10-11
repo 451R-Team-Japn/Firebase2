@@ -28,7 +28,7 @@ $('#login').submit(function(){
 async function submitlogin(){
 	//console.log("cat");
 	var html="";
-	if(await validatelogin('StudentAccounts')){
+	if(await validatelogin('AccountStudent')){
 		console.log("studentLogin");
 		window.location.href = '/studentform.html';
 		document.getElementById('login').action = 'studentform.html';
@@ -37,7 +37,7 @@ async function submitlogin(){
 		//console.log(currentuser);
 		return true;
 	}
-	else if(await validatelogin('AdminAccounts')){
+	else if(await validatelogin('AccountAdmin')){
 		console.log("adminLogin");
 		window.location.href = '/admin.html';
 		document.getElementById('login').action = 'admin.html';
@@ -67,8 +67,8 @@ async function validatelogin(col){
 	for(var i=0;i<data.length;i++){
 		current=data[i];
 		//console.log(current.id);
-		console.log(current.Email);
-		console.log(current.Password);
+		console.log(current.Email,current.Password);
+		//console.log(current.Password);
 		username = String(current.Email).split("@");
 		if(pattern.test(current.Email) || pattern.test(username[0])){ 
 			console.log("true");
