@@ -16,8 +16,12 @@ function modal(){
 function validateForm(){
 	var html='';
 	var courses = document.getElementsByClassName("courses");
+	var gtastatus = document.querySelector('input[name="GTA"]:checked').value;
 	
 	totalCourses = courseLimitcheck(courses);
+	
+	if(gtastatus == "yes")
+		changeUpload('gtaf');
 	
 	validating = true;
 	if(!courseChecked(courses)){

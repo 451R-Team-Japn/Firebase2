@@ -1,14 +1,16 @@
 var anyavailable = false;
+var GTA;
 
 function updateGTA(GTA) {
-	var fileinput = document.getElementById("myFile");
+	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	
 	if(GTA == "yes"){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 		fhtml = "Please attach your GTA certification or waiver, you may also attach your resume and/or transcript";
-		fileinput.setAttribute('required', '');
+		//changeUpload('gtaf');
+		GTAfile.setAttribute('required', '');
 	}
 	else if(GTA == "certified"){
 		document.getElementById("lablist").hidden = false;
@@ -19,14 +21,14 @@ function updateGTA(GTA) {
 		document.getElementById("lablistna").hidden = false;
 		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
-		fileinput.removeAttribute('required');
+		GTAfile.removeAttribute('required');
 	}
 	else if(GTA == "null"){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = true;
 		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
-		fileinput.removeAttribute('required');
+		GTAfile.removeAttribute('required');
 	}
 	else
 		alert("addoptions() error");
@@ -116,4 +118,41 @@ function getCurrentterm(){
 	
 	return term;
 }
+function changeUpload(value){
+	var r = 'resumefile';
+	var t = 'transcriptfile';
+	var g = 'gtafile';
+	
+	if(value=="resumef"){
+		makehidden(r, false);
+		makehidden(t, true);
+		makehidden(g, true);
+	}
+	else if(value=="transcriptf"){
+		makehidden(r, true);
+		makehidden(t, false);
+		makehidden(g, true);
+	}
+	else{
+		makehidden(r, true);
+		makehidden(t, true);
+		makehidden(g, false);
+	}
+}
+
+function makehidden(classname, set){
+	var list = document.getElementsByClassName(classname);
+	//console.log(list);
+	for(var j=0; list[j]; ++j){
+		if(set){
+			list[j].hidden = true;
+		} else {
+			list[j].hidden = false;
+		}
+	}
+	//$(list).each(function(item){
+		//item.hidden = set;
+	//});
+}
+
 
