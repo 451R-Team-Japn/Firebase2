@@ -88,7 +88,7 @@ async function validatelogin(col){
 		if(pattern.test(current.Email) || pattern.test(username[0])){ 
 			console.log("true");
 			if (password==current.Password){
-				localStorage.setItem("ID", doc.id);
+				await localStorage.setItem("ID", doc.id);
 				result = true;
 			}
 		}
