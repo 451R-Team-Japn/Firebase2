@@ -186,11 +186,14 @@ async function checkLogin(colName,email, password){
   
 	var querySnapshot = await getDocs(q);
 	
+	var user;
+	
 	querySnapshot.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
 	console.log(doc.id, " => ", doc.data());
+	user = doc;
 	});
 	
-	return doc;
+	return user;
 	
 }
