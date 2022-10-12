@@ -93,6 +93,13 @@ a{
   border:none;
 }
 
+/*Style for Student Form*/
+.file-label{
+  display: block;
+  text-align: center;
+  width: 175px;
+}
+
 /*Style for Create Position*/
 .position-container{
   max-width: 1000px;
