@@ -57,14 +57,34 @@ async function validatelogin(col){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
-	var data = await getCollection(col);
-	var dataid = await getCollectionID(col);
+	var q = query(col, limit(1));
+  
+	var querySnapshot = await getDocs(q);
 	
 	var current;
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
+  
+	querySnapshot.forEach((doc) => {
+		current=doc.data();
+		//console.log(current.id);
+		console.log(current.Email,current.Password);
+		//console.log(current.Password);
+		username = String(current.Email).split("@");
+		if(pattern.test(current.Email) || pattern.test(username[0])){ 
+			console.log("true");
+			if (password==current.Password){
+				await localStorage.setItem("ID", doc.id);
+				return true;
+			}
+		}
+	});
+	
+	//var data = await getCollection(col);
+	//var dataid = await getCollectionID(col);
 
-	for(var i=0;i<data.length;i++){
+
+	/*for(var i=0;i<data.length;i++){
 		current=data[i];
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -77,7 +97,7 @@ async function validatelogin(col){
 				return true;
 			}
 		}
-	}
+	}*/
 	return false;
 }
 function validateloginmessage(){
