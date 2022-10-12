@@ -63,6 +63,8 @@ async function validatelogin(col){
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
 	
+	var result = false;
+	
 	users.forEach(async(doc) => {
 		current=doc.data();
 		//console.log(current.id);
@@ -73,7 +75,7 @@ async function validatelogin(col){
 			console.log("true");
 			if (password==current.Password){
 				await localStorage.setItem("ID", doc.id);
-				return true;
+				result = true;
 			}
 		}
 	});
@@ -96,7 +98,7 @@ async function validatelogin(col){
 			}
 		}
 	}*/
-	return false;
+	return result;
 }
 function validateloginmessage(){
 	var html="";
