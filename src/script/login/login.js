@@ -52,21 +52,22 @@ async function submitlogin(){
 }
 
 async function validatelogin(col){
-	var html="";
-	let passpattern = new RegExp('^().{6,24}$');
+	//var html="";
+	//let passpattern = new RegExp('^().{6,24}$');
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
 	//var users = await queryUsers(col);
 	var user = checkLogin(col,email, password);
 	
-	var current;
-	var username;
+	//var current;
+	//var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
 	
 	//var result = false;
 	
 	if (user.exists){
+		console.log("TRUE");
 		localStorage.setItem("ID", user.id);
 		return true;
 	}
