@@ -65,10 +65,10 @@ async function validatelogin(col){
 	
 	var result = false;
 	
-	users.forEach((doc) => {
+	//users.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
-	});
+	//console.log(doc.id, " => ", doc.data());
+	//});
 	checkLogin(col,email, password);
 	/*users.each(doc => {
 		current=doc.data();
