@@ -57,7 +57,7 @@ async function validatelogin(col){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
-	var users = await queryUsers(col);
+	//var users = await queryUsers(col);
 	
 	var current;
 	var username;
@@ -168,10 +168,10 @@ async function queryUsers(colName){
 	return querySnapshot;
 }
 async function checkLogin(colName,email, password){
-	const docRef = collection(db, colName);
-	const q = query(docRef, where("Email", ">=", email), where("Password", "==", password));
+	var docRef = collection(db, colName);
+	var q = query(docRef, where("Email", ">=", email), where("Password", "==", password));
   
-	const querySnapshot = await getDocs(q);
+	var querySnapshot = await getDocs(q);
 	
 	querySnapshot.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
