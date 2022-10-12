@@ -162,3 +162,13 @@ body{
   background-color: white;
 }
 
+.form-check{
+  min-height: auto;
+}
+
+.card-filter{
+  width: fit-content;
+  position:absolute;
+  max-width: 1000px;
+  margin: auto;
+}
