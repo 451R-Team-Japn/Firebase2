@@ -66,8 +66,10 @@ async function validatelogin(col){
 	
 	//var result = false;
 	
-	console.log(user.exists);
-	if (user.exists){
+	var doc = await user.get();
+	
+	console.log(doc.exists);
+	if (doc.exists){
 		console.log("TRUE");
 		localStorage.setItem("ID", user.id);
 		return true;
