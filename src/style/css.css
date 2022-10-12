@@ -183,7 +183,7 @@ body{
   max-width: 1000px;
   margin: auto;
 }
-.stickyleft 
+.sticky-left 
 {
   position: -webkit-sticky; /* Safari */
   float: left;
@@ -191,4 +191,26 @@ body{
   top: 50px;
  /* background-color: green;
   border: 2px solid #4CAF50;*/
+}
+.sticky-center
+{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 50px;
+ /* background-color: green;
+  border: 2px solid #4CAF50;*/
+}
+.sticky-right 
+{
+  position: -webkit-sticky; /* Safari */
+  float: right;
+  position: sticky;
+  top: 50px;
+ /* background-color: green;
+  border: 2px solid #4CAF50;*/
+}
+.backgroundelement
+{
+  z-index:-1;
+  position:relative;
 }
