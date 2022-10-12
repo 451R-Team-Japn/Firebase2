@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { getFirestore, collection, getDocs, getDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getFirestore, collection, getDocs, getDoc, query, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
