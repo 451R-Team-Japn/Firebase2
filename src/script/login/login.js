@@ -70,7 +70,7 @@ async function validatelogin(col){
 	// doc.data() is never undefined for query doc snapshots
 	//console.log(doc.id, " => ", doc.data());
 	
-	//console.log(doc.exists);
+	console.log(user.exists);
 		if (user.exists){
 			console.log("TRUE");
 			localStorage.setItem("ID", user.id);
