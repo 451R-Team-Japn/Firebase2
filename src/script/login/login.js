@@ -167,7 +167,7 @@ async function queryUsers(colName){
   
 	return querySnapshot;
 }
-function checkLogin(colName,email, password){
+async function checkLogin(colName,email, password){
 	const docRef = collection(db, colName);
 	const q = query(docRef, where("Email", ">=", email), where("Password", "==", password));
   
