@@ -57,15 +57,13 @@ async function validatelogin(col){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
-	var q = query(col, limit(1));
-  
-	var querySnapshot = await getDocs(q);
+	var users = queryUsers(col);
 	
 	var current;
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
   
-	querySnapshot.forEach((doc) => {
+	users.forEach((doc) => {
 		current=doc.data();
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -134,4 +132,9 @@ const col = collection(db, colName);
   //console.log(list);
   return list;
 }
-
+async function getCollectionID(colName) {
+	var q = query(col, limit(1));
+	var querySnapshot = await getDocs(q);
+	
+	return querySnapshot;
+}
