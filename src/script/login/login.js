@@ -64,9 +64,19 @@ async function validatelogin(col){
 	//var username;
 	//var pattern = new RegExp('^' + email + '$', 'i');
 	
-	//var result = false;
+	var result = false;
 	
-	var doc = await user.get();
+	user.forEach((doc) => {
+	// doc.data() is never undefined for query doc snapshots
+	console.log(doc.id, " => ", doc.data());
+	
+	console.log(doc.exists);
+		if (doc.exists){
+			console.log("TRUE");
+			localStorage.setItem("ID", doc.id);
+			return = result;
+		}
+	});
 	
 	console.log(doc.exists);
 	if (doc.exists){
@@ -127,7 +137,7 @@ async function validatelogin(col){
 			}
 		}
 	}*/
-	return false;
+	return = result;
 }
 function validateloginmessage(){
 	var html="";
