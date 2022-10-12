@@ -132,7 +132,7 @@ const col = collection(db, colName);
   //console.log(list);
   return list;
 }
-async function getCollectionID(colName) {
+async function queryUsers(colName) {
 	var q = query(col, limit(1));
 	var querySnapshot = await getDocs(q);
 	
