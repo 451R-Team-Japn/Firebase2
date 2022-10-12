@@ -58,18 +58,24 @@ async function validatelogin(col){
 	var password = document.getElementById('password').value;
 	
 	//var users = await queryUsers(col);
+	var user = checkLogin(col,email, password);
 	
 	var current;
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
 	
-	var result = false;
+	//var result = false;
+	
+	if (user.exists){
+		localStorage.setItem("ID", user.id);
+		return true;
+	}
 	
 	//users.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
 	//console.log(doc.id, " => ", doc.data());
 	//});
-	checkLogin(col,email, password);
+	
 	/*users.each(doc => {
 		current=doc.data();
 		//console.log(current.id);
@@ -117,7 +123,7 @@ async function validatelogin(col){
 			}
 		}
 	}*/
-	return result;
+	return false;
 }
 function validateloginmessage(){
 	var html="";

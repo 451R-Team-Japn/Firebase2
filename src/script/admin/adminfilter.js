@@ -1,4 +1,4 @@
-/*function filter(){
+function filter(){
 	var counter = 0;
 	var i=0;
 	var list=[];
@@ -35,9 +35,9 @@
 	   
 		   
     }
-}*/
+}
 
-function filter(){
+/*function filter(){
     if ($('input[type="checkbox"]:checked').length > 0) {
 		$('.all').hide();
         $('input[type="checkbox"]:checked').each(function() {
@@ -49,5 +49,5 @@ function filter(){
         $('.open-position-container > div').fadeIn();
 
     }
-}
+}*/
 //filter();
