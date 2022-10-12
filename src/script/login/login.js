@@ -57,13 +57,18 @@ async function validatelogin(col){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
-	var users = queryUsers(col);
+	var users = await queryUsers(col);
 	
 	var current;
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
 	
 	var result = false;
+	
+	users.forEach((doc) => {
+	// doc.data() is never undefined for query doc snapshots
+	console.log(doc.id, " => ", doc.data());
+	});
 	
 	/*users.each(doc => {
 		current=doc.data();
@@ -78,8 +83,8 @@ async function validatelogin(col){
 				result = true;
 			}
 		}
-	});*/
-	users.forEach(async(doc) => {
+	});
+	users.forEach((doc) => {
 		current=doc.data();
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -88,11 +93,11 @@ async function validatelogin(col){
 		if(pattern.test(current.Email) || pattern.test(username[0])){ 
 			console.log("true");
 			if (password==current.Password){
-				await localStorage.setItem("ID", doc.id);
+				localStorage.setItem("ID", doc.id);
 				result = true;
 			}
 		}
-	});
+	});*/
 	
 	//var data = await getCollection(col);
 	//var dataid = await getCollectionID(col);
@@ -148,10 +153,17 @@ const col = collection(db, colName);
   //console.log(list);
   return list;
 }
-async function queryUsers(colName) {
-	var docRef = collection(db, colName);
-	var q = query(docRef, limit(1));
-	var querySnapshot = await getDocs(q);
-	
+
+async function queryUsers(colName){
+	const docRef = collection(db, colName);
+	const q = query(docRef, limit(1));
+  
+	const querySnapshot = await getDocs(q);
+  
+	/*querySnapshot.forEach((doc) => {
+	// doc.data() is never undefined for query doc snapshots
+	console.log(doc.id, " => ", doc.data());
+	});*/
+  
 	return querySnapshot;
 }
