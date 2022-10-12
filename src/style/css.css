@@ -99,6 +99,10 @@ a{
   text-align: center;
   width: 175px;
 }
+.file-dropdown-toggle {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
 
 /*Style for Create Position*/
 .position-container{
