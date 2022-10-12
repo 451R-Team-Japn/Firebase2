@@ -62,7 +62,7 @@ async function validatelogin(col){
 	var current;
 	var username;
 	var pattern = new RegExp('^' + email + '$', 'i');
-  
+	
 	users.forEach(async(doc) => {
 		current=doc.data();
 		//console.log(current.id);
