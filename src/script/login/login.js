@@ -65,7 +65,7 @@ async function validatelogin(col){
 	
 	var result = false;
 	
-	users.forEach(async(doc) => {
+	users.forEach(doc => {
 		current=doc.data();
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -74,7 +74,7 @@ async function validatelogin(col){
 		if(pattern.test(current.Email) || pattern.test(username[0])){ 
 			console.log("true");
 			if (password==current.Password){
-				await localStorage.setItem("ID", doc.id);
+				localStorage.setItem("ID", doc.id);
 				result = true;
 			}
 		}
