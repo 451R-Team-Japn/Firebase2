@@ -133,7 +133,7 @@ const col = collection(db, colName);
   return list;
 }
 async function queryUsers(colName) {
-	var q = query(col, limit(1));
+	var q = query(colName, limit(1));
 	var querySnapshot = await getDocs(q);
 	
 	return querySnapshot;
