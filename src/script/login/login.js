@@ -79,12 +79,26 @@ async function validatelogin(col){
 			}
 		}
 	});*/
+	users.forEach(async(doc) => {
+		current=doc.data();
+		//console.log(current.id);
+		console.log(current.Email,current.Password);
+		//console.log(current.Password);
+		username = String(current.Email).split("@");
+		if(pattern.test(current.Email) || pattern.test(username[0])){ 
+			console.log("true");
+			if (password==current.Password){
+				localStorage.setItem("ID", doc.id);
+				result = true;
+			}
+		}
+	});
 	
 	//var data = await getCollection(col);
 	//var dataid = await getCollectionID(col);
 
-console.log(users.length);
-	for(var i=0;i<users.length;i++){
+
+	/*for(var i=0;i<users.length;i++){
 		current=users[i];
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -97,7 +111,7 @@ console.log(users.length);
 				return true;
 			}
 		}
-	}
+	}*/
 	return result;
 }
 function validateloginmessage(){
@@ -135,7 +149,8 @@ const col = collection(db, colName);
   return list;
 }
 async function queryUsers(colName) {
-	var q = query(colName, limit(1));
+	var docRef = collection(db, colName);
+	var q = query(docRef, limit(1));
 	var querySnapshot = await getDocs(q);
 	
 	return querySnapshot;
