@@ -69,7 +69,7 @@ async function validatelogin(col){
 	// doc.data() is never undefined for query doc snapshots
 	console.log(doc.id, " => ", doc.data());
 	});
-	
+	checkLogin(col,email, password);
 	/*users.each(doc => {
 		current=doc.data();
 		//console.log(current.id);
@@ -83,7 +83,7 @@ async function validatelogin(col){
 				result = true;
 			}
 		}
-	});*/
+	});
 	users.forEach(doc => {
 		current=doc.data();
 		//console.log(current.id);
@@ -97,7 +97,7 @@ async function validatelogin(col){
 				result = true;
 			}
 		}
-	});
+	});*/
 	
 	//var data = await getCollection(col);
 	//var dataid = await getCollectionID(col);
@@ -166,4 +166,18 @@ async function queryUsers(colName){
 	});*/
   
 	return querySnapshot;
+}
+function checkLogin(colName,email, password){
+	const docRef = collection(db, colName);
+	const q = query(docRef, where("Email", ">=", email), where("Password", "==", password));
+  
+	const querySnapshot = await getDocs(q);
+	
+	querySnapshot.forEach((doc) => {
+	// doc.data() is never undefined for query doc snapshots
+	console.log(doc.id, " => ", doc.data());
+	});
+	
+	return querySnapshot;
+	
 }
