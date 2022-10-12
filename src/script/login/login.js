@@ -58,7 +58,7 @@ async function validatelogin(col){
 	var password = document.getElementById('password').value;
 	
 	//var users = await queryUsers(col);
-	var user = checkLogin(col,email, password);
+	var user = await checkLogin(col,email, password);
 	
 	//var current;
 	//var username;
@@ -66,17 +66,16 @@ async function validatelogin(col){
 	
 	var result = false;
 	
-	//user.forEach((doc) => {
+	user.forEach(doc => {	
 	// doc.data() is never undefined for query doc snapshots
-	//console.log(doc.id, " => ", doc.data());
+	console.log(doc.id, " => ", doc.data());
 	
-	console.log(user.exists);
-		if (user.exists){
-			console.log("TRUE");
-			localStorage.setItem("ID", user.id);
+	console.log(doc.exists);
+		if (doc.exists){
+			localStorage.setItem("ID", doc.id);
 			result = true;
 		}
-	//});
+	});
 	
 	//users.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
@@ -182,18 +181,10 @@ async function queryUsers(colName){
 }
 async function checkLogin(colName,email, password){
 	var docRef = collection(db, colName);
-	var q = query(docRef, where("Email", ">=", email), where("Password", "==", password));
+	var q = query(docRef, where("Email", "==", email), where("Password", "==", password));
   
 	var querySnapshot = await getDocs(q);
 	
-	var user;
-	
-	querySnapshot.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
-	user = doc;
-	});
-	
-	return user;
+	return querySnapshot;
 	
 }

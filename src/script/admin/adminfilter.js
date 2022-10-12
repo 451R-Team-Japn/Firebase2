@@ -31,9 +31,6 @@ function filter(){
 		Array.from(document.querySelectorAll(classes)).forEach(function(item){
 			item.style.display = 'block';
 		});
-
-	   
-		   
     }
 }
 
