@@ -83,7 +83,7 @@ async function validatelogin(col){
 	//var data = await getCollection(col);
 	//var dataid = await getCollectionID(col);
 
-
+console.log(users.length);
 	for(var i=0;i<users.length;i++){
 		current=users[i];
 		//console.log(current.id);
