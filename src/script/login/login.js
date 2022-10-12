@@ -84,7 +84,7 @@ async function validatelogin(col){
 			}
 		}
 	});*/
-	users.forEach((doc) => {
+	users.forEach(doc => {
 		current=doc.data();
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
