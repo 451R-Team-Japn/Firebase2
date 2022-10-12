@@ -1,6 +1,6 @@
-function changeCheckbox(ele){
+async function changeCheckbox(ele){
+	await uncheck(ele);
 	filter();
-	uncheck(ele);
 }
 function filter(){
 	var counter = 0;
@@ -20,11 +20,11 @@ function filter(){
     }
     else {
 		chekboxInputs.forEach(function(input){
-			if(input.checked){
-				list[counter] = input.getAttribute("value"); 
-				counter++;
-			}
-		});
+		if(input.checked){
+			list[counter] = input.getAttribute("value"); 
+			counter++;
+		}
+	});
 		var classes="";
 		for(i;i<list.length;i++){
 			classes+="."+list[i];
