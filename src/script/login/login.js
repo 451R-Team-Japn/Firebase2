@@ -65,7 +65,7 @@ async function validatelogin(col){
 	
 	var result = false;
 	
-	users.forEach(doc => {
+	/*users.each(doc => {
 		current=doc.data();
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
@@ -78,14 +78,14 @@ async function validatelogin(col){
 				result = true;
 			}
 		}
-	});
+	});*/
 	
 	//var data = await getCollection(col);
 	//var dataid = await getCollectionID(col);
 
 
-	/*for(var i=0;i<data.length;i++){
-		current=data[i];
+	for(var i=0;i<users.length;i++){
+		current=users[i];
 		//console.log(current.id);
 		console.log(current.Email,current.Password);
 		//console.log(current.Password);
@@ -97,7 +97,7 @@ async function validatelogin(col){
 				return true;
 			}
 		}
-	}*/
+	}
 	return result;
 }
 function validateloginmessage(){
