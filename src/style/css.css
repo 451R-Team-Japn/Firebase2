@@ -183,7 +183,7 @@ body{
   max-width: 1000px;
   margin: auto;
 }
-.sticky 
+.stickyleft 
 {
   position: -webkit-sticky; /* Safari */
   float: left;
