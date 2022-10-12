@@ -74,7 +74,7 @@ async function validatelogin(col){
 		if (doc.exists){
 			console.log("TRUE");
 			localStorage.setItem("ID", doc.id);
-			return = result;
+			result = true;
 		}
 	});
 	
@@ -130,7 +130,7 @@ async function validatelogin(col){
 			}
 		}
 	}*/
-	return = result;
+	return result;
 }
 function validateloginmessage(){
 	var html="";
