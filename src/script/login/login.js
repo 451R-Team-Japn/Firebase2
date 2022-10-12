@@ -62,10 +62,11 @@ async function validatelogin(col){
 	
 	//var current;
 	//var username;
-	var pattern = new RegExp('^' + email + '$', 'i');
+	//var pattern = new RegExp('^' + email + '$', 'i');
 	
 	//var result = false;
 	
+	console.log(user.exists);
 	if (user.exists){
 		console.log("TRUE");
 		localStorage.setItem("ID", user.id);
