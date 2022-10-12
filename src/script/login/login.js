@@ -66,17 +66,17 @@ async function validatelogin(col){
 	
 	var result = false;
 	
-	user.forEach((doc) => {
+	//user.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
+	//console.log(doc.id, " => ", doc.data());
 	
-	console.log(doc.exists);
-		if (doc.exists){
+	//console.log(doc.exists);
+		if (user.exists){
 			console.log("TRUE");
-			localStorage.setItem("ID", doc.id);
+			localStorage.setItem("ID", user.id);
 			result = true;
 		}
-	});
+	//});
 	
 	//users.forEach((doc) => {
 	// doc.data() is never undefined for query doc snapshots
@@ -191,6 +191,6 @@ async function checkLogin(colName,email, password){
 	console.log(doc.id, " => ", doc.data());
 	});
 	
-	return querySnapshot;
+	return doc;
 	
 }
