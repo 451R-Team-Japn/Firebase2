@@ -1,3 +1,7 @@
+function changeCheckbox(ele){
+	filter();
+	uncheck(ele);
+}
 function filter(){
 	var counter = 0;
 	var i=0;
@@ -9,7 +13,7 @@ function filter(){
 	});
 	if(allAreUnselected){
 		chekboxInputs.forEach(function(input){
-			Array.from(document.querySelectorAll("." + input.getAttribute("rel"))).forEach(function(item){
+			Array.from(document.querySelectorAll("." + input.getAttribute("value"))).forEach(function(item){
 				item.style.display = 'block';
 			});
 		});
@@ -17,7 +21,7 @@ function filter(){
     else {
 		chekboxInputs.forEach(function(input){
 			if(input.checked){
-				list[counter] = input.getAttribute("rel"); 
+				list[counter] = input.getAttribute("value"); 
 				counter++;
 			}
 		});
@@ -32,6 +36,11 @@ function filter(){
 			item.style.display = 'block';
 		});
     }
+}
+function uncheck(ele){
+	var classes =  ele.classList;
+	console.log(classes.length, classes[1]);
+	 $('input.'+classes[1]).not(ele).prop('checked', false); 
 }
 
 /*function filter(){
