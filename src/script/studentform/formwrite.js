@@ -119,9 +119,15 @@ function getCurrentterm(){
 	return term;
 }
 function changeUpload(value){
+	var gta = $('input[name="GTA"]:checked').val();
 	var r = 'resumefile';
 	var t = 'transcriptfile';
-	var g = 'gtafile';
+	var g;
+	
+	if(gta == 0)
+		g = 'gtafile';
+	else
+		g = null;
 	
 	if(value=="resumef"){
 		makehidden(r, false);
