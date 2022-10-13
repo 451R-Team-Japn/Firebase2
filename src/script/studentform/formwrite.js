@@ -6,12 +6,17 @@ function updateGTA(g) {
 	var fhtml;
 	GTA = parseInt(g);
 	changeUpload(null);
+	if(GTA != 0)
+		makehidden('gtafilebtn', true);
+	}
 	if(GTA == 0){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 		fhtml = "Please attach your GTA certification or waiver, you may also attach your resume and/or transcript";
 		//changeUpload('gtaf');
 		GTAfile.setAttribute('required', '');
+		makehidden('gtafilebtn', false);
+	}
 	}
 	else if(GTA == 2){
 		document.getElementById("lablist").hidden = false;
@@ -125,14 +130,10 @@ function changeUpload(value){
 	var t = 'transcriptfile';
 	var g;
 	
-	if(gta == 0){
+	if(gta == 0)
 		g = 'gtafile';
-		makehidden('gtafilebtn', false);
-	}
-	else{
+	else
 		g = null;
-		makehidden('gtafilebtn', true);
-	}
 	
 	if(value=="resumef"){
 		makehidden(r, false);
