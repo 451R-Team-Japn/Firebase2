@@ -5,6 +5,7 @@ function updateGTA(g) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	GTA = parseInt(g);
+	changeUpload(null);
 	if(GTA == 0){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
@@ -143,7 +144,7 @@ function changeUpload(value){
 		makehidden(t, false);
 		makehidden(g, true);
 	}
-	else{
+	else if(value=="gtafile"){
 		makehidden(r, true);
 		makehidden(t, true);
 		makehidden(g, false);
