@@ -8,7 +8,6 @@ function updateGTA(g) {
 	changeUpload(null);
 	if(GTA != 0)
 		makehidden('gtafilebtn', true);
-	}
 	if(GTA == 0){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
