@@ -20,7 +20,7 @@ function validateForm(){
 	
 	totalCourses = courseLimitcheck(courses);
 	
-	if(gtastatus == 1)
+	if(gtastatus == "yes")
 		changeUpload('gtaf');
 	
 	validating = true;

@@ -5,7 +5,7 @@ function updateGTA(GTA) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	
-	if(GTA == 1){
+	if(GTA == 0){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 		fhtml = "Please attach your GTA certification or waiver, you may also attach your resume and/or transcript";
@@ -16,14 +16,14 @@ function updateGTA(GTA) {
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 	}
-	else if(GTA == 0){
+	else if(GTA == 1){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = false;
 		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
 		GTAfile.removeAttribute('required');
 	}
-	else if(GTA == 4){
+	else if(GTA == 3){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = true;
 		removeChecked('lab');

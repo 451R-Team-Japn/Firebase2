@@ -98,7 +98,7 @@ $('.level').click(function(){
 	else if(user.GTACertified == 0){
 		document.getElementById("gta").hidden = true;
 		gtaradiobtn.checked = true;
-		updateGTA(4);
+		updateGTA(3);
 	}
 	else if(user.GTACertified >= 0)
 		document.getElementById("gta").hidden = true;
