@@ -141,7 +141,7 @@ function getData(){
 	else
 		term=2;
 	
-	console.log("fname => "+fname);
+	/*console.log("fname => "+fname);
 	console.log("lname => "+lname);
 	console.log("stuID => "+stuID);
 	console.log("email => "+email);
@@ -152,7 +152,7 @@ function getData(){
 	console.log("year => "+year);
 	console.log("major => "+major);
 	console.log("level => "+level);
-	console.log("courses => "+courses);
+	console.log("courses => "+courses);*/
 	
 	
 	applicant = {
