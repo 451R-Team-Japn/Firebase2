@@ -23,7 +23,7 @@ var user;
 var applicant;
 
 $(document).ready(function () { 
-	var studentaccount = await getAccounttype();
+	var studentaccount = getAccounttype();
 	var studentpage; 
 	if (typeof getPagetype=== "function")
 		studentpage = true;
