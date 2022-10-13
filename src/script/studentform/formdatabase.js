@@ -49,18 +49,11 @@ $('.gtainput').click(function(){
 })
 
 async function getUser() {
-	if (localStorage.getItem("ID") !== null)
-		currentuser = localStorage.getItem("ID");
-	else
-		currentuser = sessionStorage.getItem("ID");
-		
+	currentuser = await localStorage.getItem("ID");
 	const docRef = doc(db, "AccountStudent", currentuser);
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
 	var gtaradiobtn = document.getElementById("onrecord");
-	
-	 
-	
 	if(user.GTACertified > 0){
 		gtaradiobtn.checked = true;
 		document.getElementById("BS").hidden = true;
