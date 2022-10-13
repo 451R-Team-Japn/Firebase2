@@ -51,11 +51,15 @@ async function getCollection(colName, id) {
    
    	const docRef = doc(db, colName, currentuser);
 	const docSnap = await getDoc(docRef);
-	user = docSnap.data();
    
-	console.log(docRef);
-	console.log(docRef.exists);
-	return doc.exists;
+   	docSnap.forEach(doc => {	
+		console.log(doc.exists);
+		return doc.exists;
+	});
+	
+	//console.log(docRef);
+	//console.log(docRef.exists);
+	return false;
 
 }
 function getLoginID() {
