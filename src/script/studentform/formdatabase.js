@@ -104,8 +104,10 @@ $('.level').click(function(){
 		gtaradiobtn.checked = true;
 		updateGTA(3);
 	}
-	else if(user.GTACertified >= 0)
+	else if(user.GTACertified >= 0){
 		document.getElementById("gta").hidden = true;
+		makehidden('gtafilebtn', true);
+	}
 })
 async function addGraderoptions(semester) {
 	var data = await querysemester('G', semester);
