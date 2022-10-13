@@ -239,4 +239,10 @@ body{
   .dropdown-menu.show {
     transform: translate(150px, 38px)!important;
   }
+  .input-group-text.bi.bi-file-earmark{
+    display: none;
+  }
+  .label-size{
+    width: fit-content!important;
+  }
 }
