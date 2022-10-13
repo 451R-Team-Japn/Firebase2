@@ -22,9 +22,9 @@ var currentuser;
 var user;
 var applicant;
 
-$(document).ready(function () { 
-	if(!checkLogin())
-		start();
+$(document).ready(async function () { 
+	if(await !checkLogin())
+		//start();
 });
 function checkLogin(){
 	if (localStorage.getItem("ID") === null && localStorage.getItem("ID")){
