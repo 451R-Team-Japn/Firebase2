@@ -22,8 +22,10 @@ var currentuser;
 var user;
 var applicant;
 
-$(document).ready(function () { 
-	start();
+$(document).ready(async function () { 
+	if(await !checkLogin()){
+		start();
+	}
 });
 function checkLogin(){
 	alert("checkLogin");
