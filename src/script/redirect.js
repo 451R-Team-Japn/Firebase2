@@ -25,14 +25,10 @@ var applicant;
 $(document).ready(function () { 
 	var studentaccount = getAccounttype();
 	var studentpage; 
-	if (typeof getPagetype=== "function"){
-		alert("function");
+	if (typeof getPagetype=== "function")
 		studentpage = true;
-	}
-	else{
-		alert("not");
+	else
 		studentpage = false;
-	}
 	
 	redirect(studentaccount, studentpage);
 	
@@ -53,6 +49,7 @@ function logout() {
 	window.location.href = 'index.html';
 }
 function redirect(studentaccount, studentpage){
+	alert("studentaccount: "+studentaccount+" studentpage: "+studentpage)
 	if(studentaccount && !studentpage)
 		window.location.href == "studentform.html"
 	else if(!studentaccount && studentpage)
