@@ -61,7 +61,7 @@ async function getUser() {
 		document.getElementById("BS").hidden = true;
 		document.getElementById("BSlabel").hidden = true;
 		document.getElementById("gta").value = "yes";
-		updateGTA('certified');
+		updateGTA(2);
 		document.getElementById("gta").hidden = true;
 	}
 	else{
@@ -98,7 +98,7 @@ $('.level').click(function(){
 	else if(user.GTACertified == 0){
 		document.getElementById("gta").hidden = true;
 		gtaradiobtn.checked = true;
-		updateGTA('null');
+		updateGTA(4);
 	}
 	else if(user.GTACertified >= 0)
 		document.getElementById("gta").hidden = true;

@@ -5,25 +5,25 @@ function updateGTA(GTA) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	
-	if(GTA == "yes"){
+	if(GTA == 1){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 		fhtml = "Please attach your GTA certification or waiver, you may also attach your resume and/or transcript";
 		//changeUpload('gtaf');
 		GTAfile.setAttribute('required', '');
 	}
-	else if(GTA == "certified"){
+	else if(GTA == 2){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 	}
-	else if(GTA == "no"){
+	else if(GTA == 0){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = false;
 		removeChecked('lab');
 		fhtml = "You may attach your updated resume and transcript";
 		GTAfile.removeAttribute('required');
 	}
-	else if(GTA == "null"){
+	else if(GTA == 4){
 		document.getElementById("lablist").hidden = true;
 		document.getElementById("lablistna").hidden = true;
 		removeChecked('lab');

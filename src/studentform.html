@@ -145,14 +145,14 @@
                     <div id="gta" class="col" hidden>
                         <label class="form-label" for="GTA">Are you GTA Certified?</label>
                         <div>
-                          <input class="form-check-input gtainput" type="radio" required id="yes" name="GTA" value="yes" onclick="updateGTA(this.value)">
+                          <input class="form-check-input gtainput" type="radio" required id="yes" name="GTA" value="1" onclick="updateGTA(this.value)">
                           <label class="form-check-label me-4" for="yes" id="BSlabel">Yes</label>
                         
-                          <input class="form-check-input gtainput" type="radio" required id="no" name="GTA" value="no" onclick="updateGTA(this.value)">
+                          <input class="form-check-input gtainput" type="radio" required id="no" name="GTA" value="0" onclick="updateGTA(this.value)">
                           <label class="form-check-label me-4" for="no">No</label>
 
-                          <input type="radio gtainput" required id="null" value="null" name="GTA" hidden>
-						  <input type="radio gtainput" required id="onrecord" value="onrecord"  name="GTA" hidden>
+                          <input type="radio gtainput" required id="null" value="4" name="GTA" hidden>
+						  <input type="radio gtainput" required id="onrecord" value="2"  name="GTA" hidden>
                           <div class="invalid-feedback">
                             Please select an Option.
                           </div>
