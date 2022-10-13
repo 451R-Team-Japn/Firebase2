@@ -20,8 +20,11 @@ function validateForm(){
 	
 	totalCourses = courseLimitcheck(courses);
 	
-	if(gtastatus == 0)
+	alert(gtastatus);
+	if(gtastatus == 0){
+		alert('gtaf');
 		changeUpload('gtaf');
+	}
 	
 	validating = true;
 	if(!courseChecked(courses)){
@@ -107,7 +110,7 @@ function updateUser(){
 	var major = document.getElementById("major").value;
 	var gtastatus;
 	
-	alert("form " + gta);
+	
 	
 	if(parseInt(gta) == 0)
 		gtastatus = 1;
@@ -115,6 +118,8 @@ function updateUser(){
 		gtastatus = 2;
 	else
 		gtastatus = 0;
+	
+	alert("form " + gtastatus);
 		
 
 	user = {
