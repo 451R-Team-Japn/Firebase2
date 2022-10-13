@@ -1,7 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -46,12 +45,16 @@ function redirect(){
 }
 
 async function getCollection(colName, id) {
-	doc(db, "AccountStudent", currentuser);
-	var docRef = doc(db, colName, id);
-	var doc = await getDoc(docRef);
+	//doc(db, "AccountStudent", currentuser);
+	//var docRef = doc(db, colName, id);
+	//var doc = await getDoc(docRef);
    
-	console.log(doc);
-	console.log(doc.exists);
+   	const docRef = doc(db, "AccountStudent", currentuser);
+	const docSnap = await getDoc(docRef);
+	user = docSnap.data();
+   
+	console.log(docRef);
+	console.log(docRef.exists);
 	return doc.exists;
 
 }
