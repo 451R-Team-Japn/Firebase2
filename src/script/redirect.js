@@ -23,7 +23,11 @@ var user;
 var applicant;
 
 $(document).ready(function () { 
-	var studentaccount = getAccounttype();
+	start();
+});
+
+async function start(){
+	var studentaccount = await getAccounttype();
 	var studentpage; 
 	if (typeof getPagetype=== "function")
 		studentpage = true;
@@ -33,7 +37,7 @@ $(document).ready(function () {
 	redirect(studentaccount, studentpage);
 	
 	console.log(studentaccount);
-});
+}
 
 $('#logout').click(function(){
 	localStorage.setItem("ID", null);
