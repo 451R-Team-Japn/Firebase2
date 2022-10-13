@@ -23,12 +23,16 @@ var user;
 var applicant;
 
 $(document).ready(function () { 
-	start();
-	checkLogin();
+	if(!checkLogin())
+		start();
 });
 function checkLogin(){
-	if (localStorage.getItem("ID") === null && localStorage.getItem("ID"))
+	if (localStorage.getItem("ID") === null && localStorage.getItem("ID")){
 		logout();
+		return true;
+	}
+	else
+		return false;
 }
 async function start(){
 	var studentaccount = await getAccounttype();
