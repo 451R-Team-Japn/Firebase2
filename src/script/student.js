@@ -19,6 +19,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 var currentuser;
+var user;
+var applicant;
 
 $(document).ready(function () { 
 	var accounttype = getAccounttype();
@@ -71,5 +73,14 @@ async function getAccounttype() {
 	else
 	return 'blank';
 }
+
+onAuthStateChanged(auth, user => {
+  if(user != null){
+	console.log('logged in!');
+  } else {
+	console.log('No user');
+  }
+});
+
 
 	
