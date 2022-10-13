@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link added for bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="script/admin/adminfilter.js"></script>
+    <script src="script/admin/adminwrite.js"></script>
+    <script type="module" src="script/admin/admindatabase.js"></script>
+    <link rel="icon" href="assets/umkc-logo.png">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div class="page-logo">
+        <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
+    </div>
+
+    <div>
+        <h2 class="m-5 mt-2 mb-3">Open Positions that you can apply for:
+            <div class="input-group float-end">
+                <input type="text" id="Search" onkeyup="Search()" class="form-control rounded"
+                    placeholder="Search Class" aria-label="Search Position" aria-describedby="search-addon" />
+                <span class="btn btn-primary" id="advanced-search-button" type="button">
+                    <i class="fa fa-search"></i>
+                </span>
+            </div>
+            <br>
+        </h2>
+    </div>
+
+    <div class=" mb-3 p-3 card filter card-filter">
+        <h5>Filter by <i class="bi bi-funnel"></i></h5>
+        <label>Major:</label>
+        <div class="checkbox form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="CS"
+                    onchange="filter()" />CS</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="IT"
+                    onchange="filter()" />IT</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="ECE"
+                    onchange="filter()" />ECE</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="EE"
+                    onchange="filter()" />EE</label><br>
+        </div>
+        <label class="mt-2">Position:</label>
+        <div class="checkbox form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Grader"
+                    onchange="filter()" />Grader</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Instructor"
+                    onchange="filter()" />Instructor</label><br>
+        </div>
+
+        <label class="mt-2">Semester:</label>
+        <div class="checkbox form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Fall"
+                    onchange="filter()" />Fall</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Spring"
+                    onchange="filter()" />Spring</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Summer"
+                    onchange="filter()" />Summer</label><br>
+        </div>
+        <label class="mt-2">Level:</label>
+        <div class="checkbox form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="grad"
+                    onchange="filter()" />Graduate</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="undergrad"
+                    onchange="filter()" />Undergraduate </label><br>
+        </div>
+
+    </div>
+
+    <div class="open-position-container" id="open-position-container">
+        <div class="card mb-3 target" id="card">
+            <h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)</h5>
+            <div class="card-body">
+                <label class="card-title mt-2 mb-3">Position:</label><span id="position">Grader</span><br>
+                <label class="card-title">Notes:</label><span id="notes">None</span>
+                <!--<button id="closebutton" value="" class="open-position-btn btn btn-primary float-end">Close Position</button>-->
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mb-3">
+        <a id="newbutton" href="index.html" value="" class="open-position-btn btn btn-primary">Apply</a>
+        <!--<a href="createposition.html" class="mt-5 btn btn-primary ">Add Position</a>-->
+    </div>
+
+    <!--Script added for bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
