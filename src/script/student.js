@@ -23,9 +23,16 @@ var user;
 var applicant;
 
 $(document).ready(function () { 
-	var accounttype = getAccounttype();
+	var studentaccount = getAccounttype();
+	var studentpage; 
+	if (typeof getPagetype()=== "function")
+		studentpage = true;
+	else
+		studentpage = false;
 	
-	console.log(accounttype);
+	redirect(studentaccount, studentpage);
+	
+	console.log(studentaccount);
 });
 
 $('#logout').click(function(){
@@ -41,7 +48,11 @@ function logout() {
 	
 	window.location.href = 'index.html';
 }
-function redirect(){
+function redirect(studentaccount, studentpage){
+	if(studentaccount && !studentpage)
+		window.location.href == "studentform.html"
+	else if(!studentaccount && studentpage)
+		window.location.href == "admin.html"
 	
 }
 
@@ -69,20 +80,10 @@ async function getAccounttype() {
 	var id = getLoginID();
 	
 	if(await getCollection('AccountStudent', id))
-		return 'AccountStudent';
-	else if(await getCollection('AccountAdmin', id))
-		return 'AccountAdmin';
-	else
-		return 'blank';
+		return true;
+	else //if(await getCollection('Admin', id))
+		return false;
 }
-
-onAuthStateChanged(auth, user => {
-  if(user != null){
-	console.log('logged in!');
-  } else {
-	console.log('No user');
-  }
-});
 
 
 	
