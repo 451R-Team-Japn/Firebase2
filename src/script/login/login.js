@@ -19,6 +19,10 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 
+$(document).ready(function () { 
+	localStorage.setItem("ID", null);
+	sessionStorage.setItem("ID", null);
+});
 
 $('#login').submit(function(){
 	if(!submitlogin());
@@ -56,6 +60,9 @@ async function validatelogin(col){
 	//let passpattern = new RegExp('^().{6,24}$');
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
+	var keep = document.getElementById('keep').checked;
+	
+	console.log(keep);
 	
 	var username = String(email).split("@");
 	var testemail = username[0] + "@umkc.edu";
@@ -77,7 +84,10 @@ async function validatelogin(col){
 	
 	console.log(doc.exists);
 		if (doc.exists){
-			localStorage.setItem("ID", doc.id);
+			if(keep)
+				localStorage.setItem("ID", doc.id);
+			else 
+				sessionStorage.setItem("ID", doc.id);
 			result = true;
 		}
 	});

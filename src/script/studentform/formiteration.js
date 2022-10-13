@@ -38,3 +38,6 @@ function populateTerms(){
 		}
 	}
 }
+function getPagetype(){
+	return true;
+}
