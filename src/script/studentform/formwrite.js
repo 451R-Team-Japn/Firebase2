@@ -5,7 +5,7 @@ function updateGTA(g) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	GTA = parseInt(g);
-	changeUpload(null);
+	changeUpload("resumef");
 	if(GTA != 0)
 		makehidden('gtafilebtn', true);
 	if(GTA == 0){
@@ -126,12 +126,12 @@ function changeUpload(value){
 	var gta = $('input[name="GTA"]:checked').val();
 	var r = 'resumefile';
 	var t = 'transcriptfile';
-	var g;
+	var g = 'gtafile';
 	
-	if(gta == 0)
-		g = 'gtafile';
-	else
-		g = null;
+	//if(gta == 0)
+		//g = 'gtafile';
+	//else
+		//g = null;
 	
 	if(value=="resumef"){
 		makehidden(r, false);
@@ -143,7 +143,7 @@ function changeUpload(value){
 		makehidden(t, false);
 		makehidden(g, true);
 	}
-	else if(value=="gtafile"){
+	else /*if(value=="gtafile")*/{
 		makehidden(r, true);
 		makehidden(t, true);
 		makehidden(g, false);
