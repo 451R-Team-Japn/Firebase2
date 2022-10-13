@@ -44,6 +44,7 @@ function redirect(){
 }
 
 async function getCollection(colName, id) {
+	doc(db, "AccountStudent", currentuser);
 	var docRef = doc(db, colName, id);
 	var doc = await getDoc(docRef);
    
