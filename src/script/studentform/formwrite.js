@@ -1,5 +1,6 @@
 var anyavailable = false;
 var GTA;
+
 function updateGTA(GTA) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
