@@ -156,22 +156,22 @@ function getData(){
 	
 	
 	applicant = {
-	//FirstName: fname,
-	//LastName: lname,
-	//StudentID: stuID,
-	//Email: email,
-    Course1: courses[0],
-	Course2: courses[1],
-	Course3: courses[2],
-    Course4: courses[3],
-    Course5: courses[4],
-    CurrentLevel: level,
-	GPA: gpa,
-	GraduatingTerm: term,
-	GraduatingYear: year,
-	Hours: hours,
-    Major: major,
-    UndergradDegree: degree
+		//FirstName: fname,
+		//LastName: lname,
+		//StudentID: stuID,
+		//Email: email,
+		Course1: courses[0],
+		Course2: courses[1],
+		Course3: courses[2],
+		Course4: courses[3],
+		Course5: courses[4],
+		CurrentLevel: level,
+		GPA: gpa,
+		GraduatingTerm: term,
+		GraduatingYear: year,
+		Hours: hours,
+		Major: major,
+		UndergradDegree: degree
 	};
 	console.log("applicant => "+applicant);
 	
