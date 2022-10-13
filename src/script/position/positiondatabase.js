@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { getFirestore, doc, collection, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 //import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -66,9 +66,11 @@ function writeData(course){
 	document.getElementById("position").disabled = true;
 	
 	document.getElementById(course.Semester).checked = true;
-	document.getElementById(course.Semester).disabled = true;
+	//document.getElementById(course.Semester).disabled = true;
 	
 	document.getElementById("notes").value = course.Notes;
+	
+	setremoveRequired(false, checkboxes);
 }
 $('#courseform').submit(function(){
 	var form = $("#courseform");
@@ -97,7 +99,10 @@ async function submitform() {
 		id=course.CourseType+course.CourseNumber+course.Semester+course.GraderOrLab;
 		console.log(position);
 		//if(position=="Grader")
-		await setDoc(doc(db, "Courses", id), course);
+			if(currentCourse != "" || currentCourse !=  'new')
+				await setDoc(doc(db, "Courses", id), course);
+			else
+				await updateDoc(doc(db, "Courses", id), course);
 		//else //if(position=="Instructor")
 			//await setDoc(doc(db, "InstructorCourses2", id), course);
 		/*else{
