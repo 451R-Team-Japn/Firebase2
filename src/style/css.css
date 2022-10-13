@@ -226,3 +226,17 @@ body{
 .notes-wrapper::-webkit-scrollbar {
   display: none;
 }
+
+.check-level{
+  margin-right: 1.5rem;
+}
+
+@media (max-width: 530px){
+  .check-level{
+    margin-right: 2px;
+  }
+
+  .dropdown-menu.show {
+    transform: translate(150px, 38px)!important;
+  }
+}
