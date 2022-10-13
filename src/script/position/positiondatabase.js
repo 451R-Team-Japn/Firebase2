@@ -65,9 +65,8 @@ function writeData(course){
 	document.getElementById("position").value = course.GraderOrLab;
 	document.getElementById("position").disabled = true;
 	
-	document.getElementById("semester").checked = course.Semester;
-	document.getElementById("semester").disabled = true;
-	document.getElementById("semester").readOnly = true;
+	document.getElementById(course.Semester).checked = true;
+	document.getElementById(course.Semester).disabled = true;
 	
 	document.getElementById("notes").value = course.Notes;
 }
