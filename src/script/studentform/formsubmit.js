@@ -16,11 +16,11 @@ function modal(){
 function validateForm(){
 	var html='';
 	var courses = document.getElementsByClassName("courses");
-	var gtastatus = document.querySelector('input[name="GTA"]:checked').value;
+	var gtastatus = $('input[name="GTA"]:checked').val();
 	
 	totalCourses = courseLimitcheck(courses);
 	
-	if(gtastatus == "yes")
+	if(gtastatus == 1)
 		changeUpload('gtaf');
 	
 	validating = true;
