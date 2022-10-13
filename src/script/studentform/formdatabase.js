@@ -82,7 +82,7 @@ function populateFields(){
 }
 $('.level').click(function(){
 	var level = document.querySelector('input[name="level"]:checked').value;
-	var gtaradiobtn = document.getElementById("null");
+	var gtaradiobtn = document.getElementById("3");
 
 	if(level==0){
 		setremovehidden(true, 'grad');
