@@ -23,12 +23,13 @@ var user;
 var applicant;
 
 $(document).ready(async function () { 
-	if(!checkLogin()){
+	if(await !checkLogin()){
 		//start();
 	}
 });
 function checkLogin(){
 	if (localStorage.getItem("ID") === null && localStorage.getItem("ID")){
+		alert(true);
 		logout();
 		return true;
 	}
