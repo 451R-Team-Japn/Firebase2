@@ -49,7 +49,7 @@ async function getCollection(colName, id) {
 	//var docRef = doc(db, colName, id);
 	//var doc = await getDoc(docRef);
    
-   	const docRef = doc(db, "AccountStudent", currentuser);
+   	const docRef = doc(db, colName, currentuser);
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
    
