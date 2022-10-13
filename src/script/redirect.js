@@ -22,7 +22,7 @@ var currentuser;
 var user;
 var applicant;
 
-$(document).ready(async function () { 
+$(document).ready(function () { 
 	var studentaccount = await getAccounttype();
 	var studentpage; 
 	if (typeof getPagetype=== "function")
