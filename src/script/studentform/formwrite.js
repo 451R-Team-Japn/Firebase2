@@ -17,7 +17,6 @@ function updateGTA(g) {
 		GTAfile.setAttribute('required', '');
 		makehidden('gtafilebtn', false);
 	}
-	}
 	else if(GTA == 2){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
@@ -153,7 +152,6 @@ function changeUpload(value){
 }
 
 function makehidden(classname, set){
-	alert(classname+" "+set);
 	var list = document.getElementsByClassName(classname);
 	//console.log(list);
 	for(var j=0; list[j]; ++j){
