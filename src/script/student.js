@@ -26,6 +26,13 @@ $(document).ready(function () {
 	console.log(accounttype);
 });
 
+$('#logout').click(function(){
+	localStorage.setItem("ID", null);
+	sessionStorage.setItem("ID", null);
+	
+	window.location.href = 'index.html';
+})
+
 function logout() {
 	localStorage.setItem("ID", null);
 	sessionStorage.setItem("ID", null);
@@ -37,9 +44,10 @@ function redirect(){
 }
 
 async function getCollection(colName, id) {
-	const docRef = doc(db, colName, id);
-	const doc = await getDoc(docRef);
+	var docRef = doc(db, colName, id);
+	var doc = await getDoc(docRef);
    
+	console.log(doc);
 	console.log(doc.exists);
 	return doc.exists;
 
