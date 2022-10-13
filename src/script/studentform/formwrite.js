@@ -124,10 +124,14 @@ function changeUpload(value){
 	var t = 'transcriptfile';
 	var g;
 	
-	if(gta == 0)
+	if(gta == 0){
 		g = 'gtafile';
-	else
+		makehidden('gtafilebtn', false);
+	}
+	else{
 		g = null;
+		makehidden('gtafilebtn', true);
+	}
 	
 	if(value=="resumef"){
 		makehidden(r, false);
