@@ -20,11 +20,8 @@ function validateForm(){
 	
 	totalCourses = courseLimitcheck(courses);
 	
-	alert(gtastatus);
-	if(gtastatus == 0){
-		alert('gtaf');
+	if(gtastatus == 0)
 		changeUpload('gtaf');
-	}
 	
 	validating = true;
 	if(!courseChecked(courses)){
@@ -117,10 +114,7 @@ function updateUser(){
 	else if(parseInt(gta) == 2)
 		gtastatus = 2;
 	else
-		gtastatus = 0;
-	
-	alert("form " + gtastatus);
-		
+		gtastatus = 0;		
 
 	user = {
 	//Email: email,

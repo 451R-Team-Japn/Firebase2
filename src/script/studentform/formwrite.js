@@ -5,7 +5,6 @@ function updateGTA(g) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
 	GTA = parseInt(g);
-	alert(GTA);
 	if(GTA == 0){
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
