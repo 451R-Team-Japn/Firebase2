@@ -20,7 +20,7 @@ function validateForm(){
 	
 	totalCourses = courseLimitcheck(courses);
 	
-	if(gtastatus == "yes")
+	if(gtastatus == 0)
 		changeUpload('gtaf');
 	
 	validating = true;
@@ -105,8 +105,17 @@ function updateUser(){
 	var gta = $('input[name="GTA"]:checked').val();
 	//document.querySelector('input[name="GTA"]:checked').value;
 	var major = document.getElementById("major").value;
+	var gtastatus;
 	
 	alert("form " + gta);
+	
+	if(parseInt(gta) == 0)
+		gtastatus = 1;
+	else if(parseInt(gta) == 2)
+		gtastatus = 2;
+	else
+		gtastatus = 0;
+		
 
 	user = {
 	//Email: email,
