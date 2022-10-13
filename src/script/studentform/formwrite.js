@@ -151,6 +151,7 @@ function changeUpload(value){
 }
 
 function makehidden(classname, set){
+	alert(classname+" "+set);
 	var list = document.getElementsByClassName(classname);
 	//console.log(list);
 	for(var j=0; list[j]; ++j){
