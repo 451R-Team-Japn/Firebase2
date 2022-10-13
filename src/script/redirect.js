@@ -55,9 +55,9 @@ function logout() {
 function redirect(studentaccount, studentpage){
 	alert("studentaccount: "+studentaccount+" studentpage: "+studentpage)
 	if(studentaccount && !studentpage)
-		window.location.href == "studentform.html"
+		window.location.href = "studentform.html";
 	else if(!studentaccount && studentpage)
-		window.location.href == "admin.html"
+		window.location.href = "admin.html";
 	
 }
 
