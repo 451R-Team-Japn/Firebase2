@@ -56,8 +56,12 @@ async function getUser() {
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();
 	var gtaradiobtn = document.getElementById("onrecord");
+	var gtaradiosecbtn = document.getElementById("pending");
 	if(user.GTACertified > 0){
-		gtaradiobtn.checked = true;
+		if(user.GTACertified == 1)
+			gtaradiosecbtn.checked = true;
+		if(user.GTACertified == 2)
+			gtaradiobtn.checked = true;
 		document.getElementById("BS").hidden = true;
 		document.getElementById("BSlabel").hidden = true;
 		document.getElementById("gta").value = "yes";

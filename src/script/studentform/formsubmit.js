@@ -109,9 +109,9 @@ function updateUser(){
 	
 	
 	
-	if(parseInt(gta) == 0)
+	if(parseInt(gta) == 0 || parseInt(gta) == 4)
 		gtastatus = 1;
-	else if(parseInt(gta) == 2)
+	else if(parseInt(gta) == 3)
 		gtastatus = 2;
 	else
 		gtastatus = 0;		
