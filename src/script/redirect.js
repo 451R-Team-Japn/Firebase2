@@ -22,8 +22,8 @@ var currentuser;
 var user;
 var applicant;
 
-$(document).ready(function () { 
-	var studentaccount = getAccounttype();
+$(document).ready(async function () { 
+	var studentaccount = await getAccounttype();
 	var studentpage; 
 	if (typeof getPagetype=== "function")
 		studentpage = true;
@@ -65,9 +65,9 @@ async function getCollection(colName, id) {
    	var docRef = doc(db, colName, currentuser);
 	var docSnap = await getDoc(docRef);
    
-	console.log(docSnap.exists());
+	console.log(await docSnap.exists());
 	
-	return docSnap.exists();
+	return await docSnap.exists();
 }
 function getLoginID() {
 	if (localStorage.getItem("ID") !== null)
