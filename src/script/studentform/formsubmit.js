@@ -120,7 +120,7 @@ function updateUser(){
 	user = {
 	//Email: email,
 	//FirstName: fname,
-	GTACertified: parseInt(gta),
+	GTACertified: gtastatus,
 	//LastName: lname,
 	//StudentID: stuID,
 	Major: parseInt(major)
