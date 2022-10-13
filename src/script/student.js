@@ -37,11 +37,11 @@ function redirect(){
 }
 
 async function getCollection(colName, id) {
-  const col = collection(db, colName);
-  const doc = await col.doc(id).get();
+	const docRef = doc(db, colName, id);
+	const doc = await getDoc(docRef);
    
-  console.log(doc.exists);
-  return doc.exists;
+	console.log(doc.exists);
+	return doc.exists;
 
 }
 function getLoginID() {
