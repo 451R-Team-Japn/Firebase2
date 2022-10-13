@@ -26,3 +26,10 @@ function setremoveRequired(set, list){
 		}
 	}
 }
+function changePattern(level){
+	var coursenum = document.getElementById("CourseNumber");
+	if(level=="BS")
+		coursenum.pattern = "(([1-4][0-9]{2})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)";
+	else
+		coursenum.pattern = "(([5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)";
+}
