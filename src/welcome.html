@@ -40,39 +40,27 @@
     <div class="mb-3 p-3 card filter card-filter sticky-left">
         <h5>Filter by <i class="bi bi-funnel"></i></h5>
         <label>Major:</label>
-        <div class="checkbox form-check">
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="CS"
-                    onchange="filter()" />CS</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="IT"
-                    onchange="filter()" />IT</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="ECE"
-                    onchange="filter()" />ECE</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="EE"
-                    onchange="filter()" />EE</label><br>
+        <div class="form-check" id="test">
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="CS" value="CS" onchange="changeCheckbox(this)"/>CS</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="IT" value="IT" onchange="changeCheckbox(this)"/>IT</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="ECE" value="ECE" onchange="changeCheckbox(this)"/>ECE</label><br>
         </div>
         <label class="mt-2">Position:</label>
-        <div class="checkbox form-check">
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Grader"
-                    onchange="filter()" />Grader</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Instructor"
-                    onchange="filter()" />Instructor</label><br>
+        <div class="form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input position" type="checkbox" id="Grader" value="Grader" onchange="changeCheckbox(this)"/>Grader</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input position" type="checkbox" id="Instructor" value="Instructor" onchange="changeCheckbox(this)"/>Instructor</label><br>
         </div>
 
         <label class="mt-2">Semester:</label>
-        <div class="checkbox form-check">
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Fall"
-                    onchange="filter()" />Fall</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Spring"
-                    onchange="filter()" />Spring</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="Summer"
-                    onchange="filter()" />Summer</label><br>
+        <div class="form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input semester" type="checkbox" id="Fall" value="Fall" onchange="changeCheckbox(this)"/>Fall</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input semester" type="checkbox" id="Spring" value="Spring" onchange="changeCheckbox(this)"/>Spring</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input semester" type="checkbox" id="Summer" value="Summer" onchange="changeCheckbox(this)"/>Summer</label><br>
         </div>
         <label class="mt-2">Level:</label>
-        <div class="checkbox form-check">
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="grad"
-                    onchange="filter()" />Graduate</label><br>
-            <label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="undergrad"
-                    onchange="filter()" />Undergraduate </label><br>
+        <div class="form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox" id="grad" value="grad" onchange="changeCheckbox(this)"/>Graduate</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox" id="undergrad" value="undergrad" onchange="changeCheckbox(this)"/>Undergraduate </label><br>
         </div>
 
     </div>
