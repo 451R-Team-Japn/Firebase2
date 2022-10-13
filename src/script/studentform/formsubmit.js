@@ -106,12 +106,12 @@ function updateUser(){
 	//document.querySelector('input[name="GTA"]:checked').value;
 	var major = document.getElementById("major").value;
 	
-	alert(gta);
+	alert("form " + gta);
 
 	user = {
 	//Email: email,
 	//FirstName: fname,
-	GTACertified: gta,
+	GTACertified: parseInt(gta),
 	//LastName: lname,
 	//StudentID: stuID,
 	Major: major
