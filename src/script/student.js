@@ -79,7 +79,7 @@ async function getAccounttype() {
 	else if(await getCollection('AccountAdmin', id))
 		return 'AccountAdmin';
 	else
-	return 'blank';
+		return 'blank';
 }
 
 onAuthStateChanged(auth, user => {
