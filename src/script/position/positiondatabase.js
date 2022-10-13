@@ -67,6 +67,7 @@ function writeData(course){
 	
 	document.getElementById("semester").checked = course.Semester;
 	document.getElementById("semester").disabled = true;
+	document.getElementById("semester").readOnly = true;
 	
 	document.getElementById("notes").value = course.Notes;
 }
