@@ -26,12 +26,10 @@ $(document).ready(function () {
 	start();
 	checkLogin();
 });
-function start(){
+function checkLogin(){
 	if (localStorage.getItem("ID") === null && localStorage.getItem("ID"))
 		logout();
 }
-
-
 async function start(){
 	var studentaccount = await getAccounttype();
 	var studentpage; 
