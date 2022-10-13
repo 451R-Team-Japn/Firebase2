@@ -18,10 +18,58 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+var currentCourse = location.search.substring(1);
 
 $(document).ready(function () { 
+	if(currentCourse != "" || currentCourse !=  'new')
+		getCourse();
 });
+async function getCourse(){
+	var docSnap=await getCoursedoc('Courses',currentCourse);
+	var courseObj;
 
+	courseObj=docSnap.data();
+	console.log(courseObj);
+	
+	//writeTitle(courseObj);
+	await writeData(courseObj);
+}
+async function getCoursedoc(colName, docName) {
+	const docRef = doc(db, colName, docName);
+	const docSnap = await getDoc(docRef);
+	
+	return docSnap;
+
+	/*if (docSnap.exists()) {
+		console.log("Document data:", docSnap.data());
+	} else {
+		// doc.data() will be undefined in this case
+		console.log("No such document!");
+	}*/
+}
+function writeData(course){
+	document.getElementById("title").innerHTML = "Edit " + course.CourseType+" "+ course.CourseNumber + ": ";
+	
+	if(course.GradCourse)
+		document.getElementById("level").value = "MS";
+	else
+		document.getElementById("level").value = "BS";
+	document.getElementById("level").disabled = true;
+	
+	document.getElementById("CourseType").value = course.CourseType;
+	document.getElementById("CourseType").disabled = true;
+	
+	document.getElementById("CourseNumber").value = course.CourseNumber;
+	document.getElementById("CourseNumber").readOnly = true;
+	
+	document.getElementById("position").value = course.GraderOrLab;
+	document.getElementById("position").disabled = true;
+	
+	document.getElementById(course.Semester).checked = true;
+	document.getElementById(course.Semester).disabled = true;
+	
+	document.getElementById("notes").value = course.Notes;
+}
 $('#courseform').submit(function(){
 	var form = $("#courseform");
 	if(form[0].checkValidity() === true){

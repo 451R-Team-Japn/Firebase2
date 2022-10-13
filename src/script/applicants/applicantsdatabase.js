@@ -19,7 +19,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 var currentCourse = location.search.substring(1);
-var courseObj;
 var applicantcount = 0;
 var done = false;
 
@@ -41,6 +40,7 @@ $(document).on('click','.remove',function(event){
 async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
+	var courseObj;	
 	var applicants = [];
 	//currentCourse = await localStorage.getItem("Course");
 	var docSnap=await getCoursedoc('Courses',currentCourse);

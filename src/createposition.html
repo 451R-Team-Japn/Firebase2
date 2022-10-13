@@ -24,7 +24,7 @@
             <div class="col-lg-11-auto">
                 <div class="card my-5">
                     <div class="card-body cardbody-color p-lg-5">
-                        <h4 class="mt-2">Create a new position:</h4>
+                        <h4 class="mt-2" id="title">Create a new position:</h4>
                         <form id="courseform" class="needs-validation" onsubmit="" novalidate>
                             <div class="row">
                               <div class="col">
@@ -67,9 +67,9 @@
                                         <select id="level" class="dropdown dropdown-toggle form-control" required>
                                           <ul class="dropdown-menu">
 										    <option selected disabled value=''>Choose Level...</option>
-                                            <option>BS</option>
-                                            <option>MS</option>
-                                            <option>PhD</option>
+                                            <option value="BS">BS</option>
+                                            <option value="MS">MS</option>
+                                            <option value="PhD">PhD</option>
                                           </ul>   
                                         </select>
                                         <div class="invalid-feedback">

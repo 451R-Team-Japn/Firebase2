@@ -57,8 +57,13 @@ async function validatelogin(col){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
+	var username = String(email).split("@");
+	var testemail = username[0] + "@umkc.edu";
+	
+	console.log(username[0]);
+	
 	//var users = await queryUsers(col);
-	var user = await checkLogin(col,email, password);
+	var user = await checkLogin(col,testemail, password);
 	
 	//var current;
 	//var username;
