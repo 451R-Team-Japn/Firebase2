@@ -51,17 +51,11 @@ async function getCollection(colName, id) {
 	//var doc = await getDoc(docRef);
    
    	var docRef = doc(db, colName, currentuser);
-	var docSnap = await getDocs(docRef);
+	var docSnap = await getDoc(docRef);
    
-   	docSnap.forEach(doc => {	
-		console.log(doc.exists);
-		return doc.exists;
-	});
+	console.log(docSnap.exists());
 	
-	//console.log(docRef);
-	//console.log(docRef.exists);
-	return false;
-
+	return docSnap.exists();
 }
 function getLoginID() {
 	if (localStorage.getItem("ID") !== null)
