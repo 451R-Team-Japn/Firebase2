@@ -141,6 +141,11 @@ a{
 .open-position-btn{
   width: 150px;
 }
+.open-position-btn2{
+  width: 150px;
+  margin-right: min(50px);
+  margin-right: max(50px);
+}
 .open-position-input-group{
   border-radius: 5px;
 }
