@@ -1,6 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { getFirestore, doc, collection, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getFirestore, doc, collection, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 
+'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -49,8 +50,8 @@ async function getCollection(colName, id) {
 	//var docRef = doc(db, colName, id);
 	//var doc = await getDoc(docRef);
    
-   	const docRef = doc(db, colName, currentuser);
-	const docSnap = await getDoc(docRef);
+   	var docRef = doc(db, colName, currentuser);
+	var docSnap = await getDocs(docRef);
    
    	docSnap.forEach(doc => {	
 		console.log(doc.exists);
