@@ -25,10 +25,14 @@ var applicant;
 $(document).ready(function () { 
 	var studentaccount = getAccounttype();
 	var studentpage; 
-	if (typeof getPagetype()=== "function")
+	if (typeof getPagetype=== "function"){
+		alert("function");
 		studentpage = true;
-	else
+	}
+	else{
+		alert("not");
 		studentpage = false;
+	}
 	
 	redirect(studentaccount, studentpage);
 	
