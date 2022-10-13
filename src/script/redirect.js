@@ -24,11 +24,12 @@ var applicant;
 
 $(document).ready(async function () { 
 	if(await !checkLogin()){
-		//start();
+		start();
 	}
 });
 function checkLogin(){
-	if (localStorage.getItem("ID") === null && localStorage.getItem("ID")){
+	alert("checkLogin");
+	if (localStorage.getItem("ID") === null && localStorage.getItem("ID") === null){
 		alert(true);
 		logout();
 		return true;
