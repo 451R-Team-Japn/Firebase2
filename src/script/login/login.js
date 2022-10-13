@@ -19,6 +19,10 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 
+$(document).ready(function () { 
+	localStorage.setItem("ID", null);
+	sessionStorage.setItem("ID", null);
+});
 
 $('#login').submit(function(){
 	if(!submitlogin());

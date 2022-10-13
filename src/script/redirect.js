@@ -24,7 +24,13 @@ var applicant;
 
 $(document).ready(function () { 
 	start();
+	checkLogin();
 });
+function start(){
+	if (localStorage.getItem("ID") === null && localStorage.getItem("ID"))
+		logout();
+}
+
 
 async function start(){
 	var studentaccount = await getAccounttype();
@@ -40,10 +46,7 @@ async function start(){
 }
 
 $('#logout').click(function(){
-	localStorage.setItem("ID", null);
-	sessionStorage.setItem("ID", null);
-	
-	window.location.href = 'index.html';
+	logout();
 })
 
 function logout() {
