@@ -102,7 +102,7 @@ function updateUser(){
 	var lname = document.getElementById("lname").value;
 	var stuID = document.getElementById("studentID").value;
 	var email = document.getElementById("email").value;
-	var gta = document.querySelector('input[class="gtainput"]:checked').value;
+	var gta = document.querySelector('input[name="GTA"]:checked').value;
 	var major = document.getElementById("major").value;
 
 	user = {
