@@ -96,15 +96,32 @@ function courseLimitcheck(courses){
 	}
 	return coursesamount;
 }
+function updateUser(){
+	var user = {};
+	var fname = document.getElementById("fname").value;
+	var lname = document.getElementById("lname").value;
+	var stuID = document.getElementById("studentID").value;
+	var email = document.getElementById("email").value;
+	var gta = document.querySelector('input[class="gtainput"]:checked').value;
+	var major = document.getElementById("major").value;
+
+	user = {
+	//Email: email,
+	//FirstName: fname,
+	GTACertified: gta,
+	//LastName: lname,
+	//StudentID: stuID,
+	Major: major
+	};
+	console.log("user => "+user);
+	
+	return user;
+}
 function getData(){
 	var applicant = {};
 	var termsplit;
 	var term;
 	var year;
-	var fname = document.getElementById("fname").value;
-	var lname = document.getElementById("lname").value;
-	var stuID = document.getElementById("studentID").value;
-	var email = document.getElementById("email").value;
 	var degree = document.getElementById("undergraduatedegree").value;
 	var gpa = document.getElementById("GPA").value;
 	var hours = document.getElementById("hours").value;

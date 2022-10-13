@@ -42,6 +42,8 @@ $('#application').submit(async function(){
 	else{
 		applicant=getData();
 		await setDoc(doc(db, "Applicants", currentuser), applicant);
+		user=updateUser();
+		await updateDoc(doc(db, "AccountStudent", currentuser), user);
 	}
 })
 $('.gtainput').click(function(){
