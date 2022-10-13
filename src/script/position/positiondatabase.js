@@ -70,7 +70,7 @@ function writeData(course){
 	
 	document.getElementById("notes").value = course.Notes;
 	
-	setremoveRequired(false, checkboxes);
+	semesterValidation();
 }
 $('#courseform').submit(function(){
 	var form = $("#courseform");
