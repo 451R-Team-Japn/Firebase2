@@ -114,7 +114,7 @@ function updateUser(){
 	GTACertified: parseInt(gta),
 	//LastName: lname,
 	//StudentID: stuID,
-	Major: major
+	Major: parseInt(major)
 	};
 	console.log("user => "+user);
 	

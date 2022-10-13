@@ -87,7 +87,7 @@ async function writeTable(student,application) {
 	
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
-	var GTAtext = ["Pending","Not Certified","Certified","Not Available"];
+	var GTAtext = ["Not Available","Pending","Certified"];
 	
 	x.classList.add("remove");
 	x.setAttribute("value", student.id);
