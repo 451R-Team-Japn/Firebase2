@@ -72,7 +72,7 @@ async function cloneCard(name,data) {
 	if(data.GradCourse){
 		grad = "grad";
 		if(positionname == "Grader")
-			notestext = "You may only apply for course if you <b>taken it at UMKC with a satisfactory grade of an A, A-or B+</b> or are a <b>PhD</b> student."
+			notestext = "You may only apply for course if you <b>taken it at UMKC</b> with a <b>satisfactory grade</b> of an <b>A, A-, or B+</b> or are a <b>PhD</b> student."
 	}
 	else{
 		grad = "undergrad";
