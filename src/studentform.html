@@ -46,7 +46,6 @@
                     <input class="form-control" type="text" id="lname" name="lname" required>
                   </div>
                 </div>
-
                 <div class="row mb-3">
                   <div class="col">
                     <label for="studentID">Student ID:</label>
@@ -57,7 +56,6 @@
                     <input class="form-control" type="email" id="email" name="email" required>
                   </div>
                 </div>
-
                 <div class="row mb-3">
                   <div class="col">
                     <label for="undergraduatedegree">Undergraduate Degree (if applicable):</label>
@@ -72,7 +70,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="row mb-3">
                   <div class="col">
                     <label for="hours">Hours Completed at UMKC:</label>
@@ -112,7 +109,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="col">
                   <label class="form-label" for="level">Current Level:</label>
                   <div>
@@ -130,24 +126,10 @@
                   </div>
                 </div>
               </div>
-              <!--<div class="col">
-                        <label class="form-label" for="applyterm">What term you are applying for?</label>
-                        <div>
-                          <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
-                          <label class="form-check-label" for="Fall">Fall</label>
-                        
-                          <input class="form-check-input applyterm" type="radio" required id="Spring" name="applyterm" value="1">
-                          <label class="form-check-label" for="Spring">Spring</label>
 
-                          <input class="form-check-input applyterm" type="radio" required id="Summer" name="applyterm" value="2">
-                          <label class="form-check-label" for="Summer">Summer</label>
-                          <div class="invalid-feedback">
-                            Please select the term you are applying for.
-                          </div>
-                        </div>
-                      </div>-->
               <div id="gta" class="col" hidden>
-                <label class="form-label" for="GTA">Are you GTA certified or have a previous degree from a US institute (as this waives GTA certification)?</label>
+                <label class="form-label" for="GTA">Are you GTA certified or have a previous degree from a US institute
+                  (as this waives GTA certification)?</label>
                 <div>
                   <input class="form-check-input gtainput" type="radio" required id="yes" name="GTA" value="0"
                     onclick="updateGTA(this.value)">
@@ -156,8 +138,8 @@
                   <input class="form-check-input gtainput" type="radio" required id="no" name="GTA" value="1"
                     onclick="updateGTA(this.value)">
                   <label class="form-check-label me-4" for="no">No</label>
-				  
-				  <input class="form-check-input gtainput" type="radio" required id="nolab" name="GTA" value="3"
+
+                  <input class="form-check-input gtainput" type="radio" required id="nolab" name="GTA" value="3"
                     onclick="updateGTA(this.value)">
                   <label class="form-check-label me-4" for="nolab">Not interested in being an Instructor</label>
 
@@ -182,7 +164,8 @@
                   <div id="lablistna" class="control-group" hidden>
                     <label class='form-label' for='lab'>Lab Classes</label>
                     <p class="error">You must be GTA certified to work as a lab instructor. <a
-                        href="https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/" target="_blank">Click
+                        href="https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/"
+                        target="_blank">Click
                         here</a> to learn more about GTA certification process.</p>
                   </div>
 
@@ -193,7 +176,9 @@
                 </fieldset>
               </div>
 
-              <p id="uploadtext">You may attach your updated resume and transcript</p>
+              <p id="uploadtext">You may attach your updated resume and transcript</p> <small class="text-muted">You can
+                upload multiple documents using the dropdown arrow</small>
+
               <div class="input-group mb-3 col">
                 <i class="input-group-text bi bi-file-earmark"></i>
 
@@ -242,7 +227,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -264,7 +248,6 @@
               event.preventDefault()
               event.stopPropagation()
             }
-
             form.classList.add('was-validated')
           }, false)
         })
@@ -272,24 +255,20 @@
     function gpaChange(value) {
       var message = "";
       setTwoNumberDecimal();
-
       if (value > 4)
         message = "Value must be less than or equal to 4.";
       else if (value < 0)
         message = "Value must be greater than or equal to 0.";
       else
         message = "Please enter your GPA.";
-
       $("#GPAmessage").html(message);
     }
     function hoursChange(value) {
       var message = "";
-
       if (value < 0)
         message = "Value must be greater than or equal to 0.";
       else
         message = "Please enter your completed hours.";
-
       $("#hoursmessage").html(message);
     }
   </script>
@@ -298,5 +277,4 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
