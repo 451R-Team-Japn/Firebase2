@@ -5,139 +5,160 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Link added for bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/css.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="script/position/positionprocess.js"></script>
   <script src="script/position/positionsubmit.js"></script>
   <script type="module" src="script/position/positiondatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
   <title>Create Position</title>
 </head>
+
 <body>
-    <div class="page-logo">
-        <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
-    </div>
-	
-	<div class="position-container">
-        <div class="row">
-            <div class="col-lg-11-auto">
-                <div class="card my-5">
-                    <div class="card-body cardbody-color p-lg-5">
-                        <h4 class="mt-2" id="title">Create a new position:</h4>
-                        <form id="courseform" class="needs-validation" onsubmit="" novalidate>
-                            <div class="row">
-                              <div class="col">
-                                <label for="class">Class: </label>
-                                <div style="width:100%;" class="input-group " id="class">
-									<select style="max-width:25%;" id="CourseType" class="dropdown dropdown-toggle form-control" required>
-                                          <ul class="dropdown-menu">
-										    <option selected disabled value=''>Choose...</option>
-											<option value="CS">CS</option>
-											<option value="ECE">ECE</option>
-											<option value="IT">IT</option>  
-                                          </ul>   
-                                    </select>
-									<input type="text" class="form-control rounded-end" id="CourseNumber" onchange="coursenumberChange(this.value)" pattern="(([1-4][0-9]{2}|[5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)" required>
-									<div class="invalid-feedback">
-									Please input a valid course number.
-									</div>
-								</div>
-                              </div>
-                              <div class="col">
-                                <label for="position">Position: </label>
-										<select id="position" class="dropdown dropdown-toggle form-control" required>
-                                          <ul class="dropdown-menu">
-										    <option selected disabled value=''>Choose Position...</option>
-											<option value="G">Grader</option>
-											<option value="R">Lab Instructor</option>
-											<!--<option value="Both">Both</option>-->
-                                          </ul>    
-                                        </select>
-                                <div class="invalid-feedback">
-                                  Please input position.
-                                </div>
-                              </div>
-                            </div>
+  <div class="page-logo">
+    <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
+  </div>
 
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <div class="col">
-                                        <label for="level">Level:</label>
-                                        <select id="level" class="dropdown dropdown-toggle form-control" onchange="changePattern(this.value)" required>
-                                          <ul class="dropdown-menu">
-										    <option selected disabled value=''>Choose Level...</option>
-                                            <option value="BS">BS</option>
-                                            <option value="MS">MS</option>
-                                            <option value="PhD">PhD</option>
-                                          </ul>   
-                                        </select>
-                                        <div class="invalid-feedback">
-                                          Please choose a level.
-                                        </div>
-    
-                                        <div class="col mt-3">
-                                            <label for="semester">Semester:</label>
-											<div class="checkbox-group required">
-											   <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="0" onclick="semesterValidation()" required><label class="me-4" for="0">Fall</label>
-												 <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="1" onclick="semesterValidation()" required><label class="me-4" for="1">Spring</label>
-												 <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="2" onclick="semesterValidation()" required><label class="me-4" for="2">Summer</label>
-												 <div class="invalid-feedback">
-													Please choose a semester.
-												</div>
-											</div>
-                                            <!--<select id="semester" class="dropdown dropdown-toggle" required>
-                                              <ul class="dropdown-menu">
-											    <option selected disabled value=''>Choose Semester...</option>
-                                                <option>Spring</option>
-                                                <option>Summer</option>
-                                                <option>Fall</option>
-                                              </ul>   
-                                            </select>-->
-                                        </div>
-                                    </div>
-                                </div>
+  <div class="position-container">
+    <div class="row">
+      <div class="col-lg-11-auto">
+        <div class="card my-5">
+          <div class="card-body cardbody-color p-lg-5">
+            <h4 class="mt-2" id="title">Create a new position:</h4>
 
-                                <div class="col">
-                                    <label for="notes">Notes:</label>
-                                    <textarea class="form-control" style="resize: none; height: 106px;" id="notes" rows="3"></textarea>
-                                </div>
-                              </div>
-							            <input action="admin.html" type="submit" value="Create" class="btn btn-primary px-5 mt-4 createbtn">
-                          <a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
-
-                          
-
-                        </form>
-                        <!--<a href="admin.html" type="submit" class="btn btn-primary px-5 mt-4 createbtn" >Create</a>-->
+            <form id="courseform" class="needs-validation" onsubmit="" novalidate>
+              <div class="row">
+                <div class="col">
+                  <label for="class">Class: </label>
+                  <div style="width:100%;" class="input-group " id="class">
+                    <select style="max-width:25%;" id="CourseType" class="dropdown dropdown-toggle form-control"
+                      required>
+                      <ul class="dropdown-menu">
+                        <option selected disabled value=''>Choose...</option>
+                        <option value="CS">CS</option>
+                        <option value="ECE">ECE</option>
+                        <option value="IT">IT</option>
+                      </ul>
+                    </select>
+                    <input type="text" class="form-control rounded-end" id="CourseNumber"
+                      onchange="coursenumberChange(this.value)"
+                      pattern="(([1-4][0-9]{2}|[5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)" required>
+                    <div class="invalid-feedback">
+                      Please input a valid course number.
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="col">
+                  <label for="position">Position: </label>
+                  <select id="position" class="dropdown dropdown-toggle form-control" required>
+                    <ul class="dropdown-menu">
+                      <option selected disabled value=''>Choose Position...</option>
+                      <option value="G">Grader</option>
+                      <option value="R">Lab Instructor</option>
+                      <!--<option value="Both">Both</option>-->
+                    </ul>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please input position.
+                  </div>
+                </div>
+              </div>
 
-    <script>
-      (function () {
-        'use strict'
-  
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-  
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-          .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-              if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-              }
-  
-              form.classList.add('was-validated')
-            }, false)
-          })
-      })()
-    </script>
- <!--Script added for bootstrap-->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+              <div class="row mt-3">
+                <div class="col">
+                  <div class="col">
+                    <label for="level">Level:</label>
+                    <select id="level" class="dropdown dropdown-toggle form-control"
+                      onchange="changePattern(this.value)" required>
+                      <ul class="dropdown-menu">
+                        <option selected disabled value=''>Choose Level...</option>
+                        <option value="BS">BS</option>
+                        <option value="MS">MS</option>
+                        <option value="PhD">PhD</option>
+                      </ul>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please choose a level.
+                    </div>
+
+                    <div class="col mt-3">
+                      <label for="semester">Semester:</label>
+                      <div class="checkbox-group required">
+                        <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="0"
+                          onclick="semesterValidation()" required><label class="me-4" for="0">Fall</label>
+                        <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="1"
+                          onclick="semesterValidation()" required><label class="me-4" for="1">Spring</label>
+                        <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="2"
+                          onclick="semesterValidation()" required><label class="me-4" for="2">Summer</label>
+                        <div class="invalid-feedback">
+                          Please choose a semester.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <label for="notes">Notes:</label>
+                  <textarea class="form-control" style="resize: none; height: 106px;" id="notes" rows="3"></textarea>
+                </div>
+              </div>
+              <input action="admin.html" type="submit" value="Create" class="btn btn-primary px-5 mt-4 createbtn">
+              <a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
+            </form>
+            <!--<a href="admin.html" type="submit" class="btn btn-primary px-5 mt-4 createbtn" >Create</a>-->
+
+            <!-- Message Form was submitted successfully-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Position</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    The new position was successfully created!
+                  </div>
+                  <div class="modal-footer">
+                    <a href="admin.html" class="btn btn-primary ">Close</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+  <!--Script added for bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 </html>
