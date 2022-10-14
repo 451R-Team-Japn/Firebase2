@@ -92,9 +92,11 @@ async function cloneCard(name,data) {
 	
 	document.getElementById(name).appendChild(clone);
 	var classname=await'#'+name+' #classname'; 
-	var notes=await'#'+name+' #notes'; 
+	var position=await'#'+name+' #position';
+	var notes=await'#'+name+' #notes';  
 	var semesterclass=await'#'+name+' #semester';
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
+	$(position).html(positionname);
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
 
