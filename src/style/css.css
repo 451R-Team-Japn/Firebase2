@@ -213,6 +213,26 @@ body{
   margin-right: 1.5rem;
 }
 
+.admin-items{
+  position: -webkit-sticky; /* Safari */
+  float: right;
+  position: sticky;
+  top: 50px;
+}
+
+.search-bar{
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+}
+
+.title-position{
+  background-color: #fbe764ee ;
+  width: 100%;
+  padding: 1rem;
+  padding-left: 3rem;
+  margin: 0;
+}
+
 @media (max-width: 530px){
   .check-level{
     margin-right: 2px;
@@ -228,5 +248,30 @@ body{
 
   .label-size{
     width: fit-content!important;
+  }
+  
+  .title-position{
+    text-align: center;
+    margin-bottom: 0;
+    padding-left: 0;
+    
+  }
+  
+  .admin-items{
+    position:static;    
+    float: none;
+  }
+
+  .search-bar{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .open-position-btn2{
+    margin-right: 00px;
+  }
+
+  .input-group{
+    display: inline-flex;
   }
 }
