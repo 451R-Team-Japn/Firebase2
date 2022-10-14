@@ -62,7 +62,7 @@ async function cloneCard(name,data) {
 	
 	if(data.GraderOrLab=="G"){
 		positionname = "Grader";
-		notestext = "Anyone can apply for this class if they taken it at UMKC";
+		notestext = "Anyone can apply for this class if they <b>taken it at UMKC</b>";
 	}
 	else{
 		positionname = "Instructor";
