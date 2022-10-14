@@ -71,12 +71,12 @@ async function cloneCard(name,data) {
 	
 	if(data.GradCourse){
 		grad = "grad";
-		if(positionname == "G")
+		if(positionname == "Grader")
 			notestext += ".";
 	}
 	else{
 		grad = "undergrad";
-		if(positionname == "G")
+		if(positionname == "Grader")
 			notestext += " or is a <b>graduate</b> student.";
 	}
 	
