@@ -57,8 +57,8 @@ async function cloneCard(name,data) {
 	var g;
 	var semester=["Fall","Spring","Summer"]
 	var grad;
-	var positionname;
 	var notestext;
+	var positionname;
 	
 	if(data.GraderOrLab=="G"){
 		positionname = "Grader";
@@ -81,34 +81,16 @@ async function cloneCard(name,data) {
 	await g.classList.add(positionname);
 	await g.classList.add(grad);
 	await g.classList.add(semester[data.Semester]);
-	await g.classList.add(applicantsbool);
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
 	document.getElementById(name).appendChild(clone);
 	var classname=await'#'+name+' #classname'; 
-	var position=await'#'+name+' #position'; 
 	var notes=await'#'+name+' #notes'; 
 	var semesterclass=await'#'+name+' #semester';
-	var seebutton=await'#'+name+' #seebutton'; 
-	var editbutton=await'#'+name+' #editbutton';
-	var closebutton=await'#'+name+' #closebutton';
-	var applicants=await'#'+name+' #applicants'; 
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
-	$(position).html(positionname);
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
-	$(seebutton).attr(await "href", "applicants.html?"+name);
-	$(seebutton).attr(await "target", "_blank");
-	$(editbutton).attr(await "href", "createposition.html?"+name);
-	$(editbutton).attr(await "target", "_blank");
-	$(closebutton).attr(await "value", name);
-	$(applicants).html(applicantstext);
-	
-	if(applicantcount==0)
-		$(seebutton).prop("disabled",true);
-	else
-		$(seebutton).prop("disabled",false);
 
 	filter();
 	await console.log(document.getElementById('open-position-container').innerHTML);
