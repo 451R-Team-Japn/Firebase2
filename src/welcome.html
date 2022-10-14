@@ -19,19 +19,24 @@
 </head>
 
 <body>
-    <div class="page-logo">
-        <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
-        <h2 class="m-5 mt-2 mb-3">Open Positions that you can apply for:</h2>
+    <div class="header">
+        <img src="assets/umkc-logo2.png" class="img-header" width="180px">
+        <h3 class="header-title">Science and Engineering</h3>
     </div>
-
-    <div class="text-center sticky-right">
-        <div class="input-group me-5 mb-3 float-end sticky-right">
-            <input type="text" id="Search" onkeyup="Search()" class="form-control" placeholder="Search Class"
+    <div class="divider"></div>
+    <div class="container-title">
+        <h2 class="page-title">Open Positions</h2>
+        <div class="input-group search-bar">
+            <input type="text" id="Search" onkeyup="Search()" class="form-control search-input" placeholder="Search Class"
                 aria-label="Search Position" aria-describedby="search-addon" />
-            <span class="btn btn-primary float-end" id="advanced-search-button" type="button">
+            <span class="btn search-btn float-end" id="advanced-search-button" type="button">
                 <i class="fa fa-search"></i>
             </span>
         </div>
+    </div>
+
+
+    <div class="text-center sticky-right">
         <div>
             <a href="index.html" target="_blank" id="newbutton" value=""
                 class="open-position-btn2 btn btn-primary float-end">Apply</a>
