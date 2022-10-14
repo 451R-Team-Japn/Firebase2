@@ -123,12 +123,6 @@ a{
   width: 150px;
 }
 
-.open-position-btn2{
-  width: 150px;
-  margin-right: min(50px);
-  margin-right: max(50px);
-}
-
 .open-position-input-group{
   border-radius: 5px;
 }
@@ -164,24 +158,17 @@ a{
   min-height: auto;
 }
 
-.card-filter{
-  width: fit-content;
-  position:absolute;
-  max-width: 1000px;
-  margin: auto;
-}
-
 .sticky-left {
   position: -webkit-sticky; /* Safari */
   float: left;
   position: sticky;
-  top: 50px;
+  top: 80px;
 }
 
 .sticky-center{
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 50px;
+  top: 80px;
   z-index:1;
 }
 
@@ -189,7 +176,7 @@ a{
   position: -webkit-sticky; /* Safari */
   float: right;
   position: sticky;
-  top: 50px;
+  top: 80px;
 }
 
 .notes-wrapper{
@@ -216,11 +203,6 @@ a{
   float: right;
   position: sticky;
   top: 50px;
-}
-
-.search-bar{
-  margin-right: 3rem;
-  margin-bottom: 1rem;
 }
 
 .title-position{
@@ -261,12 +243,7 @@ a{
   }
 
   .search-bar{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .open-position-btn2{
-    margin-right: 00px;
+    display: none;
   }
 
   .input-group{
@@ -298,28 +275,28 @@ a{
 }
 
 .container-title{
-  color: #0066cc;
+  color: white;
   padding:10px;
   padding-left: 20px;
   margin-bottom: 20px;
-  background-color: white; 
+  background-color: #044c7c; 
   width: 100%;
   font-size: 30px;
-  border-bottom: inset;
   display: inline-flex;
   height: 60px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .page-title{
-  color: #0066cc;
   font-weight: 700;
-  background-color: white; 
   width: 100%;
   font-size: 30px;
 }
 
 .search-bar{
   height: 36px;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 
 .search-btn{
@@ -330,11 +307,55 @@ a{
 
 .search-btn:hover{
   background-color: #0066cc;
-  border-color: #0066cc;
   color: #FFdd00;
 }
 
 .search-input{
   background-color:whitesmoke;
 }
+
+.sticky-top{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.btn-apply{
+  background-color: #FFdd00;
+  color: #044c7c;
+  margin-right: 25px;
+  font-family: 'Roboto', sans-serif;
+  width: 100px;
+}
+.btn-apply:hover{
+  background-color: #0066cc;
+  color: #FFdd00;
+}
+
+@media (max-width: 570px){
+  .search-bar{
+    display: none;
+  }
+  .header-title{
+    font-size: 30px;
+  }
+  .btn-apply{
+    margin-right: 10px;
+  }
+  .container-title{
+    padding-left: 10px;
+  }
+}
 /*END OF PAGE HEADER + TITLE*/
+
+/*FILTER DESIGN*/
+.card-filter{
+  width: fit-content;
+  color: #044c7c;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.filter-label{
+  font-weight: 700;
+}
+/*END OF FILTER DESIGN*/

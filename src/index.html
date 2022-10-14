@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,28 +25,23 @@
         <h3 class="header-title">Science and Engineering</h3>
     </div>
     <div class="divider"></div>
-    <div class="container-title">
+    <div class="container-title sticky-top">
         <h2 class="page-title">Open Positions</h2>
+        <div>
+            <a href="index.html" target="_blank" id="newbutton" value=""
+                class="btn-apply btn btn-primary float-end">APPLY</a>
+        </div>
         <div class="input-group search-bar">
-            <input type="text" id="Search" onkeyup="Search()" class="form-control search-input" placeholder="Search Class"
-                aria-label="Search Position" aria-describedby="search-addon" />
+            <input type="text" id="Search" onkeyup="Search()" class="form-control search-input"
+                placeholder="Search Class" aria-label="Search Position" aria-describedby="search-addon" />
             <span class="btn search-btn float-end" id="advanced-search-button" type="button">
                 <i class="fa fa-search"></i>
             </span>
         </div>
     </div>
 
-
-    <div class="text-center sticky-right">
-        <div>
-            <a href="login.html" target="_blank" id="newbutton" value=""
-                class="open-position-btn2 btn btn-primary float-end">Apply</a>
-        </div>
-    </div>
-
-    <div class="mb-3 p-3 card filter card-filter sticky-left">
-        <h5>Filter by <i class="bi bi-funnel"></i></h5>
-        <label>Major:</label>
+    <div class="p-3 card filter card-filter sticky-left">
+        <label class="filter-label">Major:</label>
         <div class="form-check" id="test">
             <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="CS"
                     value="CS" onchange="changeCheckbox(this)" />CS</label><br>
@@ -54,14 +50,14 @@
             <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="ECE"
                     value="ECE" onchange="changeCheckbox(this)" />ECE</label><br>
         </div>
-        <label class="mt-2">Position:</label>
+        <label class="mt-2 filter-label">Position:</label>
         <div class="form-check">
             <label class="checkbox form-check-label"><input class="form-check-input position" type="checkbox"
                     id="Grader" value="Grader" onchange="changeCheckbox(this)" />Grader</label><br>
             <label class="checkbox form-check-label"><input class="form-check-input position" type="checkbox"
                     id="Instructor" value="Instructor" onchange="changeCheckbox(this)" />Instructor</label><br>
         </div>
-        <label class="mt-2">Semester:</label>
+        <label class="mt-2 filter-label">Semester:</label>
         <div class="form-check">
             <label class="checkbox form-check-label"><input class="form-check-input semester" type="checkbox" id="Fall"
                     value="Fall" onchange="changeCheckbox(this)" />Fall</label><br>
@@ -70,7 +66,7 @@
             <label class="checkbox form-check-label"><input class="form-check-input semester" type="checkbox"
                     id="Summer" value="Summer" onchange="changeCheckbox(this)" />Summer</label><br>
         </div>
-        <label class="mt-2">Level:</label>
+        <label class="mt-2 filter-label">Level:</label>
         <div class="form-check">
             <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox" id="grad"
                     value="grad" onchange="changeCheckbox(this)" />Graduate</label><br>
@@ -95,8 +91,8 @@
 
     <!--Script added for bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 </body>
+
 </html>
