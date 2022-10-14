@@ -58,11 +58,16 @@ async function cloneCard(name,data) {
 	var semester=["Fall","Spring","Summer"]
 	var grad;
 	var positionname;
+	var notestext;
 	
-	if(data.GraderOrLab=="G")
+	if(data.GraderOrLab=="G"){
 		positionname = "Grader";
-	else
+		notestext = "Anyone can apply for this class if they taken it at UMKC or are a <b>Graduate</b> student.";
+	}
+	else{
 		positionname = "Instructor";
+		notestext = "This is an <b>Instructor</b> course to apply for this you must be a <b>Graduate</b> and be <b>GTA certified</b> to learn more about <b>GTA certification</b><a href="https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/">Click here</a>"
+	}
 	
 	if(data.GradCourse)
 		grad = "grad";
@@ -91,7 +96,7 @@ async function cloneCard(name,data) {
 	var applicants=await'#'+name+' #applicants'; 
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
-	$(notes).html(await data.Notes);
+	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
 	$(seebutton).attr(await "href", "applicants.html?"+name);
 	$(seebutton).attr(await "target", "_blank");
