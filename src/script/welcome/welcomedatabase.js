@@ -66,7 +66,7 @@ async function cloneCard(name,data) {
 	}
 	else{
 		positionname = "Instructor";
-		notestext = "This is an <b>instructor</b> course to apply for this you must be a <b>graduate</b> student and be <b>GTA certified.</b> To learn more about <b>GTA certification</b><a href='https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/'> Click here</a>"
+		notestext = "This is an <b>instructor</b> course to apply for this you must be a <b>graduate</b> student and be <b>GTA certified.</b> To learn more about <b>GTA certification</b><a href='https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/'> Click here</a>."
 	}
 	
 	if(data.GradCourse){
