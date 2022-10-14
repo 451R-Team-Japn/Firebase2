@@ -62,7 +62,7 @@ async function cloneCard(name,data) {
 	
 	if(data.GraderOrLab=="G"){
 		positionname = "Grader";
-		notestext = "Anyone can apply for this class if they <b>taken it at UMKC</b>";
+		notestext = "Anyone can apply for this class if they <b>taken it at UMKC</b> or are a <b>PhD</b> student.";
 	}
 	else{
 		positionname = "Instructor";
@@ -72,12 +72,10 @@ async function cloneCard(name,data) {
 	if(data.GradCourse){
 		grad = "grad";
 		if(positionname == "Grader")
-			notestext += ".";
+			notestext = "You may only apply for course if you <b>taken it at UMKC with a satisfactory grade of an A, A-or B+</b> or are a <b>PhD</b> student."
 	}
 	else{
 		grad = "undergrad";
-		if(positionname == "Grader")
-			notestext += " or is a <b>graduate</b> student.";
 	}
 	
 	g = document.createElement('div');
