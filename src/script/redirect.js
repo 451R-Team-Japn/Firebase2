@@ -6,7 +6,7 @@ $(document).ready(function () {
 	start();
 });
 function checkLogin(){
-	alert("checkLogin");
+	console.log("checkLogin");
 	if (localStorage.getItem("ID") === null && sessionStorage.getItem("ID") === null){
 		alert("logout()");
 		logout();
