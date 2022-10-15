@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style/css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="script/admin/adminfilter.js"></script>
-    <script src="script/admin/adminwrite.js"></script>
+    <script src="script/welcome/welcomewrite.js"></script>
     <script type="module" src="script/welcome/welcomedatabase.js"></script>
 	<link rel="icon" href="assets/umkc-logo.png">
     <link rel="stylesheet" type="text/css"
@@ -73,6 +73,7 @@
             <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox"
                     id="undergrad" value="undergrad" onchange="changeCheckbox(this)" />Undergraduate </label><br>
         </div>
+		
 		<div class="mt-3 form-check">
             <label class="form-check-label"><input class="form-check-input hasapplicants" type="radio"
                      name="collapserdb" onchange="collapseCards('show')"/>Show</label><br>
@@ -80,7 +81,6 @@
                     name="collapserdb" onchange="collapseCards('hide')" checked />Collapse</label><br>
         </div>
     </div>
-
     <div class="row open-position-container" id="open-position-container">
 	  <div class="col-sm-3" id="sample">
 		<div class="card mb-3 target" id="card">
@@ -95,7 +95,7 @@
             </div>
 		</div>
 		</div>
-	  <!--<div class="col-sm-3">
+	  <div class="col-sm-3">
 		<div class="card mb-3 target" id="card">
             <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)</h5></a>
             <div class="card-body collapse" id="collapseOne">
@@ -108,7 +108,7 @@
             </div>
         </div>
 		</div>
-		<div class="col-sm-3">
+		<!--<div class="col-sm-3">
 		<div class="card mb-3 target" id="card">
             <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)</h5></a>
             <div class="card-body collapse" id="collapseOne">
