@@ -417,3 +417,9 @@ a{
 i{
   color: #044c7c;
 }
+
+@media (max-width: 570px){
+  .login-input{
+    width: 100%;
+  }
+}
