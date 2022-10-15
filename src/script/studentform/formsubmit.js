@@ -11,7 +11,7 @@ function submitForm(){
 		return false;
 }
 function modal(){
-	$('#exampleModal').modal('toggle');
+	$('#formModal').modal('toggle');
 }
 function validateForm(){
 	var html='';

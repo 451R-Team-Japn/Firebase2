@@ -4,7 +4,7 @@
 	return false;
 }*/
 function modal(){
-	$('#exampleModal').modal('toggle');
+	$('#positionModal').modal('toggle');
 }
 function getData(){
 	var applicant = {};

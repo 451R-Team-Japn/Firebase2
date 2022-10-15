@@ -47,17 +47,6 @@ async function start(){
 	
 	console.log(studentaccount);
 }
-
-$('#logout').click(function(){
-	logout();
-})
-
-function logout() {
-	localStorage.setItem("ID", null);
-	sessionStorage.setItem("ID", null);
-	
-	window.location.href = 'index.html';
-}
 function redirect(studentaccount, studentpage){
 	console.log("studentaccount: "+studentaccount+" studentpage: "+studentpage);
 	if(studentaccount && !studentpage)

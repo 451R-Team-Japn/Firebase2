@@ -8,10 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/css.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="script/position/positionprocess.js"></script>
-  <script src="script/position/positionsubmit.js"></script>
-  <script type="module" src="script/position/positiondatabase.js"></script>
   <link rel="icon" href="assets/umkc-logo.png">
   <title>Create Position</title>
 </head>
@@ -19,6 +15,7 @@
 <body>
   <div class="page-logo">
     <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
+	<button type="button" id="logout" class="btn btn-primary ">Logout</button>
   </div>
 
   <div class="position-container">
@@ -28,7 +25,7 @@
           <div class="card-body cardbody-color p-lg-5">
             <h4 class="mt-2" id="title">Create a new position:</h4>
 
-            <form id="courseform" class="needs-validation" onsubmit="" novalidate>
+            <form id="courseform" class="needs-validation" action="javascript:modal()" novalidate>
               <div class="row">
                 <div class="col">
                   <label for="class">Class: </label>
@@ -111,19 +108,20 @@
             <!--<a href="admin.html" type="submit" class="btn btn-primary px-5 mt-4 createbtn" >Create</a>-->
 
             <!-- Message Form was submitted successfully-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="positionModal" tabindex="-1" aria-labelledby="positionModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Position</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="positionModalLabel">New Position</h5>
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
                   </div>
                   <div class="modal-body">
                     The new position was successfully created!
                   </div>
                   <div class="modal-footer">
-                    <a href="admin.html" class="btn btn-primary ">Close</i></a>
+					<button type="button" class="btn btn-primary " data-bs-dismiss="modal">Add another</button>
+                    <a href="admin.html" class="btn btn-primary ">Return to dashboard</i></a>
                   </div>
                 </div>
               </div>
@@ -160,5 +158,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="script/position/positionprocess.js"></script>
+  <script src="script/position/positionsubmit.js"></script>
+  <script type="module" src="script/position/positiondatabase.js"></script>
+  <script type="module" src="script/redirect.js"></script>
+  <script src="script/logout.js"></script>
 </body>
 </html>
