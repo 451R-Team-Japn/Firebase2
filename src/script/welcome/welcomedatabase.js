@@ -85,6 +85,7 @@ async function cloneCard(name,data) {
 	await g.classList.add(positionname);
 	await g.classList.add(grad);
 	await g.classList.add(semester[data.Semester]);
+	console.log(g.getElementsByClassName("card-body"));
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
