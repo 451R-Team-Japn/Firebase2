@@ -125,7 +125,7 @@ async function cloneCard(name,data) {
 		$(seebutton).prop("disabled",false);
 
 	filter();
-	$('.collapse').collapse('show');
+	//$('.collapse').collapse('show');
 	await console.log(document.getElementById('open-position-container').innerHTML);
 
 	async function writeApplicants(courseName) {
