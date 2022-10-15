@@ -93,10 +93,14 @@ async function cloneCard(name,data) {
 	var position=await'#'+name+' #position';
 	var notes=await'#'+name+' #notes';  
 	var semesterclass=await'#'+name+' #semester';
+	var collapseid=await'#'+name+' #title';
+	var collapsecard=await'#'+name+' .card-body';
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
+	$(collapseid).attr("data-bs-target","#collapse"+name);
+	$(collapsecard).attr("id","collapse"+name);
 
 	filter();
 	await console.log(document.getElementById('open-position-container').innerHTML);
