@@ -14,17 +14,23 @@
 </head>
 
 <body>
-  <div class="page-logo">
-    <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
-	<button type="button" id="logout" class="btn btn-primary ">Logout</button>
+  <div class="header">
+    <img src="assets/umkc-logo2.png" class="img-header" width="180px">
+    <h3 class="header-title">Science and Engineering</h3>
+  </div>
+  <div class="divider"></div>
+  <div class="container-title sticky-top">
+    <h2 class="page-title">Application Form</h2>
+    <div>
+      <a href="login.html" target="_blank" id="newbutton" value="" class="btn-apply btn btn-primary float-end">Logout</a>
+    </div>
   </div>
 
   <div class="position-container">
     <div class="row">
       <div class="col-lg-11-auto">
         <div class="card my-5">
-          <div class="card-body cardbody-color p-lg-5">
-            <h4 class="mt-2">Application Form</h4>
+          <div class="card-body cardbody-color p-lg-5 studentform-card-body">
             <form name="Form" id="application" action="javascript:modal()" accept-charset="UTF-8"
               enctype="multipart/form-data" method="POST" onsubmit="" class="needs-validation" novalidate>
 
@@ -119,24 +125,25 @@
                   </div>
                 </div>
               </div>
-			  
-			  
-			    <div class="col">
-					<label class="form-label" for="applyterm">What term you are applying for?</label>
-					<div>
-                          <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
-                          <label class="form-check-label" for="Fall">Fall</label>
-                        
-                          <input class="form-check-input applyterm" type="radio" required id="Spring" name="applyterm" value="1">
-                          <label class="form-check-label" for="Spring">Spring</label>
-                          <input class="form-check-input applyterm" type="radio" required id="Summer" name="applyterm" value="2">
-                          <label class="form-check-label" for="Summer">Summer</label>
-                          <div class="invalid-feedback">
-								Please select the term you are applying for.
-                          </div>
-					</div>
-				</div>
-				
+
+              <div class="col">
+                <label class="form-label" for="applyterm">What term you are applying for?</label>
+                <div>
+                  <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
+                  <label class="form-check-label me-3" for="Fall">Fall</label>
+
+                  <input class="form-check-input applyterm" type="radio" required id="Spring" name="applyterm"
+                    value="1">
+                  <label class="form-check-label me-3" for="Spring">Spring</label>
+                  <input class="form-check-input applyterm" type="radio" required id="Summer" name="applyterm"
+                    value="2">
+                  <label class="form-check-label" for="Summer">Summer</label>
+                  <div class="invalid-feedback">
+                    Please select the term you are applying for.
+                  </div>
+                </div>
+              </div>
+
               <div id="gta" class="col" hidden>
                 <label class="form-label" for="GTA">Are you GTA certified or have a previous degree from a US institute
                   (as this waives GTA certification)?</label>
@@ -220,8 +227,7 @@
               <input type="submit" value="Submit" class="btn btn-primary mt-3">
             </form>
             <!-- Message Form was submitted successfully-->
-            <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel"
-              aria-hidden="true">
+            <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -232,9 +238,9 @@
                     Your form was successfully submitted!
                   </div>
                   <div class="modal-footer">
-				    <button type="button" class="btn btn-primary " data-bs-dismiss="modal">Go Back</button>
+                    <button type="button" class="btn btn-primary " data-bs-dismiss="modal">Go Back</button>
                     <!--<a href="login.html" class="btn btn-primary ">Close</i></a>-->
-					<button type="button" id="logout" class="btn btn-primary ">Logout</button>
+                    <button type="button" id="logout" class="btn btn-primary ">Logout</button>
                   </div>
                 </div>
               </div>
@@ -297,4 +303,5 @@
   <script type="module" src="script/studentform/formdatabase.js"></script>
   <script src="script/redirect.js"></script>
 </body>
+
 </html>

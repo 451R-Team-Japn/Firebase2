@@ -423,3 +423,9 @@ i{
     width: 100%;
   }
 }
+
+/*Student form*/
+.studentform-card-body{
+  border-top: none;
+  box-shadow: 3px 8px 8px 3px rgb(0 0 0 / 0.2);
+}
