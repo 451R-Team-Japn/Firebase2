@@ -77,7 +77,7 @@ $('#courseform').submit(function(){
 	if(form[0].checkValidity() === true){
 		console.log("submit");
 		submitform();
-		event.preventDefault();
+		//event.preventDefault();
 	}
 	else{
 		event.preventDefault();
