@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
 body{
   font-family: Arial, Helvetica, sans-serif;
@@ -38,32 +38,6 @@ h2{
 
 .error {
   color: red;
-}
-
-/*Style for Login Page*/
-.login-container{
-  max-width: 1000px;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.profile-image-pic{
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-}
-
-.cardbody-color{
-  background-color: white;
-}
-
-a{
-  text-decoration: none;
-}
-
-.img-login{
-  background-color: transparent;
-  border:none;
 }
 
 /*Style for Student Form*/
@@ -134,12 +108,14 @@ a{
 
 .btn{
   background-color:#0066cc;
+  color: white;
 }
 
 .btn:hover{
   background-color: #FFdd00;
   border-color: #FFdd00;
   color:#0066cc;
+  font-weight: bolder;
 }
 
 .applicants{
@@ -260,6 +236,7 @@ a{
   color: white;
   font-size: 45px;
   align-items: end;
+  font-weight: bolder;
 }
 
 .divider{
@@ -320,6 +297,7 @@ a{
   margin-right: 25px;
   font-family: 'Roboto', sans-serif;
   width: 100px;
+  font-weight: bolder;
 }
 
 .btn-apply:hover{
@@ -356,7 +334,7 @@ a{
 }
 /*END OF FILTER DESIGN*/
 
-/*Welcome card-design*/
+/*WELCOME CARD DESIGN*/
 .class-card{
   background-color:white;
 }
@@ -387,4 +365,55 @@ a{
 
 a:hover{
   font-weight: bolder;
+}
+/*END OF WELCOME CARD DESIGN*/
+
+/*LOGIN PAGE DESIGN*/
+.login-page{
+  background-color: #e4ecf4;
+  font-family: 'Roboto';
+}
+
+.login-card-body{
+  border-top: none;
+  color: #044c7c;
+}
+
+.login-container{
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Roboto';
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.cardbody-color{
+  background-color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+.img-login{
+  background-color: transparent;
+  border:none;
+}
+
+.card-login{
+  border: 5px solid white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.btn-login{
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+i{
+  color: #044c7c;
 }
