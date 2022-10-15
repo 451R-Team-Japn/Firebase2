@@ -85,7 +85,7 @@ async function cloneCard(name,data) {
 	await g.classList.add(positionname);
 	await g.classList.add(grad);
 	await g.classList.add(semester[data.Semester]);
-	console.log(g.getElementsByClassName("card-body"));
+	console.log(g.getElementsByClassName("card-body").innerHTML);
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
@@ -100,7 +100,7 @@ async function cloneCard(name,data) {
 	$(semesterclass).html(await semester[data.Semester]);
 
 	filter();
-	await console.log(document.getElementById('open-position-container').innerHTML);
+	//await console.log(document.getElementById('open-position-container').innerHTML);
 }
 $(document).on("click", "#closebutton" ,async function() {
 	var value = $(this).attr("value");
