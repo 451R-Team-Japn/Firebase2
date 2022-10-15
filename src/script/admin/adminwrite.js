@@ -12,3 +12,6 @@ $('#closebutton').click(function(){
 	//await deleteDoc(doc(db, "GraderCourses2", course));
 	//await deleteDoc(doc(db, "InstructorCourses2", course));
 })
+function getPagetype(){
+	return 1;
+}

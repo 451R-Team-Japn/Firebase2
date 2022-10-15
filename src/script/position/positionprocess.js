@@ -36,3 +36,6 @@ function changePattern(level){
 	else
 		coursenum.pattern = "(([5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)";
 }
+function getPagetype(){
+	return 1;
+}

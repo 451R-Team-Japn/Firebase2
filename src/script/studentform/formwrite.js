@@ -164,5 +164,8 @@ function makehidden(classname, set){
 		//item.hidden = set;
 	//});
 }
+function getPagetype(){
+	return 0;
+}
 
 

@@ -23,3 +23,6 @@ $(document).ready(function () {
 		//alert(value); 
 	//});
 });
+function getPagetype(){
+	return 1;
+}
