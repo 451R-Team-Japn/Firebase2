@@ -103,6 +103,7 @@ async function cloneCard(name,data) {
 	$(collapsecard).attr("id","collapse"+name);
 
 	filter();
+	$('.collapse').collapse('hide');
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 $(document).on("click", "#closebutton" ,async function() {

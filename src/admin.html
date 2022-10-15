@@ -80,13 +80,19 @@
             <label class="checkbox form-check-label"><input class="form-check-input hasapplicants" type="checkbox"
                     id="noapplicants" value="noapplicants" onchange="changeCheckbox(this)" />No Applicants </label><br>
         </div>
+		<div class="mt-3 form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input hasapplicants" type="radio"
+                     name="collapse" onchange="$('.collapse').collapse('show')" checked />Show</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input hasapplicants" type="radio"
+                    name="collapse" onchange="$('.collapse').collapse('hide')"/>Collapse</label><br>
+        </div>
     </div>
 
     <div class="open-position-container" id="open-position-container">
         <div class="card mb-3 target" id="card">
-            <h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
-                    class="float-end" id="applicants">0 Applicants</span></h5>
-            <div class="card-body">
+            <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
+                    class="float-end" id="applicants">0 Applicants</span></h5></a>
+            <div class="card-body collapse"  id="collapseOne">
                 <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
                 <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
                 <div class="open-position-input-group btn-primary input-group float-end">

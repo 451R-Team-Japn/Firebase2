@@ -104,6 +104,8 @@ async function cloneCard(name,data) {
 	var editbutton=await'#'+name+' #editbutton';
 	var closebutton=await'#'+name+' #closebutton';
 	var applicants=await'#'+name+' #applicants'; 
+	var collapseid=await'#'+name+' #title';
+	var collapsecard=await'#'+name+' .card-body';
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
 	$(notes).html(await data.Notes);
@@ -114,6 +116,8 @@ async function cloneCard(name,data) {
 	$(editbutton).attr(await "target", "_blank");
 	$(closebutton).attr(await "value", name);
 	$(applicants).html(applicantstext);
+	$(collapseid).attr("data-bs-target","#collapse"+name);
+	$(collapsecard).attr("id","collapse"+name);
 	
 	if(applicantcount==0)
 		$(seebutton).prop("disabled",true);
@@ -121,6 +125,7 @@ async function cloneCard(name,data) {
 		$(seebutton).prop("disabled",false);
 
 	filter();
+	$('.collapse').collapse('show');
 	await console.log(document.getElementById('open-position-container').innerHTML);
 
 	async function writeApplicants(courseName) {
