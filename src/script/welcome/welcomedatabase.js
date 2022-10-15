@@ -85,19 +85,18 @@ async function cloneCard(name,data) {
 	await g.classList.add(positionname);
 	await g.classList.add(grad);
 	await g.classList.add(semester[data.Semester]);
-	console.log(g.getElementsByClassName("card-body").innerHTML);
-	
-	document.getElementById('open-position-container').appendChild(g);
 	
 	document.getElementById(name).appendChild(clone);
 	var classname=await'#'+name+' #classname'; 
 	var position=await'#'+name+' #position';
 	var notes=await'#'+name+' #notes';  
 	var semesterclass=await'#'+name+' #semester';
+	//var collapseid=await'#'+name+' #title';
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
+	//$(collapseid).attr("data-bs-target","#collapse"+name);
 
 	filter();
 	//await console.log(document.getElementById('open-position-container').innerHTML);
