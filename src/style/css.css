@@ -78,7 +78,12 @@ h2{
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+#newbutton{
+  width: 125%;
+}
+.right-card-title{
+  font-size: 75%;
+}
 .card{
   z-index: auto;
   background-color: white;
@@ -146,7 +151,15 @@ h2{
   position: sticky;
   top: 80px;
 }
-
+.admin-notes{
+  height: 75px;
+}
+.welcome-notes{
+  height: 150px;
+}
+/*#card{
+	min-width: 100%;
+}*/
 .notes-wrapper{
   width: auto; 
   padding: 0 10px;

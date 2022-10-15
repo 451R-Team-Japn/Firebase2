@@ -18,10 +18,26 @@
     <div class="page-logo">
         <img src="assets/umkc-logo1.png" class="img-login img-fluid" width="400px">
 		<button type="button" id="logout" class="btn btn-primary ">Logout</button>
-        <h2 class=" mt-2 mb-3 title-position">Open Positions</h2>
+        <!--<h2 class=" mt-2 mb-3 title-position">Open Positions</h2>-->
     </div>
-
-    <div class="text-center admin-items">
+	
+    <div class="divider"></div>
+    <div class="container-title sticky-top">
+        <h2 class="page-title">Open Positions</h2>
+        <div class="add-button">
+			<a id="newbutton" href="createposition.html?new" target="_blank" id="newbutton" value=""
+                class="btn-apply btn btn-primary float-end">Add Position</a>
+        </div>
+        <div class="input-group search-bar">
+            <input type="text" id="Search" onkeyup="Search()" class="form-control search-input"
+                placeholder="Search Class" aria-label="Search Position" aria-describedby="search-addon" />
+            <span class="btn search-btn float-end" id="advanced-search-button" type="button">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+    </div>
+	
+    <!--<div class="text-center admin-items">
         <div class="input-group search-bar">
             <input type="text" id="Search" onkeyup="Search()" class="form-control" placeholder="Search Class"
                 aria-label="Search Position" aria-describedby="search-addon" />
@@ -34,7 +50,7 @@
             <a id="newbutton" href="createposition.html?new" target="_blank" value=""
                 class="open-position-btn2 btn btn-primary admin-items mb-4">Add Position</a>
         </div>
-    </div>
+    </div>-->
 
     <div class="mb-3 p-3 card filter card-filter sticky-left">
         <h5>Filter by <i class="bi bi-funnel"></i></h5>
@@ -85,10 +101,11 @@
         </div>
     </div>
 
-    <div class="open-position-container" id="open-position-container">
+    <div class="row open-position-container" id="open-position-container">
+		<div class="col-sm-4" id="sample">
         <div class="card mb-3 target" id="card">
             <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
-                    class="float-end" id="applicants">0 Applicants</span></h5></a>
+                    class="float-end right-card-title" id="applicants">0 Applicants</span></h5></a>
             <div class="card-body collapse"  id="collapseOne">
                 <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
                 <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
@@ -97,12 +114,89 @@
                     <button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
                 </div>
                 <label class="card-title float-start">Notes: </label>
-                <div class="notes-wrapper ">
+                <div class="notes-wrapper admin-notes">
                     <span id="notes">None</span>
                 </div>
                 <br>
             </div>
         </div>
+		</div>
+		<!--<div class="col-sm-4">
+        <div class="card mb-3 target" id="card">
+            <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
+                    class="float-end right-card-title" id="applicants">0 Applicants</span></h5></a>
+            <div class="card-body collapse"  id="collapseOne">
+                <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
+                <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
+                <div class="open-position-input-group btn-primary input-group float-end">
+                    <a id="editbutton" href="" value="" class="input-group-btn btn btn-primary">Edit Notes</a>
+                    <button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
+                </div>
+                <label class="card-title float-start">Notes: </label>
+                <div class="notes-wrapper admin-notes">
+                    <span id="notes">None</span>
+                </div>
+                <br>
+            </div>
+        </div>
+		</div>
+		<div class="col-sm-4">
+        <div class="card mb-3 target" id="card">
+            <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
+                    class="float-end right-card-title" id="applicants">0 Applicants</span></h5></a>
+            <div class="card-body collapse"  id="collapseOne">
+                <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
+                <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
+                <div class="open-position-input-group btn-primary input-group float-end">
+                    <a id="editbutton" href="" value="" class="input-group-btn btn btn-primary">Edit Notes</a>
+                    <button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
+                </div>
+                <label class="card-title float-start">Notes: </label>
+                <div class="notes-wrapper admin-notes">
+                    <span id="notes">None</span>
+                </div>
+                <br>
+            </div>
+        </div>
+		</div>
+		<div class="col-sm-4">
+        <div class="card mb-3 target" id="card">
+            <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
+                    class="float-end right-card-title" id="applicants">0 Applicants</span></h5></a>
+            <div class="card-body collapse"  id="collapseOne">
+                <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
+                <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
+                <div class="open-position-input-group btn-primary input-group float-end">
+                    <a id="editbutton" href="" value="" class="input-group-btn btn btn-primary">Edit Notes</a>
+                    <button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
+                </div>
+                <label class="card-title float-start">Notes: </label>
+                <div class="notes-wrapper admin-notes">
+                    <span id="notes">None</span>
+                </div>
+                <br>
+            </div>
+        </div>
+		</div>
+		<div class="col-sm-4">
+        <div class="card mb-3 target" id="card">
+            <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne"><h5 class="card-header"><span id="classname">IT 390</span> (<span id="semester">Summer</span>)<span
+                    class="float-end right-card-title" id="applicants">0 Applicants</span></h5></a>
+            <div class="card-body collapse"  id="collapseOne">
+                <label class="card-title mt-2 mb-3">Position: <span id="position">Grader</span></label>
+                <a id="seebutton" href="" value="" class="open-position-btn btn btn-primary float-end">See Applicants</a><br>
+                <div class="open-position-input-group btn-primary input-group float-end">
+                    <a id="editbutton" href="" value="" class="input-group-btn btn btn-primary">Edit Notes</a>
+                    <button id="closebutton" value="" class="input-group-btn btn btn-primary">Close Position</button>
+                </div>
+                <label class="card-title float-start">Notes: </label>
+                <div class="notes-wrapper admin-notes">
+                    <span id="notes">None</span>
+                </div>
+                <br>
+            </div>
+        </div>
+		</div>-->
     </div>
 
     <!--Script added for bootstrap-->
