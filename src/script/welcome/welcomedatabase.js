@@ -100,7 +100,7 @@ async function cloneCard(name,data) {
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
-	$(collapsecard).attr("id","#collapse"+name);
+	$(collapsecard).attr("id","collapse"+name);
 
 	filter();
 	await console.log(document.getElementById('open-position-container').innerHTML);
