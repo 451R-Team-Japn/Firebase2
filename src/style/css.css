@@ -261,6 +261,7 @@ a{
   font-size: 45px;
   align-items: end;
 }
+
 .divider{
   background-color: #FFdd00;
   height: 5px;
@@ -311,13 +312,16 @@ a{
   position: sticky;
   top: 0;
 }
+
 .btn-apply{
   background-color: #FFdd00;
+  border-color:#FFdd00;
   color: #044c7c;
   margin-right: 25px;
   font-family: 'Roboto', sans-serif;
   width: 100px;
 }
+
 .btn-apply:hover{
   background-color: #0066cc;
   color: #FFdd00;
@@ -351,3 +355,36 @@ a{
   font-weight: 700;
 }
 /*END OF FILTER DESIGN*/
+
+/*Welcome card-design*/
+.class-card{
+  background-color:white;
+}
+
+.card-header{
+  color: #0066cc;
+  background-color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.semester{
+  font-weight: normal;
+  float:right;
+}
+
+.card-body{
+  border-top: 5px solid #044c7c;
+  color: #044c7c;
+  background-color: white;
+}
+
+.card-header:hover{
+  background-color: #044c7c;
+  color:#FFdd00 ;
+  font-weight: bolder;
+}
+
+a:hover{
+  font-weight: bolder;
+}
