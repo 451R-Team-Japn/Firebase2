@@ -37,6 +37,18 @@ $(document).on('click','.remove',function(event){
 	alert(currentCourse+" => "+value);
 });
 
+$(document).on('change','.gtaselect',function(event){
+	alert('change');
+	var value = event.target.value;
+	alert(currentCourse+" => "+value);
+});
+$(document).on('click','.gtaselect',function(event){
+	alert('click');
+	var value = event.target.value;
+	alert(currentCourse+" => "+value);
+});
+
+
 async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
