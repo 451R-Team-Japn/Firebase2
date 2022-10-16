@@ -196,12 +196,13 @@ async function updateGTA(docName, value) {
 }
 
 function writeFile(id, filename) {
-  storageRef.child(id+'/'+filename).getDownloadURL().then(function(url) {
-  var iframe1 = document.getElementById('iframepdf');
-  iframe1.src = url;
-}).catch(function(error) {
-  // Handle any errors
-});
+	var storageRef = ref(storage);
+	storageRef.child(id+'/'+filename).getDownloadURL().then(function(url) {
+	var iframe1 = document.getElementById('iframepdf');
+	iframe1.src = url;
+	}).catch(function(error) {
+		// Handle any errors
+	});
 }
 
 onAuthStateChanged(auth, user => {
