@@ -100,21 +100,31 @@ async function writeTable(student,application,position) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
+	var docexist = false;
 	
 	console.log("add");
 	
 	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
 	
-	if(await getFile(student.id, 'resume'))
+	if(await getFile(student.id, 'resume')){
+		docexist = true;
 		docbtn += '<button type="button" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button>';
+	}
 	
-	if(await getFile(student.id, 'transcript'))
+	if(await getFile(student.id, 'transcript')){
+		docexist = true;
 		docbtn += '<button type="button" value="transcript" class="dropdown-item pdfbtn" student="'+student.id+'">Transcript</button>';
+	}
 	
-	if(position == "Instructor" && await getFile(student.id, 'gta'))
+	if(position == "Instructor" && await getFile(student.id, 'gta')){
+		docexist = true;
 		docbtn += '<button type="button" value="gta" class="dropdown-item pdfbtn" student="'+student.id+'">GTA certification or waiver</button>';
+	}
 
 	docbtn += '</div>';
+	
+	if(!docexist)
+		docbtn = "No Documents";
 	
 	
 	var table = $('#sortTable').DataTable();
