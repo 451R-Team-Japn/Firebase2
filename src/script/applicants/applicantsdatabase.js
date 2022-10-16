@@ -116,7 +116,7 @@ async function writeTable(student,application) {
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
-	var GTAcell = GTAtext[studentdata.GTACertified];
+	var GTAcell = gtaselect;
 	var Documentscell = docbtn;
 	var removecell = "<button type='button' class='btn btn-primary' class='remove' value='"+student.id+"'>X</button>";
 	
