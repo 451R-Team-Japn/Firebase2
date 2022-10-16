@@ -225,9 +225,10 @@ async function writeFile(id, filename) {
 		iframe1.src = "files/error.jpg";
 	});
 }
-function getFile(id, filename) {
+async function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
-	var value = getDownloadURL(storageRef).then(onResolve, onReject);
+	var value;
+	await value = getDownloadURL(storageRef).then(onResolve, onReject);
 	function onResolve() {
 		return true;
 	}
