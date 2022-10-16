@@ -224,12 +224,12 @@ async function updateGTA(docName, value) {
 	});
 }
 
-function writeFile(id, filename) {
+async function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
 	getDownloadURL(storageRef).then(function(url) {
 		console.log(url);
-		iframe1.src = url;
+		await iframe1.src = url;
 	}).catch(function(error) {
 		console.log("error",error);
 		iframe1.src = "files/error.jpg";
