@@ -365,7 +365,7 @@ h2{
 }
 
 .card-body{
-  border-top: 5px solid #044c7c;
+  border-top: 2px solid #044c7c;
   color: #044c7c;
   background-color: white;
 }
@@ -453,4 +453,17 @@ i{
 
 .open-position-btn{
   float: left;
+}
+
+.new-position-card{
+  border-top: none;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.bi-arrow-left{
+  color: white;
+}
+
+.bi-arrow-left:hover{
+  color: #044c7c;
 }
