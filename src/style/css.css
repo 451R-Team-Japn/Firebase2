@@ -467,3 +467,7 @@ i{
 .bi-arrow-left:hover{
   color: #044c7c;
 }
+
+.card-new-position{
+  border:none;
+}
