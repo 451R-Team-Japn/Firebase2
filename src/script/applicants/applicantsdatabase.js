@@ -71,7 +71,7 @@ async function getCourse(){
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
 	console.log(applicants);
-	await writeStudents(student, applicants);
+	await writeStudents(applicants);
 	
 	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
