@@ -40,14 +40,9 @@ $(document).on('click','.remove',function(event){
 $(document).on('change','.gtaselect',function(event){
 	alert('change');
 	var value = event.target.value;
-	alert(currentCourse+" => "+value);
+	var student = event.target.getAttribute("student");
+	alert(student+" => "+value);
 });
-/*$(document).on('click','.gtaselect',function(event){
-	alert('click');
-	var value = event.target.value;
-	alert(currentCourse+" => "+value);
-});*/
-
 
 async function getCourse(){
 	var table = $('#sortTable').DataTable();
@@ -109,6 +104,7 @@ async function writeTable(student,application) {
 	for (var i = 0; i<GTAtext.length; i++){
 		var opt = document.createElement('option');
 		opt.value = GTAtext[i];
+		opt.setAttribute("student", student.id);
 		opt.innerHTML = GTAtext[i];
 		gtaselect.appendChild(opt);
 	}
