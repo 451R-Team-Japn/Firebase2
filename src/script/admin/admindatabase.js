@@ -39,8 +39,8 @@ $('.level').click(function(){
 async function writeCourses() {
 	await writeCourseIDs('Courses');
 	//await writeCourseIDs('InstructorCourses2','Instructor');
-	document.getElementById("card").hidden = true;
-	//document.getElementById("sample").remove();
+	//document.getElementById("card").hidden = true;
+	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 async function writeCourseIDs(Courses) {
