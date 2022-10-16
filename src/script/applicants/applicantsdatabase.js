@@ -49,6 +49,7 @@ $(document).on('click','.pdfbtn',function(event){
 	var student = event.target.getAttribute("student");
 	alert(student+" => "+value);
 	writeFile(student, value);
+	modal();
 });
 
 async function getCourse(){
