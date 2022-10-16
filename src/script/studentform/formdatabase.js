@@ -254,7 +254,7 @@ const storageRef = ref(storage, user+"/"+filename);
 	uploadBytes(storageRef, file).then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
-});
+}
 
 onAuthStateChanged(auth, user => {
   if(user != null){
