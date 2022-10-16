@@ -67,40 +67,54 @@ async function getCourse(){
 	}*/
 	courseObj=docSnap.data();
 	console.log(courseObj);
-
-	writeTitle(courseObj,position);
-	applicants=await writeApplicants(currentCourse,applicants);
-	console.log(applicants);
-	await writeStudents(applicants);
 	
+		
 	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
 		table.column(7).visible(false);
 	}
 	else 
 		position="Instructor";
+
+	writeTitle(courseObj,position);
+	applicants=await writeApplicants(currentCourse,applicants);
+	console.log(applicants);
+	await writeStudents(applicants, position);
+
 	
 	//await document.getElementById("sortTable").deleteRow(1);
 	table.draw();
 	//setFilters();
 }
-async function writeStudents(applicants) {
+async function writeStudents(applicants, position) {
 	var student;
 	var application;
 	for(var j=0;j<applicants.length;j++){
 		student=await getCoursedoc('AccountStudent',applicants[j]);
 		application=await getCoursedoc('Applicants',applicants[j]);
-		writeTable(student,application.data());
+		writeTable(student,application.data(),position);
 	}
 }
-async function writeTable(student,application) {
+async function writeTable(student,application,position) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
 	
 	console.log("add");
 	
-	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item pdfbtn" student="'+student.id+'">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item pdfbtn" student="'+student.id+'">GTA certification or waiver</button></div>'
+	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
+	
+	if(getFile(student.id, 'resume'))
+		docbtn += '<button type="button" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button>';
+	
+	if(getFile(student.id, 'transcript'))
+		docbtn += '<button type="button" value="transcript" class="dropdown-item pdfbtn" student="'+student.id+'">Transcript</button>';
+	
+	if(position == "Instructor" && getFile(student.id, 'gta'))
+		docbtn += '<button type="button" value="gta" class="dropdown-item pdfbtn" student="'+student.id+'">GTA certification or waiver</button>';
+
+	docbtn += '</div>';
+	
 	
 	var table = $('#sortTable').DataTable();
 	
@@ -141,7 +155,8 @@ async function writeTable(student,application) {
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
-	document.getElementById(student.id+"gpa").appendChild(gtaselect);	
+	if(position == "Instructor")
+		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 	
 	console.log(removecell);
 }
@@ -207,6 +222,14 @@ function writeFile(id, filename) {
 	}).catch(function(error) {
 		console.log("error",error);
 		iframe1.src = "files/error.jpg";
+	});
+}
+function getFile(id, filename) {
+	var storageRef = ref(storage, id+'/'+filename+'.pdf');
+	getDownloadURL(storageRef).then(function(url) {
+		return true;
+	}).catch(function(error) {
+		return false;
 	});
 }
 
