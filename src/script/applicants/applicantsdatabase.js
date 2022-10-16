@@ -227,7 +227,7 @@ async function updateGTA(docName, value) {
 async function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
-	getDownloadURL(storageRef).then(onResolve, onReject);
+	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
 		console.log(url);
 		await iframe1.src = url;
