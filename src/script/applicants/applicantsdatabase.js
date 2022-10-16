@@ -213,7 +213,7 @@ async function updateGTA(docName, value) {
 	});
 }
 
-function writeFile(id, filename) {
+async function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
 	getDownloadURL(storageRef).then(function(url) {
@@ -226,7 +226,7 @@ function writeFile(id, filename) {
 }
 function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
-	var value = getDownloadURL(storageRef).then(onResolve, onReject);
+	var value = await getDownloadURL(storageRef).then(onResolve, onReject);
 	function onResolve() {
 		return true;
 	}
