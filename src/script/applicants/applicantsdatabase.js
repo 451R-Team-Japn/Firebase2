@@ -81,6 +81,7 @@ async function writeTable(student,application) {
 	
 	var studentdata=student.data();
 	var x = document.createElement('button');
+	var gtaselect =  document.createElement('select');
 	console.log("add");
 	
 	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item filedropdown">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item filedropdown gtafilebtn">GTA certification or waiver</button></div>'
@@ -91,8 +92,20 @@ async function writeTable(student,application) {
 	var leveltext = ["BS","MS","PhD"];
 	var GTAtext = ["Not Available","Pending","Certified"];
 	
+	for (var i = 0; i<=GTAtext.length; i++){
+		var opt = document.createElement('option');
+		opt.value = GTAtext[i];
+		opt.innerHTML = GTAtext[i];
+		opt.className = "gtaselect";
+		gtaselect.appendChild(opt);
+	}
+	
+	gtaselect.selectedIndex = studentdata.GTACertified;
+	
 	x.classList.add("remove");
 	x.setAttribute("value", student.id);
+	
+	//document.getElementById("Mobility").selectedIndex = 12; //Option 10
 
 	
 	//var row = table.insertRow(-1);
@@ -105,7 +118,7 @@ async function writeTable(student,application) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = GTAtext[studentdata.GTACertified];
 	var Documentscell = docbtn;
-	var removecell = "<button class='remove' value='"+student.id+"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary' class='remove' value='"+student.id+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
