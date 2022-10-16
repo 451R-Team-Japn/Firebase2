@@ -226,7 +226,7 @@ async function writeFile(id, filename) {
 }
 function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
-	var value = await getDownloadURL(storageRef).then(onResolve, onReject);
+	var value = getDownloadURL(storageRef).then(onResolve, onReject);
 	function onResolve() {
 		return true;
 	}
