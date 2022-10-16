@@ -141,7 +141,6 @@ async function writeTable(student,application) {
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
-	if()
 	document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 	
 	console.log(removecell);
