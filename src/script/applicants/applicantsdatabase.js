@@ -104,11 +104,12 @@ async function writeTable(student,application) {
 	var leveltext = ["BS","MS","PhD"];
 	var GTAtext = ["Not Available","Pending","Certified"];
 	
+	gtaselect.classList.add("gtaselect");
+	
 	for (var i = 0; i<GTAtext.length; i++){
 		var opt = document.createElement('option');
 		opt.value = GTAtext[i];
 		opt.innerHTML = GTAtext[i];
-		opt.classList.add("gtaselect");
 		gtaselect.appendChild(opt);
 	}
 	
