@@ -41,13 +41,13 @@ $(document).on('click','.remove',function(event){
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
 	var student = event.target.getAttribute("student");
-	alert(student+" => "+value);
+	//alert(student+" => "+value);
 	updateGTA(student, value);
 });
 $(document).on('click','.pdfbtn',function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
-	alert(student+" => "+value);
+	//alert(student+" => "+value);
 	writeFile(student, value);
 	modal();
 });
