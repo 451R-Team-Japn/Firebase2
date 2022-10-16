@@ -67,6 +67,12 @@ async function getCourse(){
 	}*/
 	courseObj=docSnap.data();
 	console.log(courseObj);
+
+	writeTitle(courseObj,position);
+	applicants=await writeApplicants(currentCourse,applicants);
+	console.log(applicants);
+	await writeStudents(applicants);
+	
 	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
 		table.column(7).visible(false);
@@ -74,10 +80,6 @@ async function getCourse(){
 	else 
 		position="Instructor";
 	
-	writeTitle(courseObj,position);
-	applicants=await writeApplicants(currentCourse,applicants);
-	console.log(applicants);
-	await writeStudents(applicants);
 	//await document.getElementById("sortTable").deleteRow(1);
 	table.draw();
 	//setFilters();
@@ -138,6 +140,7 @@ async function writeTable() {
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
+	if()
 	document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 	
 	console.log(removecell);
