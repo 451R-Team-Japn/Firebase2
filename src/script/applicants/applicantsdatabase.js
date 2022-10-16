@@ -232,6 +232,7 @@ function getFile(id, filename) {
 	}).catch(function(error) {
 		value = false;
 	});
+	console.log(value);
 	return value;
 }
 
