@@ -227,13 +227,15 @@ async function updateGTA(docName, value) {
 async function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
-	getDownloadURL(storageRef).then(async function(url) {
+	getDownloadURL(storageRef).then(onResolve, onReject);
+	function onResolve(url) {
 		console.log(url);
 		await iframe1.src = url;
-	}).catch(function(error) {
+	}
+	function onReject(error) {
 		console.log("error",error);
 		iframe1.src = "files/error.jpg";
-	});
+	}
 }
 async function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
