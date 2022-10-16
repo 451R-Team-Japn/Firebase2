@@ -100,7 +100,7 @@ async function writeTable(student,application) {
 	
 	console.log("add");
 	
-	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item pdfbtn">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item pdfbtn">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item pdfbtn">GTA certification or waiver</button></div>'
+	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item pdfbtn" student="'+student.id+'">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item pdfbtn" student="'+student.id+'">GTA certification or waiver</button></div>'
 	
 	var table = $('#sortTable').DataTable();
 	
