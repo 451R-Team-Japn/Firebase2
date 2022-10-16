@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { updateGTA } from './formwrite';
+import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,9 +18,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
+var student;
+var application;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -39,9 +42,13 @@ $(document).on('click','.remove',function(event){
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
-	var student = event.target.getAttribute("student");
+	//var student = event.target.getAttribute("student");
 	//alert(student+" => "+value);
-	updateGTA(student, value);
+	updateGTA(student.id, value);
+});
+$(document).on('click','.pdfbtn',function(event){
+	var value = event.target.value+".pdf";
+	writeFile(student.id, value);
 });
 
 async function getCourse(){
@@ -76,23 +83,21 @@ async function getCourse(){
 	//setFilters();
 }
 async function writeStudents(applicants) {
-	var student;
-	var application;
 	for(var j=0;j<applicants.length;j++){
 		student=await getCoursedoc('AccountStudent',applicants[j]);
 		application=await getCoursedoc('Applicants',applicants[j]);
-		writeTable(student,application.data());
+		writeTable();
 	}
 }
-async function writeTable(student,application) {
-	
+async function writeTable() {
+	var applicationdata = application.data();
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
 	
 	console.log("add");
 	
-	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item filedropdown">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item filedropdown gtafilebtn">GTA certification or waiver</button></div>'
+	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item pdfbtn">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item pdfbtn">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item pdfbtn">GTA certification or waiver</button></div>'
 	
 	var table = $('#sortTable').DataTable();
 	
@@ -121,9 +126,9 @@ async function writeTable(student,application) {
 	
 	//var row = table.insertRow(-1);
 	var Namecell = studentdata.FirstName+" "+studentdata.LastName;
-	var GPAcell = application.GPA;
-	var Hourscell = application.Hours;
-	var Levelcell = leveltext[application.CurrentLevel];
+	var GPAcell = applicationdata.GPA;
+	var Hourscell = applicationdata.Hours;
+	var Levelcell = leveltext[applicationdata.CurrentLevel];
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
@@ -188,6 +193,15 @@ async function updateGTA(docName, value) {
 	await updateDoc(docRef, {
 		"GTACertified": value
 	});
+}
+
+function writeFile(docName, filename) {
+  storageRef.child(docName+'/'+filename).getDownloadURL().then(function(url) {
+  var iframe1 = document.getElementById('iframepdf');
+  iframe1.src = url;
+}).catch(function(error) {
+  // Handle any errors
+});
 }
 
 onAuthStateChanged(auth, user => {
