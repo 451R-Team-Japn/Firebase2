@@ -226,11 +226,13 @@ function writeFile(id, filename) {
 }
 function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
+	var value;
 	getDownloadURL(storageRef).then(function(url) {
-		return true;
+		value = true;
 	}).catch(function(error) {
-		return false;
+		value = false;
 	});
+	return value;
 }
 
 onAuthStateChanged(auth, user => {
