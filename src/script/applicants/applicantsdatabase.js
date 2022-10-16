@@ -83,6 +83,8 @@ async function writeTable(student,application) {
 	var x = document.createElement('button');
 	console.log("add");
 	
+	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item filedropdown">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item filedropdown gtafilebtn">GTA certification or waiver</button></div>'
+	
 	var table = $('#sortTable').DataTable();
 	
 	var majortext = ["CS","IT","ECE","EE"];
@@ -102,7 +104,7 @@ async function writeTable(student,application) {
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
 	var GTAcell = GTAtext[studentdata.GTACertified];
-	var Documentscell = "<button>Document</button>";
+	var Documentscell = docbtn;
 	var removecell = "<button class='remove' value='"+student.id+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();

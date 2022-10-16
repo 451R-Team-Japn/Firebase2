@@ -23,6 +23,15 @@ $(document).ready(function () {
 		//alert(value); 
 	//});
 });
+function changeDoc(value){
+	document.getElementById("iframepdf");
+	$("#iframepdf").attr("src", "files/"+value+".pdf");
+	$("#myModalLabel").html(value);
+	modal();
+}
+function modal(){
+	$('#courseModal').modal('toggle');
+}
 function getPagetype(){
 	return 1;
 }

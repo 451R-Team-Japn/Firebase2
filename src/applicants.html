@@ -24,8 +24,19 @@
     border-color: #FFdd00;
     color:#0066cc;
     }
+
+
   </style>
   <title>Applicants</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+  <script src="script/applicants/applicantswrite.js"></script>
+  <script src="script/applicants/applicantsfilter.js"></script>
+  <script type="module" src="script/applicants/applicantsdatabase.js"></script>
+  <script src="script/redirect.js"></script>
 </head>
 <body>
         <div class="page-logo">
@@ -65,7 +76,7 @@
 			</thead>
             
 			<tbody>
-				<!--<tr>
+				<tr>
 					<td>Student1</td>
 						<td>4.00</td>
 						<td>96</td>
@@ -73,9 +84,23 @@
 						<td>CS</td>
 						<td>S111111</td>
 						<td>student@umsystem.edu</td>
-						<td><button>Document</button></td>
-					</tr>
-					<tr>
+						<td>Yes</td>
+						<td>
+                  <button type="button" id=""
+                    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents
+                  </button>
+                  <div class="dropdown-menu">
+                    <button type="button" onclick="changeDoc(this.value)" value="resume"
+                      class="dropdown-item">Resume</button>
+                    <button type="button" onclick="changeDoc(this.value)" value="transcript"
+                      class="dropdown-item filedropdown">Transcript</button>
+                    <button type="button" onclick="changeDoc(this.value)" value="gta"
+                      class="dropdown-item filedropdown gtafilebtn">GTA certification or waiver</button>
+                  </div></td>
+				<td></td>
+				</tr>
+					<!--<tr>
 						<td>Student2</td>
 						<td>3.00</td>
 						<td>156</td>
@@ -120,14 +145,48 @@
             <a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
 
 	</div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-  <script src="script/applicants/applicantswrite.js"></script>
-  <script src="script/applicants/applicantsfilter.js"></script>
-  <script type="module" src="script/applicants/applicantsdatabase.js"></script>
-  <script src="script/redirect.js"></script>
+	
+	<!-- Modal -->
+<!--<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<iframe id="iframepdf" src="files/transcript.pdf"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" >
+        <div class="modal-content">
+            <!--<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>-->
+            <div class="modal-body">
+				<iframe id="iframepdf" src="files/transcript.pdf" width="100%" height="580" ></iframe>
+                <!--<iframe src="files/transcript.pdf" width="100%" height="580" frameborder="0" ></iframe>-->
+            </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 </body>
 </html>
