@@ -195,8 +195,8 @@ async function updateGTA(docName, value) {
 	});
 }
 
-function writeFile(docName, filename) {
-  storageRef.child(docName+'/'+filename).getDownloadURL().then(function(url) {
+function writeFile(id, filename) {
+  storageRef.child(id+'/'+filename).getDownloadURL().then(function(url) {
   var iframe1 = document.getElementById('iframepdf');
   iframe1.src = url;
 }).catch(function(error) {
