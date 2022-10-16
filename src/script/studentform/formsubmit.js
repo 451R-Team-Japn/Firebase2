@@ -187,8 +187,38 @@ function getData(){
 	console.log("applicant => "+applicant);
 	
 	return applicant;
-
+}
+function getFiles(){
+	var files = {};	
 	
+	const rfInput = document.getElementById('rf');
+	const tfInput = document.getElementById('tf');
+	const gfInput = document.getElementById('gf');
+	
+	const rf = rfInput.files[0];
+	console.log(rf);
+	const tf = tfInput.files[0];
+	console.log(tf);
+	const gf = gfInput.files[0];
+	console.log(gf);
+	
+	files = {
+		Resume: {
+			Name: "resume.pdf",
+			File: rf
+		},
+		Transcript: {
+			Name: "transcript.pdf",
+			File: tf
+		},
+		GTA: {
+			Name: "gta.pdf",
+			File: gf
+		}
+	};
+	console.log("files => "+files);
+	
+	return files;
 }
 function listCourses(){
 	var list = document.getElementsByClassName("courses");

@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { updateGTA } from './formwrite';
+import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const storage = getStorage();
 var currentuser;
 var user;
 var applicant;
@@ -44,6 +45,16 @@ $('#application').submit(async function(){
 		await setDoc(doc(db, "Applicants", currentuser), applicant);
 		user=updateUser();
 		await updateDoc(doc(db, "AccountStudent", currentuser), user);
+		
+		files=getFiles();
+		
+		if(files.Resume.File !== undefined)
+			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
+		if(files.Transcript.File !== undefined)
+			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
+		if(files.GTA.File !== undefined)
+			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
+		
 	}
 })
 $('.gtainput').click(function(){
@@ -232,12 +243,19 @@ const col = collection(db, colName);
   const snapshot = await getDocs(col);
   const list = snapshot.docs.map(doc => doc.id);
   return list;
-}
-
 // Detect auth state
 //auth.onAuthStateChanged(user => {
+});
 
-//});
+async function uploadFile(user, filename, file) {
+const storageRef = ref(storage, user+"/"+filename);
+
+	// 'file' comes from the Blob or File API
+	uploadBytes(storageRef, file).then((snapshot) => {
+	  console.log('Uploaded a blob or file!');
+	});
+});
+
 onAuthStateChanged(auth, user => {
   if(user != null){
 	console.log('logged in!');
