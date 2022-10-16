@@ -229,11 +229,11 @@ function getFile(id, filename) {
 	var value;
 	getDownloadURL(storageRef).then(onResolve, onReject)
 	
-	function onResolve(foundURL) {
+	function onResolve() {
 		value = true;
 		console.log(value);
 	}
-	function onReject(error) {
+	function onReject() {
 		value = false;
 		console.log(value);
 	}
