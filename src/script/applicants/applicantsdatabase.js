@@ -230,7 +230,7 @@ async function writeFile(id, filename) {
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
 		console.log(url);
-		await iframe1.src = url;
+		iframe1.src = await url;
 	}
 	function onReject(error) {
 		console.log("error",error);
