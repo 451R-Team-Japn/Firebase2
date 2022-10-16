@@ -79,7 +79,7 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
 }
 #newbutton{
-  width: 125%;
+  width: max-content;
 }
 .right-card-title{
   font-size: 75%;
