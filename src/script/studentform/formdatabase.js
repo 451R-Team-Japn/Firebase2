@@ -21,7 +21,7 @@ const auth = getAuth(app);
 const storage = getStorage();
 var currentuser;
 var user;
-var applicant;
+
 
 $(document).ready(function () { 
 	var term = getCurrentterm();
@@ -38,6 +38,9 @@ $(document).on("click", ".applyterm" ,async function() {
 });
 
 $('#application').submit(async function(){
+	var applicant;
+	var files;
+	
 	if(!submitForm())
 		event.preventDefault();
 	else{
