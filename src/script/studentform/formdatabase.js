@@ -238,14 +238,14 @@ async function querysemester(coursetype,semester){
   
 	return querySnapshot;
 }
-async function getCollectionID(colName) {
+/*async function getCollectionID(colName) {
 const col = collection(db, colName);
   const snapshot = await getDocs(col);
   const list = snapshot.docs.map(doc => doc.id);
   return list;
 // Detect auth state
 //auth.onAuthStateChanged(user => {
-});
+});*/
 
 async function uploadFile(user, filename, file) {
 const storageRef = ref(storage, user+"/"+filename);
