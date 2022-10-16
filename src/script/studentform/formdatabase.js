@@ -250,11 +250,11 @@ const col = collection(db, colName);
 //auth.onAuthStateChanged(user => {
 });*/
 
-async function uploadFile(user, filename, file) {
-const storageRef = ref(storage, user+"/"+filename);
+function uploadFile(user, filename, file) {
+var storageRef = ref(storage, user+"/"+filename);
 
 	// 'file' comes from the Blob or File API
-	await uploadBytes(storageRef, file).then((snapshot) => {
+	uploadBytes(storageRef, file).then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
 }
