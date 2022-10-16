@@ -116,11 +116,13 @@ async function writeTable(student,application) {
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
-	var GTAcell = gtaselect;
+	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = docbtn;
 	var removecell = "<button type='button' class='btn btn-primary' class='remove' value='"+student.id+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
+	
+	document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 	
 	console.log(removecell);
 }
