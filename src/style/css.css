@@ -435,10 +435,22 @@ i{
   .login-input{
     width: 100%;
   }
+  #title:hover{
+    background-color: #044c7c;
+    color: #FFdd00;
+  }
+ 
+  #seebutton{
+    float: right;
+  }
 }
 
 /*Student form*/
 .studentform-card-body{
   border-top: none;
   box-shadow: 3px 8px 8px 3px rgb(0 0 0 / 0.2);
+}
+
+.open-position-btn{
+  float: left;
 }
