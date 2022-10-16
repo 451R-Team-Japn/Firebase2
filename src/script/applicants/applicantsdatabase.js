@@ -42,11 +42,11 @@ $(document).on('change','.gtaselect',function(event){
 	var value = event.target.value;
 	alert(currentCourse+" => "+value);
 });
-$(document).on('click','.gtaselect',function(event){
+/*$(document).on('click','.gtaselect',function(event){
 	alert('click');
 	var value = event.target.value;
 	alert(currentCourse+" => "+value);
-});
+});*/
 
 
 async function getCourse(){
