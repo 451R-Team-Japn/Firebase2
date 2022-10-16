@@ -92,11 +92,11 @@ async function writeTable(student,application) {
 	var leveltext = ["BS","MS","PhD"];
 	var GTAtext = ["Not Available","Pending","Certified"];
 	
-	for (var i = 0; i<=GTAtext.length; i++){
+	for (var i = 0; i<GTAtext.length; i++){
 		var opt = document.createElement('option');
 		opt.value = GTAtext[i];
 		opt.innerHTML = GTAtext[i];
-		opt.className = "gtaselect";
+		opt.classList.add("gtaselect");
 		gtaselect.appendChild(opt);
 	}
 	
@@ -118,7 +118,7 @@ async function writeTable(student,application) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = docbtn;
-	var removecell = "<button type='button' class='btn btn-primary' class='remove' value='"+student.id+"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
