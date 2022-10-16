@@ -22,8 +22,6 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
-var student;
-var application;
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -42,13 +40,15 @@ $(document).on('click','.remove',function(event){
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
-	//var student = event.target.getAttribute("student");
-	//alert(student+" => "+value);
-	updateGTA(student.id, value);
+	var student = event.target.getAttribute("student");
+	alert(student+" => "+value);
+	updateGTA(student, value);
 });
 $(document).on('click','.pdfbtn',function(event){
 	var value = event.target.value+".pdf";
-	writeFile(student.id, value);
+	var student = event.target.getAttribute("student");
+	alert(student+" => "+value);
+	writeFile(student, value);
 });
 
 async function getCourse(){
@@ -71,7 +71,7 @@ async function getCourse(){
 	writeTitle(courseObj,position);
 	applicants=await writeApplicants(currentCourse,applicants);
 	console.log(applicants);
-	await writeStudents(applicants);
+	await writeStudents(student, applicants);
 	
 	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
@@ -85,14 +85,15 @@ async function getCourse(){
 	//setFilters();
 }
 async function writeStudents(applicants) {
+	var student;
+	var application;
 	for(var j=0;j<applicants.length;j++){
 		student=await getCoursedoc('AccountStudent',applicants[j]);
 		application=await getCoursedoc('Applicants',applicants[j]);
-		writeTable();
+		writeTable(student,application.data());
 	}
 }
-async function writeTable() {
-	var applicationdata = application.data();
+async function writeTable(student,application) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
@@ -128,9 +129,9 @@ async function writeTable() {
 	
 	//var row = table.insertRow(-1);
 	var Namecell = studentdata.FirstName+" "+studentdata.LastName;
-	var GPAcell = applicationdata.GPA;
-	var Hourscell = applicationdata.Hours;
-	var Levelcell = leveltext[applicationdata.CurrentLevel];
+	var GPAcell = application.GPA;
+	var Hourscell = application.Hours;
+	var Levelcell = leveltext[application.CurrentLevel];
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
