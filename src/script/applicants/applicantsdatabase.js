@@ -40,7 +40,7 @@ $(document).on('click','.remove',function(event){
 $(document).on('change','.gtaselect',function(event){
 	alert('change');
 	var value = event.target.value;
-	var student = event.target.getAttribute("student");
+	var student = event.target.getAttribute("id");
 	alert(student+" => "+value);
 });
 
@@ -104,7 +104,7 @@ async function writeTable(student,application) {
 	for (var i = 0; i<GTAtext.length; i++){
 		var opt = document.createElement('option');
 		opt.value = GTAtext[i];
-		opt.setAttribute("student", student.id);
+		opt.setAttribute("id", student.id);
 		opt.innerHTML = GTAtext[i];
 		gtaselect.appendChild(opt);
 	}
