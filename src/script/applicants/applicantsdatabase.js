@@ -104,7 +104,7 @@ async function writeTable(student,application,position) {
 	
 	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
 	
-//	if(getFile(student.id, 'resume'))
+	//if(getFile(student.id, 'resume'))
 		docbtn += '<button type="button" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button>';
 	
 	//if(getFile(student.id, 'transcript'))
