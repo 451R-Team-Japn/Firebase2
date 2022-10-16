@@ -89,6 +89,7 @@ async function writeTable(student,application) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
+	
 	console.log("add");
 	
 	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu"><button type="button" onclick="changeDoc(this.value)" value="resume" class="dropdown-item">Resume</button><button type="button" onclick="changeDoc(this.value)" value="transcript" class="dropdown-item filedropdown">Transcript</button><button type="button" onclick="changeDoc(this.value)" value="gta" class="dropdown-item filedropdown gtafilebtn">GTA certification or waiver</button></div>'
@@ -110,6 +111,8 @@ async function writeTable(student,application) {
 	}
 	
 	gtaselect.selectedIndex = studentdata.GTACertified;
+	gtaselect.setAttribute("id", student.id);
+	gtaselect.setAttribute("student", student.id);
 	
 	x.classList.add("remove");
 	x.setAttribute("value", student.id);
