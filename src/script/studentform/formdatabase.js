@@ -54,9 +54,9 @@ $('#application').submit(async function(){
 		if(files.Resume.File !== undefined)
 			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
 		if(files.Transcript.File !== undefined)
-			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
+			uploadFile(currentuser, files.Transcript.Name, files.Transcript.File);
 		if(files.GTA.File !== undefined)
-			uploadFile(currentuser, files.Resume.Name, files.Resume.File);
+			uploadFile(currentuser, files.GTA.Name, files.GTA.File);
 		
 	}
 })
