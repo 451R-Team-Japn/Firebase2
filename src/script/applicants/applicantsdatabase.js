@@ -197,10 +197,10 @@ async function updateGTA(docName, value) {
 
 function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
-	getDownloadURL(storageRef).then((url) {
+	getDownloadURL(storageRef).then(function(url) {
 	var iframe1 = document.getElementById('iframepdf');
 	iframe1.src = url;
-	}).catch((error) {
+	}).catch(function(error) {
 		console.log("error",url);
 	});
 }
