@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
+import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -196,12 +196,12 @@ async function updateGTA(docName, value) {
 }
 
 function writeFile(id, filename) {
-	var storageRef = ref(storage);
-	storageRef.child(id+'/'+filename).getDownloadURL().then(function(url) {
+	var storageRef = ref(storage, id+'/'+filename);
+	getDownloadURL(storageRef).then((url) {
 	var iframe1 = document.getElementById('iframepdf');
 	iframe1.src = url;
-	}).catch(function(error) {
-		// Handle any errors
+	}).catch((error) {
+		console.log("error",url);
 	});
 }
 
