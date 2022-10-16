@@ -227,11 +227,16 @@ function writeFile(id, filename) {
 function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
 	var value;
-	getDownloadURL(storageRef).then(function(url) {
+	getDownloadURL(storageRef).then(onResolve, onReject)
+	
+	function onResolve(foundURL) {
 		value = true;
-	}).catch(function(error) {
+		console.log(value);
+	}
+	function onReject(error) {
 		value = false;
-	});
+		console.log(value);
+	}
 	console.log(value);
 	return value;
 }
