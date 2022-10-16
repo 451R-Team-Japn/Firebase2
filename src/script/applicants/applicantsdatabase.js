@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { getFirestore, doc, collection, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 //import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -38,10 +38,10 @@ $(document).on('click','.remove',function(event){
 });
 
 $(document).on('change','.gtaselect',function(event){
-	alert('change');
 	var value = event.target.value;
-	var student = event.target.getAttribute("id");
+	var student = event.target.getAttribute("student");
 	alert(student+" => "+value);
+	updateGTA(student, value);
 });
 
 async function getCourse(){
@@ -104,14 +104,13 @@ async function writeTable(student,application) {
 	
 	for (var i = 0; i<GTAtext.length; i++){
 		var opt = document.createElement('option');
-		opt.value = GTAtext[i];
+		opt.value = i;
 		opt.setAttribute("id", student.id);
 		opt.innerHTML = GTAtext[i];
 		gtaselect.appendChild(opt);
 	}
 	
 	gtaselect.selectedIndex = studentdata.GTACertified;
-	gtaselect.setAttribute("id", student.id);
 	gtaselect.setAttribute("student", student.id);
 	
 	x.classList.add("remove");
@@ -183,6 +182,12 @@ async function getCoursedoc(colName, docName) {
 		// doc.data() will be undefined in this case
 		console.log("No such document!");
 	}*/
+}
+async function updateGTA(docName, value) {
+	const docRef = doc(db, 'AccountStudent', docName);
+	await updateDoc(docRef, {
+		"GTACertified": value
+	});
 }
 
 onAuthStateChanged(auth, user => {
