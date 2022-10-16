@@ -44,11 +44,11 @@ $(document).on('change','.gtaselect',function(event){
 	//alert(student+" => "+value);
 	updateGTA(student, value);
 });
-$(document).on('click','.pdfbtn',function(event){
+$(document).on('click','.pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
 	//alert(student+" => "+value);
-	writeFile(student, value);
+	await writeFile(student, value);
 	modal();
 });
 
@@ -224,7 +224,7 @@ async function updateGTA(docName, value) {
 	});
 }
 
-async function writeFile(id, filename) {
+function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
 	getDownloadURL(storageRef).then(function(url) {
