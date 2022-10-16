@@ -86,7 +86,7 @@ async function cloneCard(name,data) {
 		applicantstext=applicantcount.toString()+" Applicants";
 	
 	g = document.createElement('div');
-	//await g.classList.add("col-sm-3");
+	await g.classList.add("col-sm-4");
 	await g.setAttribute("id", name);
 	await g.classList.add("all");
 	await g.classList.add(data.CourseType);
