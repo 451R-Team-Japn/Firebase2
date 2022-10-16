@@ -254,7 +254,7 @@ async function uploadFile(user, filename, file) {
 const storageRef = ref(storage, user+"/"+filename);
 
 	// 'file' comes from the Blob or File API
-	uploadBytes(storageRef, file).then((snapshot) => {
+	await uploadBytes(storageRef, file).then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
 }
