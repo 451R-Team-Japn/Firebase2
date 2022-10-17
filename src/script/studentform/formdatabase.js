@@ -107,9 +107,9 @@ function populateFields(){
 	//document.getElementById("level").value = user.CurrentLevel;
 	
 	for(var i=0;i<level.length;i++){
-		console.log(level.value);
-		if(level.value == levelval)
-			level.checked = true;
+		console.log(level[i].value);
+		if(level[i].value == levelval)
+			level[i].checked = true;
 	}
 	updateLevel();
 }
