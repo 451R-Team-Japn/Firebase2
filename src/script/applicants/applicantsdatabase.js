@@ -101,9 +101,9 @@ async function getDocbtn(){
 	var opt;
 	var docexist = false;
 	
-	gtaselect.classList.add("pdfbtn");
-	gtaselect.classList.add("btn"); 
-	gtaselect.classList.add("btn-primary");
+	docbtn.classList.add("pdfbtn");
+	docbtn.classList.add("btn"); 
+	docbtn.classList.add("btn-primary");
 	
 	if(await getFile(student.id, 'resume')){
 		docexist = true;
