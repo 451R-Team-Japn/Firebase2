@@ -22,6 +22,7 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
+var table = $('#sortTable').dataTable({"scrollX": true});
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -53,7 +54,6 @@ $(document).on('click','.pdfbtn',async function(event){
 });
 
 async function getCourse(){
-	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
 	var applicants = [];
@@ -127,7 +127,7 @@ async function writeTable(student,application,position) {
 		docbtn = "No Documents";
 	
 	
-	var table = $('#sortTable').DataTable();
+	
 	
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
