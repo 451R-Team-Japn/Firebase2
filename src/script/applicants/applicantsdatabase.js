@@ -171,7 +171,7 @@ async function writeTable(student,application,position) {
 			docexist = true;
 			opt = document.createElement('option');
 			opt.value = "gta";
-			opt.innerHTML = "GTA certification or waiver";
+			opt.innerHTML = "GTA";
 			docbtn.appendChild(opt);
 		}
 	
