@@ -135,14 +135,16 @@ async function writeTable(student,application,position) {
 	
 	if(position == "Instructor")
 		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
-	
-	document.getElementById(student.id+"doc").appendChild(docbtn);
+		
+	if(docexist)
+		document.getElementById(student.id+"doc").appendChild(docbtn);
+	else
+		document.getElementById(student.id+"doc").innerHTML("No Documents");
 	
 	console.log(removecell);
 	
 	async function getDocbtn(){
 		var opt;
-		var docexist = false;
 		
 		docbtn.classList.add("pdfbtn");
 		docbtn.classList.add("btn"); 
@@ -172,9 +174,7 @@ async function writeTable(student,application,position) {
 			opt.innerHTML = "GTA certification or waiver";
 			docbtn.appendChild(opt);
 		}
-		
-		if(!docexist)
-			docbtn = "No Documents";	
+	
 	}
 	async function getGTAselect(){
 		var opt;
