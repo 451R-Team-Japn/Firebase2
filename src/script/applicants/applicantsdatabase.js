@@ -22,7 +22,6 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
-var table = $('#sortTable').DataTable({"scrollX": true});
 
 $(document).ready(function () { 
 	console.log("ready");
@@ -54,6 +53,7 @@ $(document).on('click','.pdfbtn',async function(event){
 });
 
 async function getCourse(){
+	var table = $('#sortTable').DataTable({"scrollX": true});
 	var position;
 	var courseObj;	
 	var applicants = [];
@@ -97,6 +97,7 @@ async function writeStudents(applicants, position) {
 	}
 }
 async function writeTable(student,application,position) {
+	var table = $('#sortTable').DataTable({"scrollX": true});
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
