@@ -116,6 +116,11 @@ h2{
   color: white;
 }
 
+.btn option{
+  background-color: white;
+  color: #0066cc;
+}
+
 .btn:hover{
   background-color: #FFdd00;
   border-color: #FFdd00;

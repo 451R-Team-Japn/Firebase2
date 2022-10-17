@@ -44,9 +44,10 @@ $(document).on('change','.gtaselect',function(event){
 	//alert(student+" => "+value);
 	updateGTA(student, value);
 });
-$(document).on('change','.pdfbtn',async function(event){
+$(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
+	event.target.value = "documents";
 	//alert(student+" => "+value);
 	await writeFile(student, value);
 	modal();
@@ -147,10 +148,17 @@ async function writeTable(student,application,position) {
 		var opt;
 		var docexist = false;
 		
-		docbtn.classList.add("pdfbtn");
+		//docbtn.classList.add("pdfbtn");
+		docbtn.setAttribute("id", "pdfbtn");
 		docbtn.classList.add("btn"); 
 		docbtn.classList.add("btn-primary");
 		docbtn.setAttribute("student", student.id);
+		
+		opt = document.createElement('option');
+		opt.value = "documents";
+		opt.innerHTML = "Documents";
+		opt.setAttribute("disable", true);
+		docbtn.appendChild(opt);
 		
 		if(await getFile(student.id, 'resume')){
 			docexist = true;
