@@ -96,7 +96,7 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
-async function getDocbtn(student){
+async function getDocbtn(student, position){
 	var docbtn = document.createElement('select');
 	var opt;
 	var docexist = false;
@@ -143,7 +143,7 @@ async function writeTable(student,application,position) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
-	var docbtn =  getDocbtn(student);
+	var docbtn =  getDocbtn(student, position);
 	var docexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
