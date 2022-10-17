@@ -147,12 +147,12 @@ async function writeTable(student,application,position) {
 		docbtn.classList.add("pdfbtn");
 		docbtn.classList.add("btn"); 
 		docbtn.classList.add("btn-primary");
+		docbtn.setAttribute("student", student.id);
 		
 		if(await getFile(student.id, 'resume')){
 			docexist = true;
 			opt = document.createElement('option');
 			opt.value = "resume";
-			opt.setAttribute("student", student.id);
 			opt.innerHTML = "Resume";
 			docbtn.appendChild(opt);
 		}
@@ -161,7 +161,6 @@ async function writeTable(student,application,position) {
 			docexist = true;
 			opt = document.createElement('option');
 			opt.value = "transcript";
-			opt.setAttribute("student", student.id);
 			opt.innerHTML = "Transcript";
 			docbtn.appendChild(opt);
 		}
@@ -170,7 +169,6 @@ async function writeTable(student,application,position) {
 			docexist = true;
 			opt = document.createElement('option');
 			opt.value = "gta";
-			opt.setAttribute("student", student.id);
 			opt.innerHTML = "GTA certification or waiver";
 			docbtn.appendChild(opt);
 		}
