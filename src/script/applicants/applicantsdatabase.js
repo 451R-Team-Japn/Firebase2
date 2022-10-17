@@ -96,44 +96,65 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
+function getDocbtn(){
+	var docbtn = document.createElement('select');
+	var opt;
+	var docexist = false;
+	
+	gtaselect.classList.add("pdfbtn");
+	gtaselect.classList.add("btn"); 
+	gtaselect.classList.add("btn-primary");
+	
+		
+	
+	if(await getFile(student.id, 'resume')){
+		docexist = true;
+		opt = document.createElement('option');
+		opt.value = "resume";
+		opt.setAttribute("student", student.id);
+		opt.innerHTML = "Resume";
+		docbtn.appendChild(opt);
+	}
+	
+	if(await getFile(student.id, 'transcript')){
+		docexist = true;
+		opt = document.createElement('option');
+		opt.value = "transcript";
+		opt.setAttribute("student", student.id);
+		opt.innerHTML = "Transcript";
+		docbtn.appendChild(opt);
+	}
+	
+	if(position == "Instructor" && await getFile(student.id, 'gta')){
+		docexist = true;
+		opt = document.createElement('option');
+		opt.value = "gta";
+		opt.setAttribute("student", student.id);
+		opt.innerHTML = "GTA certification or waiver";
+		docbtn.appendChild(opt);
+	}
+	
+	if(!docexist)
+		docbtn = "No Documents";
+	
+	return docbtn;
+	
+}
 async function writeTable(student,application,position) {
 	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
+	var docbtn =  getDocbtn();
 	var docexist = false;
-	
-	console.log("add");
-	
-	var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
-	
-	if(await getFile(student.id, 'resume')){
-		docexist = true;
-		docbtn += '<button type="button" value="resume" class="dropdown-item pdfbtn" student="'+student.id+'">Resume</button>';
-	}
-	
-	if(await getFile(student.id, 'transcript')){
-		docexist = true;
-		docbtn += '<button type="button" value="transcript" class="dropdown-item pdfbtn" student="'+student.id+'">Transcript</button>';
-	}
-	
-	if(position == "Instructor" && await getFile(student.id, 'gta')){
-		docexist = true;
-		docbtn += '<button type="button" value="gta" class="dropdown-item pdfbtn" student="'+student.id+'">GTA certification or waiver</button>';
-	}
-
-	docbtn += '</div>';
-	
-	if(!docexist)
-		docbtn = "No Documents";
-	
-	
-	
-	
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
 	var GTAtext = ["Not Available","Pending","Certified"];
 	
+	console.log("add");
+	
+	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
+
 	gtaselect.classList.add("gtaselect");
 	gtaselect.classList.add("btn"); 
 	gtaselect.classList.add("btn-primary");
@@ -164,13 +185,15 @@ async function writeTable(student,application,position) {
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
-	var Documentscell = docbtn;
+	var Documentscell = "<div id='"+student.id+"doc'></div>";
 	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
 	if(position == "Instructor")
 		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
+	
+	document.getElementById(student.id+"doc").appendChild(docbtn);
 	
 	console.log(removecell);
 }
