@@ -49,8 +49,10 @@ $(document).on("click", "#logout" ,function() {
 	
 });
 function logout() {
-	localStorage.setItem("ID", null);
-	sessionStorage.setItem("ID", null);
+	localStorage.removeItem("ID");
+	sessionStorage.removeItem("ID");
+	localStorage.removeItem("Type");
+	sessionStorage.removeItem("Type");
 	
 	window.location.href = 'login.html';
 }
