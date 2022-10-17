@@ -93,6 +93,8 @@ function populateFields(){
 	var level = document.querySelector('input[name="level"]');
 	var levelval = user.CurrentLevel.toString();
 	
+	console.log(levelval);
+	
 	document.getElementById("fname").value = user.FirstName;
 	document.getElementById("fname").readOnly = true;
 	document.getElementById("lname").value = user.LastName;
@@ -102,7 +104,7 @@ function populateFields(){
 	document.getElementById("email").value = user.Email;
 	document.getElementById("email").readOnly = true;
 	document.getElementById("major").value = user.Major;
-	document.getElementById("level").value = user.CurrentLevel;
+	//document.getElementById("level").value = user.CurrentLevel;
 	
 	for(var i=0;i<level.length;i++){
 		if(level.value == levelval)
