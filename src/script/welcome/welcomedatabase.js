@@ -59,6 +59,16 @@ async function cloneCard(name,data) {
 	var grad;
 	var notestext;
 	var positionname;
+	var link = "https://catalog.umkc.edu/search/?search=";
+	
+	if(data.CourseType == "CS")
+		link+="COMP-SCI+";
+	else if(data.CourseType == "IT")
+		link+="INFO-TEC+";
+	else if(data.CourseType == "ECE")
+		link+="E%26C-ENGR+";
+	
+	link+=data.CourseNumber;
 	
 	if(data.GraderOrLab=="G"){
 		positionname = "Grader";
@@ -96,12 +106,15 @@ async function cloneCard(name,data) {
 	var semesterclass=await'#'+name+' #semester';
 	var collapseid=await'#'+name+' #title';
 	var collapsecard=await'#'+name+' .card-body';
+	var courselink=await'#'+name+' #link';
+	
 	$(classname).html(await data.CourseType+' '+data.CourseNumber);
 	$(position).html(positionname);
 	$(notes).html(notestext);
 	$(semesterclass).html(await semester[data.Semester]);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
 	$(collapsecard).attr("id","collapse"+name);
+	$(courselink).attr("href",link);
 
 	filter();
 	$('.collapse').collapse('hide');
