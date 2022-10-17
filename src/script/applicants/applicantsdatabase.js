@@ -103,14 +103,14 @@ async function writeTable(student,application,position) {
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
 	var docbtn = document.createElement('select');
-	var filesexist = false;
+	var filesexist;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
 	
 	console.log("add");
 	
 	getGTAselect();
-	filesexist = getDocbtn();
+	filesexist = await getDocbtn();
 	
 	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
 	
