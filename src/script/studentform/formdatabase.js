@@ -90,7 +90,7 @@ async function getUser() {
 	populateFields();
 }
 function populateFields(){
-	var level = document.querySelector('input[name="level"]');
+	var level = document.querySelectorAll('input[name="level"]');
 	var levelval = user.CurrentLevel.toString();
 	
 	console.log(levelval);
