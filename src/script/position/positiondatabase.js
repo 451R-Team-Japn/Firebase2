@@ -48,7 +48,7 @@ async function getCoursedoc(colName, docName) {
 	}*/
 }
 function writeData(course){
-	document.getElementById("title").innerHTML = "Edit " + course.CourseType+" "+ course.CourseNumber + ": ";
+	document.getElementById("title").innerHTML = "Edit " + course.CourseType+" "+ course.CourseNumber;
 	
 	if(course.GradCourse)
 		document.getElementById("level").value = "MS";
