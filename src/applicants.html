@@ -1,88 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Link added for bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style/css.css">  
-  <link rel="icon" href="assets/umkc-logo.png">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <style>
-    body{
-    background-color:#ebf2fa;
-    }
-    .btn{
-    background-color:#0066cc;
-    }
-    .btn:hover{
-    background-color: #FFdd00;
-    border-color: #FFdd00;
-    color:#0066cc;
-    }
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Link added for bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style/css.css">
+	<link rel="icon" href="assets/umkc-logo.png">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		body {
+			background-color: whitesmoke;
+		}
 
+		.btn {
+			background-color: #0066cc;
+		}
 
-  </style>
-  <title>Applicants</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-  <script src="script/applicants/applicantswrite.js"></script>
-  <script src="script/applicants/applicantsfilter.js"></script>
-  <script type="module" src="script/applicants/applicantsdatabase.js"></script>
-  <script src="script/redirect.js"></script>
+		.btn:hover {
+			background-color: #FFdd00;
+			border-color: #FFdd00;
+			color: #0066cc;
+		}
+
+		.container{
+			box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+		}
+	</style>
+	<title>Applicants</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+	<script src="script/applicants/applicantswrite.js"></script>
+	<script src="script/applicants/applicantsfilter.js"></script>
+	<script type="module" src="script/applicants/applicantsdatabase.js"></script>
+	<script src="script/redirect.js"></script>
 </head>
+
 <body>
 	<div class="header">
 		<img src="assets/umkc-logo2.png" class="img-header" width="180px">
 		<h3 class="header-title">Science and Engineering</h3>
-	  </div>
-	  <div class="divider"></div>
-	  <div class="container-title sticky-top">
-		<h2 class="page-title">Application Form</h2>
+	</div>
+	<div class="divider"></div>
+	<div class="container-title sticky-top">
+		<h2 class="page-title"> Applicants for <span id="classname">"Class"</span> <span id="position">"Position"</span> position:</h2>
 		<div>
-		  <a href="login.html" target="_blank" id="newbutton" value=""
-			class="btn-apply btn btn-primary float-end">Logout</a>
+			<a href="login.html" target="_blank" id="newbutton" value=""
+				class="btn-apply btn btn-primary float-end">Logout</a>
 		</div>
-	  </div>
-    
-        <div class="container applicantspage my-5" style="width:70%";>
-            <h2> Applicants for <span id="classname">"Class"</span> <span id="position">"Position"</span> position:</h2>
-	<div class="" id="filter">	
-	<div id="major">
-        <label><input type="checkbox" name="maj" value="CS">CS</label>
-        <label><input type="checkbox" name="maj" value="IT">IT</label>
-        <label><input type="checkbox" name="maj" value="ECE">ECE</label>
-		<label><input type="checkbox" name="maj" value="EE">EE</label>
 	</div>
-	<div id="level">
-		<label><input type="checkbox" name="lev" value="BS">BS</label>
-		<label><input type="checkbox" name="lev" value="MS">MS</label>
-		<label><input type="checkbox" name="lev" value="PhD">PhD</label>
-	</div>
-	</div>
-        <table class="table table-striped table-bordered" id="sortTable">
+
+	<div class="p-3 card filter card-filter sticky-left">
+        <label class="filter-label">Major:</label>
+        <div class="form-check" id="test">
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="CS"
+                    value="CS" onchange="changeCheckbox(this)" />CS</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="IT"
+                    value="IT" onchange="changeCheckbox(this)" />IT</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="ECE"
+                    value="ECE" onchange="changeCheckbox(this)" />ECE</label><br>
+        </div>
+        <label class="mt-2 filter-label">Level:</label>
+        <div class="form-check">
+            <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox" id="grad"
+                    value="grad" onchange="changeCheckbox(this)" />Graduate</label><br>
+            <label class="checkbox form-check-label"><input class="form-check-input level" type="checkbox"
+                    id="undergrad" value="undergrad" onchange="changeCheckbox(this)" />Undergraduate </label><br>
+        </div>
+    </div>
+
+	<div class="container applicantspage my-5" style="width:70%" ;>
+		<h2> Applicants for <span id="classname">"Class"</span> <span id="position">"Position"</span> position:</h2>
+		<div class="" id="filter">
+			<div id="major">
+				<label><input type="checkbox" name="maj" value="CS">CS</label>
+				<label><input type="checkbox" name="maj" value="IT">IT</label>
+				<label><input type="checkbox" name="maj" value="ECE">ECE</label>
+				<label><input type="checkbox" name="maj" value="EE">EE</label>
+			</div>
+			<div id="level">
+				<label><input type="checkbox" name="lev" value="BS">BS</label>
+				<label><input type="checkbox" name="lev" value="MS">MS</label>
+				<label><input type="checkbox" name="lev" value="PhD">PhD</label>
+			</div>
+		</div>
+		<table class="table table-striped table-bordered" id="sortTable">
 			<thead>
 				<tr>
-				<th>Student Id</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Level</th>
-				<th>Major</th>
-				<th>GPA</th>
-				<th>Hours</th>
-				<th>GTA Status</th>
-				<th>Documents</th>
-				<th></th>
+					<th>Student Id</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Level</th>
+					<th>Major</th>
+					<th>GPA</th>
+					<th>Hours</th>
+					<th>GTA Status</th>
+					<th>Documents</th>
+					<th></th>
 				</tr>
 			</thead>
-            
+
 			<tbody>
 				<!--<tr>
 					<td>Student1</td>
@@ -148,14 +175,14 @@
 						<td>student2@umsystem.edu</td>
 						<td><button>Document</button></td>
 					</tr>-->
-				</tbody>
-			</table>
-            <a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
+			</tbody>
+		</table>
+		<a href="admin.html" class="mt-4 btn btn-primary "><i class="bi bi-arrow-left"></i></a>
 
 	</div>
-	
+
 	<!-- Modal -->
-<!--<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!--<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -175,26 +202,28 @@
   </div>
 </div>-->
 
-<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" >
-        <div class="modal-content">
-            <!--<div class="modal-header">
+	<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<!--<div class="modal-header">
 				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>-->
-            <div class="modal-body">
-				<iframe id="iframepdf" src="" width="100%" height="580" ></iframe>
-                <!--<iframe src="files/transcript.pdf" width="100%" height="580" frameborder="0" ></iframe>-->
-            </div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<div class="modal-body">
+					<iframe id="iframepdf" src="" width="100%" height="580"></iframe>
+					<!--<iframe src="files/transcript.pdf" width="100%" height="580" frameborder="0" ></iframe>-->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
 			</div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 
 </body>
+
 </html>

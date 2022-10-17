@@ -448,7 +448,11 @@ i{
 /*Student form*/
 .studentform-card-body{
   border-top: none;
-  box-shadow: 3px 8px 8px 3px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.card-studentform{
+  border:none;
 }
 
 .open-position-btn{
