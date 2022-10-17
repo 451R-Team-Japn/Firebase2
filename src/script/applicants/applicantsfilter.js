@@ -39,7 +39,7 @@ $(document).ready( function () {
   );
   
 
-  var table = $('#sortTable').dataTable({"scrollX": true});
+  var table = $('#sortTable').DataTable();({"scrollX": true});
   
  $('input:checkbox').on('change', function () {
     table.draw();

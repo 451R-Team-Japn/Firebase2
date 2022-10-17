@@ -22,7 +22,7 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
-var table = $('#sortTable').dataTable({"scrollX": true});
+var table = $('#sortTable').DataTable({"scrollX": true});
 
 $(document).ready(function () { 
 	console.log("ready");
