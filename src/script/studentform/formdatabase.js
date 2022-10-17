@@ -90,6 +90,9 @@ async function getUser() {
 	populateFields();
 }
 function populateFields(){
+	var level = document.querySelector('input[name="level"]');
+	var levelval = user.CurrentLevel.toString();
+	
 	document.getElementById("fname").value = user.FirstName;
 	document.getElementById("fname").readOnly = true;
 	document.getElementById("lname").value = user.LastName;
@@ -101,7 +104,11 @@ function populateFields(){
 	document.getElementById("major").value = user.Major;
 	document.getElementById("level").value = user.CurrentLevel;
 	
-	updateLevel()
+	for(var i=0;i<level.length;i++){
+		if(level.value == levelval)
+			level.checked = true;
+	}
+	updateLevel();
 }
 $('.level').click(function(){
 	updateLevel();
