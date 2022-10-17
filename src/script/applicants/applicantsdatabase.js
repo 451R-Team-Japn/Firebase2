@@ -96,7 +96,7 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
-function getDocbtn(){
+async function getDocbtn(){
 	var docbtn = document.createElement('select');
 	var opt;
 	var docexist = false;
@@ -104,8 +104,6 @@ function getDocbtn(){
 	gtaselect.classList.add("pdfbtn");
 	gtaselect.classList.add("btn"); 
 	gtaselect.classList.add("btn-primary");
-	
-		
 	
 	if(await getFile(student.id, 'resume')){
 		docexist = true;
