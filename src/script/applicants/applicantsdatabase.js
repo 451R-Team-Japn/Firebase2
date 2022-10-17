@@ -124,7 +124,7 @@ async function writeTable(student,application,position) {
 	var Namecell = studentdata.FirstName+" "+studentdata.LastName;
 	var GPAcell = application.GPA;
 	var Hourscell = application.Hours;
-	var Levelcell = leveltext[application.CurrentLevel];
+	var Levelcell = leveltext[studentdata.CurrentLevel];
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
