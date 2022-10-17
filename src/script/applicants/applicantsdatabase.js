@@ -96,82 +96,20 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
-async function getDocbtn(student, position){
-	var docbtn = document.createElement('select');
-	var opt;
-	var docexist = false;
-	
-	docbtn.classList.add("pdfbtn");
-	docbtn.classList.add("btn"); 
-	docbtn.classList.add("btn-primary");
-	
-	if(await getFile(student.id, 'resume')){
-		docexist = true;
-		opt = document.createElement('option');
-		opt.value = "resume";
-		opt.setAttribute("student", student.id);
-		opt.innerHTML = "Resume";
-		docbtn.appendChild(opt);
-	}
-	
-	if(await getFile(student.id, 'transcript')){
-		docexist = true;
-		opt = document.createElement('option');
-		opt.value = "transcript";
-		opt.setAttribute("student", student.id);
-		opt.innerHTML = "Transcript";
-		docbtn.appendChild(opt);
-	}
-	
-	if(position == "Instructor" && await getFile(student.id, 'gta')){
-		docexist = true;
-		opt = document.createElement('option');
-		opt.value = "gta";
-		opt.setAttribute("student", student.id);
-		opt.innerHTML = "GTA certification or waiver";
-		docbtn.appendChild(opt);
-	}
-	
-	if(!docexist)
-		docbtn = "No Documents";
-	
-	return docbtn;
-	
-}
-async function getGtaselect(student, studentdata){
-	var gtaselect =  document.createElement('select');
-	var opt;
-	var GTAtext = ["Not Available","Pending","Certified"];
-	
-	gtaselect.classList.add("gtaselect");
-	gtaselect.classList.add("btn"); 
-	gtaselect.classList.add("btn-primary");
-	
-	for (var i = 0; i<GTAtext.length; i++){
-		opt = document.createElement('option');
-		opt.value = i;
-		opt.setAttribute("id", student.id);
-		opt.innerHTML = GTAtext[i];
-		gtaselect.appendChild(opt);
-	}
-	
-	gtaselect.selectedIndex = studentdata.GTACertified;
-	gtaselect.setAttribute("student", student.id);
-	
-	return gtaselect;
-	
-}
 async function writeTable(student,application,position) {
 	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
 	var x = document.createElement('button');
-	var gtaselect =  getGtaselect(student, studentdata);
-	var docbtn =  getDocbtn(student, position);
+	var gtaselect =  document.createElement('select');
+	var docbtn = document.createElement('select');
 	var docexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
 	
 	console.log("add");
+	
+	getGTAselect();
+	getDocbtn();
 	
 	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
 	
@@ -201,6 +139,64 @@ async function writeTable(student,application,position) {
 	document.getElementById(student.id+"doc").appendChild(docbtn);
 	
 	console.log(removecell);
+	
+	async function getDocbtn(){
+		var opt;
+		var docexist = false;
+		
+		docbtn.classList.add("pdfbtn");
+		docbtn.classList.add("btn"); 
+		docbtn.classList.add("btn-primary");
+		
+		if(await getFile(student.id, 'resume')){
+			docexist = true;
+			opt = document.createElement('option');
+			opt.value = "resume";
+			opt.setAttribute("student", student.id);
+			opt.innerHTML = "Resume";
+			docbtn.appendChild(opt);
+		}
+		
+		if(await getFile(student.id, 'transcript')){
+			docexist = true;
+			opt = document.createElement('option');
+			opt.value = "transcript";
+			opt.setAttribute("student", student.id);
+			opt.innerHTML = "Transcript";
+			docbtn.appendChild(opt);
+		}
+		
+		if(position == "Instructor" && await getFile(student.id, 'gta')){
+			docexist = true;
+			opt = document.createElement('option');
+			opt.value = "gta";
+			opt.setAttribute("student", student.id);
+			opt.innerHTML = "GTA certification or waiver";
+			docbtn.appendChild(opt);
+		}
+		
+		if(!docexist)
+			docbtn = "No Documents";	
+	}
+	async function getGTAselect(){
+		var opt;
+		var GTAtext = ["Not Available","Pending","Certified"];
+		
+		gtaselect.classList.add("gtaselect");
+		gtaselect.classList.add("btn"); 
+		gtaselect.classList.add("btn-primary");
+		
+		for (var i = 0; i<GTAtext.length; i++){
+			opt = document.createElement('option');
+			opt.value = i;
+			opt.setAttribute("id", student.id);
+			opt.innerHTML = GTAtext[i];
+			gtaselect.appendChild(opt);
+		}
+		
+		gtaselect.selectedIndex = studentdata.GTACertified;
+		gtaselect.setAttribute("student", student.id);		
+	}
 }
 async function writeApplicants(courseName,applicants) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
