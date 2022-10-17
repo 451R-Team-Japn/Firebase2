@@ -102,14 +102,14 @@ async function writeTable(student,application,position) {
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
 	var docbtn = document.createElement('select');
-	var docexist = false;
+	var filesexist;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
 	
 	console.log("add");
 	
 	getGTAselect();
-	getDocbtn();
+	filesexist = getDocbtn();
 	
 	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
 	
@@ -136,7 +136,7 @@ async function writeTable(student,application,position) {
 	if(position == "Instructor")
 		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 		
-	if(docexist)
+	if(filesexist)
 		document.getElementById(student.id+"doc").appendChild(docbtn);
 	else
 		document.getElementById(student.id+"doc").innerHTML = "No Documents";
@@ -145,6 +145,7 @@ async function writeTable(student,application,position) {
 	
 	async function getDocbtn(){
 		var opt;
+		var docexist = false;
 		
 		docbtn.classList.add("pdfbtn");
 		docbtn.classList.add("btn"); 
@@ -174,6 +175,8 @@ async function writeTable(student,application,position) {
 			opt.innerHTML = "GTA";
 			docbtn.appendChild(opt);
 		}
+		
+		return docexist;
 	
 	}
 	async function getGTAselect(){
