@@ -96,7 +96,7 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
-async function getDocbtn(){
+async function getDocbtn(student){
 	var docbtn = document.createElement('select');
 	var opt;
 	var docexist = false;
