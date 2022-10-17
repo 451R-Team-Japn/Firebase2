@@ -141,6 +141,7 @@ async function getDocbtn(student, position){
 async function getGtaselect(student, studentdata){
 	var gtaselect =  document.createElement('select');
 	var opt;
+	var GTAtext = ["Not Available","Pending","Certified"];
 	
 	gtaselect.classList.add("gtaselect");
 	gtaselect.classList.add("btn"); 
@@ -169,7 +170,6 @@ async function writeTable(student,application,position) {
 	var docexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
-	var GTAtext = ["Not Available","Pending","Certified"];
 	
 	console.log("add");
 	
