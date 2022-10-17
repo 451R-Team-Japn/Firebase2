@@ -26,11 +26,9 @@ var user;
 $(document).ready(function () { 
 	var term = getCurrentterm();
 	console.log(term);
-	if(getAccounttype() == "AccountStudent")
-		getUser();
-	else
+	getUser();
+	if(getAccounttype() != "AccountStudent")
 		document.getElementById("form-submit").disabled  = true;
-	
 	$("input[name=applyterm][value="+term.toString()+"]").attr('checked', true);
 	addGraderoptions(term);
 	addLaboptions(term);
@@ -101,8 +99,14 @@ function populateFields(){
 	document.getElementById("email").value = user.Email;
 	document.getElementById("email").readOnly = true;
 	document.getElementById("major").value = user.Major;
+	document.getElementById("level").value = user.CurrentLevel;
+	
+	updateLevel()
 }
 $('.level').click(function(){
+	updateLevel();
+})
+function updateLevel() {
 	var level = document.querySelector('input[name="level"]:checked').value;
 	var gtaradiobtn = document.getElementById("null");
 
@@ -126,7 +130,7 @@ $('.level').click(function(){
 		document.getElementById("gta").hidden = true;
 		makehidden('gtafilebtn', true);
 	}
-})
+}
 async function addGraderoptions(semester) {
 	var data = await querysemester('G', semester);
 

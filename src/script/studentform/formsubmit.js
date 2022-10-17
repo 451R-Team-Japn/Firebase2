@@ -98,18 +98,19 @@ function courseLimitcheck(courses){
 }
 function updateUser(){
 	var user = {};
-	var fname = document.getElementById("fname").value;
-	var lname = document.getElementById("lname").value;
-	var stuID = document.getElementById("studentID").value;
-	var email = document.getElementById("email").value;
-	var gta = $('input[name="GTA"]:checked').val();
+	//var fname = document.getElementById("fname").value;
+	//var lname = document.getElementById("lname").value;
+	//var stuID = document.getElementById("studentID").value;
+	//var email = document.getElementById("email").value;
+	var level = parseInt(document.querySelector('input[name="level"]:checked').value);
+	var gta = parseInt($('input[name="GTA"]:checked').val());
 	//document.querySelector('input[name="GTA"]:checked').value;
-	var major = document.getElementById("major").value;
+	var major = parseInt(document.getElementById("major").value);
 	var gtastatus;
 	
 	
 	
-	if(parseInt(gta) == 0 || parseInt(gta) == 4)
+	if(gta == 0 || gta == 4)
 		gtastatus = 1;
 	else if(parseInt(gta) == 2)
 		gtastatus = 2;
@@ -117,12 +118,13 @@ function updateUser(){
 		gtastatus = 0;		
 
 	user = {
+	CurrentLevel: level,
 	//Email: email,
 	//FirstName: fname,
 	GTACertified: gtastatus,
 	//LastName: lname,
 	//StudentID: stuID,
-	Major: parseInt(major)
+	Major: major
 	};
 	console.log("user => "+user);
 	
@@ -134,11 +136,11 @@ function getData(){
 	var term;
 	var year;
 	var degree = document.getElementById("undergraduatedegree").value;
-	var gpa = document.getElementById("GPA").value;
-	var hours = document.getElementById("hours").value;
+	var gpa = parseInt(document.getElementById("GPA").value);
+	var hours = parseInt(document.getElementById("hours").value);
 	var gradterm = document.getElementById("grad").value;
 	var major = document.getElementById("major").value;
-	var level = document.querySelector('input[name="level"]:checked').value;
+	//var level = document.querySelector('input[name="level"]:checked').value;
 	var courses = listCourses();
 	var file;
 	
@@ -176,12 +178,12 @@ function getData(){
 		Course3: courses[2],
 		Course4: courses[3],
 		Course5: courses[4],
-		CurrentLevel: level,
+		//CurrentLevel: level,
 		GPA: gpa,
 		GraduatingTerm: term,
 		GraduatingYear: year,
 		Hours: hours,
-		Major: major,
+		//Major: major,
 		UndergradDegree: degree
 	};
 	console.log("applicant => "+applicant);
