@@ -157,7 +157,9 @@ async function writeTable(student,application,position) {
 		opt = document.createElement('option');
 		opt.value = "documents";
 		opt.innerHTML = "Documents";
-		opt.setAttribute("disable", true);
+		opt.setAttribute("disabled", true);
+		opt.setAttribute("hidden", true);
+		opt.setAttribute("selected", true);
 		docbtn.appendChild(opt);
 		
 		if(await getFile(student.id, 'resume')){
