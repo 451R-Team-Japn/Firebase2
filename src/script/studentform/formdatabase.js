@@ -20,6 +20,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage();
 var currentuser;
+var currentcertified;
 var user;
 
 
@@ -30,6 +31,7 @@ $(document).ready(function () {
 		getUser();
 	else{
 		setremovehidden(true, 'grad');
+		currentcertified = 0;
 		document.getElementById("form-submit").disabled  = true;
 	}
 	
@@ -77,10 +79,13 @@ async function getUser() {
 	user = docSnap.data();
 	var gtaradiobtn = document.getElementById("onrecord");
 	var gtaradiosecbtn = document.getElementById("pending");
-	if(user.GTACertified > 0){
-		if(user.GTACertified == 1)
+	
+	currentcertified = user.GTACertified;
+	
+	if(currentcertified > 0){
+		if(currentcertified == 1)
 			gtaradiosecbtn.checked = true;
-		if(user.GTACertified == 2)
+		if(currentcertified == 2)
 			gtaradiobtn.checked = true;
 		document.getElementById("BS").hidden = true;
 		document.getElementById("BSlabel").hidden = true;
@@ -131,16 +136,16 @@ function updateLevel() {
 	else{
 		setremovehidden(false, 'grad');
 	}
-	if(level!=0 && user.GTACertified == 0){
+	if(level!=0 && currentcertified == 0){
 		document.getElementById("gta").hidden = false;
 		gtaradiobtn.checked = false;
 	}
-	else if(user.GTACertified == 0){
+	else if(currentcertified == 0){
 		document.getElementById("gta").hidden = true;
 		gtaradiobtn.checked = true;
 		updateGTA(3);
 	}
-	else if(user.GTACertified >= 0){
+	else if(currentcertified >= 0){
 		document.getElementById("gta").hidden = true;
 		makehidden('gtafilebtn', true);
 	}
