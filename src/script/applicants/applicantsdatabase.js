@@ -138,11 +138,33 @@ async function getDocbtn(student, position){
 	return docbtn;
 	
 }
+async function getGtaselect(student, studentdata){
+	var gtaselect =  document.createElement('select');
+	var opt;
+	
+	gtaselect.classList.add("gtaselect");
+	gtaselect.classList.add("btn"); 
+	gtaselect.classList.add("btn-primary");
+	
+	for (var i = 0; i<GTAtext.length; i++){
+		opt = document.createElement('option');
+		opt.value = i;
+		opt.setAttribute("id", student.id);
+		opt.innerHTML = GTAtext[i];
+		gtaselect.appendChild(opt);
+	}
+	
+	gtaselect.selectedIndex = studentdata.GTACertified;
+	gtaselect.setAttribute("student", student.id);
+	
+	return gtaselect;
+	
+}
 async function writeTable(student,application,position) {
 	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
 	var x = document.createElement('button');
-	var gtaselect =  document.createElement('select');
+	var gtaselect =  getGtaselect(student, studentdata);
 	var docbtn =  getDocbtn(student, position);
 	var docexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
@@ -152,21 +174,6 @@ async function writeTable(student,application,position) {
 	console.log("add");
 	
 	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
-
-	gtaselect.classList.add("gtaselect");
-	gtaselect.classList.add("btn"); 
-	gtaselect.classList.add("btn-primary");
-	
-	for (var i = 0; i<GTAtext.length; i++){
-		var opt = document.createElement('option');
-		opt.value = i;
-		opt.setAttribute("id", student.id);
-		opt.innerHTML = GTAtext[i];
-		gtaselect.appendChild(opt);
-	}
-	
-	gtaselect.selectedIndex = studentdata.GTACertified;
-	gtaselect.setAttribute("student", student.id);
 	
 	x.classList.add("remove");
 	x.setAttribute("value", student.id);
