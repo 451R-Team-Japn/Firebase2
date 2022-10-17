@@ -139,7 +139,7 @@ async function writeTable(student,application,position) {
 	if(docexist)
 		document.getElementById(student.id+"doc").appendChild(docbtn);
 	else
-		document.getElementById(student.id+"doc").innerHTML("No Documents");
+		document.getElementById(student.id+"doc").innerHTML = "No Documents";
 	
 	console.log(removecell);
 	
