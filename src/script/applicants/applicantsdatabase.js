@@ -143,7 +143,7 @@ async function writeTable(student,application,position) {
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
-	var docbtn =  getDocbtn();
+	var docbtn =  getDocbtn(student);
 	var docexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
