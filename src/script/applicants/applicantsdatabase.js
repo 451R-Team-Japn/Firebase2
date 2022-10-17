@@ -44,7 +44,7 @@ $(document).on('change','.gtaselect',function(event){
 	//alert(student+" => "+value);
 	updateGTA(student, value);
 });
-$(document).on('click','.pdfbtn',async function(event){
+$(document).on('change','.pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
 	//alert(student+" => "+value);
