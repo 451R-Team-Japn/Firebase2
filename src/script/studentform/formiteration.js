@@ -37,3 +37,8 @@ function populateTerms(){
 		}
 	}
 }
+function getAccounttype(){
+	var accounttype = localStorage.getItem("Type");
+	
+	return accounttype;
+}

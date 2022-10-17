@@ -26,7 +26,11 @@ var user;
 $(document).ready(function () { 
 	var term = getCurrentterm();
 	console.log(term);
-	getUser();
+	if(getAccounttype() == "AccountStudent")
+		getUser();
+	else
+		document.getElementById("form-submit").disabled  = true;
+	
 	$("input[name=applyterm][value="+term.toString()+"]").attr('checked', true);
 	addGraderoptions(term);
 	addLaboptions(term);
