@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
 body{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: whitesmoke;
 }
 
@@ -11,6 +11,248 @@ h2{
   font-size: 32px;
 }
 
+/*PAGE HEADER + TITLE*/
+.sticky-top{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.header{
+  background-color: #0066cc;
+  display: flex;
+}
+
+.img-header{
+  width:180px;
+}
+
+.header-title{
+  display: flex;
+  color: white;
+  font-size: 45px;
+  align-items: end;
+  font-weight: bolder;
+}
+
+.divider{
+  background-color: #FFdd00;
+  height: 5px;
+}
+
+.container-title{
+  padding:10px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  background-color: #044c7c; 
+  width: 100%;
+  display: inline-flex;
+  height: 60px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.page-title{
+  color: white;
+  width: 100%;
+  font-size: 30px;
+}
+
+.btn-apply{
+  background-color: #FFdd00;
+  border-color:#FFdd00;
+  color: #044c7c;
+  margin-right: 25px;
+  width: max-content;
+  font-weight: bolder;
+}
+
+.btn-apply:hover{
+  background-color: #044c7c;
+  color: #FFdd00;
+  box-shadow: 3px 3px 3px #FFdd00;
+}
+
+.search-bar{
+  height: 36px;
+  margin-right: 2rem;
+}
+
+.search-input{
+  background-color:whitesmoke;
+}
+
+.search-btn{
+  background-color: #FFdd00;
+  border-color:#FFdd00;
+  color: #044c7c;
+}
+
+.search-btn:hover{
+  background-color: #044c7c;
+  color: #FFdd00;
+  border: solid #FFdd00;
+}
+/*END OF PAGE HEADER + TITLE*/
+
+/*FILTER DESIGN*/
+.card-filter{
+  color: #044c7c;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.filter-label{
+  font-weight: 700;
+}
+/*END OF FILTER DESIGN*/
+
+/*WELCOME CARD DESIGN*/
+.open-position-container{
+  max-width: 1500px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card{
+  z-index: auto;
+  background-color: white;
+  border: 2px solid rgba(0,0,0,.125);
+}
+
+.card-header{
+  color: #0066cc;
+  background-color: white;
+  border: none;
+}
+
+.semester{
+  float:right;
+}
+
+.card-body{
+  border-top: 2px solid #044c7c;
+  color: #044c7c;
+}
+
+.card-header:hover{
+  background-color: #044c7c;
+  color:#FFdd00 ;
+  font-weight: bolder;
+}
+
+.notes-wrapper{
+  width: auto; 
+  padding: 0 10px;
+  word-wrap: break-word;
+  overflow:auto; 
+  position:relative;
+  max-height: 150px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.welcome-notes{
+  height: 120px;
+}
+
+.notes-wrapper::-webkit-scrollbar{
+  display: none;
+}
+
+a:hover{
+  font-weight: bold;
+}
+/*Style for Admin Dashboard and Welcome page*/
+
+
+.right-card-title{
+  font-size: 75%;
+}
+
+.open-position-btn{
+  width: 150px;
+}
+
+.open-position-input-group{
+  border-radius: 5px;
+}
+
+.input-group-btn{
+  font-size: 0.75em;
+  width: 75px;
+}
+
+.input-group{
+  width:fit-content;
+}
+
+.login-input{
+  width: auto;
+}
+
+.submit-btn{
+  color: white;
+  background-color: #0066cc;
+}
+
+.submit-btn:hover{
+  background-color: #FFdd00;
+  border-color: #FFdd00;
+  color:#0066cc;
+  font-weight: bolder;
+}
+
+.applicantspage{
+  background-color: white;
+}
+
+.form-check{
+  min-height: auto;
+}
+
+.sticky-left {
+  position: -webkit-sticky; /* Safari */
+  float: left;
+  position: sticky;
+  top: 80px;
+}
+
+.sticky-center{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 80px;
+  z-index:1;
+}
+
+.sticky-right{
+  position: -webkit-sticky; /* Safari */
+  float: right;
+  position: sticky;
+  top: 80px;
+}
+.admin-notes{
+  height: 75px;
+}
+
+.check-level{
+  margin-right: 1.5rem;
+}
+
+.admin-items{
+  position: -webkit-sticky; /* Safari */
+  float: right;
+  position: sticky;
+  top: 50px;
+}
+
+.title-position{
+  background-color: #fbe764ee ;
+  width: 100%;
+  padding: 1rem;
+  padding-left: 3rem;
+  margin: 0;
+}
+
+/*END OF WELCOME CARD DESIGN*/
 .input-group.is-invalid {
   ~ .invalid-feedback {
     display: block;
@@ -71,321 +313,6 @@ h2{
   float:right;
 }
 
-/*Style for Admin Dashboard and Welcome page*/
-.open-position-container{
-  z-index: -1;
-  max-width: 1500px;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-}
-#newbutton{
-  width: max-content;
-}
-.right-card-title{
-  font-size: 75%;
-}
-.card{
-  z-index: auto;
-  background-color: white;
-  border: 2px solid rgba(0,0,0,.125);
-}
-
-.open-position-btn{
-  width: 150px;
-}
-
-.open-position-input-group{
-  border-radius: 5px;
-}
-
-.input-group-btn{
-  font-size: 0.75em;
-  width: 75px;
-}
-
-.input-group{
-  width:fit-content;
-}
-
-.login-input{
-  width: auto;
-}
-
-.btn{
-  background-color:#0066cc;
-  color: white;
-}
-
-.btn option{
-  background-color: white;
-  color: #0066cc;
-}
-
-.btn:hover{
-  background-color: #FFdd00;
-  border-color: #FFdd00;
-  color:#0066cc;
-  font-weight: bolder;
-}
-
-.applicantspage{
-  background-color: white;
-}
-
-.form-check{
-  min-height: auto;
-}
-
-.sticky-left {
-  position: -webkit-sticky; /* Safari */
-  float: left;
-  position: sticky;
-  top: 80px;
-}
-
-.sticky-center{
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 80px;
-  z-index:1;
-}
-
-.sticky-right{
-  position: -webkit-sticky; /* Safari */
-  float: right;
-  position: sticky;
-  top: 80px;
-}
-.admin-notes{
-  height: 75px;
-}
-.welcome-notes{
-  height: 120px;
-}
-/*#card{
-	min-width: 100%;
-}*/
-.notes-wrapper{
-  width: auto; 
-  padding: 0 10px;
-  word-wrap: break-word;
-  overflow:auto; 
-  position:relative;
-  max-height: 150px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.notes-wrapper::-webkit-scrollbar{
-  display: none;
-}
-
-.check-level{
-  margin-right: 1.5rem;
-}
-
-.admin-items{
-  position: -webkit-sticky; /* Safari */
-  float: right;
-  position: sticky;
-  top: 50px;
-}
-
-.title-position{
-  background-color: #fbe764ee ;
-  width: 100%;
-  padding: 1rem;
-  padding-left: 3rem;
-  margin: 0;
-}
-
-@media (max-width: 530px){
-  .check-level{
-    margin-right: 2px;
-  }
-
-  .dropdown-menu.show {
-    transform: translate(150px, 38px)!important;
-  }
-
-  .input-group-text.bi.bi-file-earmark{
-    display: none;
-  }
-
-  .label-size{
-    width: fit-content!important;
-  }
-  
-  .title-position{
-    text-align: center;
-    margin-bottom: 0;
-    padding-left: 0;
-    
-  }
-  
-  .admin-items{
-    position:static;    
-    float: none;
-  }
-
-  .search-bar{
-    display: none;
-  }
-
-  .input-group{
-    display: inline-flex;
-  }
-
-  .header-title{
-    display: none;
-  }
-}
-
-/*PAGE HEADER + TITLE*/
-.header{
-  background-color: #0066cc;
-  display: flex;
-}
-
-.header-title{
-  display: flex;
-  float: left;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-size: 45px;
-  align-items: end;
-  font-weight: bolder;
-}
-
-.divider{
-  background-color: #FFdd00;
-  height: 5px;
-}
-
-.container-title{
-  color: white;
-  padding:10px;
-  padding-left: 20px;
-  margin-bottom: 20px;
-  background-color: #044c7c; 
-  width: 100%;
-  font-size: 30px;
-  display: inline-flex;
-  height: 60px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-.page-title{
-  font-weight: 700;
-  width: 100%;
-  font-size: 30px;
-}
-
-.search-bar{
-  height: 36px;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-}
-
-.search-btn{
-  background-color: #FFdd00;
-  border-color: #FFdd00;
-  color:#0066cc;
-}
-
-.search-btn:hover{
-  background-color: #0066cc;
-  color: #FFdd00;
-}
-
-.search-input{
-  background-color:whitesmoke;
-}
-
-.sticky-top{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
-.btn-apply{
-  background-color: #FFdd00;
-  border-color:#FFdd00;
-  color: #044c7c;
-  margin-right: 25px;
-  font-family: 'Roboto', sans-serif;
-  width: 100px;
-  font-weight: bolder;
-}
-
-.btn-apply:hover{
-  background-color: #0066cc;
-  color: #FFdd00;
-}
-
-@media (max-width: 570px){
-  .search-bar{
-    display: none;
-  }
-  .header-title{
-    font-size: 30px;
-  }
-  .btn-apply{
-    margin-right: 10px;
-  }
-  .container-title{
-    padding-left: 10px;
-  }
-}
-/*END OF PAGE HEADER + TITLE*/
-
-/*FILTER DESIGN*/
-.card-filter{
-  width: fit-content;
-  color: #044c7c;
-  background-color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-.filter-label{
-  font-weight: 700;
-}
-/*END OF FILTER DESIGN*/
-
-/*WELCOME CARD DESIGN*/
-.class-card{
-  background-color:white;
-}
-
-.card-header{
-  color: #0066cc;
-  background-color: white;
-  font-weight: bold;
-  border: none;
-}
-
-.semester{
-  font-weight: normal;
-  float:right;
-}
-
-.card-body{
-  border-top: 2px solid #044c7c;
-  color: #044c7c;
-  background-color: white;
-}
-
-.card-header:hover{
-  background-color: #044c7c;
-  color:#FFdd00 ;
-  font-weight: bolder;
-}
-
-a:hover{
-  font-weight: bolder;
-}
-/*END OF WELCOME CARD DESIGN*/
-
 /*LOGIN PAGE DESIGN*/
 .login-page{
   background-color: #e4ecf4;
@@ -432,24 +359,6 @@ a{
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-i{
-  color: #044c7c;
-}
-
-@media (max-width: 570px){
-  .login-input{
-    width: 100%;
-  }
-  #title:hover{
-    background-color: #044c7c;
-    color: #FFdd00;
-  }
- 
-  #seebutton{
-    float: right;
-  }
-}
-
 /*Student form*/
 .studentform-card-body{
   border-top: none;
@@ -479,4 +388,62 @@ i{
 
 .card-new-position{
   border:none;
+}
+
+@media (max-width: 530px){
+  .check-level{
+    margin-right: 2px;
+  }
+  .dropdown-menu.show {
+    transform: translate(150px, 38px)!important;
+  }
+  .input-group-text.bi.bi-file-earmark{
+    display: none;
+  }
+  .label-size{
+    width: fit-content!important;
+  }
+  .title-position{
+    text-align: center;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  .admin-items{
+    position:static;    
+    float: none;
+  }
+  .search-bar{
+    display: none;
+  }
+  .input-group{
+    display: inline-flex;
+  }
+  .header-title{
+    display: none;
+  }
+}
+
+@media (max-width: 570px){
+  .login-input{
+    width: 100%;
+  }
+  #title:hover{
+    background-color: #044c7c;
+    color: #FFdd00;
+  }
+  #seebutton{
+    float: right;
+  }
+  .search-bar{
+    display: none;
+  }
+  .header-title{
+    font-size: 30px;
+  }
+  .btn-apply{
+    margin-right: 10px;
+  }
+  .container-title{
+    padding-left: 10px;
+  }
 }
