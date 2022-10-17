@@ -103,7 +103,7 @@ async function writeTable(student,application,position) {
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
 	var docbtn = document.createElement('select');
-	var filesexist;
+	var filesexist = false;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
 	
@@ -137,6 +137,7 @@ async function writeTable(student,application,position) {
 	if(position == "Instructor")
 		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
 		
+	console.log("filesexist",filesexist);
 	if(filesexist)
 		document.getElementById(student.id+"doc").appendChild(docbtn);
 	else
