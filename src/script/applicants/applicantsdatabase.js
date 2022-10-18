@@ -240,10 +240,9 @@ async function getCoursedoc(colName, docName) {
 }
 
 async function updateStudentdoc(docName, value, file, colName) {
+	var updateobj = {file: value}
 	const docRef = doc(db, colName, docName);
-	await updateDoc(docRef, {
-		file: value
-	});
+	await updateDoc(docRef, updateobj);
 }
 
 async function writeFile(id, filename) {
