@@ -28,9 +28,9 @@ $(document).ready(function () {
 });
 $(document).on('click','.remove',function(event){
 	var student = event.target.value;
-	var index = parseInt(event.target.coursefile);
+	var coursefile = event.target.coursefile;
 	
-	updateStudentdoc(student, "", index, 'Applicants');
+	updateStudentdoc(student, "", coursefile, 'Applicants');
 });
 
 $(document).on('change','.gtaselect',function(event){
@@ -197,10 +197,10 @@ async function writeTable(student,application,position, file) {
 }
 async function writeApplicants(courseName,appobj) {
 	var appobj;
-	//var index=["Course1","Course2","Course3","Course4","Course5"];
+	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
-	for(var j=0;j<5;j++){
-		appobj=await queryCourse(courseName,j,appobj);
+	for(var j=0;j<index.length;j++){
+		appobj=await queryCourse(courseName,index[j],appobj);
 	}
 	console.log(appobj);
 	return appobj;
@@ -212,24 +212,23 @@ async function writeTitle(course,positionname) {
 }
 
 async function queryCourse(courseName,index,appobj){
-	var courses=["Course1","Course2","Course3","Course4","Course5"];
-	const q = query(collection(db, "Applicants"), where(courses[index], "==", courseName));
-	
-	const querySnapshot = await getDocs(q);
-	 
-	querySnapshot.forEach((doc) => {
-		console.log(courses[index]," => ",doc.id, " => ", doc.data());
+  const q = query(collection(db, "Applicants"), where(index, "==", courseName));
+  
+  const querySnapshot = await getDocs(q);
+  
+  querySnapshot.forEach((doc) => {
+		console.log(index," => ",doc.id, " => ", doc.data());
 		appobj[applicantcount] = { 
-			"StudentApp": doc.id,
-			"FileName": index
+		"StudentApp": doc.id,
+		"FileName": index
 		};
 		applicantcount++;
 	});
-		
+	
 	console.log(applicantcount);
-	 
+  
 	console.log(appobj);
-	 
+  
 	return appobj;
 }
 
@@ -240,16 +239,11 @@ async function getCoursedoc(colName, docName) {
 	return docSnap;
 }
 
-async function updateStudentdoc(docName, value, index, colName) {
-	var updateobj = [
-		{"Course1": value},
-		{"Course2": value},
-		{"Course3": value},
-		{"Course4": value},
-		{"Course5": value}
-	];
+async function updateStudentdoc(docName, value, file, colName) {
 	const docRef = doc(db, colName, docName);
-	await updateDoc(docRef, updateobj[index]);
+	var updateobj[file] = value;
+	
+	await updateDoc(docRef, {updateobj});
 }
 
 async function writeFile(id, filename) {
