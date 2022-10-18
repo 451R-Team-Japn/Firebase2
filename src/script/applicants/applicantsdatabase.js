@@ -28,7 +28,7 @@ $(document).ready(function () {
 });
 $(document).on('click','.remove',function(event){
 	var student = event.target.value;
-	var coursefile = event.target.coursefile;
+	var coursefile = event.target.id;
 	
 	console.log(coursefile);
 	
