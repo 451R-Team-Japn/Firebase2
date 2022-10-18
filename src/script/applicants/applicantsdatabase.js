@@ -29,7 +29,7 @@ $(document).ready(function () {
 $(document).on('click','.remove',function(event){
 	var value = event.target.value;
 	var coursefile = event.target.coursefile;
-	alert(currentCourse+" => "+value" => "+coursefile);
+	alert(currentCourse+" => "+value+" => "+coursefile);
 });
 
 $(document).on('change','.gtaselect',function(event){
