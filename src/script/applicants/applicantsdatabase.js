@@ -28,7 +28,7 @@ $(document).ready(function () {
 });
 $(document).on('click','.remove',function(event){
 	var student = event.target.value;
-	var coursefile = event.target.id;
+	var coursefile = event.target.coursefile;
 	
 	console.log(coursefile);
 	
@@ -117,7 +117,8 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = "<div id='"+student.id+"doc'></div>";
-	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
+	var removecell = "<div id='"+student.id+"remove'></div>";
+	<button type='button' class='btn btn-primary remove' value='"+student.id+"' coursefile='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
@@ -249,7 +250,7 @@ async function updateStudentdoc(docName, value, file, colName) {
 	console.log(file);
 	console.log(updateobj);
 	
-	await updateDoc(docRef, {updateobj});
+	await updateDoc(docRef, updateobj);
 }
 
 async function writeFile(id, filename) {
