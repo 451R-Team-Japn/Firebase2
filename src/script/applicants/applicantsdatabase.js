@@ -27,15 +27,16 @@ $(document).ready(function () {
 	getCourse();
 });
 $(document).on('click','.remove',function(event){
-	var value = event.target.value;
+	var student = event.target.value;
 	var coursefile = event.target.coursefile;
-	alert(currentCourse+" => "+value+" => "+coursefile);
+	
+	updateStudentdoc(student, currentCourse, coursefile, 'AccountStudent');
 });
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
 	var student = event.target.getAttribute("student");
-	updateGTA(student, value);
+	updateStudentdoc(student, value, 'GTACertified', 'Applicants');
 });
 $(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
@@ -238,10 +239,10 @@ async function getCoursedoc(colName, docName) {
 	return docSnap;
 }
 
-async function updateGTA(docName, value) {
-	const docRef = doc(db, 'AccountStudent', docName);
+async function updateStudentdoc(docName, value, file, colName) {
+	const docRef = doc(db, colName, docName);
 	await updateDoc(docRef, {
-		"GTACertified": value
+		file: value
 	});
 }
 
