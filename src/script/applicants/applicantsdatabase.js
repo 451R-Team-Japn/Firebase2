@@ -28,7 +28,8 @@ $(document).ready(function () {
 });
 $(document).on('click','.remove',function(event){
 	var value = event.target.value;
-	alert(currentCourse+" => "+value);
+	var coursefile = event.target.coursefile;
+	alert(currentCourse+" => "+value" => "+coursefile);
 });
 
 $(document).on('change','.gtaselect',function(event){
@@ -113,7 +114,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = "<div id='"+student.id+"doc'></div>";
-	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+" coursefile='"+file+"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' coursefile='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
