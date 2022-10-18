@@ -197,7 +197,7 @@ async function writeTable(student,application,position, file) {
 }
 async function writeApplicants(courseName,appobj) {
 	var appobj;
-	var index=["Course1","Course2","Course3","Course4","Course5"];
+	//var index=["Course1","Course2","Course3","Course4","Course5"];
 	
 	for(var j=0;j<index.length;j++){
 		appobj=await queryCourse(courseName,j,appobj);
@@ -212,23 +212,24 @@ async function writeTitle(course,positionname) {
 }
 
 async function queryCourse(courseName,index,appobj){
-  const q = query(collection(db, "Applicants"), where(index, "==", courseName));
-  
-  const querySnapshot = await getDocs(q);
-  
-  querySnapshot.forEach((doc) => {
-		console.log(index," => ",doc.id, " => ", doc.data());
+	var courses=["Course1","Course2","Course3","Course4","Course5"];
+	const q = query(collection(db, "Applicants"), where(courses[index], "==", courseName));
+	
+	const querySnapshot = await getDocs(q);
+	 
+	querySnapshot.forEach((doc) => {
+		console.log(courses[index]," => ",doc.id, " => ", doc.data());
 		appobj[applicantcount] = { 
-		"StudentApp": doc.id,
-		"FileName": index
+			"StudentApp": doc.id,
+			"FileName": index
 		};
 		applicantcount++;
 	});
-	
+		
 	console.log(applicantcount);
-  
+	 
 	console.log(appobj);
-  
+	 
 	return appobj;
 }
 
