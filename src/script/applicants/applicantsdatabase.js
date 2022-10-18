@@ -200,6 +200,7 @@ async function writeApplicants(courseName,appobj) {
 	for(var j=0;j<index.length;j++){
 		appobj=await queryCourse(courseName,index[j],appobj);
 	}
+	console.log(appobj);
 	return appobj;
 }
 
