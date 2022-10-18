@@ -30,13 +30,13 @@ $(document).on('click','.remove',function(event){
 	var student = event.target.value;
 	var coursefile = event.target.coursefile;
 	
-	updateStudentdoc(student, currentCourse, coursefile, 'AccountStudent');
+	updateStudentdoc(student, "", coursefile, 'Applicants');
 });
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
 	var student = event.target.getAttribute("student");
-	updateStudentdoc(student, value, 'GTACertified', 'Applicants');
+	updateStudentdoc(student, value, 'GTACertified', 'AccountStudent');
 });
 $(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
