@@ -196,7 +196,7 @@ async function writeApplicants(courseName,applicants) {
 		applicants=await queryCourse(courseName,index[j],applicants);
 	}
 	
-	console("applicants",applicants,"index",index[j]);
+	console.log("applicants",applicants,"index",index[j]);
 	return applicants;
 }
 
