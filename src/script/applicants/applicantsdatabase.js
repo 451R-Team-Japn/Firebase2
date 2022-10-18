@@ -22,18 +22,23 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
-var table = $('#sortTable').DataTable();
 
 $(document).ready(function () { 
 	getCourse();
 });
 $(document).on('click','.remove',function(event){
+	var table = $('#sortTable').DataTable();
+	var row = table.row( $(event.target).parents('tr') );
+    var rowNode = row.node();
+	
 	var student = event.target.value;
 	var coursefile = event.target.id;
 	
 	console.log(coursefile);
 	
 	updateStudentdoc(student, "", coursefile, 'Applicants');
+	
+    row.remove();
 	
 	table.draw();
 });
@@ -52,7 +57,7 @@ $(document).on('change','#pdfbtn',async function(event){
 });
 
 async function getCourse(){
-	//var table = $('#sortTable').DataTable();
+	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
 	var appobj = [{
@@ -94,7 +99,7 @@ async function writeStudents(appobj, position) {
 }
 
 async function writeTable(student,application,position, file) {
-	//var table = $('#sortTable').DataTable();
+	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
 	var x = document.createElement('button');
 	var gtaselect =  document.createElement('select');
