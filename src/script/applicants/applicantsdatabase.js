@@ -244,6 +244,7 @@ async function updateStudentdoc(docName, value, file, colName) {
 	var updateobj = {
 		[file]: value
 	};
+	console.log(file);
 	console.log(updateobj);
 	
 	await updateDoc(docRef, {updateobj});
