@@ -28,7 +28,7 @@ $(document).ready(function () {
 });
 $(document).on('click','.remove',function(event){
 	var student = event.target.value;
-	var coursefile = parseInt(event.target.coursefile);
+	var index = parseInt(event.target.coursefile);
 	
 	updateStudentdoc(student, "", index, 'Applicants');
 });
