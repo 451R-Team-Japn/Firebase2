@@ -117,8 +117,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = "<div id='"+student.id+"doc'></div>";
-	var removecell = "<div id='"+student.id+"remove'></div>";
-	<button type='button' class='btn btn-primary remove' value='"+student.id+"' coursefile='"+file+"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
