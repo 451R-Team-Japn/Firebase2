@@ -19,8 +19,6 @@ function start(){
 	var studentpage; 
 	var page;
 	
-	//alert(accounttype);
-	
 	checkLogin();
 	
 	if (typeof getPagetype === "function"){
@@ -42,7 +40,6 @@ function redirect(accounttype, page){
 
 $(document).on("click", "#logout" ,function() {
 	logout();
-	
 });
 function logout() {
 	localStorage.removeItem("ID");

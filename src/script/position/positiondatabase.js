@@ -20,17 +20,20 @@ const auth = getAuth(app);
 var currentCourse = location.search.substring(1);
 
 $(document).ready(function () { 
-	if(currentCourse != "" || currentCourse !=  'new')
+	if(currentCourse != "" || currentCourse !=  'new'){
 		getCourse();
+		changeModal();
+	}
 });
 async function getCourse(){
 	var docSnap=await getCoursedoc('Courses',currentCourse);
 	var courseObj;
 
-	courseObj=docSnap.data();
+	courseObj= await docSnap.data();
 	console.log(courseObj);
 	
-	await writeData(courseObj);
+	writeData(courseObj);
+	changeModal(courseObj);
 }
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
@@ -38,8 +41,12 @@ async function getCoursedoc(colName, docName) {
 	
 	return docSnap;
 }
+function changeModal(course) {
+	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
+	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType+" "+ course.CourseNumber" position was successfully edited!";
+}
 function writeData(course){
-	document.getElementById("title").innerHTML = "Edit " + course.CourseType+" "+ course.CourseNumber;
+	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
 	
 	if(course.GradCourse)
 		document.getElementById("level").value = "MS";
