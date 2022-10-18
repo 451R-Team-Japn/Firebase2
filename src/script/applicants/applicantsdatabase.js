@@ -108,7 +108,7 @@ async function writeTable(student,application,position, file) {
 	var filesexist;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
-	var rowindex = "row"+toString.rowcount
+	var rowindex = "row"+rowcount.toString()
 	
 	console.log("add");
 	
