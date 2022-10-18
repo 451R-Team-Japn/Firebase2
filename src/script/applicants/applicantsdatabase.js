@@ -199,7 +199,7 @@ async function writeApplicants(courseName,appobj) {
 	var appobj;
 	//var index=["Course1","Course2","Course3","Course4","Course5"];
 	
-	for(var j=0;j<index.length;j++){
+	for(var j=0;j<5;j++){
 		appobj=await queryCourse(courseName,j,appobj);
 	}
 	console.log(appobj);
