@@ -1,5 +1,3 @@
-//var data=users["users"];
-var current;
 var totalCoursesllowed = 5;
 	
 $(document).ready(function () { 

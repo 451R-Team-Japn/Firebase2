@@ -68,10 +68,6 @@ $('#application').submit(async function(){
 		
 	}
 })
-$('.gtainput').click(function(){
-
-})
-
 async function getUser() {
 	currentuser = await localStorage.getItem("ID");
 	const docRef = doc(db, "AccountStudent", currentuser);
@@ -113,7 +109,6 @@ function populateFields(){
 	document.getElementById("email").value = user.Email;
 	document.getElementById("email").readOnly = true;
 	document.getElementById("major").value = user.Major;
-	//document.getElementById("level").value = user.CurrentLevel;
 	
 	for(var i=0;i<level.length;i++){
 		console.log(level[i].value);
@@ -154,32 +149,25 @@ async function addGraderoptions(semester) {
 	var data = await querysemester('G', semester);
 
 	var html="";
-	//var data=await getCollectionID('GraderCourses');
 	
 	html+="<label class='form-label' for='grader'>Grader Classes</label>";
-	//var graderclasses = data["CourseID"];
 	html+= await listclasses(data, "grader");
 	html+="<br>";
 	
-	//console.log(html);
 	$("#graderlist").html(html);
 }
 async function addLaboptions(semester) {
 	var data = await querysemester('R', semester);
 
 	var html="";
-	//var data=await getCollectionID('GraderCourses');
 	
 	html+="<label class='form-label' for='lab'>Lab Classes</label>";
-	//var graderclasses = data["CourseID"];
 	html+= await listclasses(data, "lab");
 	html+="<br>";
 	
-	//console.log(html);
 	$("#lablist").html(html);
 }
 async function listclasses(list, position) {
-	//anyavailable = false;
 	var docRef;
 	var docSnap;
 	var course;
@@ -187,8 +175,6 @@ async function listclasses(list, position) {
 	var blank = true;
 	var html="<div class='courselist'>";
 	var j=0;
-	//list=[];
-	//var col =  Math.ceil(list.length / 8);
 	var col =  7;
 	
 	list.forEach(async(doc) => {
@@ -205,27 +191,7 @@ async function listclasses(list, position) {
 			html+="<br>";
 		}
 	});
-		
-	/*for(var i=0;i<list.length;i++){
-		data.forEach((doc) => {
-		course = doc.data();
-		id = doc.id;
-		});
-		//docRef = doc(db, "GraderCourses", list[i]);
-		//docSnap = await getDoc(docRef);
-		course = docSnap.data();
-		
-		console.log(id, ", ", course.CourseNumber, ", ", course.CourseType);
-	
-		html+="<div class='form-check form-check-inline'>";
-		html+=addclass((course.CourseNumber), (course.CourseType), position);
-		html+="</div>";
-		j++;
-		if(j==col){
-			j=0;
-			html+="<br>";
-		}
-	}*/
+
 	html+="</div>"
 	if(blank)
 		html='<p class="error">There are no ' + position + ' positions available at this time.</p>'
@@ -237,7 +203,6 @@ async function listclasses(list, position) {
 function addclass(coursenumber,coursetype,gradcourse,id,position){
 	var html="";
 	var data = coursetype+" "+coursenumber;
-	//console.log(id, ", ", coursetype, ", ", coursenumber);
 	if(gradcourse)
 		html+="<input required onclick='validateCourses()' class='"+position+" grad courses form-check-input' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='form-check-label grad' for='"+data+" hidden'>"+data+"</label>";
 	else
@@ -256,41 +221,17 @@ async function getCollection(colName) {
 async function querysemester(coursetype,semester){
 	const docRef = collection(db, "Courses");
 	const q = query(docRef, where("GraderOrLab", "==", coursetype), where("Semester", "==", semester), orderBy('CourseNumber', 'asc'));
-
-	//const q = query(docRef, orderBy(index, order));
   
 	const querySnapshot = await getDocs(q);
   
-	/*querySnapshot.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
-	});*/
-  
 	return querySnapshot;
 }
-/*async function getCollectionID(colName) {
-const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.id);
-  return list;
-// Detect auth state
-//auth.onAuthStateChanged(user => {
-});*/
 
 function uploadFile(user, filename, file) {
 var storageRef = ref(storage, user+"/"+filename);
 
-	// 'file' comes from the Blob or File API
 	uploadBytes(storageRef, file).then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
 }
-
-onAuthStateChanged(auth, user => {
-  if(user != null){
-	console.log('logged in!');
-  } else {
-	console.log('No user');
-  }
-});
 

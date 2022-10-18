@@ -1,7 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, deleteDoc, setDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,33 +17,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-//var GraderCourses;
-//var InstructorCourses;
 
 $(document).ready(function () { 
-	console.log("ready");
-	writeCourses();
+	getCourses();
 });
-
-$('#application').submit(async function(){
-
-})
-$('.gtainput').click(function(){
-
-})
-
-$('.level').click(function(){
-
-})
-async function writeCourses() {
-	await writeCourseIDs('Courses');
-	//await writeCourseIDs('InstructorCourses2','Instructor');
-	//document.getElementById("card").hidden = true;
+async function getCourses() {
+	await writeCourses('Courses');
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourseIDs(Courses) {
-	//console.log(Courses, " => ", Position);
+async function writeCourses(Courses) {
 	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
 	Courses.forEach((doc) => {
 		cloneCard(doc.id,doc.data());
@@ -127,7 +109,9 @@ async function cloneCard(name,data) {
 		$(seebutton).prop("disabled",false);
 
 	filter();
+	
 	$('.collapse').collapse('show');
+	
 	await console.log(document.getElementById('open-position-container').innerHTML);
 
 	async function writeApplicants(courseName) {
@@ -153,10 +137,7 @@ $(document).on("click", "#closebutton" ,async function() {
 	await deleteDoc(doc(db, "Courses", value));
 	$(card).prop("hidden",true);
 });
-/*async function closeCourse(course){
-	await deleteDoc(doc(db, "GraderCourses2", course));
-	await deleteDoc(doc(db, "InstructorCourses2", course));
-}*/
+
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
   const docRef = collection(db, colName);
@@ -166,26 +147,4 @@ async function getCollection(colName,index,d){
   
   return querySnapshot;
 }
-async function sort(colName,index,order){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, order));
-  
-  const querySnapshot = await getDocs(q);
-
-  return querySnapshot;
-}
-async function getCollectionID(colName) {
-const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.id);
-  return list;
-}
-
-onAuthStateChanged(auth, user => {
-  if(user != null){
-	console.log('logged in!');
-  } else {
-	console.log('No user');
-  }
-});
 

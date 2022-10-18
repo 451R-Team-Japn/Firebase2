@@ -1,8 +1,9 @@
-function writeApplicants(course){
+/*function writeApplicants(course){
 	console.log("writeApplicants");
 	localStorage.setItem("Course", course);
 	location.href='applicants.html';
-}
+}*/
+
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
@@ -16,12 +17,9 @@ function Search() {
     }
   }
 }
+
 $(document).ready(function () { 
 	
-	//$('.remove').click(function(event){
-		//var value = event.target.value;
-		//alert(value); 
-	//});
 });
 function changeDoc(value){
 	document.getElementById("iframepdf");
@@ -29,9 +27,11 @@ function changeDoc(value){
 	$("#myModalLabel").html(value);
 	modal();
 }
+
 function modal(){
 	$('#courseModal').modal('toggle');
 }
+
 function getPagetype(){
 	return 1;
 }
