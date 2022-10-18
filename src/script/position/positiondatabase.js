@@ -32,8 +32,8 @@ async function getCourse(){
 	courseObj= await docSnap.data();
 	console.log(courseObj);
 	
-	writeData(courseObj);
-	changeModal(courseObj);
+	await writeData(courseObj);
+	await changeModal(courseObj);
 }
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
@@ -42,16 +42,17 @@ async function getCoursedoc(colName, docName) {
 	return docSnap;
 }
 function changeModal(course) {
-	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
-	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType+" " + course.CourseNumber + " position was successfully edited!";
+	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
+	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType + " " + course.CourseNumber + " position was successfully edited!";
 }
 function writeData(course){
-	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
+	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
 	
 	if(course.GradCourse)
 		document.getElementById("level").value = "MS";
 	else
 		document.getElementById("level").value = "BS";
+	
 	document.getElementById("level").disabled = true;
 	
 	document.getElementById("CourseType").value = course.CourseType;
