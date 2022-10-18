@@ -12,6 +12,8 @@ function Search() {
     }
   }
 }
+
+
 async function changeCheckbox(ele){
 	await uncheck(ele);
 	filter();
@@ -51,14 +53,17 @@ function filter(){
 		});
     }
 }
+
 function uncheck(ele){
 	var classes =  ele.classList;
 	console.log(classes.length, classes[1]);
 	 $('input.'+classes[1]).not(ele).prop('checked', false); 
 }
+
 function collapseCards(value){
 	$('.collapse').collapse(value);
 }
+//old filter
 /*function filter(){
     if ($('input[type="checkbox"]:checked').length > 0) {
 		$('.all').hide();
@@ -72,4 +77,3 @@ function collapseCards(value){
 
     }
 }*/
-//filter();

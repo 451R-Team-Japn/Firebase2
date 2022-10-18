@@ -19,22 +19,17 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 
-
 $('#login').submit(function(){
 	if(!submitlogin());
 		event.preventDefault();
 })
 
 async function submitlogin(){
-	//console.log("cat");
 	var html="";
 	if(await validatelogin('AccountStudent')){
 		console.log("studentLogin");
 		window.location.href = '/studentform.html';
 		document.getElementById('login').action = 'studentform.html';
-		//localStorage.setItem("ID", current.StudentKeyID);
-		//var currentuser = await localStorage.getItem("ID");
-		//console.log(currentuser);
 		return true;
 	}
 	else if(await validatelogin('AccountAdmin')){
@@ -52,8 +47,6 @@ async function submitlogin(){
 }
 
 async function validatelogin(col){
-	//var html="";
-	//let passpattern = new RegExp('^().{6,24}$');
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
@@ -62,17 +55,11 @@ async function validatelogin(col){
 	
 	console.log(username[0]);
 	
-	//var users = await queryUsers(col);
 	var user = await checkLogin(col,testemail, password);
-	
-	//var current;
-	//var username;
-	//var pattern = new RegExp('^' + email + '$', 'i');
 	
 	var result = false;
 	
 	user.forEach(doc => {	
-	// doc.data() is never undefined for query doc snapshots
 	console.log(doc.id, " => ", doc.data());
 	
 	console.log(doc.exists);
@@ -82,59 +69,7 @@ async function validatelogin(col){
 			result = true;
 		}
 	});
-	
-	//users.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	//console.log(doc.id, " => ", doc.data());
-	//});
-	
-	/*users.each(doc => {
-		current=doc.data();
-		//console.log(current.id);
-		console.log(current.Email,current.Password);
-		//console.log(current.Password);
-		username = String(current.Email).split("@");
-		if(pattern.test(current.Email) || pattern.test(username[0])){ 
-			console.log("true");
-			if (password==current.Password){
-				localStorage.setItem("ID", doc.id);
-				result = true;
-			}
-		}
-	});
-	users.forEach(doc => {
-		current=doc.data();
-		//console.log(current.id);
-		console.log(current.Email,current.Password);
-		//console.log(current.Password);
-		username = String(current.Email).split("@");
-		if(pattern.test(current.Email) || pattern.test(username[0])){ 
-			console.log("true");
-			if (password==current.Password){
-				localStorage.setItem("ID", doc.id);
-				result = true;
-			}
-		}
-	});*/
-	
-	//var data = await getCollection(col);
-	//var dataid = await getCollectionID(col);
 
-
-	/*for(var i=0;i<users.length;i++){
-		current=users[i];
-		//console.log(current.id);
-		console.log(current.Email,current.Password);
-		//console.log(current.Password);
-		username = String(current.Email).split("@");
-		if(pattern.test(current.Email) || pattern.test(username[0])){ 
-			console.log("true");
-			if (password==current.Password){
-				await localStorage.setItem("ID", dataid[i]);
-				return true;
-			}
-		}
-	}*/
 	return result;
 }
 function validateloginmessage(){
@@ -153,38 +88,6 @@ function validateloginmessage(){
 	return html;
 }
 
-// Get a list of courses from your database
-async function getCollection(colName) {
-  const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.data());
-  //console.log(colName);
-  //console.log(list);
-  return list;
-}
-
-async function getCollectionID(colName) {
-const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.id);
-  //console.log(colName);
-  //console.log(list);
-  return list;
-}
-
-async function queryUsers(colName){
-	const docRef = collection(db, colName);
-	const q = query(docRef, limit(1));
-  
-	const querySnapshot = await getDocs(q);
-  
-	/*querySnapshot.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
-	});*/
-  
-	return querySnapshot;
-}
 async function checkLogin(colName,email, password){
 	var docRef = collection(db, colName);
 	var q = query(docRef, where("Email", "==", email), where("Password", "==", password));

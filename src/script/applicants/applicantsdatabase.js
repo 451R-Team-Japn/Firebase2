@@ -24,15 +24,8 @@ var applicantcount = 0;
 var done = false;
 
 $(document).ready(function () { 
-	console.log("ready");
 	getCourse();
 });
-$('#application').submit(async function(){
-
-})
-$('.gtainput').click(function(){
-
-})
 $(document).on('click','.remove',function(event){
 	var value = event.target.value;
 	alert(currentCourse+" => "+value);
@@ -41,14 +34,12 @@ $(document).on('click','.remove',function(event){
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
 	var student = event.target.getAttribute("student");
-	//alert(student+" => "+value);
 	updateGTA(student, value);
 });
 $(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
 	event.target.value = "documents";
-	//alert(student+" => "+value);
 	await writeFile(student, value);
 	modal();
 });
@@ -58,15 +49,10 @@ async function getCourse(){
 	var position;
 	var courseObj;	
 	var applicants = [];
-	//currentCourse = await localStorage.getItem("Course");
 	var docSnap=await getCoursedoc('Courses',currentCourse);
+	
 	position="Grader";
-	/*if (await docSnap.exists()) {
-		position="Grader";
-	} else {
-		position="Instructor";
-		docSnap=await getCoursedoc('InstructorCourses2',currentCourse);
-	}*/
+	
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	
@@ -83,11 +69,9 @@ async function getCourse(){
 	console.log(applicants);
 	await writeStudents(applicants, position);
 
-	
-	//await document.getElementById("sortTable").deleteRow(1);
 	table.draw();
-	//setFilters();
 }
+
 async function writeStudents(applicants, position) {
 	var student;
 	var application;
@@ -97,6 +81,7 @@ async function writeStudents(applicants, position) {
 		writeTable(student,application.data(),position);
 	}
 }
+
 async function writeTable(student,application,position) {
 	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
@@ -112,15 +97,9 @@ async function writeTable(student,application,position) {
 	getGTAselect();
 	filesexist = await getDocbtn();
 	
-	//var docbtn = '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</button><div class="dropdown-menu">';
-	
 	x.classList.add("remove");
 	x.setAttribute("value", student.id);
-	
-	//document.getElementById("Mobility").selectedIndex = 12; //Option 10
 
-	
-	//var row = table.insertRow(-1);
 	var Namecell = studentdata.FirstName+" "+studentdata.LastName;
 	var GPAcell = application.GPA;
 	var Hourscell = application.Hours;
@@ -218,20 +197,18 @@ async function writeApplicants(courseName,applicants) {
 	}
 	return applicants;
 }
+
 async function writeTitle(course,positionname) {
 	$(classname).html(await course.CourseType+' '+course.CourseNumber);
 	$(position).html(positionname);	
 }
+
 async function queryCourse(courseName,index,applicants){
   const q = query(collection(db, "Applicants"), where(index, "==", courseName));
   
   const querySnapshot = await getDocs(q);
   
-  //var applicants = [];
-  
-  //console.log(index+" => "+querySnapshot);
   querySnapshot.forEach((doc) => {
-		// doc.data() is never undefined for query doc snapshots
 		console.log(index," => ",doc.id, " => ", doc.data());
 		applicants[applicantcount] = doc.id;
 		applicantcount++;
@@ -243,19 +220,14 @@ async function queryCourse(courseName,index,applicants){
   
 	return applicants;
 }
+
 async function getCoursedoc(colName, docName) {
 	const docRef = doc(db, colName, docName);
 	const docSnap = await getDoc(docRef);
 	
 	return docSnap;
-
-	/*if (docSnap.exists()) {
-		console.log("Document data:", docSnap.data());
-	} else {
-		// doc.data() will be undefined in this case
-		console.log("No such document!");
-	}*/
 }
+
 async function updateGTA(docName, value) {
 	const docRef = doc(db, 'AccountStudent', docName);
 	await updateDoc(docRef, {
@@ -276,6 +248,7 @@ async function writeFile(id, filename) {
 		iframe1.src = "files/error.jpg";
 	}
 }
+
 async function getFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename+'.pdf');
 	var value;
@@ -286,15 +259,5 @@ async function getFile(id, filename) {
 	function onReject() {
 		return false;
 	}
-	console.log(value);
 	return value;
 }
-
-onAuthStateChanged(auth, user => {
-  if(user != null){
-	console.log('logged in!');
-  } else {
-	console.log('No user');
-  }
-});
-

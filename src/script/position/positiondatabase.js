@@ -1,7 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-//import { updateGTA } from './formwrite';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -31,7 +30,6 @@ async function getCourse(){
 	courseObj=docSnap.data();
 	console.log(courseObj);
 	
-	//writeTitle(courseObj);
 	await writeData(courseObj);
 }
 async function getCoursedoc(colName, docName) {
@@ -39,13 +37,6 @@ async function getCoursedoc(colName, docName) {
 	const docSnap = await getDoc(docRef);
 	
 	return docSnap;
-
-	/*if (docSnap.exists()) {
-		console.log("Document data:", docSnap.data());
-	} else {
-		// doc.data() will be undefined in this case
-		console.log("No such document!");
-	}*/
 }
 function writeData(course){
 	document.getElementById("title").innerHTML = "Edit " + course.CourseType+" "+ course.CourseNumber;
@@ -66,7 +57,6 @@ function writeData(course){
 	document.getElementById("position").disabled = true;
 	
 	document.getElementById(course.Semester).checked = true;
-	//document.getElementById(course.Semester).disabled = true;
 	
 	document.getElementById("notes").value = course.Notes;
 	
@@ -77,15 +67,11 @@ $('#courseform').submit(function(){
 	if(form[0].checkValidity() === true){
 		console.log("submit");
 		submitform();
-		//event.preventDefault();
 	}
 	else{
 		event.preventDefault();
 	}
 	
-})
-$('.gtainput').click(function(){
-
 })
 async function submitform() {
 	var position = document.getElementById("position").value;
@@ -98,60 +84,11 @@ async function submitform() {
 		console.log(course.Semester);
 		id=course.CourseType+course.CourseNumber+course.Semester+course.GraderOrLab;
 		console.log(position);
-		//if(position=="Grader")
 			if(currentCourse != "" || currentCourse !=  'new')
 				await setDoc(doc(db, "Courses", id), course);
 			else
 				await updateDoc(doc(db, "Courses", id), course);
-		//else //if(position=="Instructor")
-			//await setDoc(doc(db, "InstructorCourses2", id), course);
-		/*else{
-			console.log("GraderCourses2");
-			await setDoc(doc(db, "GraderCourses2", id+"G"), course);
-			await setTimeout(5000);
-			console.log("InstructorCourses2");
-			await setDoc(doc(db, "InstructorCourses2", id+"L"), course);
-		}*/
 	});
 	
 }
-
-// Get a list of courses from your database
-async function getCollection(colName) {
-  const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.data());
-  return list;
-}
-async function sort(colName,index,order){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, order));
-  
-  const querySnapshot = await getDocs(q);
-  
-  /*querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  });*/
-  
-  return querySnapshot;
-}
-async function getCollectionID(colName) {
-const col = collection(db, colName);
-  const snapshot = await getDocs(col);
-  const list = snapshot.docs.map(doc => doc.id);
-  return list;
-}
-
-// Detect auth state
-//auth.onAuthStateChanged(user => {
-
-//});
-onAuthStateChanged(auth, user => {
-  if(user != null){
-	console.log('logged in!');
-  } else {
-	console.log('No user');
-  }
-});
 

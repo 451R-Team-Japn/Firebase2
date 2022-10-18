@@ -1,10 +1,9 @@
 var anyavailable = false;
-var GTA;
 
 function updateGTA(g) {
 	var GTAfile = document.getElementById("gf");
 	var fhtml;
-	GTA = parseInt(g);
+	var GTA = parseInt(g);
 	changeUpload("resumef");
 	if(GTA != 0)
 		makehidden('gtafilebtn', true);
@@ -12,7 +11,6 @@ function updateGTA(g) {
 		document.getElementById("lablist").hidden = false;
 		document.getElementById("lablistna").hidden = true;
 		fhtml = "Please attach your GTA certification or waiver, you may also attach your resume and/or transcript";
-		//changeUpload('gtaf');
 		GTAfile.setAttribute('required', '');
 		makehidden('gtafilebtn', false);
 	}
@@ -42,11 +40,8 @@ function updateGTA(g) {
 	validateCourses();
 }
 function removeChecked(classname){
-	//var list = document.querySelector('input[class="courses"]:checked');
 	var list = document.getElementsByClassName(classname);
-	//console.log(list);
 	for(var j=0; j<list.length; ++j){ 
-		//console.log(list[j]);
 		list[j].checked = false;
 		validateCourses();
 	}
@@ -54,14 +49,12 @@ function removeChecked(classname){
 function setremovehidden(set, classname){
 	var list = document.getElementsByClassName(classname);
 	removeChecked(classname);
-	//console.log(list);
 	for(var j=0; list[j]; ++j){
 		if(set){
 			if(!list[j].checked)
 				list[j].hidden = true;
-		} else {
+		} else
 			list[j].hidden = false;
-		}
 	}
 }
 function setTwoNumberDecimal() {
@@ -85,8 +78,6 @@ function listclasses(list, position) {
 		}
 	}
 	html+="</div>"
-	//html+="</select>";
-	
 		
 	if(!anyavailable)
 		html='<p class="error">There are no ' + position + ' positions available at this time.</p>'
@@ -128,11 +119,6 @@ function changeUpload(value){
 	var t = 'transcriptfile';
 	var g = 'gtafile';
 	
-	//if(gta == 0)
-		//g = 'gtafile';
-	//else
-		//g = null;
-	
 	if(value=="resumef"){
 		makehidden(r, false);
 		makehidden(t, true);
@@ -152,7 +138,6 @@ function changeUpload(value){
 
 function makehidden(classname, set){
 	var list = document.getElementsByClassName(classname);
-	//console.log(list);
 	for(var j=0; list[j]; ++j){
 		if(set){
 			list[j].hidden = true;
@@ -160,9 +145,6 @@ function makehidden(classname, set){
 			list[j].hidden = false;
 		}
 	}
-	//$(list).each(function(item){
-		//item.hidden = set;
-	//});
 }
 function getPagetype(){
 	return 0;

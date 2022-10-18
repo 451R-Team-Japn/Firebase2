@@ -1,6 +1,3 @@
-$(document).ready(function () { 
-
-});
 function coursenumberChange(n) {
 	document.getElementById("CourseNumber").value = n.toUpperCase();
 }
@@ -16,19 +13,16 @@ function semesterValidation() {
 	else
 		setremoveRequired(true, checkboxes);
 }
-function setremoveRequired(set, list){
-	//var courseinput = document.getElementById("courseinput");
-	 
+
+function setremoveRequired(set, list){	 
 	for(var j=0; list[j]; ++j){
-		if(set){
+		if(set)
 			list[j].setAttribute('required', '');
-			//courseinput.setAttribute("class", "input-group is-invalid");
-		} else {
+		else 
 			list[j].removeAttribute('required');
-			//courseinput.removeAttribute("class");
-		}
 	}
 }
+
 function changePattern(level){
 	var coursenum = document.getElementById("CourseNumber");
 	if(level=="BS")
@@ -36,6 +30,7 @@ function changePattern(level){
 	else
 		coursenum.pattern = "(([5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)";
 }
+
 function getPagetype(){
 	return 1;
 }

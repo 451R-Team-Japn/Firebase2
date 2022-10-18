@@ -1,8 +1,3 @@
-/*function submitForm(){
-	console.log("submitForm");
-	getData();
-	return false;
-}*/
 function modal(){
 	$('#positionModal').modal('toggle');
 }
@@ -34,8 +29,6 @@ function getData(){
 	console.log("level => "+level);
 	
 	console.log("notes => "+notes);
-	
-	//console.log("semester => "+semesters);
 	
 	applicant = {
     CourseNumber: cnumber,

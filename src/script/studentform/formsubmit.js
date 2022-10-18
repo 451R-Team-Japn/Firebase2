@@ -1,5 +1,5 @@
 var validating = false;
-var totalCourses
+var totalCourses;
 
 function submitForm(){
 	var form = $("#application");
@@ -29,12 +29,6 @@ function validateForm(){
 		document.getElementById("submiterror").hidden = false;
 		$("#submiterror").html(html);
 		return false;
-	/*} else if(totalCourses > totalCoursesllowed){
-		html='You must check less than '+totalCoursesllowed+' courses.';
-		setremoveDisabled(true, courses);
-		document.getElementById("submiterror").hidden = false;
-		$("#submiterror").html(html);
-		return false;*/
 	} else {
 		setremoveDisabled(false, courses);
 		return true;	
@@ -98,17 +92,10 @@ function courseLimitcheck(courses){
 }
 function updateUser(){
 	var user = {};
-	//var fname = document.getElementById("fname").value;
-	//var lname = document.getElementById("lname").value;
-	//var stuID = document.getElementById("studentID").value;
-	//var email = document.getElementById("email").value;
 	var level = parseInt(document.querySelector('input[name="level"]:checked').value);
 	var gta = parseInt($('input[name="GTA"]:checked').val());
-	//document.querySelector('input[name="GTA"]:checked').value;
 	var major = parseInt(document.getElementById("major").value);
-	var gtastatus;
-	
-	
+	var gtastatus;	
 	
 	if(gta == 0 || gta == 4)
 		gtastatus = 1;
@@ -119,11 +106,7 @@ function updateUser(){
 
 	user = {
 	CurrentLevel: level,
-	//Email: email,
-	//FirstName: fname,
 	GTACertified: gtastatus,
-	//LastName: lname,
-	//StudentID: stuID,
 	Major: major
 	};
 	console.log("user => "+user);
@@ -140,7 +123,6 @@ function getData(){
 	var hours = parseInt(document.getElementById("hours").value);
 	var gradterm = document.getElementById("grad").value;
 	var major = document.getElementById("major").value;
-	//var level = document.querySelector('input[name="level"]:checked').value;
 	var courses = listCourses();
 	var file;
 	
@@ -152,38 +134,18 @@ function getData(){
 	else if(termsplit[0]=="Spring")
 		term=1;
 	else
-		term=2;
-	
-	/*console.log("fname => "+fname);
-	console.log("lname => "+lname);
-	console.log("stuID => "+stuID);
-	console.log("email => "+email);
-	console.log("degree => "+degree);
-	console.log("gpa => "+gpa);
-	console.log("hours => "+hours);
-	console.log("term => "+term);
-	console.log("year => "+year);
-	console.log("major => "+major);
-	console.log("level => "+level);
-	console.log("courses => "+courses);*/
-	
+		term=2;	
 	
 	applicant = {
-		//FirstName: fname,
-		//LastName: lname,
-		//StudentID: stuID,
-		//Email: email,
 		Course1: courses[0],
 		Course2: courses[1],
 		Course3: courses[2],
 		Course4: courses[3],
 		Course5: courses[4],
-		//CurrentLevel: level,
 		GPA: gpa,
 		GraduatingTerm: term,
 		GraduatingYear: year,
 		Hours: hours,
-		//Major: major,
 		UndergradDegree: degree
 	};
 	console.log("applicant => "+applicant);
@@ -241,9 +203,7 @@ function listCourses(){
 	}
 	return courses;
 }
-function writeData(level, gradtermtext, majortext){
-	//var courses = graderlist.concat(lablist);
-			
+/*function writeData(level, gradtermtext, majortext){			
 	var data = {currentlevel:level, graduatingsemester:gradtermtext, course1:courses[0], course2:courses[1], course3:courses[2], course4:courses[3],course5:courses[4]};
 	alert(level);
 	alert(majortext);
@@ -273,4 +233,4 @@ function writeCourses(courseType, amount) {
 		}
 	}
 	return courseslist;
-}
+}*/
