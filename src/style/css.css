@@ -161,9 +161,9 @@ h2{
 a:hover{
   font-weight: bold;
 }
+/*END OF WELCOME CARD DESIGN*/
+
 /*Style for Admin Dashboard and Welcome page*/
-
-
 .right-card-title{
   font-size: 75%;
 }
@@ -252,7 +252,6 @@ a:hover{
   margin: 0;
 }
 
-/*END OF WELCOME CARD DESIGN*/
 .input-group.is-invalid {
   ~ .invalid-feedback {
     display: block;
@@ -376,14 +375,6 @@ a{
 .new-position-card{
   border-top: none;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-.bi-arrow-left{
-  color: white;
-}
-
-.bi-arrow-left:hover{
-  color: #044c7c;
 }
 
 .card-new-position{
