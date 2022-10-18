@@ -30,6 +30,8 @@ $(document).on('click','.remove',function(event){
 	var student = event.target.value;
 	var coursefile = event.target.coursefile;
 	
+	console.log(coursefile);
+	
 	updateStudentdoc(student, "", coursefile, 'Applicants');
 });
 
