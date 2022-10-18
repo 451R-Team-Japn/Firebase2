@@ -200,7 +200,7 @@ async function writeApplicants(courseName,appobj) {
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
 	for(var j=0;j<index.length;j++){
-		appobj=await queryCourse(courseName,index[j],appobj);
+		appobj=await queryCourse(courseName,j,appobj);
 	}
 	console.log(appobj);
 	return appobj;
@@ -240,9 +240,15 @@ async function getCoursedoc(colName, docName) {
 }
 
 async function updateStudentdoc(docName, value, file, colName) {
-	var updateobj = {file: value}
+	var updateobj = [
+		{"Course1": value},
+		{"Course2": value},
+		{"Course3": value},
+		{"Course4": value},
+		{"Course5": value}
+	];
 	const docRef = doc(db, colName, docName);
-	await updateDoc(docRef, updateobj);
+	await updateDoc(docRef, updateobj[file]);
 }
 
 async function writeFile(id, filename) {
