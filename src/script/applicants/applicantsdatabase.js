@@ -110,6 +110,8 @@ async function writeTable(student,application,position, file) {
 	var leveltext = ["BS","MS","PhD"];
 	var rowindex = "row"+rowcount.toString();
 	
+	rowcount ++;
+	
 	console.log("add");
 	
 	getGTAselect();
@@ -130,8 +132,6 @@ async function writeTable(student,application,position, file) {
 	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
-	
-	rowcount ++;
 	
 	if(position == "Instructor")
 		document.getElementById(rowindex+"gpa").appendChild(gtaselect);	
