@@ -47,8 +47,12 @@ function logout() {
 	localStorage.removeItem("Type");
 	sessionStorage.removeItem("Type");
 	
-	window.location.href = 'login.html';
+	if(typeof getPagetype === "function")
+		window.location.href = 'login.html';
 }
+$(document).on("click", ".header" ,function() {
+	window.location.href = 'index.html';
+});
 
 
 	
