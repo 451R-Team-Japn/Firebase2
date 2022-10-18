@@ -82,11 +82,11 @@ async function writeStudents(appobj, position) {
 	for(var j=0;j<appobj.length;j++){
 		student=await getCoursedoc('AccountStudent',appobj[j].StudentApp);
 		application=await getCoursedoc('Applicants',appobj[j].StudentApp);
-		writeTable(student,application.data(),position);
+		writeTable(student,application.data(),position, appobj[j].FileName);
 	}
 }
 
-async function writeTable(student,application,position) {
+async function writeTable(student,application,position, file) {
 	var table = $('#sortTable').DataTable();
 	var studentdata=student.data();
 	var x = document.createElement('button');
@@ -113,7 +113,7 @@ async function writeTable(student,application,position) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = "<div id='"+student.id+"doc'></div>";
-	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+" student='"++"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+" coursefile='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
