@@ -249,7 +249,7 @@ async function updateStudentdoc(docName, value, index, colName) {
 		{"Course5": value}
 	];
 	const docRef = doc(db, colName, docName);
-	await updateDoc(docRef, updateobj[file]);
+	await updateDoc(docRef, updateobj[index]);
 }
 
 async function writeFile(id, filename) {
