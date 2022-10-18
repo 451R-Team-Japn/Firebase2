@@ -22,6 +22,7 @@ const storage = getStorage();
 var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
+var rowcount = 0;
 
 $(document).ready(function () { 
 	getCourse();
@@ -107,6 +108,7 @@ async function writeTable(student,application,position, file) {
 	var filesexist;
 	var majortext = ["CS","IT","ECE","EE"];
 	var leveltext = ["BS","MS","PhD"];
+	var rowindex = "row"+toString.rowcount
 	
 	console.log("add");
 	
@@ -123,20 +125,22 @@ async function writeTable(student,application,position, file) {
 	var Majorcell = majortext[studentdata.Major];
 	var IDcell = studentdata.StudentID;
 	var Emailcell = studentdata.Email;
-	var GTAcell = "<div id='"+student.id+"gpa'></div>";
-	var Documentscell = "<div id='"+student.id+"doc'></div>";
+	var GTAcell = "<div id='"+rowindex+"gpa'></div>";
+	var Documentscell = "<div id='"+rowindex+"doc'></div>";
 	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
+	rowcount ++;
+	
 	if(position == "Instructor")
-		document.getElementById(student.id+"gpa").appendChild(gtaselect);	
+		document.getElementById(rowindex+"gpa").appendChild(gtaselect);	
 		
 	console.log("filesexist",filesexist);
 	if(filesexist)
-		document.getElementById(student.id+"doc").appendChild(docbtn);
+		document.getElementById(rowindex+"doc").appendChild(docbtn);
 	else
-		document.getElementById(student.id+"doc").innerHTML = "No Documents";
+		document.getElementById(rowindex+"doc").innerHTML = "No Documents";
 	
 	console.log(removecell);
 	
