@@ -8,7 +8,6 @@ $(document).ready(function () {
 function checkLogin(){
 	console.log("checkLogin");
 	if (localStorage.getItem("ID") === null && sessionStorage.getItem("ID") === null){
-		//alert("logout()");
 		logout();
 		return true;
 	}
@@ -38,10 +37,7 @@ function start(){
 function redirect(accounttype, page){
 	console.log("accounttype: "+accounttype+" studentpage: "+page);
 	if(accounttype == 'AccountStudent' && page == 1)
-		window.location.href = "studentform.html";
-	//else if(accounttype  == 'AccountAdmin' && page == 0)
-		//window.location.href = "admin.html";
-	
+		window.location.href = "studentform.html";	
 }
 
 $(document).on("click", "#logout" ,function() {
