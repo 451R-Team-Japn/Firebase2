@@ -43,7 +43,7 @@ async function getCoursedoc(colName, docName) {
 }
 function changeModal(course) {
 	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
-	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType+" "+ course.CourseNumber" position was successfully edited!";
+	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType+" " + course.CourseNumber + " position was successfully edited!";
 }
 function writeData(course){
 	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType+" "+ course.CourseNumber;
