@@ -48,7 +48,7 @@ async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
-	var appobj[{
+	var appobj = [{
 		"StudentApp": "",
 		"FileName": "",
 	}];
