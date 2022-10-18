@@ -30,7 +30,7 @@ $(document).on('click','.remove',function(event){
 	var student = event.target.value;
 	var coursefile = event.target.coursefile;
 	
-	updateStudentdoc(student, "", coursefile, 'Applicants');
+	updateStudentdoc(student, "", index, 'Applicants');
 });
 
 $(document).on('change','.gtaselect',function(event){
@@ -240,7 +240,7 @@ async function getCoursedoc(colName, docName) {
 	return docSnap;
 }
 
-async function updateStudentdoc(docName, value, file, colName) {
+async function updateStudentdoc(docName, value, index, colName) {
 	var updateobj = [
 		{"Course1": value},
 		{"Course2": value},
