@@ -48,6 +48,10 @@ async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
+	var appobj[{
+		"StudentApp": "",
+		"FileName": "",
+	}];
 	var applicants = [];
 	var docSnap=await getCoursedoc('Courses',currentCourse);
 	
@@ -65,19 +69,19 @@ async function getCourse(){
 		position="Instructor";
 
 	writeTitle(courseObj,position);
-	applicants=await writeApplicants(currentCourse,applicants);
-	console.log(applicants);
-	await writeStudents(applicants, position);
+	appobj=await writeApplicants(currentCourse,appobj);
+	console.log(appobj);
+	await writeStudents(appobj, position);
 
 	table.draw();
 }
 
-async function writeStudents(applicants, position) {
+async function writeStudents(appobj, position) {
 	var student;
 	var application;
-	for(var j=0;j<applicants.length;j++){
-		student=await getCoursedoc('AccountStudent',applicants[j]);
-		application=await getCoursedoc('Applicants',applicants[j]);
+	for(var j=0;j<appobj.length;j++){
+		student=await getCoursedoc('AccountStudent',appobj[j].StudentApp);
+		application=await getCoursedoc('Applicants',appobj[j].StudentApp);
 		writeTable(student,application.data(),position);
 	}
 }
@@ -109,7 +113,7 @@ async function writeTable(student,application,position) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+student.id+"gpa'></div>";
 	var Documentscell = "<div id='"+student.id+"doc'></div>";
-	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"'>X</button>";
+	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+" student='"++"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
@@ -189,15 +193,14 @@ async function writeTable(student,application,position) {
 		gtaselect.setAttribute("student", student.id);		
 	}
 }
-async function writeApplicants(courseName,applicants) {
+async function writeApplicants(courseName,appobj) {
+	var appobj;
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
 	for(var j=0;j<index.length;j++){
-		applicants=await queryCourse(courseName,index[j],applicants);
+		appobj=await queryCourse(courseName,index[j],appobj);
 	}
-	
-	console.log("applicants",applicants,"index",index[j]);
-	return applicants;
+	return appobj;
 }
 
 async function writeTitle(course,positionname) {
@@ -205,22 +208,25 @@ async function writeTitle(course,positionname) {
 	$(position).html(positionname);	
 }
 
-async function queryCourse(courseName,index,applicants){
+async function queryCourse(courseName,index,appobj){
   const q = query(collection(db, "Applicants"), where(index, "==", courseName));
   
   const querySnapshot = await getDocs(q);
   
   querySnapshot.forEach((doc) => {
 		console.log(index," => ",doc.id, " => ", doc.data());
-		applicants[applicantcount] = doc.id;
+		appobj[applicantcount] = { 
+		"StudentApp": doc.id,
+		"FileName": index
+		};
 		applicantcount++;
 	});
 	
 	console.log(applicantcount);
   
-	console.log(applicants);
+	console.log(appobj);
   
-	return applicants;
+	return appobj;
 }
 
 async function getCoursedoc(colName, docName) {
