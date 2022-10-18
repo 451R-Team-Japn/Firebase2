@@ -33,6 +33,8 @@ $(document).on('click','.remove',function(event){
 	console.log(coursefile);
 	
 	updateStudentdoc(student, "", coursefile, 'Applicants');
+	
+	table.draw();
 });
 
 $(document).on('change','.gtaselect',function(event){
