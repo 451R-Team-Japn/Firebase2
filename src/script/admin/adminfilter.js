@@ -16,7 +16,7 @@ function Search() {
 
 async function changeCheckbox(ele){
 	//await uncheck(ele);
-	$('.all').show().filter(':not(.CS)').hide();
+	$('.all').show().filter(':not(.CS, .IT).Grader').hide();
 	//filter();
 }
 /*function filter(){
