@@ -52,7 +52,53 @@
         </div>
     </div>
 
-    <div class="mb-3 p-3 card filter card-filter sticky-left">
+        <div class="mb-3 p-3 card filter card-filter sticky-left">
+        <label style="font-weight: bold;">Major:</label>
+        <div class="form-check" id="test">
+            <label class="checkbox form-check-label major-checkbox"><input class="form-check-input major" type="checkbox" id="CS"
+                    value="CS"/>CS</label><br>
+            <label class="checkbox form-check-label major-checkbox"><input class="form-check-input major" type="checkbox" id="IT"
+                    value="IT"/>IT</label><br>
+            <label class="checkbox form-check-label major-checkbox"><input class="form-check-input major" type="checkbox" id="ECE"
+                    value="ECE"/>ECE</label><br>
+            <!--<label class="checkbox form-check-label"><input class="form-check-input" type="checkbox" value="EE" onchange="filter()"/>EE</label><br>-->
+        </div>
+        <label class="mt-2" style="font-weight: bold;">Position:</label>
+        <div class="form-check">
+            <label class="checkbox form-check-label pos-checkbox"><input class="form-check-input position" type="checkbox"
+                    id="Grader" value="Grader"/>Grader</label><br>
+            <label class="checkbox form-check-label pos-checkbox"><input class="form-check-input position" type="checkbox"
+                    id="Instructor" value="Instructor"/>Instructor</label><br>
+        </div>
+        <label class="mt-2" style="font-weight: bold;">Semester:</label>
+        <div class="form-check">
+            <label class="checkbox form-check-label semester-checkbox"><input class="form-check-input semester" type="checkbox" id="Fall"
+                    value="Fall"/>Fall</label><br>
+            <label class="checkbox form-check-label semester-checkbox"><input class="form-check-input semester" type="checkbox"
+                    id="Spring" value="Spring"/>Spring</label><br>
+            <label class="checkbox form-check-label semester-checkbox"><input class="form-check-input semester" type="checkbox"
+                    id="Summer" value="Summer"/>Summer</label><br>
+        </div>
+        <label class="mt-2" style="font-weight: bold;">Level:</label>
+        <div class="form-check">
+            <label class="checkbox form-check-label grad-checkbox"><input class="form-check-input level" type="checkbox" id="grad"
+                    value="grad"/>Graduate</label><br>
+            <label class="checkbox form-check-label grad-checkbox"><input class="form-check-input level" type="checkbox"
+                    id="undergrad" value="undergrad"/>Undergraduate </label><br>
+        </div>
+        <div class="mt-3 form-check">
+            <label class="checkbox form-check-label app-checkbox"><input class="form-check-input hasapplicants" type="checkbox"
+                    id="applicants" value="applicants"checked />Applicants</label><br>
+            <label class="checkbox form-check-label app-checkbox"><input class="form-check-input hasapplicants" type="checkbox"
+                    id="noapplicants" value="noapplicants"/>No Applicants </label><br>
+        </div>
+        <div class="mt-3 form-check">
+            <label class="form-check-label"><input class="form-check-input hasapplicants" type="radio"
+                    name="collapserdb" onchange="collapseCards('show')" checked />Show</label><br>
+            <label class="form-check-label"><input class="form-check-input hasapplicants" type="radio"
+                    name="collapserdb" onchange="collapseCards('hide')" />Collapse</label><br>
+        </div>
+    </div>
         <label style="font-weight: bold;">Major:</label>
         <div class="form-check" id="test">
             <label class="checkbox form-check-label"><input class="form-check-input major" type="checkbox" id="CS"
