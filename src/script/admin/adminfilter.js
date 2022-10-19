@@ -1,14 +1,14 @@
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
-  var nodes = document.getElementsByClassName('card-header');
+  var nodes = document.getElementsByClassName('target');
 
   for (i = 0; i < nodes.length; i++) {
 	  console.log(nodes[i].style.display);
     if (nodes[i].innerText.toLowerCase().includes(filter)) {
-      nodes[i].style.display = "block";
+      nodes[i].parentNode.style.display = "block";
     } else {
-      nodes[i].style.display = "none";
+      nodes[i].parentNode.style.display = "none";
     }
   }
 }
