@@ -63,7 +63,7 @@ function filter(){
     var majorcheckboxes = document.getElementsByClassName('major');
 	var semestercheckboxes = document.getElementsByClassName('semester');
 	
-	$('.all').show().filter(':not(.CS)').hide();
+	$('.all').show().filter(':not(.CS).Grader').hide();
 	
     var chekboxInputs = Array.from(checkboxes).map(a => a.querySelector('input'));
     var allAreUnselected = chekboxInputs.every(function(elem){
