@@ -1,7 +1,7 @@
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
-  var nodes = document.getElementsByClassName('all');
+  var nodes = document.getElementsByClassName('card-header');
 
   for (i = 0; i < nodes.length; i++) {
 	  console.log(nodes[i].style.display);
