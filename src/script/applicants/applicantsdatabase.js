@@ -54,7 +54,8 @@ $(document).on('change','#pdfbtn',async function(event){
 	var student = event.target.getAttribute("student");
 	var toolbar = '';
 	event.target.value = "documents";
-	if(event.target.value !== 'resume')
+	console.log(value);
+	if(value != 'resume.pdf')
 		toolbar = '#toolbar=0';
 	else
 		toolbar = '#toolbar=1';
@@ -277,7 +278,7 @@ async function writeFile(id, filename, toolbar) {
 	var iframe1 = document.getElementById('iframepdf');
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
-		await console.log(url+toolbar);
+		console.log(url);
 		iframe1.src = await url+toolbar;
 	}
 	function onReject(error) {
