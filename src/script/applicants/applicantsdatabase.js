@@ -325,7 +325,7 @@ async function updateFiles(id) {
 	}
 	
 	async function onResolve(url) {
-		uploadFile(id, url, name);
+		uploadFile(id, name, url);
 	}
 	function onReject(error) {
 		console.log("error",error);
