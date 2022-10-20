@@ -69,7 +69,7 @@ $('#application').submit(async function(){
 	}
 })
 async function getUser() {
-	currentuser = await localStorage.getItem("ID");
+	currentuser = await sessionStorage.getItem("ID");
 	const docRef = doc(db, "AccountStudent", currentuser);
 	const docSnap = await getDoc(docRef);
 	user = docSnap.data();

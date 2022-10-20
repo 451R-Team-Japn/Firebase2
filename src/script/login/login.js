@@ -64,8 +64,8 @@ async function validatelogin(col){
 	
 	console.log(doc.exists);
 		if (doc.exists){
-			localStorage.setItem("ID", doc.id);
-			localStorage.setItem("Type", col);
+			sessionStorage.setItem("ID", doc.id);
+			sessionStorage.setItem("Type", col);
 			result = true;
 		}
 	});

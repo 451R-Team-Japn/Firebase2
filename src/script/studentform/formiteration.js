@@ -36,7 +36,7 @@ function populateTerms(){
 	}
 }
 function getAccounttype(){
-	var accounttype = localStorage.getItem("Type");
+	var accounttype = sessionStorage.getItem("Type");
 	
 	return accounttype;
 }
