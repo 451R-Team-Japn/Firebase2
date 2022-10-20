@@ -168,15 +168,15 @@ function getFiles(){
 	
 	files = {
 		Resume: {
-			Name: "resume.pdf",
+			Name: "resume",
 			File: rf
 		},
 		Transcript: {
-			Name: "transcript.pdf",
+			Name: "transcript",
 			File: tf
 		},
 		GTA: {
-			Name: "gta.pdf",
+			Name: "gta",
 			File: gf
 		}
 	};
