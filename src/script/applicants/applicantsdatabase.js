@@ -52,8 +52,12 @@ $(document).on('change','.gtaselect',function(event){
 $(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
+	var toolbar = '';
 	event.target.value = "documents";
-	await writeFile(student, value);
+	if(event.target.value !== 'resume')
+		toolbar = '#toolbar=0';
+	
+	await writeFile(student, value, toolbar);
 	modal();
 });
 
@@ -266,13 +270,13 @@ async function updateStudentdoc(docName, value, file, colName) {
 	await updateDoc(docRef, updateobj);
 }
 
-async function writeFile(id, filename) {
+async function writeFile(id, filename, toolbar) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
 		console.log(url);
-		iframe1.src = await url;
+		iframe1.src = await url+toolbar;
 	}
 	function onReject(error) {
 		console.log("error",error);
