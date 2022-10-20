@@ -22,7 +22,6 @@ var currentCourse = location.search.substring(1);
 $(document).ready(function () { 
 	if(currentCourse != "" || currentCourse !=  'new'){
 		getCourse();
-		changeModal();
 	}
 });
 async function getCourse(){
@@ -40,35 +39,6 @@ async function getCoursedoc(colName, docName) {
 	const docSnap = await getDoc(docRef);
 	
 	return docSnap;
-}
-function changeModal(course) {
-	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
-	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType + " " + course.CourseNumber + " position was successfully edited!";
-}
-function writeData(course){
-	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
-	
-	if(course.GradCourse)
-		document.getElementById("level").value = "MS";
-	else
-		document.getElementById("level").value = "BS";
-	
-	document.getElementById("level").disabled = true;
-	
-	document.getElementById("CourseType").value = course.CourseType;
-	document.getElementById("CourseType").disabled = true;
-	
-	document.getElementById("CourseNumber").value = course.CourseNumber;
-	document.getElementById("CourseNumber").readOnly = true;
-	
-	document.getElementById("position").value = course.GraderOrLab;
-	document.getElementById("position").disabled = true;
-	
-	document.getElementById(course.Semester).checked = true;
-	
-	document.getElementById("notes").value = course.Notes;
-	
-	semesterValidation();
 }
 $('#courseform').submit(function(){
 	var form = $("#courseform");

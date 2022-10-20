@@ -30,7 +30,38 @@ function changePattern(level){
 	else
 		coursenum.pattern = "(([5][0-9]{3})([ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{1,2})?)";
 }
-
+function changeModal(course) {
+	document.getElementById("positionModalLabel").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
+	document.getElementById("position-modal-body").innerHTML =  "The " + course.CourseType + " " + course.CourseNumber + " position was successfully edited!";
+	$('#reload-button').hide();
+}
+function writeData(course){
+	document.getElementById("title").innerHTML = "Edit Position " + course.CourseType + " " + course.CourseNumber;
+	
+	if(course.GradCourse)
+		document.getElementById("level").value = "MS";
+	else
+		document.getElementById("level").value = "BS";
+	
+	document.getElementById("create-btn").value = "Edit";
+		
+	document.getElementById("level").disabled = true;
+	
+	document.getElementById("CourseType").value = course.CourseType;
+	document.getElementById("CourseType").disabled = true;
+	
+	document.getElementById("CourseNumber").value = course.CourseNumber;
+	document.getElementById("CourseNumber").readOnly = true;
+	
+	document.getElementById("position").value = course.GraderOrLab;
+	document.getElementById("position").disabled = true;
+	
+	document.getElementById(course.Semester).checked = true;
+	
+	document.getElementById("notes").value = course.Notes;
+	
+	semesterValidation();
+}
 function getPagetype(){
 	return 1;
 }
