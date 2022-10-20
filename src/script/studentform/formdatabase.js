@@ -46,7 +46,7 @@ $(document).on("click", ".applyterm" ,async function() {
 });
 
 $('#application').submit(async function(){
-	var applicant;
+	/*var applicant;
 	var files;
 	
 	if(!submitForm())
@@ -66,7 +66,7 @@ $('#application').submit(async function(){
 		if(files.GTA.File !== undefined)
 			uploadFile(currentuser, files.GTA.Name, files.GTA.File);
 		
-	}
+	}*/
 })
 async function getUser() {
 	currentuser = await sessionStorage.getItem("ID");
