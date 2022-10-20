@@ -57,7 +57,7 @@ $(document).on('change','#pdfbtn',async function(event){
 	if(event.target.value !== 'resume')
 		toolbar = '#toolbar=0';
 	else
-		toolbar = '';
+		toolbar = '#toolbar=1';
 	
 	await writeFile(student, value, toolbar);
 	modal();
