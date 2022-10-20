@@ -277,7 +277,7 @@ async function writeFile(id, filename, toolbar) {
 	var iframe1 = document.getElementById('iframepdf');
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
-		console.log(url+toolbar);
+		await console.log(url+toolbar);
 		iframe1.src = await url+toolbar;
 	}
 	function onReject(error) {
