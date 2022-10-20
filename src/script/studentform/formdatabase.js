@@ -46,14 +46,14 @@ $(document).on("click", ".applyterm" ,async function() {
 });
 
 $('#application').submit(async function(){
-	/*var applicant;
+	var applicant;
 	var files;
 	
 	if(!submitForm())
 		event.preventDefault();
 	else{
 		applicant=getData();
-		await setDoc(doc(db, "Applicants", currentuser), applicant);
+		//await setDoc(doc(db, "Applicants", currentuser), applicant);
 		user=updateUser();
 		await updateDoc(doc(db, "AccountStudent", currentuser), user);
 		
@@ -66,7 +66,7 @@ $('#application').submit(async function(){
 		if(files.GTA.File !== undefined)
 			uploadFile(currentuser, files.GTA.Name, files.GTA.File);
 		
-	}*/
+	}
 })
 async function getUser() {
 	currentuser = await sessionStorage.getItem("ID");
