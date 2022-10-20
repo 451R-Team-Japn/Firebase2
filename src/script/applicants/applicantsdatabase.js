@@ -50,12 +50,12 @@ $(document).on('change','.gtaselect',function(event){
 	updateStudentdoc(student, value, 'GTACertified', 'AccountStudent');
 });
 $(document).on('change','#pdfbtn',async function(event){
-	var value = event.target.value+".pdf";
+	var value = event.target.value;
 	var student = event.target.getAttribute("student");
 	var toolbar = '';
 	event.target.value = "documents";
 	console.log(value);
-	if(value != 'resume.pdf')
+	if(value != 'resume')
 		toolbar = '#toolbar=0';
 	else
 		toolbar = '#toolbar=1';
@@ -288,7 +288,7 @@ async function writeFile(id, filename, toolbar) {
 }
 
 async function getFile(id, filename) {
-	var storageRef = ref(storage, id+'/'+filename+'.pdf');
+	var storageRef = ref(storage, id+'/'+filename);
 	var value;
 	value = await getDownloadURL(storageRef).then(onResolve, onReject);
 	function onResolve() {
