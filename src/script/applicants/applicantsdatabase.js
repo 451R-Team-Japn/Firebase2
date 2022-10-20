@@ -332,10 +332,10 @@ async function updateFiles(id) {
 		iframe1.src = "files/error.jpg";
 	}
 }
-function uploadFile(user, filename, file) {
+function uploadFile(user, filename, url) {
 var storageRef = ref(storage, user+"/"+filename);
 
-	uploadBytes(storageRef, file).then((snapshot) => {
+	uploadString(storageRef, url, 'data_url').then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
 }
