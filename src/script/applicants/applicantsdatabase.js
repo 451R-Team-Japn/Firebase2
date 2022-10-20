@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
+import { getStorage, ref, getDownloadURL, uploadFile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -170,6 +170,8 @@ async function writeTable(student,application,position, file) {
 		opt.setAttribute("selected", true);
 		docbtn.appendChild(opt);
 		
+		await updateFiles(student.id);
+		
 		if(await getFile(student.id, 'resume')){
 			docexist = true;
 			opt = document.createElement('option');
@@ -298,4 +300,35 @@ async function getFile(id, filename) {
 		return false;
 	}
 	return value;
+}
+
+async function updateFiles(id) {	
+	var storageRef;
+	var file;
+	if(await getFile(id, 'resume.pdf')){
+		storageRef = ref(storage, id+'/'+"resume.pdf");
+		file = "resume"
+		await getDownloadURL(storageRef).then(onResolve, onReject);
+
+	}
+	
+	if(await getFile(id, 'transcript.pdf')){
+		storageRef = ref(storage, id+'/'+"transcript.pdf");
+		file = "transcript"
+		await getDownloadURL(storageRef).then(onResolve, onReject);
+	}
+	
+	if(await getFile(id, 'gta.pdf')){
+		storageRef = ref(storage, id+'/'+"gta.pdf");
+		file = "gta"
+		await getDownloadURL(storageRef).then(onResolve, onReject);
+	}
+	
+	async function onResolve(url) {
+		uploadFile(id, url, name);
+	}
+	function onReject(error) {
+		console.log("error",error);
+		iframe1.src = "files/error.jpg";
+	}
 }
