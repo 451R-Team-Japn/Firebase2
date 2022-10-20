@@ -280,7 +280,14 @@ a:hover{
 .error {
   color: red;
 }
-
+/*Style for Applicants*/
+.applicant-table-btn{
+  font-size: 0.75em !important; 
+}
+.applicant-table-btn option{
+  background-color: white !important; 
+  color: black !important;
+}
 /*Style for Student Form*/
 .file-label{
   display: block;

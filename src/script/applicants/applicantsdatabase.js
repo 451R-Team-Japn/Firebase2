@@ -129,7 +129,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+rowindex+"gpa'></div>";
 	var Documentscell = "<div id='"+rowindex+"doc'></div>";
-	var removecell = "<button type='button' class='btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
+	var removecell = "<button type='button' class='applicant-table-btn btn btn-primary remove' value='"+student.id+"' id='"+file+"'>X</button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
@@ -150,6 +150,7 @@ async function writeTable(student,application,position, file) {
 		
 		//docbtn.classList.add("pdfbtn");
 		docbtn.setAttribute("id", "pdfbtn");
+		docbtn.classList.add("applicant-table-btn");
 		docbtn.classList.add("btn"); 
 		docbtn.classList.add("btn-primary");
 		docbtn.setAttribute("student", student.id);
@@ -194,6 +195,7 @@ async function writeTable(student,application,position, file) {
 		var GTAtext = ["Not Available","Pending","Certified"];
 		
 		gtaselect.classList.add("gtaselect");
+		gtaselect.classList.add("applicant-table-btn");
 		gtaselect.classList.add("btn"); 
 		gtaselect.classList.add("btn-primary");
 		
