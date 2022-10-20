@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-import { getStorage, ref, getDownloadURL, uploadFile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
+import { getStorage, ref, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -331,4 +331,11 @@ async function updateFiles(id) {
 		console.log("error",error);
 		iframe1.src = "files/error.jpg";
 	}
+}
+function uploadFile(user, filename, file) {
+var storageRef = ref(storage, user+"/"+filename);
+
+	uploadBytes(storageRef, file).then((snapshot) => {
+	  console.log('Uploaded a blob or file!');
+	});
 }
