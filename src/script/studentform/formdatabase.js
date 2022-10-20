@@ -53,7 +53,7 @@ $('#application').submit(async function(){
 		event.preventDefault();
 	else{
 		applicant=getData();
-		//await setDoc(doc(db, "Applicants", currentuser), applicant);
+		await setDoc(doc(db, "Applicants", currentuser), applicant);
 		user=updateUser();
 		await updateDoc(doc(db, "AccountStudent", currentuser), user);
 		
