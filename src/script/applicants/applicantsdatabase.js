@@ -50,7 +50,7 @@ $(document).on('change','.gtaselect',function(event){
 	updateStudentdoc(student, value, 'GTACertified', 'AccountStudent');
 });
 $(document).on('change','#pdfbtn',async function(event){
-	var value = event.target.value;
+	var value = event.target.value+".pdf";
 	var student = event.target.getAttribute("student");
 	var toolbar = '';
 	event.target.value = "documents";
