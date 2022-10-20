@@ -11,10 +11,6 @@ h2{
   font-size: 32px;
 }
 
-iframe {
-  pointer-events: none;
-}
-
 /*PAGE HEADER + TITLE*/
 .sticky-top{
   position: -webkit-sticky;

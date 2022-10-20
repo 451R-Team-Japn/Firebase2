@@ -1,9 +1,3 @@
-/*function writeApplicants(course){
-	console.log("writeApplicants");
-	localStorage.setItem("Course", course);
-	location.href='applicants.html';
-}*/
-
 function Search() {
   var input = document.getElementById("Search");
   var filter = input.value.toLowerCase();
@@ -17,9 +11,8 @@ function Search() {
     }
   }
 }
-
 $(document).ready(function () { 
-	
+
 });
 function changeDoc(value){
 	document.getElementById("iframepdf");
