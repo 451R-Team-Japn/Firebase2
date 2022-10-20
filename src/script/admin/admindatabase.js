@@ -95,9 +95,9 @@ async function cloneCard(name,data) {
 	$(notes).html(await data.Notes);
 	$(semesterclass).html(await semester[data.Semester]);
 	$(seebutton).attr(await "href", "applicants.html?"+name);
-	$(seebutton).attr(await "target", "_blank");
+	//$(seebutton).attr(await "target", "_blank");
 	$(editbutton).attr(await "href", "createposition.html?"+name);
-	$(editbutton).attr(await "target", "_blank");
+	//$(editbutton).attr(await "target", "_blank");
 	$(closebutton).attr(await "value", name);
 	$(applicants).html(applicantstext);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
