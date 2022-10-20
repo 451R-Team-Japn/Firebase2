@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-import { getStorage, ref, getDownloadURL, uploadString } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
+import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -170,7 +170,7 @@ async function writeTable(student,application,position, file) {
 		opt.setAttribute("selected", true);
 		docbtn.appendChild(opt);
 		
-		await updateFiles(student.id);
+		//await updateFiles(student.id);
 		
 		if(await getFile(student.id, 'resume')){
 			docexist = true;
@@ -302,7 +302,7 @@ async function getFile(id, filename) {
 	return value;
 }
 
-async function updateFiles(id) {	
+/*async function updateFiles(id) {	
 	var storageRef;
 	var file;
 	if(await getFile(id, 'resume.pdf')){
@@ -338,4 +338,4 @@ var storageRef = ref(storage, user+"/"+filename);
 	uploadString(storageRef, url, 'data_url').then((snapshot) => {
 	  console.log('Uploaded a blob or file!');
 	});
-}
+}*/
