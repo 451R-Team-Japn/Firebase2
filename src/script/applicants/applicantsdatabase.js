@@ -170,8 +170,6 @@ async function writeTable(student,application,position, file) {
 		opt.setAttribute("selected", true);
 		docbtn.appendChild(opt);
 		
-		//await updateFiles(student.id);
-		
 		if(await getFile(student.id, 'resume')){
 			docexist = true;
 			opt = document.createElement('option');
@@ -301,41 +299,3 @@ async function getFile(id, filename) {
 	}
 	return value;
 }
-
-/*async function updateFiles(id) {	
-	var storageRef;
-	var file;
-	if(await getFile(id, 'resume.pdf')){
-		storageRef = ref(storage, id+'/'+"resume.pdf");
-		file = "resume"
-		await getDownloadURL(storageRef).then(onResolve, onReject);
-
-	}
-	
-	if(await getFile(id, 'transcript.pdf')){
-		storageRef = ref(storage, id+'/'+"transcript.pdf");
-		file = "transcript"
-		await getDownloadURL(storageRef).then(onResolve, onReject);
-	}
-	
-	if(await getFile(id, 'gta.pdf')){
-		storageRef = ref(storage, id+'/'+"gta.pdf");
-		file = "gta"
-		await getDownloadURL(storageRef).then(onResolve, onReject);
-	}
-	
-	async function onResolve(url) {
-		uploadFile(id, file, url);
-	}
-	function onReject(error) {
-		console.log("error",error);
-		iframe1.src = "files/error.jpg";
-	}
-}
-function uploadFile(user, filename, url) {
-var storageRef = ref(storage, user+"/"+filename);
-
-	uploadString(storageRef, url, 'data_url').then((snapshot) => {
-	  console.log('Uploaded a blob or file!');
-	});
-}*/
