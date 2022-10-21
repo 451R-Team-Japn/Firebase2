@@ -281,7 +281,7 @@ async function writeFile(id, filename, toolbar) {
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
 		console.log(url);
-		iframe1.src = await url+toolbar;
+		iframe1.src = await 'https://view.officeapps.live.com/op/embed.aspx?src='url+toolbar;
 	}
 	function onReject(error) {
 		console.log("error",error);
