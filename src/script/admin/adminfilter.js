@@ -6,9 +6,9 @@ function Search() {
   for (i = 0; i < nodes.length; i++) {
 	  console.log(nodes[i].style.display);
     if (nodes[i].innerText.toLowerCase().includes(filter)) {
-      nodes[i].parentNode.parentNode.style.display = "block";
+      nodes[i].parentNode.parentNode.parentNode.style.display = "block";
     } else {
-      nodes[i].parentNode.parentNode.style.display = "none";
+      nodes[i].parentNode.parentNode.parentNode.style.display = "none";
     }
   }
 }
