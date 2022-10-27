@@ -323,7 +323,7 @@ a:hover{
   padding: 0;
   text-align: center;
   transition: 0.2s all ease-in-out;
-  width: 80px;
+  width: 100px;
 }
 
 .radio-container input[type=radio], .checkbox-container input[type=checkbox] {
