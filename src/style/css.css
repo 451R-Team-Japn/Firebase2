@@ -336,19 +336,19 @@ a:hover{
 
 .radio-container input[type=radio] + label, .checkbox-container input[type=checkbox] + label {
   color: #FFFFFF;
-  background: #FFDD00;
+  background: #0066CC;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label {
   color: #FFFFFF;
-  background: #0066CC;
+  background: #FFDD00;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .radio-container input[type=radio]:disabled + label, .checkbox-container input[type=checkbox]:disabled + label {
   color: #FFFFFF;
-  background: #FFDD0088;
+  background: #0066CC88;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
