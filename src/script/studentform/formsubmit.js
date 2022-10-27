@@ -4,6 +4,7 @@ var totalCourses;
 function submitForm(){
 	var form = $("#application");
 	validateForm();
+	$('.radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label').css('background', '#198754');
 	if(form[0].checkValidity() === true){
 		console.log("submitForm");
 		return true;
