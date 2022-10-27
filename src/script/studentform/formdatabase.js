@@ -175,7 +175,7 @@ async function listclasses(list, position) {
 	var blank = true;
 	var html="<div class='courselist'>";
 	var j=0;
-	var col = 8;
+	var col = 7;
 	
 	list.forEach(async(doc) => {
 		blank = false;
