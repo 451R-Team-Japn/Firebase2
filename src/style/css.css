@@ -345,11 +345,13 @@ a:hover{
 .checkbox-container input[type=checkbox]:checked + label {
   color: #FFFFFF;
   background: #0066CC;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .checkbox-container input[type=checkbox]:checked:valid + label {
   color: #FFFFFF;
   background: #198754;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /*Style for Create Position*/
