@@ -300,6 +300,20 @@ a:hover{
   border-bottom-left-radius: 0 !important;
 }
 
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.checkbox-container {
+  width: 80%;
+  display: inline-block;
+  padding: 5px;
+}
+
 .radio-container, .checkbox-container {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
