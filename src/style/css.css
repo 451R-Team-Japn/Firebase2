@@ -326,7 +326,7 @@ a:hover{
   padding: 0 5px 0 5px;
   text-align: center;
   transition: 0.2s all ease-in-out;
-  min-width: 110px;
+  min-width: 100px;
   width: auto;
 }
 
