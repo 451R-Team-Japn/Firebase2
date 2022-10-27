@@ -300,7 +300,7 @@ a:hover{
   border-bottom-left-radius: 0 !important;
 }
 
-.radio-container {
+.radio-container, .checkbox-container {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -308,7 +308,7 @@ a:hover{
   padding: 5px;
 }
 
-.radio-container label {
+.radio-container label, .checkbox-container label {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -322,33 +322,17 @@ a:hover{
   width: 80px;
 }
 
-.radio-container input[type=radio] {
+.radio-container input[type=radio], .checkbox-container input[type=checkbox] {
   display: none;
 }
 
-.radio-container input[type=radio]:checked + label {
+.radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label {
   color: #FFFFFF;
   background: #0066CC;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.radio-container input[type=radio]:checked:valid + label {
-  color: #FFFFFF;
-  background: #198754;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.checkbox-container input[type=checkbox] {
-  display: none;
-}
-
-.checkbox-container input[type=checkbox]:checked + label {
-  color: #FFFFFF;
-  background: #0066CC;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.checkbox-container input[type=checkbox]:checked:valid + label {
+.radio-container input[type=radio]:checked:valid + label, .checkbox-container input[type=checkbox]:checked:valid + label {
   color: #FFFFFF;
   background: #198754;
   border: 1px solid rgba(0, 0, 0, 0.1);
