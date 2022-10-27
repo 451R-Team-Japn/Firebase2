@@ -341,7 +341,7 @@ a:hover{
 
 .radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label {
   color: #FFFFFF;
-  background: #0066CC !important;
+  background: #0066CC;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -354,6 +354,18 @@ a:hover{
 .radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label {
   color: #FFFFFF;
   background: #044C7C;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.was-validated .radio-container input[type=radio]:checked:valid + label, .was-validated .checkbox-container input[type=checkbox]:checked:valid + label {
+  color: #FFFFFF;
+  background: #198754;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.was-validated .radio-container input[type=radio]:invalid + label, .was-validated .checkbox-container input[type=checkbox]:invalid + label {
+  color: #FFFFFF;
+  background: #DE3545;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 

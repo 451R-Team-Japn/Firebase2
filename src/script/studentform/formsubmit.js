@@ -7,26 +7,12 @@ function submitForm(){
 	validateForm();
 	
 	submitTried = true;
-	
-	valid();
 
 	if(form[0].checkValidity() === true){
 		console.log("submitForm");
 		return true;
 	}else
 		return false;
-}
-$(document).on("change", "input[type='radio'], input[type='checkbox']", function () {
-	valid();
-});
-function valid(){
-	if(submitTried){
-		$('.radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label').css('background', '#0066CC');
-		$('.radio-container input[type=radio]:not(:invalid) + label, .checkbox-container input[type=checkbox]:not(:invalid) + label').css('background', '#FFDD00');
-		$('.radio-container input[type=radio]:disabled + label, .checkbox-container input[type=checkbox]:disabled + label').css('background', '#FFDD0088');
-		$('.radio-container input[type=radio]:invalid + label, .checkbox-container input[type=checkbox]:invalid + label').css('background', '#DE3545');
-		$('.radio-container input[type=radio]:checked:valid + label, .checkbox-container input[type=checkbox]:checked:valid + label').css('background', '#198754');
-	}
 }
 function modal(){
 	$('#formModal').modal('toggle');
@@ -48,7 +34,7 @@ function validateForm(){
 		$("#submiterror").html(html);
 		return false;
 	} else {
-		setremoveDisabled(false, courses);
+		//setremoveDisabled(false, courses);
 		return true;	
 	}	
 }
