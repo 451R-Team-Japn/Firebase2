@@ -182,7 +182,7 @@ async function listclasses(list, position) {
 		course = doc.data();
 		id = doc.id;
 	
-		html+="<div class='form-check form-check-inline'>";
+		html+="<div class='form-check form-check-inline checkbox-container'>";
 		html+=addclass((course.CourseNumber), (course.CourseType),(course.GradCourse),id, position);
 		html+="</div>";
 		j++;
