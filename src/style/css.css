@@ -341,7 +341,13 @@ a:hover{
 
 .radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label {
   color: #FFFFFF;
-  background: #0066CC;
+  background: #0066CC !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.radio-container input[type=radio]:disabled + label, .checkbox-container input[type=checkbox]:disabled + label {
+  color: #FFFFFF;
+  background: #FFDD0088;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
