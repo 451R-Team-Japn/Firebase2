@@ -108,6 +108,22 @@
                 <div class="col">
                   <div id="majordiv">
                     <label class="form-label" for="major">Current Major:</label>
+					  <!--<div class="radio-container">
+						<input class="form-check-input level" type="radio" required id="CS" name="level" value="0">
+						<label class="form-check-label check-level" for="CS" id="BSlabel">CS</label>
+
+						<input class="form-check-input level" type="radio" required id="IT" name="level" value="1">
+						<label class="form-check-label check-level" for="IT">IT</label>
+
+						<input class="form-check-input level" type="radio" required id="ECE" name="level" value="2">
+						<label class="form-check-label check-level" for="ECE">ECE</label>
+						
+						<input class="form-check-input level" type="radio" required id="EE" name="level" value="3">
+						<label class="form-check-label check-level" for="EE">EE</label>
+						<div class="invalid-feedback">
+						  Please select your current level.
+						</div>
+					  </div>-->
                     <select required name="major" id="major" class="form-select">
                       <option selected disabled value=''>Choose Major...</option>
                       <option value='0'>Computer Science</option>
@@ -120,17 +136,17 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <label class="form-label" for="level">Current Level:</label>
-                  <div>
-                    <input class="form-check-input level" type="radio" required id="BS" name="level" value="0">
-                    <label class="form-check-label check-level" for="BS" id="BSlabel">BS</label>
+                <div class="col">		  
+                  <label class="form-label" for="level">Current Level:</label><br>
+					<div class="radio-container">
+						<input class="form-check-input level" type="radio" required id="BS" name="level" value="0">
+						<label class="form-check-label check-level" for="BS" id="BSlabel">BS</label>
 
-                    <input class="form-check-input level" type="radio" required id="MS" name="level" value="1">
-                    <label class="form-check-label check-level" for="MS">MS</label>
-
-                    <input class="form-check-input level" type="radio" required id="PhD" name="level" value="2">
-                    <label class="form-check-label check-level" for="PhD">PhD</label>
+						<input class="form-check-input level" type="radio" required id="MS" name="level" value="1">
+						<label class="form-check-label check-level" for="MS">MS</label>
+	
+						<input class="form-check-input level" type="radio" required id="PhD" name="level" value="2">
+						<label class="form-check-label check-level" for="PhD">PhD</label>
                     <div class="invalid-feedback">
                       Please select your current level.
                     </div>
@@ -139,8 +155,8 @@
               </div>
 
               <div class="col">
-                <label class="form-label" for="applyterm">What term you are applying for?</label>
-                <div>
+                <label class="form-label" for="applyterm">What term you are applying for?</label><br>
+                <div class="radio-container">
                   <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
                   <label class="form-check-label me-3" for="Fall">Fall</label>
 
@@ -159,7 +175,7 @@
               <div id="gta" class="col" hidden>
                 <label class="form-label" for="GTA">Are you GTA certified or have a previous degree from a US institute
                   (as this waives GTA certification)?</label>
-                <div>
+                <div class="radio-container">
                   <input class="form-check-input gtainput" type="radio" required id="yes" name="GTA" value="0"
                     onclick="updateGTA(this.value)">
                   <label class="form-check-label me-4" for="yes" id="BSlabel">Yes</label>
@@ -184,10 +200,10 @@
               <div>
                 <fieldset class="field_set">
                   <legend id="courseslegend">Courses (choose of up to 5):</legend>
-                  <div id="graderlist" class="control-group">
+                  <div id="graderlist" class="control-group radio-container">
                   </div>
 
-                  <div id="lablist" class="control-group" hidden>
+                  <div id="lablist" class="control-group radio-container" hidden>
                   </div>
 
                   <div id="lablistna" class="control-group" hidden>
@@ -236,7 +252,7 @@
                   You must upload proof of GTA certification or a waiver.
                 </div>
               </div>
-              <input type="submit" value="Submit" id="form-submit" class="btn submit-btn mt-3">
+				<input type="submit" value="Submit" id="form-submit" class="btn submit-btn mt-3">
             </form>
             <!-- Message Form was submitted successfully-->
             <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">

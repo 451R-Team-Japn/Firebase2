@@ -300,6 +300,44 @@ a:hover{
   border-bottom-left-radius: 0 !important;
 }
 
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
+}
+
+.radio-container input[type=radio] {
+  display: none;
+}
+
+.radio-container input[type=radio]:checked + label {
+  color: #FFFFFF;
+  background: #0066CC;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.radio-container input[type=radio]:checked:valid + label {
+  color: #FFFFFF;
+  background: #198754;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /*Style for Create Position*/
 .position-container{
   max-width: 1000px;
