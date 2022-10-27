@@ -351,6 +351,18 @@ a:hover{
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.radio-container input[type=radio]:checked:valid + label, .checkbox-container input[type=checkbox]:checked:valid + label {
+  color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.radio-container input[type=radio]:checked:invalid + label, .checkbox-container input[type=checkbox]:checked:invalid + label {
+  color: #FFFFFF;
+  background: #DE3545;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
 /*Style for Create Position*/
 .position-container{
   max-width: 1000px;
