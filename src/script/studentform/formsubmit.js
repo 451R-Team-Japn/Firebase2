@@ -8,9 +8,7 @@ function submitForm(){
 	
 	submitTried = true;
 	
-	$('.radio-container input[type=radio]:invalid + label, .checkbox-container input[type=checkbox]:invalid + label').css('background', '#DE3545');
-	$('.radio-container input[type=radio]:valid + label, .checkbox-container input[type=checkbox]:valid + label').css('background', '#198754');
-	
+	valid();
 
 	if(form[0].checkValidity() === true){
 		console.log("submitForm");
@@ -19,12 +17,15 @@ function submitForm(){
 		return false;
 }
 $(document).on("change", "input[type='radio']", function () {
+	valid();
+});
+function valid(){
 	if(submitTried){
 		$('.radio-container input[type=radio]:not(:invalid) + label, .checkbox-container input[type=checkbox]:not(:invalid) + label').css('background', '#FFDD00');
 		$('.radio-container input[type=radio]:invalid + label, .checkbox-container input[type=checkbox]:invalid + label').css('background', '#DE3545');
 		$('.radio-container input[type=radio]:checked:valid + label, .checkbox-container input[type=checkbox]:checked:valid + label').css('background', '#198754');
 	}
-});
+}
 function modal(){
 	$('#formModal').modal('toggle');
 }
