@@ -309,17 +309,12 @@ a:hover{
 }
 
 .checkbox-container {
-  width: 80%;
   display: inline-block;
   padding: 5px;
 }
 
-.radio-container, .checkbox-container {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  display: inline-block;
-  padding: 5px;
+.checkbox-container label{
+  width: 80% !important;
 }
 
 .radio-container label, .checkbox-container label {
