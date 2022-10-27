@@ -21,7 +21,7 @@
   <script src="script/studentform/formwrite.js"></script>
   <script src="script/studentform/formsubmit.js"></script>
   <script type="module" src="script/studentform/formdatabase.js"></script>
-  <script src="script/redirect.js"></script>
+  <!--<script src="script/redirect.js"></script>-->
   <title>Application</title>
 </head>
 
@@ -44,7 +44,7 @@
         <div class="card my-5 card-studentform">
           <div class="card-body cardbody-color p-lg-5 studentform-card-body">
             <form name="Form" id="application" action="javascript:modal()" accept-charset="UTF-8"
-              enctype="multipart/form-data" method="POST" onsubmit="" class="needs-validation" novalidate>
+              enctype="multipart/form-data" method="POST" onsubmit="submitForm()" class="needs-validation" novalidate>
 
               <div id="basics">
                 <div class="row mb-3">
@@ -157,15 +157,15 @@
               <div class="col">
                 <label class="form-label" for="applyterm">What term you are applying for?</label><br>
                 <div class="radio-container">
-                  <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
-                  <label class="form-check-label me-3" for="Fall">Fall</label>
+                  <input class="applyterm" type="radio" required id="Fall" name="applyterm" value="0">
+                  <label class="me-3" for="Fall">Fall</label>
 
-                  <input class="form-check-input applyterm" type="radio" required id="Spring" name="applyterm"
+                  <input class="applyterm" type="radio" required id="Spring" name="applyterm"
                     value="1">
-                  <label class="form-check-label me-3" for="Spring">Spring</label>
-                  <input class="form-check-input applyterm" type="radio" required id="Summer" name="applyterm"
+                  <label class="me-3" for="Spring">Spring</label>
+                  <input class="applyterm" type="radio" required id="Summer" name="applyterm"
                     value="2">
-                  <label class="form-check-label" for="Summer">Summer</label>
+                  <label class="" for="Summer">Summer</label>
                   <div class="invalid-feedback">
                     Please select the term you are applying for.
                   </div>

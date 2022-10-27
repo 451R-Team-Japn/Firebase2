@@ -1,16 +1,30 @@
 var validating = false;
 var totalCourses;
+var submitTried = false;
 
 function submitForm(){
 	var form = $("#application");
 	validateForm();
-	//$('.radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label').css('background', '#198754');
+	
+	submitTried = true;
+	
+	$('.radio-container input[type=radio]:invalid + label, .checkbox-container input[type=checkbox]:invalid + label').css('background', '#DE3545');
+	$('.radio-container input[type=radio]:valid + label, .checkbox-container input[type=checkbox]:valid + label').css('background', '#198754');
+	
+
 	if(form[0].checkValidity() === true){
 		console.log("submitForm");
 		return true;
 	}else
 		return false;
 }
+$(document).on("change", "input[type='radio']", function () {
+	if(submitTried){
+		$('.radio-container input[type=radio]:not(:invalid) + label, .checkbox-container input[type=checkbox]:not(:invalid) + label').css('background', '#FFDD00');
+		$('.radio-container input[type=radio]:invalid + label, .checkbox-container input[type=checkbox]:invalid + label').css('background', '#DE3545');
+		$('.radio-container input[type=radio]:valid + label, .checkbox-container input[type=checkbox]:valid + label').css('background', '#198754');
+	}
+});
 function modal(){
 	$('#formModal').modal('toggle');
 }
