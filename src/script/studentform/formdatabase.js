@@ -204,7 +204,7 @@ function addclass(coursenumber,coursetype,gradcourse,id,position){
 	var html="";
 	var data = coursetype+" "+coursenumber;
 	if(gradcourse)
-		html+="<input required onclick='validateCourses()' class='"+position+" grad courses' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='grad' for='"+data+" hidden'>"+data+"</label>";
+		html+="<input required onclick='validateCourses()' class='"+position+" grad courses' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='grad' for='"+data+"' hidden>"+data+"</label>";
 	else
 		html+="<input required onclick='validateCourses()' class='"+position+" undergrad courses' type='checkbox' id='"+data+"' name='"+data+"' value='"+id+"'>" +"<label class='undergrad' for='"+data+"'>"+data+"</label>";
 	
