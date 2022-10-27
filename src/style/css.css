@@ -347,19 +347,19 @@ a:hover{
 
 .radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label {
   color: #FFFFFF;
-  background: ##044C7C;
+  background: #044C7C;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .radio-container input[type=radio]:checked:valid + label, .checkbox-container input[type=checkbox]:checked:valid + label {
-  color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .radio-container input[type=radio]:checked:invalid + label, .checkbox-container input[type=checkbox]:checked:invalid + label {
-  color: #FFFFFF;
-  background: #DE3545;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #FFFFFF !important;
+  background: #DE3545 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 
