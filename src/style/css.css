@@ -24,9 +24,9 @@ h2{
   width: 100%;
   padding: 5px;
   
-  display: flex;                   /* 1 */
-  align-items: flex-start;         /* 2 */
-  justify-content: space-between;  /* 3 */
+  display: flex;						/* 1 */
+  align-items: flex-start !important;	/* 2 */
+  justify-content: space-between;		/* 3 */
 }
 
 .checkbox-container {  
