@@ -29,9 +29,9 @@ function validateForm(){
 	
 	validating = true;
 	if(!courseChecked(courses)){
-		html='You must check at least one course.';
-		document.getElementById("submiterror").hidden = false;
-		$("#submiterror").html(html);
+		//html='You must check at least one course.';
+		//document.getElementById("submiterror").hidden = false;
+		//$("#submiterror").html(html);
 		return false;
 	} else {
 		//setremoveDisabled(false, courses);
@@ -65,14 +65,14 @@ function validateCourses(){
 }
 function setremoveRequired(set, list){
 	var courseinput = document.getElementById("courseinput");
-	 
+	
 	for(var j=0; list[j]; ++j){
 		if(set){
 			list[j].setAttribute('required', '');
 			courseinput.setAttribute("class", "input-group is-invalid");
 		} else {
 			list[j].removeAttribute('required');
-			courseinput.removeAttribute("class");
+			courseinput.setAttribute("class", "input-group is-valid");
 		}
 	}
 }
