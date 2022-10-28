@@ -63,19 +63,22 @@
                   </div>
                 </div>
                 <div class="col">
-                  <label for="position">Position: </label>
+                  <label for="position">Position: </label><br>
+                      <!--<div class="radio-container">
+                        <input type="radio" class="semester-option form-check-input me-1" name="position" id="G" required><label class="me-4" for="G">Grader</label>
+                        <input type="radio" class="semester-option form-check-input me-1" name="position" id="R" required><label class="me-4" for="R">Lab Instructor</label>-->
                   <select id="position" class="dropdown dropdown-toggle form-control" required>
                     <ul class="dropdown-menu">
                       <option selected disabled value=''>Choose Position...</option>
                       <option value="G">Grader</option>
                       <option value="R">Lab Instructor</option>
-                      <!--<option value="Both">Both</option>-->
                     </ul>
                   </select>
                   <div class="invalid-feedback">
                     Please input position.
                   </div>
                 </div>
+				<!--</div>-->
               </div>
 
               <div class="row mt-3">
@@ -97,17 +100,18 @@
 
                     <div class="col mt-3">
                       <label for="semester">Semester:</label>
-                      <div class="checkbox-group required">
+                      <div class="checkbox-group required checkbox-container radio-container">
                         <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="0"
                           onclick="semesterValidation()" required><label class="me-4" for="0">Fall</label>
                         <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="1"
                           onclick="semesterValidation()" required><label class="me-4" for="1">Spring</label>
                         <input type="checkbox" class="semester-option form-check-input me-1" name="semester" id="2"
                           onclick="semesterValidation()" required><label class="me-4" for="2">Summer</label>
-                        <div class="invalid-feedback">
-                          Please choose a semester.
-                        </div>
+					  </div>
+                      <div class="invalid-feedback">
+                        Please choose a semester.
                       </div>
+                      
                     </div>
                   </div>
                 </div>
