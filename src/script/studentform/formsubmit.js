@@ -1,9 +1,13 @@
 var validating = false;
 var totalCourses;
+var submitTried = false;
 
 function submitForm(){
 	var form = $("#application");
 	validateForm();
+	
+	submitTried = true;
+
 	if(form[0].checkValidity() === true){
 		console.log("submitForm");
 		return true;
@@ -30,7 +34,7 @@ function validateForm(){
 		$("#submiterror").html(html);
 		return false;
 	} else {
-		setremoveDisabled(false, courses);
+		//setremoveDisabled(false, courses);
 		return true;	
 	}	
 }

@@ -48,7 +48,9 @@ function removeChecked(classname){
 }
 function setremovehidden(set, classname){
 	var list = document.getElementsByClassName(classname);
-	removeChecked(classname);
+	if(set)
+		removeChecked(classname);
+	
 	for(var j=0; list[j]; ++j){
 		if(set){
 			if(!list[j].checked)

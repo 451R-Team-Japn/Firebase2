@@ -120,17 +120,17 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <label class="form-label" for="level">Current Level:</label>
-                  <div>
-                    <input class="form-check-input level" type="radio" required id="BS" name="level" value="0">
-                    <label class="form-check-label check-level" for="BS" id="BSlabel">BS</label>
+                <div class="col">		  
+                  <label class="form-label" for="level">Current Level:</label><br>
+					<div>
+						<input class="form-check-input level" type="radio" required id="BS" name="level" value="0">
+						<label class="form-check-label check-level" for="BS" id="BSlabel">BS</label>
 
-                    <input class="form-check-input level" type="radio" required id="MS" name="level" value="1">
-                    <label class="form-check-label check-level" for="MS">MS</label>
-
-                    <input class="form-check-input level" type="radio" required id="PhD" name="level" value="2">
-                    <label class="form-check-label check-level" for="PhD">PhD</label>
+						<input class="form-check-input level" type="radio" required id="MS" name="level" value="1">
+						<label class="form-check-label check-level" for="MS">MS</label>
+	
+						<input class="form-check-input level" type="radio" required id="PhD" name="level" value="2">
+						<label class="form-check-label check-level" for="PhD">PhD</label>
                     <div class="invalid-feedback">
                       Please select your current level.
                     </div>
@@ -139,7 +139,7 @@
               </div>
 
               <div class="col">
-                <label class="form-label" for="applyterm">What term you are applying for?</label>
+                <label class="form-label" for="applyterm">What term you are applying for?</label><br>
                 <div>
                   <input class="form-check-input applyterm" type="radio" required id="Fall" name="applyterm" value="0">
                   <label class="form-check-label me-3" for="Fall">Fall</label>
@@ -184,10 +184,10 @@
               <div>
                 <fieldset class="field_set">
                   <legend id="courseslegend">Courses (choose of up to 5):</legend>
-                  <div id="graderlist" class="control-group">
+                  <div id="graderlist" class="control-group course-form-control">
                   </div>
 
-                  <div id="lablist" class="control-group" hidden>
+                  <div id="lablist" class="control-group course-form-control" hidden>
                   </div>
 
                   <div id="lablistna" class="control-group" hidden>
@@ -236,7 +236,7 @@
                   You must upload proof of GTA certification or a waiver.
                 </div>
               </div>
-              <input type="submit" value="Submit" id="form-submit" class="btn submit-btn mt-3">
+				<input type="submit" value="Submit" id="form-submit" class="btn submit-btn mt-3">
             </form>
             <!-- Message Form was submitted successfully-->
             <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
