@@ -17,6 +17,7 @@ h2{
     display: block;
 }
 
+
 .was-validated .is-course-invalid~.invalid-feedback {
     display: block;
 }
