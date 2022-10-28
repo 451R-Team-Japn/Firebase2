@@ -69,10 +69,10 @@ function setremoveRequired(set, list){
 	for(var j=0; list[j]; ++j){
 		if(set){
 			list[j].setAttribute('required', '');
-			courseinput.setAttribute("class", "input-group is-invalid");
+			courseinput.setAttribute("class", "input-group is-course-invalid");
 		} else {
 			list[j].removeAttribute('required');
-			courseinput.setAttribute("class", "input-group is-valid");
+			courseinput.setAttribute("class", "input-group is-course-valid");
 		}
 	}
 }

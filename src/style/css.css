@@ -17,6 +17,14 @@ h2{
     display: block;
 }
 
+.was-validated .is-course-invalid~.invalid-feedback {
+    display: block;
+}
+
+.was-validated .is-course-valid~.invalid-feedback {
+    display: none;
+}
+
 .radio-container {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
