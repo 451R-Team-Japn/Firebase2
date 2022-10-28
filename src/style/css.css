@@ -41,6 +41,7 @@ h2{
   width: 100%;
   
   display: flex;						/* 1 */
+  flex-wrap: nowrap;
   align-items: flex-start !important;	/* 2 */
   justify-content: space-between;		/* 3 */
 }
@@ -68,8 +69,15 @@ h2{
 	width: 75%;
 }
 
-.GTA-div label{
-	min-width: 20% !important;
+.GTA-div label {
+    max-width: 20% !important;
+    margin-top: 2.5%;
+}
+
+label.nolab {
+  height: 52px !important;
+  line-height: 26px !important;
+  margin-top: auto;
 }
 
 .radio-container label {
