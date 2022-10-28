@@ -11,9 +11,120 @@ h2{
   font-size: 32px;
 }
 
+/*RADIO + CHECKBOX*/
+
 .was-validated div:has(:invalid)~.invalid-feedback {
     display: block;
 }
+
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.checkbox-container {  
+  background: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radio-container label, .checkbox-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0 5px 0 5px;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  min-width: 100px;
+  width: auto;
+}
+
+.radio-container input[type=radio], .checkbox-container input[type=checkbox] {
+  display: none;
+}
+
+.radio-container input[type=radio] + label, .checkbox-container input[type=checkbox] + label {
+  color: #0066CC;
+  background: #FFFFFF;
+  border: 1px solid rgb(0, 102, 204);
+}
+
+.radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label {
+  color: #044C7C;
+  background: #FFDD00;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.radio-container input[type=radio]:disabled + label, .checkbox-container input[type=checkbox]:disabled + label {
+  color: #0066CC;
+  background: #E9ECEF88;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label {
+  color: #FFDD00;
+  background: #044C7C;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.was-validated .radio-container input[type=radio]:checked:valid + label, .was-validated .checkbox-container input[type=checkbox]:checked:valid + label {
+  border: 1px solid rgba(25, 135, 84);
+}
+
+.was-validated .radio-container input[type=radio]:invalid + label, .was-validated .checkbox-container input[type=checkbox]:invalid + label {
+  color: #DE3545;
+  border: 1px solid rgba(222, 53, 69);
+}
+
+.was-validated .radio-container:invalid, .was-validated .checkbox-container:invalid {
+  color: #DE3545;
+  border: 1px solid rgba(222, 53, 69);
+}
+
+.was-validated .radio-container:has(input[type=radio]:checked:valid), .was-validated .radio-container:has(input[type=checkbox]:checked:valid){
+    border-color: #198754;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.was-validated .radio-container:has(input[type=radio]:invalid), .was-validated .radio-container:has(input[type=checkbox]:invalid){
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.was-validated .course-form-control:has(.checkbox-container):has(input[type=checkbox]:checked:valid) .form-label {
+    border-color: #198754;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.was-validated .course-form-control:has(.checkbox-container):has(input[type=checkbox]:invalid) .form-label{
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+/*END OF INPUT DESIGN*/
 
 /*PAGE HEADER + TITLE*/
 .sticky-top{
@@ -302,114 +413,6 @@ a:hover{
 .file-dropdown-toggle {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-}
-
-.radio-container {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  display: inline-block;
-  padding: 5px;
-}
-
-.checkbox-container {  
-  background: #fff;
-  border-radius: 4px;
-  display: inline-block;
-  padding: 5px;
-}
-
-.radio-container label, .checkbox-container label {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0 5px 0 5px;
-  text-align: center;
-  transition: 0.2s all ease-in-out;
-  min-width: 100px;
-  width: auto;
-}
-
-.radio-container input[type=radio], .checkbox-container input[type=checkbox] {
-  display: none;
-}
-
-.radio-container input[type=radio] + label, .checkbox-container input[type=checkbox] + label {
-  color: #0066CC;
-  background: #FFFFFF;
-  border: 1px solid rgb(0, 102, 204);
-}
-
-.radio-container input[type=radio]:hover + label, .checkbox-container input[type=checkbox]:hover + label {
-  color: #044C7C;
-  background: #FFDD00;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.radio-container input[type=radio]:disabled + label, .checkbox-container input[type=checkbox]:disabled + label {
-  color: #0066CC;
-  background: #E9ECEF88;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.radio-container input[type=radio]:checked + label, .checkbox-container input[type=checkbox]:checked + label {
-  color: #FFDD00;
-  background: #044C7C;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.was-validated .radio-container input[type=radio]:checked:valid + label, .was-validated .checkbox-container input[type=checkbox]:checked:valid + label {
-  border: 1px solid rgba(25, 135, 84);
-}
-
-.was-validated .radio-container input[type=radio]:invalid + label, .was-validated .checkbox-container input[type=checkbox]:invalid + label {
-  color: #DE3545;
-  border: 1px solid rgba(222, 53, 69);
-}
-
-.was-validated .radio-container:invalid, .was-validated .checkbox-container:invalid {
-  color: #DE3545;
-  border: 1px solid rgba(222, 53, 69);
-}
-
-.was-validated .radio-container:has(input[type=radio]:checked:valid), .was-validated .radio-container:has(input[type=checkbox]:checked:valid){
-    border-color: #198754;
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-}
-
-.was-validated .radio-container:has(input[type=radio]:invalid), .was-validated .radio-container:has(input[type=checkbox]:invalid){
-    border-color: #dc3545;
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-}
-
-.was-validated .course-form-control:has(.checkbox-container):has(input[type=checkbox]:checked:valid) .form-label {
-    border-color: #198754;
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-}
-
-.was-validated .course-form-control:has(.checkbox-container):has(input[type=checkbox]:invalid) .form-label{
-    border-color: #dc3545;
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
 
 /*Style for Create Position*/
