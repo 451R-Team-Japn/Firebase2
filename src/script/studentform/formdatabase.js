@@ -174,8 +174,6 @@ async function listclasses(list, position) {
 	var id;
 	var blank = true;
 	var html="<div class='courselist'>";
-	var j=0;
-	var col = 7;
 	
 	list.forEach(async(doc) => {
 		blank = false;
@@ -185,11 +183,6 @@ async function listclasses(list, position) {
 		html+="<div class='checkbox-container'>";
 		html+=addclass((course.CourseNumber), (course.CourseType),(course.GradCourse),id, position);
 		html+="</div>";
-		j++;
-		if(j==col){
-			j=0;
-			html+="<br>";
-		}
 	});
 
 	html+="</div>"
