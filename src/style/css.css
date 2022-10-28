@@ -435,6 +435,10 @@ a:hover{
   border-bottom-left-radius: 0 !important;
 }
 
+.file-input-group{
+  max-width: 75%;
+}
+
 /*Style for Create Position*/
 .position-container{
   max-width: 1000px;
