@@ -22,7 +22,6 @@ h2{
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   width: 100%;
-  display: inline-block;
   padding: 5px;
   
   display: flex;                   /* 1 */
@@ -49,6 +48,7 @@ h2{
   text-align: center;
   transition: 0.2s all ease-in-out;
   width: auto;
+  font-size: 100%;
 }
 
 .GTA-div{
@@ -560,6 +560,11 @@ a{
   .header-title{
     display: none;
   }
+  .radio-container {
+	display: inline-block !important;
+	align-items: stretch !important;
+	justify-content: flex-start !important;
+  }
 }
 
 @media (max-width: 570px){
@@ -584,5 +589,10 @@ a{
   }
   .container-title{
     padding-left: 10px;
+  }
+  .radio-container {
+	display: inline-block !important;
+	align-items: stretch !important;
+	justify-content: flex-start !important;
   }
 }

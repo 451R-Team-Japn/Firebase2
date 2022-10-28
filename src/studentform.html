@@ -21,7 +21,7 @@
   <script src="script/studentform/formwrite.js"></script>
   <script src="script/studentform/formsubmit.js"></script>
   <script type="module" src="script/studentform/formdatabase.js"></script>
-  <script src="script/redirect.js"></script>
+  <!--<script src="script/redirect.js"></script>-->
   <title>Application</title>
 </head>
 
@@ -159,14 +159,14 @@
                 <label class="form-label" for="applyterm">What term you are applying for?</label><br>
                 <div class="radio-container">
                   <input class="applyterm" type="radio" required id="Fall" name="applyterm" value="0">
-                  <label class="me-3" for="Fall">Fall</label>
+                  <label for="Fall">Fall</label>
 
                   <input class="applyterm" type="radio" required id="Spring" name="applyterm"
                     value="1">
-                  <label class="me-3" for="Spring">Spring</label>
+                  <label for="Spring">Spring</label>
                   <input class="applyterm" type="radio" required id="Summer" name="applyterm"
                     value="2">
-                  <label class="" for="Summer">Summer</label>
+                  <label for="Summer">Summer</label>
 				</div>
                 <div class="invalid-feedback">
                   Please select the term you are applying for.
@@ -182,15 +182,15 @@
                 <div class="radio-container GTA-div">
                   <input class="gtainput" type="radio" required id="yes" name="GTA" value="0"
                     onclick="updateGTA(this.value)">
-                  <label class="me-4" for="yes" id="BSlabel">Yes</label>
+                  <label for="yes" id="BSlabel">Yes</label>
 
                   <input class="form-check-input gtainput" type="radio" required id="no" name="GTA" value="1"
                     onclick="updateGTA(this.value)">
-                  <label class="me-4" for="no">No</label> <br>
+                  <label for="no">No</label>
 
                   <input class="gtainput" type="radio" required id="nolab" name="GTA" value="3"
                     onclick="updateGTA(this.value)">
-                  <label class="me-4" for="nolab">Not interested in being an Instructor</label>
+                  <label for="nolab">Not interested in being an Instructor</label>
 
                   <input type="radio" required id="null" value="3" name="GTA" hidden>
                   <input type="radio" required id="onrecord" value="2" name="GTA" hidden>
