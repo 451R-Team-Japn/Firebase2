@@ -25,12 +25,20 @@ h2{
     display: none;
 }
 
-.radio-container {
+.radio-container, .checkbox-container {  
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  width: 100%;
+  display: inline-block;
   padding: 5px;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.radio-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
   
   display: flex;						/* 1 */
   align-items: flex-start !important;	/* 2 */
@@ -38,10 +46,7 @@ h2{
 }
 
 .checkbox-container {  
-  background: #fff;
-  border-radius: 4px;
   display: inline-block;
-  padding: 5px;
 }
 
 .radio-container label, .checkbox-container label {
