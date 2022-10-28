@@ -585,7 +585,7 @@ a{
   .header-title{
     display: none;
   }
-  .radio-container {
+  .radio-container, .checkbox-container {
 	/*display: inline-block !important;
 	align-items: stretch !important;
 	justify-content: flex-start !important;*/
@@ -625,7 +625,7 @@ a{
   .container-title{
     padding-left: 10px;
   }
-  .radio-container {
+  .radio-container, .checkbox-container {
 	/*display: inline-block !important;
 	align-items: stretch !important;
 	justify-content: flex-start !important;*/
