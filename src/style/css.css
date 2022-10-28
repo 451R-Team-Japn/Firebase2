@@ -453,7 +453,11 @@ a:hover{
 }
 
 .file-input-group{
-  max-width: 75%;
+  max-width: 50%;
+}
+
+.applyterm-radio-container{
+  max-width: 50%;
 }
 
 /*Style for Create Position*/
@@ -582,9 +586,19 @@ a{
     display: none;
   }
   .radio-container {
-	display: inline-block !important;
+	/*display: inline-block !important;
 	align-items: stretch !important;
-	justify-content: flex-start !important;
+	justify-content: flex-start !important;*/
+	font-size: 75%;
+  }
+  .applyterm-radio-container{
+	max-width: 100%;
+  }
+  .GTA-div{
+	width: 100%;
+  }
+  .GTA-div label{
+	min-width: 15% !important;
   }
 }
 
@@ -612,8 +626,18 @@ a{
     padding-left: 10px;
   }
   .radio-container {
-	display: inline-block !important;
+	/*display: inline-block !important;
 	align-items: stretch !important;
-	justify-content: flex-start !important;
+	justify-content: flex-start !important;*/
+	font-size: 75%;
+  }
+  .applyterm-radio-container{
+	max-width: 100%;
+  }
+  .GTA-div{
+	width: 100%;
+  }
+  .GTA-div label{
+	min-width: 15% !important;
   }
 }

@@ -21,7 +21,6 @@
   <script src="script/studentform/formwrite.js"></script>
   <script src="script/studentform/formsubmit.js"></script>
   <script type="module" src="script/studentform/formdatabase.js"></script>
-  <script src="script/redirect.js"></script>
   <title>Application</title>
 </head>
 
@@ -154,10 +153,9 @@
                 </div>
               </div>
 
-			<div class="row mb-3">
               <div class="col">
                 <label class="form-label" for="applyterm">What term you are applying for?</label><br>
-                <div class="radio-container">
+                <div class="radio-container applyterm-radio-container">
                   <input class="applyterm" type="radio" required id="Fall" name="applyterm" value="0">
                   <label for="Fall">Fall</label>
 
@@ -171,10 +169,7 @@
                 <div class="invalid-feedback">
                   Please select the term you are applying for.
                 </div>
-              </div><br>
-			   <div class="col">
-			   </div>
-			  </div>
+              </div>
 			  
               <div id="gta" class="col">
                 <label class="form-label" for="GTA">Are you GTA certified or have a previous degree from a US institute
