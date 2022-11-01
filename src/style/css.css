@@ -236,9 +236,9 @@ h2{
 }
 
 .search-btn:hover{
-  background-color: #044c7c;
+  background-color: #044C7C;
   color: #FFdd00;
-  border: solid #FFdd00;
+  border-color: #FFdd00;
 }
 /*END OF PAGE HEADER + TITLE*/
 
