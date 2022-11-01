@@ -586,6 +586,9 @@ a{
 	align-items: stretch !important;
 	justify-content: flex-start !important;
   }
+  .file-input-group{
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 570px){
