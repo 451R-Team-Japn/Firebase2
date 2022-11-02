@@ -12,7 +12,6 @@ h2{
 }
 
 /*RADIO + CHECKBOX*/
-
 .was-validated div:has(:invalid)~.invalid-feedback {
     display: block;
 }
@@ -30,7 +29,6 @@ h2{
   border-radius: 4px;
   display: inline-block;
   padding: 5px;
-
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -39,7 +37,6 @@ h2{
 .radio-container {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
-  
   display: flex;						/* 1 */
   align-items: flex-start !important;	/* 2 */
   justify-content: space-between;		/* 3 */
@@ -240,7 +237,6 @@ h2{
   color: #FFdd00;
   border-color: #FFdd00;
 }
-/*END OF PAGE HEADER + TITLE*/
 
 /*FILTER DESIGN*/
 .card-filter{
@@ -251,7 +247,6 @@ h2{
 .filter-label{
   font-weight: 700;
 }
-/*END OF FILTER DESIGN*/
 
 /*WELCOME CARD DESIGN*/
 .open-position-container{
@@ -309,9 +304,8 @@ h2{
 a:hover{
   font-weight: bold;
 }
-/*END OF WELCOME CARD DESIGN*/
 
-/*Style for Admin Dashboard and Welcome page*/
+/*WELCOME AND ADMIN PAGE DESIGN*/
 .right-card-title{
   font-size: 75%;
 }
@@ -377,6 +371,7 @@ a:hover{
   position: sticky;
   top: 80px;
 }
+
 .admin-notes{
   height: 75px;
 }
@@ -432,31 +427,17 @@ a:hover{
   color: #dc3545;
 }
 
-/*Style for Applicants*/
+/*APPLICANTS PAGE DESIGN*/
 .applicant-table-btn{
   font-size: 0.75em !important; 
 }
+
 .applicant-table-btn option{
   background-color: white !important; 
   color: black !important;
 }
-/*Style for Student Form*/
-.file-label{
-  display: block;
-  text-align: center;
-  width: 175px;
-}
 
-.file-dropdown-toggle {
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.file-input-group{
-  max-width: 75%;
-}
-
-/*Style for Create Position*/
+/*CREATE POSITION PAGE DESIGN*/
 .position-container{
   max-width: 1000px;
   margin: auto;
@@ -527,7 +508,22 @@ a{
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-/*Student form*/
+/*STUDENT FORM PAGE DESIGN*/
+.file-label{
+  display: block;
+  text-align: center;
+  width: 175px;
+}
+
+.file-dropdown-toggle {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.file-input-group{
+  max-width: 75%;
+}
+
 .studentform-card-body{
   border-top: none;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -582,9 +578,9 @@ a{
     display: none;
   }
   .radio-container {
-	display: inline-block !important;
-	align-items: stretch !important;
-	justify-content: flex-start !important;
+	  display: inline-block !important;
+	  align-items: stretch !important;
+	  justify-content: flex-start !important;
   }
   .file-input-group{
     max-width: 100%;
@@ -615,8 +611,8 @@ a{
     padding-left: 10px;
   }
   .radio-container {
-	display: inline-block !important;
-	align-items: stretch !important;
-	justify-content: flex-start !important;
+	  display: inline-block !important;
+	  align-items: stretch !important;
+	  justify-content: flex-start !important;
   }
 }
