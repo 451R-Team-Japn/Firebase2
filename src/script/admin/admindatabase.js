@@ -151,18 +151,13 @@ function custom_confirm(value, name) {
 
      removeCourse(value, name);
   });
-
-  $('#adminModal button.cancel').off().on('click', function() {
-     // close window
-     $('#adminModal').modal('hide');
-  });
 }
 
 async function removeCourse(coursevalue, coursename){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
-	$(".courseremove").html(coursename);
-	$(card).prop("hidden",true);
+	$(".courseremove").text(coursename);
+	$(card).fadeOut();
 }
 
 // Get a list of courses from your database
