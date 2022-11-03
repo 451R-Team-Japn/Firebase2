@@ -28,21 +28,50 @@ $(document).ready(function () {
 	getCourse();
 });
 $(document).on('click','.remove',function(event){
+	var student = event.target.value;
+	var studentname = event.target.name;
+	var coursefile = event.target.id;
+	
+	custom_confirm(student, studentname, coursefile);
+});
+
+$(document).on("click", "#closebutton", async function() {
+	var value = $(this).attr("value");
+	var name = $(this).attr("name");
+	
+	console.log(value);
+	
+	custom_confirm(student, studentname, coursefile);
+});
+
+function custom_confirm(student, studentname, coursefile) {
+ //  show modal ringer custom confirmation
+  $('#adminModal').modal('show');
+
+  $('#adminModal button.ok').off().on('click', function() {
+     // close window
+     $('#adminModal').modal('hide');
+
+     removeStudent(student, studentname, coursefile);
+  });
+}
+
+async function removeStudent(student, studentname, coursefile){
 	var table = $('#sortTable').DataTable();
 	var row = table.row( $(event.target).parents('tr') );
-    var rowNode = row.node();
+    //var rowNode = row.node();
 	
-	var student = event.target.value;
-	var coursefile = event.target.id;
+	$("#course-remove-title").html(studentname);
+	$("#course-remove-body").html(studentname);
 	
 	console.log(coursefile);
 	
-	updateStudentdoc(student, "", coursefile, 'Applicants');
+	//updateStudentdoc(student, "", coursefile, 'Applicants');
 	
     row.remove();
 	
 	table.draw();
-});
+}
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
@@ -136,7 +165,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+rowindex+"gpa'></div>";
 	var Documentscell = "<div id='"+rowindex+"doc'></div>";
-	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
+	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' name'"+Namecell+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
