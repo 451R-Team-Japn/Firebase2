@@ -140,7 +140,7 @@ $(document).on("click", "#closebutton", async function() {
 	var semester;
 	var namearray = name.split(" ");
 	
-	coursename = namearray[0]+" "+namearray[1];
+	var coursename = namearray[0]+" "+namearray[1];
 	semester = namearray[2];
 	console.log(value);
 	
