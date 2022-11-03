@@ -66,7 +66,7 @@ function removeStudent(studentremove){
 	$("#course-remove-title").html(studentname);
 	$("#course-remove-body").html(studentname);
 	
-	console.log(coursefileremove);
+	console.log(coursefile);
 	
 	//updateStudentdoc(student, "", coursefile, 'Applicants');
 	
@@ -167,7 +167,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+rowindex+"gpa'></div>";
 	var Documentscell = "<div id='"+rowindex+"doc'></div>";
-	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' name'"+Namecell+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
+	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' name='"+studentdata.FirstName+" "+studentdata.LastName+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
