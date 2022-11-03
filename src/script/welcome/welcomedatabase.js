@@ -29,10 +29,10 @@ async function writeCourses() {
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourseIDs(Courses) {
+async function writeCourseIDs(coursescol) {
 	console.log("writeCourseIDs()");
-	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
-	Courses.forEach((doc) => {
+	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
+	courses.forEach((doc) => {
 		console.log("forEach()");		
 		cloneCard(doc.id,doc.data());
 	});
