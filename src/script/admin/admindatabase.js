@@ -158,7 +158,6 @@ async function removeCourse(coursevalue, coursename){
 	await deleteDoc(doc(db, "Courses", coursevalue));
 	$("#course-remove-title").html(coursename);
 	$("#course-remove-body").html(coursename);
-	$(card).css("background-color", "rgba(255,0,0,.5)");
 	$(card).fadeOut();
 }
 
