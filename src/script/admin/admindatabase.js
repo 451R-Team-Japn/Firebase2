@@ -156,7 +156,9 @@ function custom_confirm(value, name) {
 async function removeCourse(coursevalue, coursename){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
-	$(".courseremove").text(coursename);
+	$("#course-remove-title").html(coursename);
+	$("#course-remove-body").html(coursename);
+	$(card).css("background-color", "rgba(255,0,0,.5)");
 	$(card).fadeOut();
 }
 
