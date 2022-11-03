@@ -143,7 +143,7 @@ $(document).on("click", "#closebutton", async function() {
 	custom_confirm(value, name, semester);
 });
 
-function custom_confirm(value, name) {
+function custom_confirm(value, name, semester) {
  //  show modal ringer custom confirmation
   $('#adminModal').modal('show');
 
