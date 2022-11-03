@@ -33,8 +33,8 @@ $(document).on('click','.remove',function(){
 	
 	console.log(name);
 	
-	$("#course-remove-title").html(name);
-	$("#course-remove-body").html(name);
+	$("#student-remove-title").html(name);
+	$("#student-remove-body").html(name);
 	
 	console.log(value);
 	
