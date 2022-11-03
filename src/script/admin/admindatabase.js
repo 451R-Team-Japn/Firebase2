@@ -100,7 +100,7 @@ async function cloneCard(name,data) {
 	$(seebutton).attr(await "href", "applicants.html?"+name);
 	$(editbutton).attr(await "href", "createposition.html?"+name);
 	$(closebutton).attr(await "value", name);
-	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber+' '+semester[data.Semester]);
+	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber+' ('+semester[data.Semester]+')');
 	//$(closebutton).attr(await "semester", semester[data.Semester]);
 	$(applicants).html(applicantstext);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
@@ -137,16 +137,13 @@ async function cloneCard(name,data) {
 $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
-	var namearray = name.split(" ");
-	var coursename = namearray[0]+" "+namearray[1];
-	var semester = namearray[2];
 	
 	console.log(value);
 	
-	custom_confirm(value, coursename, semester);
+	custom_confirm(value, name);
 });
 
-function custom_confirm(value, name, semester) {
+function custom_confirm(value, name) {
  //  show modal ringer custom confirmation
   $('#adminModal').modal('show');
 
@@ -154,14 +151,14 @@ function custom_confirm(value, name, semester) {
      // close window
      $('#adminModal').modal('hide');
 
-     removeCourse(value, name, semester);
+     removeCourse(value, name);
   });
 }
 
 async function removeCourse(coursevalue, coursename, coursesemester){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
-	$("#course-remove-title").html(coursename+" ("+coursesemester+")");
+	$("#course-remove-title").html(coursename);
 	$("#course-remove-body").html(coursename);
 	$(card).fadeOut();
 }
