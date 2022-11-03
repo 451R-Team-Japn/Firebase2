@@ -98,6 +98,7 @@ async function cloneCard(name,data) {
 	document.getElementById('open-position-container').appendChild(g);
 	
 	document.getElementById(name).appendChild(clone);
+	$("#"+name).append(clone);
 	var classname=await'#'+name+' #classname'; 
 	var position=await'#'+name+' #position';
 	var notes=await'#'+name+' #notes';  
