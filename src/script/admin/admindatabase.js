@@ -138,12 +138,15 @@ $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	
+	$("#course-remove-title").html(coursename);
+	$("#course-remove-body").html(coursename);
+	
 	console.log(value);
 	
-	custom_confirm(value, name);
+	custom_confirm(value);
 });
 
-function custom_confirm(value, name) {
+function custom_confirm(value) {
  //  show modal ringer custom confirmation
   $('#adminModal').modal('show');
 
@@ -151,15 +154,13 @@ function custom_confirm(value, name) {
      // close window
      $('#adminModal').modal('hide');
 
-     removeCourse(value, name);
+     removeCourse(value);
   });
 }
 
-async function removeCourse(coursevalue, coursename, coursesemester){
+async function removeCourse(coursevalue){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
-	$("#course-remove-title").html(coursename);
-	$("#course-remove-body").html(coursename);
 	$(card).fadeOut();
 }
 
