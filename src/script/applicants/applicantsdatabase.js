@@ -36,6 +36,11 @@ $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	
+	console.log(name);
+	
+	$("#course-remove-title").html(name);
+	$("#course-remove-body").html(name);
+	
 	console.log(value);
 	
 	custom_confirm(student, studentname, coursefile);
@@ -59,12 +64,6 @@ function removeStudent(studentremove){
 	var student = $(studentremove).attr("value");
 	var studentname = $(studentremove).attr("name");
 	var coursefile = $(studentremove).attr("id");
-	
-	console.log(coursefile);
-    //var rowNode = row.node();
-	
-	$("#course-remove-title").html(studentname);
-	$("#course-remove-body").html(studentname);
 	
 	console.log(coursefile);
 	
