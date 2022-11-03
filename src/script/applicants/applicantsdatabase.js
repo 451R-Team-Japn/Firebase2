@@ -46,11 +46,11 @@ $(document).on("click", "#closebutton", async function() {
 
 function custom_confirm(student, studentname, coursefile) {
  //  show modal ringer custom confirmation
-  $('#adminModal').modal('show');
+  $('#applicantsModal').modal('show');
 
-  $('#adminModal button.ok').off().on('click', function() {
+  $('#applicantsModal button.ok').off().on('click', function() {
      // close window
-     $('#adminModal').modal('hide');
+     $('#applicantsModal').modal('hide');
 
      removeStudent(student, studentname, coursefile);
   });
