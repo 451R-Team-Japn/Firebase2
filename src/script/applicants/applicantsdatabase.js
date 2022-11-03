@@ -23,6 +23,7 @@ var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
 var rowcount = 0;
+var coursetitle;
 
 $(document).ready(function () { 
 	getCourse();
@@ -33,8 +34,8 @@ $(document).on('click','.remove',function(){
 	
 	console.log(name);
 	
-	$("#student-remove-title").html(name);
-	$("#student-remove-body").html(name);
+	$("#student-remove-title").html(name+" from "+coursetitle);
+	$("#student-remove-body").html(name+" from "+coursetitle);
 	
 	console.log(value);
 	
@@ -255,7 +256,8 @@ async function writeApplicants(courseName,appobj) {
 }
 
 async function writeTitle(course,positionname) {
-	$(classname).html(await course.CourseType+' '+course.CourseNumber);
+	coursetitle = await course.CourseType+' '+course.CourseNumber;
+	$(classname).html(coursetitle);
 	$(position).html(positionname);	
 }
 
