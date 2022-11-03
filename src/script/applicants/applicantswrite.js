@@ -23,11 +23,11 @@ function modal(){
 	$('#courseModal').modal('toggle');
 }
 
-$("button[data-number=1]").click(function(){
+$(document).on('click','.course-modal-close',function(){
     $('#courseModal').modal('hide');
 });
 
-$("button[data-number=2]").click(function(){
+$(document).on('click','.applicants-modal-close',function(){
     $('#applicantsModal').modal('hide');
 });
 
