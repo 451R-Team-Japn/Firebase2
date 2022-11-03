@@ -138,7 +138,7 @@ $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	var semester;
-	namearray = name.split(" ");
+	var namearray = name.split(" ");
 	
 	coursename = namearray[0]+" "+namearray[1];
 	semester = namearray[2];
