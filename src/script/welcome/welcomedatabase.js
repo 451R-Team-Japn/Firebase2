@@ -69,11 +69,11 @@ async function cloneCard(name,data) {
 	link+=data.CourseNumber;
 	
 	if(data.GraderOrLab=="G"){
-		positionname = " Grader";
+		positionname = "Grader";
 		notestext = "Anyone can apply for this class if they <b>taken it at UMKC</b> or are a <b>PhD</b> student.";
 	}
 	else{
-		positionname = " Instructor";
+		positionname = "Instructor";
 		notestext = "This is an <b>instructor</b> course to apply for this you must be a <b>graduate</b> student and be <b>GTA certified.</b> To learn more about <b>GTA certification</b><a href='https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/' target='_blank'> click here</a>."
 	}
 	
