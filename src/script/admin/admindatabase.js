@@ -100,6 +100,7 @@ async function cloneCard(name,data) {
 	$(seebutton).attr(await "href", "applicants.html?"+name);
 	$(editbutton).attr(await "href", "createposition.html?"+name);
 	$(closebutton).attr(await "value", name);
+	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber);
 	$(applicants).html(applicantstext);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
 	$(collapsecard).attr("id","collapse"+name);
@@ -134,12 +135,13 @@ async function cloneCard(name,data) {
 
 $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
+	var name = $(this).attr("name");
 	console.log(value);
 	
-	custom_confirm(value);
+	custom_confirm(value, name);
 });
 
-function custom_confirm(value, callback) {
+function custom_confirm(value, name) {
  //  show modal ringer custom confirmation
   $('#adminModal').modal('show');
 
@@ -147,21 +149,19 @@ function custom_confirm(value, callback) {
      // close window
      $('#adminModal').modal('hide');
 
-     // and callback
-     removeCourse(value);
+     removeCourse(value, name);
   });
 
   $('#adminModal button.cancel').off().on('click', function() {
      // close window
      $('#adminModal').modal('hide');
-     // callback
-     //callback(false);
   });
 }
 
-async function removeCourse(coursevalue){
+async function removeCourse(coursevalue, coursename){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
+	$(.courseremove).html(coursename);
 	$(card).prop("hidden",true);
 }
 
