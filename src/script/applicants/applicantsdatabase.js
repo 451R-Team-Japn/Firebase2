@@ -64,7 +64,7 @@ function removeStudent(studentremove){
 	
 	console.log(coursefile);
 	
-	//updateStudentdoc(student, "", coursefile, 'Applicants');
+	updateStudentdoc(student, "", coursefile, 'Applicants');
 	
     row.remove();
 	
