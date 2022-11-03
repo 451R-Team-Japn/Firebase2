@@ -24,12 +24,10 @@ function modal(){
 }
 
 $(document).on('click','.course-modal-close',function(){
-	alert("courseModal");
     $('#courseModal').modal('hide');
 });
 
 $(document).on('click','.applicants-modal-close',function(){
-	alert("applicantsModal");
     $('#applicantsModal').modal('hide');
 });
 
