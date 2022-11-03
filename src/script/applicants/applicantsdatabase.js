@@ -27,14 +27,15 @@ var rowcount = 0;
 $(document).ready(function () { 
 	getCourse();
 });
-$(document).on('click','.remove',function(){
-	var student = $(this).attr("value");
-	var studentname = $(this).attr("name");
-	var coursefile = $(this).attr("id");
+$(document).on('click','.remove',function(event){
+	var student = event.target.value;
+	var studentname = event.target.name;
+	var coursefile = event.target.id;
+	var row = event.target;
 	
 	console.log(coursefile);
 	
-	custom_confirm(student, studentname, coursefile);
+	custom_confirm(student, studentname, coursefile, row);
 });
 
 $(document).on("click", "#closebutton", async function() {
@@ -46,7 +47,7 @@ $(document).on("click", "#closebutton", async function() {
 	custom_confirm(student, studentname, coursefile);
 });
 
-function custom_confirm(student, studentname, coursefile) {
+function custom_confirm(student, studentname, coursefile, row) {
  //  show modal ringer custom confirmation
   $('#applicantsModal').modal('show');
 
@@ -54,17 +55,17 @@ function custom_confirm(student, studentname, coursefile) {
      // close window
      $('#applicantsModal').modal('hide');
 
-     removeStudent(student, studentname, coursefile);
+     removeStudent(student, studentname, coursefile, row);
   });
 }
 
-function removeStudent(studentremove, studentnameremove, coursefileremove){
+function removeStudent(studentremove, studentnameremove, coursefileremove, rowremove){
 	var table = $('#sortTable').DataTable();
-	var row = table.row( $(event.target).parents('tr') );
+	var row = table.row( $(rowremove).parents('tr') );
     //var rowNode = row.node();
 	
-	$("#course-remove-title").html(studentname);
-	$("#course-remove-body").html(studentname);
+	$("#course-remove-title").html(studentnameremove);
+	$("#course-remove-body").html(studentnameremove);
 	
 	console.log(coursefileremove);
 	
