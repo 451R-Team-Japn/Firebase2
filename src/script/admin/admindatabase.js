@@ -138,8 +138,8 @@ $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	
-	$("#course-remove-title").html(coursename);
-	$("#course-remove-body").html(coursename);
+	$("#course-remove-title").html(name);
+	$("#course-remove-body").html(name);
 	
 	console.log(value);
 	
