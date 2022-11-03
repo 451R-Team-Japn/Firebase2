@@ -56,8 +56,9 @@ function getNode(){
             </div>*/
 }
 async function cloneCard(name,data) {
-	var node = document.getElementById("card");
-	var clone = node.cloneNode(true);
+	//var node = document.getElementById("card");
+	var clone = $( "#card" ).clone();
+	//node.cloneNode(true);
 	var id;
 	var g;
 	var semester=["Fall","Spring","Summer"]
