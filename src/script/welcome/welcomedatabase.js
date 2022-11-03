@@ -35,30 +35,22 @@ async function writeCourseIDs(Courses) {
 }
 
 function getNode(){
-	/*<div class="card mb-3 class-card" id="card">
-                <a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                    <h5 class="card-header target"><span id="classname">IT 390</span><span class="semester">(<span id="semester">Summer</span>)</span></h5>
-                </a>
-                <div class="card-body collapse" id="collapseOne">
-                    <label class="card-title mt-2 mb-3">Position: </label><span id="position"> Grader</span><br>
-                    <label class="card-title float-start">Notes: </label>
-                    <div class="notes-wrapper welcome-notes">
-                        <span id="notes">This is an <b>instructor</b> course to apply for this you must be a
-                            <b>graduate</b> student and be <b>GTA certified.</b> To learn more about <b>GTA
-                                certification</b><a
-                                href='https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/'
-                                target='_blank'> click here</a>.</span>
-                    </div>
-                    <a id="link" href="https://catalog.umkc.edu/search/?search=COMP-SCI+191" target="_blank"
-                        class="card-title float-start">Course Description</a>
-                    <br>
-                </div>
-            </div>*/
+	return '<div class="card mb-3 class-card" id="card">'+
+		'<a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne">'+
+			'<h5 class="card-header target"><span id="classname"></span><span class="semester">(<span id="semester"></span>)</span></h5></a>'+
+		'<div class="card-body collapse" id="collapseOne">'+
+			'<label class="card-title mt-2 mb-3">Position: </label><span id="position"></span><br>'+
+			'<label class="card-title float-start">Notes: </label>'+
+			'<div class="notes-wrapper welcome-notes"><span id="notes"></span></div>'+
+			'<a id="link" target="_blank" class="card-title float-start">Course Description</a>'+
+			'<br>'+
+		'</div>'+
+	'</div>';
 }
 async function cloneCard(name,data) {
-	//var node = document.getElementById("card");
-	var clone = $( "#card" ).clone();
-	//node.cloneNode(true);
+	var node = document.getElementById("card");
+	//var clone = node.cloneNode(true);
+	var clone = $(getNode());
 	var id;
 	var g;
 	var semester=["Fall","Spring","Summer"]
@@ -77,11 +69,11 @@ async function cloneCard(name,data) {
 	link+=data.CourseNumber;
 	
 	if(data.GraderOrLab=="G"){
-		positionname = "Grader";
+		positionname = " Grader";
 		notestext = "Anyone can apply for this class if they <b>taken it at UMKC</b> or are a <b>PhD</b> student.";
 	}
 	else{
-		positionname = "Instructor";
+		positionname = " Instructor";
 		notestext = "This is an <b>instructor</b> course to apply for this you must be a <b>graduate</b> student and be <b>GTA certified.</b> To learn more about <b>GTA certification</b><a href='https://catalog.umkc.edu/general-graduate-academic-regulations-information/international-graduate-student-academic-regulations/' target='_blank'> click here</a>."
 	}
 	
