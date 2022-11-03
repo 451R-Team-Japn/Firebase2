@@ -33,24 +33,9 @@ async function writeCourseIDs(Courses) {
 		cloneCard(doc.id,doc.data());
 	});
 }
-
-function getNode(){
-	return '<div class="card mb-3 class-card" id="card">'+
-		'<a id="title" data-bs-toggle="collapse" data-bs-target="#collapseOne">'+
-			'<h5 class="card-header target"><span id="classname"></span><span class="semester">(<span id="semester"></span>)</span></h5></a>'+
-		'<div class="card-body collapse" id="collapseOne">'+
-			'<label class="card-title mt-2 mb-3">Position: </label><span id="position"></span><br>'+
-			'<label class="card-title float-start">Notes: </label>'+
-			'<div class="notes-wrapper welcome-notes"><span id="notes"></span></div>'+
-			'<a id="link" target="_blank" class="card-title float-start">Course Description</a>'+
-			'<br>'+
-		'</div>'+
-	'</div>';
-}
 async function cloneCard(name,data) {
-	var node = document.getElementById("card");
-	//var clone = node.cloneNode(true);
-	var clone = $(getNode());
+	const node = document.getElementById("card");
+	const clone = node.cloneNode(true);
 	var id;
 	var g;
 	var semester=["Fall","Spring","Summer"]
@@ -97,8 +82,7 @@ async function cloneCard(name,data) {
 	
 	document.getElementById('open-position-container').appendChild(g);
 	
-	//document.getElementById(name).appendChild(clone);
-	$("#"+name).append(clone);
+	document.getElementById(name).appendChild(clone);
 	var classname=await'#'+name+' #classname'; 
 	var position=await'#'+name+' #position';
 	var notes=await'#'+name+' #notes';  
