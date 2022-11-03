@@ -27,10 +27,12 @@ var rowcount = 0;
 $(document).ready(function () { 
 	getCourse();
 });
-$(document).on('click','.remove',function(event){
-	var student = event.target.value;
-	var studentname = event.target.name;
-	var coursefile = event.target.id;
+$(document).on('click','.remove',function(){
+	var student = $(this).attr("value");
+	var studentname = $(this).attr("name");
+	var coursefile = $(this).attr("id");
+	
+	console.log(coursefile);
 	
 	custom_confirm(student, studentname, coursefile);
 });
@@ -64,9 +66,9 @@ function removeStudent(studentremove, studentnameremove, coursefileremove){
 	$("#course-remove-title").html(studentname);
 	$("#course-remove-body").html(studentname);
 	
-	console.log(coursefile);
+	console.log(coursefileremove);
 	
-	//updateStudentdoc(student, "", coursefile, 'Applicants');
+	//updateStudentdoc(studentremove, "", coursefileremove, 'Applicants');
 	
     row.remove();
 	
