@@ -33,6 +33,7 @@ async function writeCourseIDs(Courses) {
 	console.log("writeCourseIDs()");
 	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
 	Courses.forEach((doc) => {
+		console.log("forEach()");		
 		cloneCard(doc.id,doc.data());
 	});
 }
