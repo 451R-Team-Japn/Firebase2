@@ -161,7 +161,7 @@ function custom_confirm(value, name) {
 async function removeCourse(coursevalue, coursename){
 	var card='#'+coursevalue; 
 	await deleteDoc(doc(db, "Courses", coursevalue));
-	$(.courseremove).html(coursename);
+	$(".courseremove").html(coursename);
 	$(card).prop("hidden",true);
 }
 
