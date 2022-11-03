@@ -28,11 +28,6 @@ $(document).ready(function () {
 	getCourse();
 });
 $(document).on('click','.remove',function(){
-
-	custom_confirm(this);
-});
-
-$(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	
@@ -43,7 +38,7 @@ $(document).on("click", "#closebutton", async function() {
 	
 	console.log(value);
 	
-	custom_confirm(student, studentname, coursefile);
+	custom_confirm(this);
 });
 
 function custom_confirm(student) {
