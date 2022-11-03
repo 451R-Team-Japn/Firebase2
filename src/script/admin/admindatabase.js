@@ -100,8 +100,8 @@ async function cloneCard(name,data) {
 	$(seebutton).attr(await "href", "applicants.html?"+name);
 	$(editbutton).attr(await "href", "createposition.html?"+name);
 	$(closebutton).attr(await "value", name);
-	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber);
-	$(closebutton).attr(await "semester", semester[data.Semester]);
+	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber+' '+semester[data.Semester]);
+	//$(closebutton).attr(await "semester", semester[data.Semester]);
 	$(applicants).html(applicantstext);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
 	$(collapsecard).attr("id","collapse"+name);
@@ -137,10 +137,14 @@ async function cloneCard(name,data) {
 $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
-	var semester = $(this).attr("semester");
+	var semester;
+	namearray = name.split(" ");
+	
+	coursename = namearray[0]+" "+namearray[1];
+	semester = namearray[2];
 	console.log(value);
 	
-	custom_confirm(value, name, semester);
+	custom_confirm(value, coursename, semester);
 });
 
 function custom_confirm(value, name, semester) {
