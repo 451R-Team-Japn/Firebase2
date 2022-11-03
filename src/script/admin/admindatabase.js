@@ -137,11 +137,10 @@ async function cloneCard(name,data) {
 $(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
-	var semester;
 	var namearray = name.split(" ");
-	
 	var coursename = namearray[0]+" "+namearray[1];
-	semester = namearray[2];
+	var semester = namearray[2];
+	
 	console.log(value);
 	
 	custom_confirm(value, coursename, semester);
