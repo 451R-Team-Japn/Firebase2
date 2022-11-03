@@ -18,8 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-$(document).ready(function () { 
-	console.log("ready");
+$(document).ready(function () {
 	writeCourses();
 });
 
