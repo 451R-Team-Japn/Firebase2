@@ -56,7 +56,7 @@ function custom_confirm(student, studentname, coursefile) {
   });
 }
 
-async function removeStudent(student, studentname, coursefile){
+function removeStudent(studentremove, studentnameremove, coursefileremove){
 	var table = $('#sortTable').DataTable();
 	var row = table.row( $(event.target).parents('tr') );
     //var rowNode = row.node();
