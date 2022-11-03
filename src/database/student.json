@@ -1,0 +1,2 @@
+[{"StudentKeyID":1, "StudentID":"12345678", "Email":"test@umkc.edu", "StudentPassword":"password", "FirstName":"John", "LastName":"Smith", "Major":"Computer Science"},
+ {"StudentKeyID":2, "StudentID":"9ABCDEF0", "Email":"test2@umkc.edu", "StudentPassword":"password2", "FirstName":"Jane", "LastName":"Doe", "Major":"Philosophy"}]

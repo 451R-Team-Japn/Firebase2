@@ -1,0 +1,4 @@
+[{"CourseID":1, "CourseType":"CS", "CourseNumber":101, "NeedsGrader":"1", "NeedsInstructor":"0"},
+ {"CourseID":2, "CourseType":"CS", "CourseNumber":191, "NeedsGrader":"1", "NeedsInstructor":"0"},
+ {"CourseID":3, "CourseType":"ECE", "CourseNumber":429, "NeedsGrader":"0", "NeedsInstructor":"1"},
+ {"CourseID":4, "CourseType":"ECE", "CourseNumber":427, "NeedsGrader":"0", "NeedsInstructor":"1"}]
