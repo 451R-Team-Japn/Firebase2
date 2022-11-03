@@ -26,9 +26,9 @@ async function getCourses() {
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourses(Courses) {
-	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
-	Courses.forEach((doc) => {
+async function writeCourses(coursescol) {
+	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
+	courses.forEach((doc) => {
 		cloneCard(doc.id,doc.data());
 	});
 	

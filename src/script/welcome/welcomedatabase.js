@@ -24,21 +24,17 @@ $(document).ready(function () {
 });
 
 async function writeCourses() {
-	console.log("writeCourses()");
 	await writeCourseIDs('Courses');
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 async function writeCourseIDs(coursescol) {
-	console.log("writeCourseIDs()");
 	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
 	courses.forEach((doc) => {
-		console.log("forEach()");		
 		cloneCard(doc.id,doc.data());
 	});
 }
 async function cloneCard(name,data) {
-	console.log("cloneCard()");
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
 	var id;
@@ -112,7 +108,6 @@ async function cloneCard(name,data) {
 }
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
-	console.log("getCollection()");
 	const docRef = collection(db, colName);
 	const q = query(docRef, orderBy(index, d));
   
