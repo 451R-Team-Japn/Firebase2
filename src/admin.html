@@ -14,7 +14,6 @@
     <script src="script/admin/adminfilter.js"></script>
     <script src="script/admin/adminwrite.js"></script>
     <script type="module" src="script/admin/admindatabase.js"></script>
-    <script src="script/redirect.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -112,6 +111,26 @@
             </div>
         </div>
     </div>
+	
+	<!-- Message Form was submitted successfully-->
+	<div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="adminModalLabel">Application</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			Your form was successfully submitted!
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-success ok">Yes</button>
+			<button type="button" class="btn btn-default cancel">No</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
 </body>
 
 </html>
