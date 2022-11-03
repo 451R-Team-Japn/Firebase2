@@ -19,6 +19,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 $(document).ready(function () { 
+	console.log("ready");
 	writeCourses();
 });
 
@@ -110,11 +111,12 @@ async function cloneCard(name,data) {
 }
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
+	console.log("getCollection()");
+	const docRef = collection(db, colName);
+	const q = query(docRef, orderBy(index, d));
   
-  const querySnapshot = await getDocs(q);
+	const querySnapshot = await getDocs(q);
   
-  return querySnapshot;
+	return querySnapshot;
 }
 
