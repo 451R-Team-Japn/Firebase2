@@ -23,17 +23,20 @@ $(document).ready(function () {
 });
 
 async function writeCourses() {
+	console.log("writeCourses()");
 	await writeCourseIDs('Courses');
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 async function writeCourseIDs(Courses) {
+	console.log("writeCourseIDs()");
 	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
 	Courses.forEach((doc) => {
 		cloneCard(doc.id,doc.data());
 	});
 }
 async function cloneCard(name,data) {
+	console.log("cloneCard()");
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
 	var id;
