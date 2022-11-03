@@ -24,7 +24,13 @@ function changeDoc(value){
 function modal(){
 	$('#courseModal').modal('toggle');
 }
+$("button[data-number=1]").click(function(){
+    $('#courseModal').modal('hide');
+});
 
+$("button[data-number=2]").click(function(){
+    $('#applicantsModal').modal('hide');
+});
 function getPagetype(){
 	return 1;
 }

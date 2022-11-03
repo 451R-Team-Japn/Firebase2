@@ -28,6 +28,7 @@ var coursetitle;
 $(document).ready(function () { 
 	getCourse();
 });
+
 $(document).on('click','.remove',function(){
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
