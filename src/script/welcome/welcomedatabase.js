@@ -24,7 +24,7 @@ onAuthStateChanged(auth, (user) => {
 
 async function writeCourses() {
 	await writeCourseIDs('Courses');
-	document.getElementById("sample").remove();=
+	document.getElementById("sample").remove();
 }
 async function writeCourseIDs(coursescol) {
 	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
