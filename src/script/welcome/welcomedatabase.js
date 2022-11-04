@@ -115,3 +115,11 @@ async function getCollection(colName,index,d){
 	return querySnapshot;
 }
 
+onAuthStateChanged(auth, user => {
+  if(user != null){
+	console.log('logged in!');
+  } else {
+	console.log('No user');
+  }
+});
+
