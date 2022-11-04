@@ -1,5 +1,4 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, collection, setDoc, updateDoc, getDocs, getDoc, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
@@ -22,12 +21,6 @@ const storage = getStorage();
 var currentuser;
 var currentcertified;
 var user;
-
-signInAnonymously(auth).then(() => {
-    console.log('logged in!');
-}).catch((error) => {
-    console.log('No user');
-});
 
 $(document).ready(function () { 
 	var term = getCurrentterm();
