@@ -402,7 +402,7 @@ a#title:hover{
 }
 
 .title-position{
-  background-color: #fbe764ee ;
+  background-color: #FFdd00 ;
   width: 100%;
   padding: 1rem;
   padding-left: 3rem;
@@ -478,8 +478,10 @@ a#title:hover{
 
 /*LOGIN PAGE DESIGN*/
 .login-page{
-  background-color: #e4ecf4;
+  background-color: #044C7C;
   font-family: 'Roboto';
+  background-image: repeating-linear-gradient(135deg, #0066CC 0, #0066CC 1px, transparent 0, transparent 50%);
+  background-size: 13px 13px;
 }
 
 .login-card-body{
@@ -518,8 +520,17 @@ a{
 }
 
 .btn-login{
+  background-color: #FFDD00;
+  color: #0066CC;
   font-size: 18px;
+  font-weight: bold;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.btn-login:hover{
+  background-color: #0066CC;
+  color: #FFDD00;
+  border-color: #0066CC;
 }
 
 /*STUDENT FORM PAGE DESIGN*/
