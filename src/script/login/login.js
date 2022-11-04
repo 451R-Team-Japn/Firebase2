@@ -19,11 +19,11 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 signInAnonymously(auth).then(() => {
-    // Signed in..
+    console.log('logged in!');
 }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ...
+    console.log('No user');
 });
 
 $('#login').submit(function(){
