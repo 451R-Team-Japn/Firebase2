@@ -11,9 +11,7 @@ function Search() {
     }
   }
 }
-$(document).ready(function () { 
 
-});
 function changeDoc(value){
 	document.getElementById("iframepdf");
 	$("#iframepdf").attr("src", "files/"+value+".pdf");
@@ -24,6 +22,14 @@ function changeDoc(value){
 function modal(){
 	$('#courseModal').modal('toggle');
 }
+
+$(document).on('click','.course-modal-close',function(){
+    $('#courseModal').modal('hide');
+});
+
+$(document).on('click','.applicants-modal-close',function(){
+    $('#applicantsModal').modal('hide');
+});
 
 function getPagetype(){
 	return 1;

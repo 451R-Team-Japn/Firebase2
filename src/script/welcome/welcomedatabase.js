@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-$(document).ready(function () { 
+$(document).ready(function () {
 	writeCourses();
 });
 
@@ -27,9 +27,9 @@ async function writeCourses() {
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourseIDs(Courses) {
-	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
-	Courses.forEach((doc) => {
+async function writeCourseIDs(coursescol) {
+	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
+	courses.forEach((doc) => {
 		cloneCard(doc.id,doc.data());
 	});
 }
@@ -107,11 +107,11 @@ async function cloneCard(name,data) {
 }
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
-  const docRef = collection(db, colName);
-  const q = query(docRef, orderBy(index, d));
+	const docRef = collection(db, colName);
+	const q = query(docRef, orderBy(index, d));
   
-  const querySnapshot = await getDocs(q);
+	const querySnapshot = await getDocs(q);
   
-  return querySnapshot;
+	return querySnapshot;
 }
 

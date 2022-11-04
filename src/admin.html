@@ -14,7 +14,7 @@
     <script src="script/admin/adminfilter.js"></script>
     <script src="script/admin/adminwrite.js"></script>
     <script type="module" src="script/admin/admindatabase.js"></script>
-    <script src="script/redirect.js"></script>
+	<script src="script/redirect.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -112,6 +112,26 @@
             </div>
         </div>
     </div>
+	
+	<!-- Message Form was submitted successfully-->
+	<div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="adminModalLabel">Remove <span id="course-remove-title"></span></h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			Are you sure you want to remove <span id="course-remove-body"></span>! 
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary ok">Yes<br>Remove</button>
+			<button type="button" class="btn btn-primary cancel" data-bs-dismiss="modal" aria-label="Close">No<br>Keep</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
 </body>
 
 </html>

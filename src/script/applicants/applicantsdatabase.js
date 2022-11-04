@@ -23,17 +23,44 @@ var currentCourse = location.search.substring(1);
 var applicantcount = 0;
 var done = false;
 var rowcount = 0;
+var coursetitle;
 
 $(document).ready(function () { 
 	getCourse();
 });
-$(document).on('click','.remove',function(event){
-	var table = $('#sortTable').DataTable();
-	var row = table.row( $(event.target).parents('tr') );
-    var rowNode = row.node();
+
+$(document).on('click','.remove',function(){
+	var value = $(this).attr("value");
+	var name = $(this).attr("name");
 	
-	var student = event.target.value;
-	var coursefile = event.target.id;
+	console.log(name);
+	
+	$("#student-remove-title").html(name+" from "+coursetitle);
+	$("#student-remove-body").html(name+" from "+coursetitle);
+	
+	console.log(value);
+	
+	custom_confirm(this);
+});
+
+function custom_confirm(student) {
+ //  show modal ringer custom confirmation
+  $('#applicantsModal').modal('show');
+
+  $('#applicantsModal button.ok').off().on('click', function() {
+     // close window
+     $('#applicantsModal').modal('hide');
+
+     removeStudent(student);
+  });
+}
+
+function removeStudent(studentremove){
+	var table = $('#sortTable').DataTable();
+	var row = table.row( $(studentremove).parents('tr') );
+	var student = $(studentremove).attr("value");
+	var studentname = $(studentremove).attr("name");
+	var coursefile = $(studentremove).attr("id");
 	
 	console.log(coursefile);
 	
@@ -42,7 +69,7 @@ $(document).on('click','.remove',function(event){
     row.remove();
 	
 	table.draw();
-});
+}
 
 $(document).on('change','.gtaselect',function(event){
 	var value = parseInt(event.target.value);
@@ -136,7 +163,7 @@ async function writeTable(student,application,position, file) {
 	var Emailcell = studentdata.Email;
 	var GTAcell = "<div id='"+rowindex+"gpa'></div>";
 	var Documentscell = "<div id='"+rowindex+"doc'></div>";
-	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
+	var removecell = "<button type='button' class='applicant-table-btn btn btn-danger remove' value='"+student.id+"' name='"+studentdata.FirstName+" "+studentdata.LastName+"' id='"+file+"'><i class='bi bi-trash'></i></button>";
 	
 	table.row.add([IDcell,Namecell,Emailcell,Levelcell,Majorcell,GPAcell,Hourscell,GTAcell,Documentscell,removecell]).draw();
 	
@@ -230,7 +257,8 @@ async function writeApplicants(courseName,appobj) {
 }
 
 async function writeTitle(course,positionname) {
-	$(classname).html(await course.CourseType+' '+course.CourseNumber);
+	coursetitle = await course.CourseType+' '+course.CourseNumber;
+	$(classname).html(coursetitle);
 	$(position).html(positionname);	
 }
 

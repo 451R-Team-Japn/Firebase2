@@ -21,18 +21,21 @@ const auth = getAuth(app);
 $(document).ready(function () { 
 	getCourses();
 });
+
 async function getCourses() {
 	await writeCourses('Courses');
 	document.getElementById("sample").remove();
 	await console.log(document.getElementById('open-position-container').innerHTML);
 }
-async function writeCourses(Courses) {
-	var Courses = await getCollection(Courses, 'CourseNumber', 'asc');
-	Courses.forEach((doc) => {
+
+async function writeCourses(coursescol) {
+	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
+	courses.forEach((doc) => {
 		cloneCard(doc.id,doc.data());
 	});
 	
 }
+
 async function cloneCard(name,data) {
 	const node = document.getElementById("card");
 	const clone = node.cloneNode(true);
@@ -95,10 +98,10 @@ async function cloneCard(name,data) {
 	$(notes).html(await data.Notes);
 	$(semesterclass).html(await semester[data.Semester]);
 	$(seebutton).attr(await "href", "applicants.html?"+name);
-	//$(seebutton).attr(await "target", "_blank");
 	$(editbutton).attr(await "href", "createposition.html?"+name);
-	//$(editbutton).attr(await "target", "_blank");
 	$(closebutton).attr(await "value", name);
+	$(closebutton).attr(await "name", data.CourseType+' '+data.CourseNumber+' ('+semester[data.Semester]+')');
+	//$(closebutton).attr(await "semester", semester[data.Semester]);
 	$(applicants).html(applicantstext);
 	$(collapseid).attr("data-bs-target","#collapse"+name);
 	$(collapsecard).attr("id","collapse"+name);
@@ -130,13 +133,36 @@ async function cloneCard(name,data) {
 		});
 	}
 }
-$(document).on("click", "#closebutton" ,async function() {
+
+$(document).on("click", "#closebutton", async function() {
 	var value = $(this).attr("value");
+	var name = $(this).attr("name");
+	
+	$("#course-remove-title").html(name);
+	$("#course-remove-body").html(name);
+	
 	console.log(value);
-	var card=await'#'+value; 
-	await deleteDoc(doc(db, "Courses", value));
-	$(card).prop("hidden",true);
+	
+	custom_confirm(value);
 });
+
+function custom_confirm(value) {
+ //  show modal ringer custom confirmation
+  $('#adminModal').modal('show');
+
+  $('#adminModal button.ok').off().on('click', function() {
+     // close window
+     $('#adminModal').modal('hide');
+
+     removeCourse(value);
+  });
+}
+
+async function removeCourse(coursevalue){
+	var card='#'+coursevalue; 
+	await deleteDoc(doc(db, "Courses", coursevalue));
+	$(card).fadeOut();
+}
 
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
