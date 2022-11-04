@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, collection, getDocs, getDoc, query, where, limit } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -21,8 +21,6 @@ const auth = getAuth(app);
 signInAnonymously(auth).then(() => {
     console.log('logged in!');
 }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
     console.log('No user');
 });
 
