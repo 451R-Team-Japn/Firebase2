@@ -313,6 +313,12 @@ a:hover{
   font-weight: bold;
 }
 
+a#title:hover{
+  background-color: #044C7C;
+  color:#FFdd00 ;
+  font-weight: bolder;
+}
+
 /*WELCOME AND ADMIN PAGE DESIGN*/
 .right-card-title{
   font-size: 75%;
