@@ -18,6 +18,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+onAuthStateChanged(auth, user => {
+  if(user != null){
+	console.log('logged in!');
+  } else {
+	console.log('No user');
+  }
+});
 
 $('#login').submit(function(){
 	if(!submitlogin());
