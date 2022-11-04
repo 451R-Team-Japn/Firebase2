@@ -194,6 +194,9 @@ h2{
   display: inline-flex;
   height: 60px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-image: repeating-linear-gradient(135deg, #0066cc 0, #0066cc 1px, transparent 0, transparent 50%);
+  background-size: 13px 13px;
+  background-color: #044c7c;
 }
 
 .page-title{
@@ -258,13 +261,18 @@ h2{
 .card{
   z-index: auto;
   background-color: white;
-  border: 2px solid rgba(0,0,0,.125);
+  border: none;
+  box-shadow: 3px 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.card-header{
-  color: #0066cc;
+a#title{
   background-color: white;
-  border: none;
+}
+  
+.card-header{
+  background-color: white;;
+  color: #0066cc;
+  border:none;
 }
 
 .semester{
