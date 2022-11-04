@@ -33,12 +33,8 @@ $(document).on('click','.remove',function(){
 	var value = $(this).attr("value");
 	var name = $(this).attr("name");
 	
-	console.log(name);
-	
 	$("#student-remove-title").html(name+" from "+coursetitle);
 	$("#student-remove-body").html(name+" from "+coursetitle);
-	
-	console.log(value);
 	
 	custom_confirm(this);
 });
@@ -62,8 +58,6 @@ function removeStudent(studentremove){
 	var studentname = $(studentremove).attr("name");
 	var coursefile = $(studentremove).attr("id");
 	
-	console.log(coursefile);
-	
 	updateStudentdoc(student, "", coursefile, 'Applicants');
 	
     row.remove();
@@ -79,15 +73,9 @@ $(document).on('change','.gtaselect',function(event){
 $(document).on('change','#pdfbtn',async function(event){
 	var value = event.target.value;
 	var student = event.target.getAttribute("student");
-	var toolbar = '';
 	event.target.value = "documents";
-	console.log(value);
-	if(value != 'resume')
-		toolbar = '#toolbar=0';
-	else
-		toolbar = '#toolbar=1';
 	
-	await writeFile(student, value, toolbar);
+	await writeFile(student, value);
 	modal();
 });
 
@@ -104,9 +92,7 @@ async function getCourse(){
 	
 	position="Grader";
 	
-	courseObj=docSnap.data();
-	console.log(courseObj);
-	
+	courseObj=docSnap.data();	
 		
 	if(courseObj.GraderOrLab=="G"){
 		position="Grader";
@@ -117,7 +103,6 @@ async function getCourse(){
 
 	writeTitle(courseObj,position);
 	appobj=await writeApplicants(currentCourse,appobj);
-	console.log(appobj);
 	await writeStudents(appobj, position);
 
 	table.draw();
@@ -146,8 +131,6 @@ async function writeTable(student,application,position, file) {
 	
 	rowcount ++;
 	
-	console.log("add");
-	
 	getGTAselect();
 	filesexist = await getDocbtn();
 	
@@ -170,19 +153,15 @@ async function writeTable(student,application,position, file) {
 	if(position == "Instructor")
 		document.getElementById(rowindex+"gpa").appendChild(gtaselect);	
 		
-	console.log("filesexist",filesexist);
 	if(filesexist)
 		document.getElementById(rowindex+"doc").appendChild(docbtn);
 	else
 		document.getElementById(rowindex+"doc").innerHTML = "No Documents";
 	
-	console.log(removecell);
-	
 	async function getDocbtn(){
 		var opt;
 		var docexist = false;
 		
-		//docbtn.classList.add("pdfbtn");
 		docbtn.setAttribute("id", "pdfbtn");
 		docbtn.classList.add("applicant-table-btn");
 		docbtn.classList.add("btn"); 
@@ -252,7 +231,6 @@ async function writeApplicants(courseName,appobj) {
 	for(var j=0;j<index.length;j++){
 		appobj=await queryCourse(courseName,index[j],appobj);
 	}
-	console.log(appobj);
 	return appobj;
 }
 
@@ -268,17 +246,12 @@ async function queryCourse(courseName,index,appobj){
   const querySnapshot = await getDocs(q);
   
   querySnapshot.forEach((doc) => {
-		console.log(index," => ",doc.id, " => ", doc.data());
 		appobj[applicantcount] = { 
 		"StudentApp": doc.id,
 		"FileName": index
 		};
 		applicantcount++;
 	});
-	
-	console.log(applicantcount);
-  
-	console.log(appobj);
   
 	return appobj;
 }
@@ -295,19 +268,15 @@ async function updateStudentdoc(docName, value, file, colName) {
 	var updateobj = {
 		[file]: value
 	};
-	console.log(file);
-	console.log(updateobj);
 	
 	await updateDoc(docRef, updateobj);
 }
 
-async function writeFile(id, filename, toolbar) {
+async function writeFile(id, filename) {
 	var storageRef = ref(storage, id+'/'+filename);
 	var iframe1 = document.getElementById('iframepdf');
 	await getDownloadURL(storageRef).then(onResolve, onReject);
 	async function onResolve(url) {
-		console.log(url);
-		iframe1.src = await url+toolbar;
 	}
 	function onReject(error) {
 		console.log("error",error);

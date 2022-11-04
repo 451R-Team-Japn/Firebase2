@@ -9,7 +9,6 @@ function submitForm(){
 	submitTried = true;
 
 	if(form[0].checkValidity() === true){
-		console.log("submitForm");
 		return true;
 	}else
 		return false;
@@ -113,7 +112,6 @@ function updateUser(){
 	GTACertified: gtastatus,
 	Major: major
 	};
-	console.log("user => "+user);
 	
 	return user;
 }
@@ -152,7 +150,6 @@ function getData(){
 		Hours: hours,
 		UndergradDegree: degree
 	};
-	console.log("applicant => "+applicant);
 	
 	return applicant;
 }
@@ -164,11 +161,8 @@ function getFiles(){
 	const gfInput = document.getElementById('gf');
 	
 	const rf = rfInput.files[0];
-	console.log(rf);
 	const tf = tfInput.files[0];
-	console.log(tf);
 	const gf = gfInput.files[0];
-	console.log(gf);
 	
 	files = {
 		Resume: {
@@ -184,7 +178,6 @@ function getFiles(){
 			File: gf
 		}
 	};
-	console.log("files => "+files);
 	
 	return files;
 }
@@ -194,47 +187,14 @@ function listCourses(){
 	var j = 0;
 	for(var i=0; list[i]; ++i){
       if(list[i].checked){
-		   console.log(list[i].value);
            courses[j] = list[i].value;
 		   j++;
 	  }
 	}
 	for(var k=0; k<5; ++k){
-		console.log(courses[k]);
       if(courses[k]==null){
            courses[k] = "";
 	  }
 	}
 	return courses;
 }
-/*function writeData(level, gradtermtext, majortext){			
-	var data = {currentlevel:level, graduatingsemester:gradtermtext, course1:courses[0], course2:courses[1], course3:courses[2], course4:courses[3],course5:courses[4]};
-	alert(level);
-	alert(majortext);
-	alert(gradtermtext);
-	
-	alert(data.course2);
-	
-	//if(courseChecked('grader'))
-		//alert(graderlist);
-	//if(courseChecked('lab'))
-		//alert(lablist);
-	
-}
-function writeCourses(courseType, amount) {
-	var inputElements = document.getElementsByClassName(courseType);
-	var courseslist = [amount];
-	
-	for(var i=0; i<courseslist.length; i++)
-		courseslist[i]= "";
-	
-	for(var j = 0; j<courseslist.length;){
-		for(var i=0; inputElements[i]; ++i){
-			if(inputElements[i].checked){
-				courseslist[j] = inputElements[i].value;
-				++j;
-			}
-		}
-	}
-	return courseslist;
-}*/

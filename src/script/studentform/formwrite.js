@@ -90,8 +90,6 @@ function listclasses(list, position) {
 	
 }
 function addclass(data,col,position){
-	console.log(data.CourseNumber);
-	console.log(data.CourseType);
 	var html="";
 	var positionandcourse = position+" "+data;
 	if(available == "true"){

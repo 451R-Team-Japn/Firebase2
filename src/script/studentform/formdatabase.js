@@ -25,7 +25,6 @@ var user;
 
 onAuthStateChanged(auth, (user) => {
 	var term = getCurrentterm();
-	console.log(term);
 	if(getAccounttype() == "AccountStudent")
 		getUser();
 	else{
@@ -97,8 +96,6 @@ function populateFields(){
 	var level = document.querySelectorAll('input[name="level"]');
 	var levelval = user.CurrentLevel.toString();
 	
-	console.log(levelval);
-	
 	document.getElementById("fname").value = user.FirstName;
 	document.getElementById("fname").readOnly = true;
 	document.getElementById("lname").value = user.LastName;
@@ -110,7 +107,6 @@ function populateFields(){
 	document.getElementById("major").value = user.Major;
 	
 	for(var i=0;i<level.length;i++){
-		console.log(level[i].value);
 		if(level[i].value == levelval)
 			level[i].checked = true;
 	}
@@ -226,4 +222,3 @@ var storageRef = ref(storage, user+"/"+filename);
 	  console.log('Uploaded a blob or file!');
 	});
 }
-

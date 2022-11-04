@@ -29,7 +29,6 @@ async function getCourse(){
 	var courseObj;
 
 	courseObj= await docSnap.data();
-	console.log(courseObj);
 	
 	await writeData(courseObj);
 	await changeModal(courseObj);
@@ -43,7 +42,6 @@ async function getCoursedoc(colName, docName) {
 $('#courseform').submit(function(){
 	var form = $("#courseform");
 	if(form[0].checkValidity() === true){
-		console.log("submit");
 		submitform();
 	}
 	else{
@@ -59,9 +57,7 @@ async function submitform() {
 	var course = await getData();
 	semester.forEach(async function(item){
 		course.Semester=parseInt(item.id);
-		console.log(course.Semester);
 		id=course.CourseType+course.CourseNumber+course.Semester+course.GraderOrLab;
-		console.log(position);
 			if(currentCourse != "" || currentCourse !=  'new')
 				await setDoc(doc(db, "Courses", id), course);
 			else
@@ -69,4 +65,3 @@ async function submitform() {
 	});
 	
 }
-

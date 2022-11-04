@@ -25,7 +25,6 @@ onAuthStateChanged(auth, (user) => {
 async function getCourses() {
 	await writeCourses('Courses');
 	document.getElementById("sample").remove();
-	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 
 async function writeCourses(coursescol) {
@@ -114,8 +113,6 @@ async function cloneCard(name,data) {
 	filter();
 	
 	$('.collapse').collapse('show');
-	
-	await console.log(document.getElementById('open-position-container').innerHTML);
 
 	async function writeApplicants(courseName) {
 		var index=["Course1","Course2","Course3","Course4","Course5"];
@@ -140,8 +137,6 @@ $(document).on("click", "#closebutton", async function() {
 	
 	$("#course-remove-title").html(name);
 	$("#course-remove-body").html(name);
-	
-	console.log(value);
 	
 	custom_confirm(value);
 });
@@ -173,4 +168,3 @@ async function getCollection(colName,index,d){
   
   return querySnapshot;
 }
-

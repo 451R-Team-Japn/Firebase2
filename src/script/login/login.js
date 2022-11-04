@@ -24,19 +24,16 @@ $('#login').submit(function(){
 async function submitlogin(){
 	var html="";
 	if(await validatelogin('AccountStudent')){
-		console.log("studentLogin");
 		window.location.href = '/studentform.html';
 		document.getElementById('login').action = 'studentform.html';
 		return true;
 	}
 	else if(await validatelogin('AccountAdmin')){
-		console.log("adminLogin");
 		window.location.href = '/admin.html';
 		document.getElementById('login').action = 'admin.html';
 		return true;
 	}
 	else{
-		console.log("failed");
 		html=validateloginmessage();
 		$("#loginerror").html(html);
 		return false;
@@ -50,16 +47,11 @@ async function validatelogin(col){
 	var username = String(email).split("@");
 	var testemail = username[0] + "@umkc.edu";
 	
-	console.log(username[0]);
-	
 	var user = await checkLogin(col,testemail, password);
 	
 	var result = false;
 	
-	user.forEach(doc => {	
-	console.log(doc.id, " => ", doc.data());
-	
-	console.log(doc.exists);
+	user.forEach(doc => {
 		if (doc.exists){
 			sessionStorage.setItem("ID", doc.id);
 			sessionStorage.setItem("Type", col);
@@ -75,7 +67,6 @@ function validateloginmessage(){
 	var email = document.getElementById('email').value.toLowerCase();
 	var password = document.getElementById('password').value;
 	
-	console.log(pattern.test(password))
 	if(email != ""){
 		if(pattern.test(password))
 			html='<p>Email and/or password is not in our records.</p>';

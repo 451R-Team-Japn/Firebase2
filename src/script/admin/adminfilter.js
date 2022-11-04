@@ -4,7 +4,6 @@ function Search() {
   var nodes = document.getElementsByClassName('target');
 
   for (i = 0; i < nodes.length; i++) {
-	  console.log(nodes[i].style.display);
     if (nodes[i].innerText.toLowerCase().includes(filter)) {
       nodes[i].parentNode.parentNode.parentNode.style.display = "block";
     } else {
@@ -68,7 +67,6 @@ function filter(){
 				if(input.checked){
 					list[counter] = input.getAttribute("value"); 
 					counter++;
-					console.log(list);
 					addFilter(list);
 				}
 			});
@@ -78,12 +76,10 @@ function filter(){
 		function addFilter(list){
 			classes = ":not(";
 			for(var i=0;i<list.length;i++){
-				console.log(list[i]);
 				classes+="."+list[i];
 				if(i!==list.length-1)
 					classes+=","
-			}
-			console.log(classes);			
+			}		
 		}
 		classes+=")"
 		
@@ -95,14 +91,11 @@ function filter(){
 	if(typeof getPagetype === "function")
 		filters+=", "+app;
 	
-	console.log("filters "+filters);
-	
 	$('.all').show().filter(filters).hide();
 }
 
 function uncheck(ele){
 	var classes =  ele.classList;
-	console.log(classes.length, classes[1]);
 	 $('input.'+classes[1]).not(ele).prop('checked', false); 
 }
 

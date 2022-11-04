@@ -22,14 +22,6 @@ function getData(){
 	else
 		grad = true;
 	
-	
-	console.log("ctype => "+ctype);
-	console.log("cnumber => "+cnumber);
-	console.log("position => "+position);
-	console.log("level => "+level);
-	
-	console.log("notes => "+notes);
-	
 	applicant = {
     CourseNumber: cnumber,
 	CourseType: ctype,
@@ -38,7 +30,6 @@ function getData(){
     Notes: notes,
 	Semester: null
 	};
-	console.log("applicant => ",applicant);
 	
 	return applicant;
 }

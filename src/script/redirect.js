@@ -6,7 +6,6 @@ $(document).ready(function () {
 	start();
 });
 function checkLogin(){
-	console.log("checkLogin");
 	if (localStorage.getItem("ID") === null && sessionStorage.getItem("ID") === null){
 		logout();
 		return true;
@@ -29,11 +28,8 @@ function start(){
 		studentpage = false;
 	
 	redirect(accounttype, page);
-	
-	console.log(accounttype);
 }
 function redirect(accounttype, page){
-	console.log("accounttype: "+accounttype+" studentpage: "+page);
 	if(accounttype == 'AccountStudent' && page == 1)
 		window.location.href = "studentform.html";	
 }

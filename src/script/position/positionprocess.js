@@ -2,11 +2,8 @@ function coursenumberChange(n) {
 	document.getElementById("CourseNumber").value = n.toUpperCase();
 }
 function semesterValidation() {
-	console.log("semesterValidation()");
 	var checkboxes = document.getElementsByClassName('semester-option');
 	var checked=$('div.checkbox-group.required :checkbox:checked').length > 0;
-	
-	console.log("checked => "+checked);
 	
 	if(checked)
 		setremoveRequired(false, checkboxes);

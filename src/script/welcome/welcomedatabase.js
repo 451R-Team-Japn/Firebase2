@@ -24,8 +24,7 @@ onAuthStateChanged(auth, (user) => {
 
 async function writeCourses() {
 	await writeCourseIDs('Courses');
-	document.getElementById("sample").remove();
-	await console.log(document.getElementById('open-position-container').innerHTML);
+	document.getElementById("sample").remove();=
 }
 async function writeCourseIDs(coursescol) {
 	var courses = await getCollection(coursescol, 'CourseNumber', 'asc');
@@ -102,8 +101,6 @@ async function cloneCard(name,data) {
 	filter();
 	
 	$('.collapse').collapse('hide');
-	
-	await console.log(document.getElementById('open-position-container').innerHTML);
 }
 // Get a list of courses from your database
 async function getCollection(colName,index,d){
