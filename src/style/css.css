@@ -330,6 +330,7 @@ a#title:hover{
   color: #0066CC;
   background-color: #FFDD00;
   border-color: #FFDD00;
+  font-weight: bold;
 }
 
 .right-card-title{
