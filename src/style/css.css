@@ -348,6 +348,7 @@ a#title:hover{
 .submit-btn{
   color: white;
   background-color: #0066cc;
+  font-weight: bolder;
 }
 
 .submit-btn:hover{
