@@ -457,7 +457,8 @@ a#title:hover{
 
 /*APPLICANTS PAGE DESIGN*/
 .applicant-table-btn{
-  font-size: 0.75em !important; 
+  font-size: 20px !important; 
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .applicant-table-btn option{
