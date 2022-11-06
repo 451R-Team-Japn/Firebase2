@@ -456,6 +456,11 @@ a#title:hover{
 }
 
 /*APPLICANTS PAGE DESIGN*/
+div#row1doc {
+  font-family: arial;
+  font-size: 20px;
+}
+
 .applicant-table-btn{
   font-size: 0.75em !important; 
 }
