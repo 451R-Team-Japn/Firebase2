@@ -519,18 +519,24 @@ a{
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.btn-apply:hover{
+  background-color: #044c7c;
+  color: #FFdd00;
+  box-shadow: 3px 3px 3px #FFdd00;
+}
+
 .btn-login{
-  background-color: #FFDD00;
-  color: #0066CC;
+  background-color: #FFdd00;
+  border-color:#FFdd00;
+  color: #044c7c;
   font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  font-weight: bolder;
 }
 
 .btn-login:hover{
-  background-color: #0066CC;
-  color: #FFDD00;
-  border-color: #0066CC;
+  background-color: #044c7c;
+  border-color: #044C7C;
+  color: #FFdd00;
 }
 
 /*STUDENT FORM PAGE DESIGN*/
