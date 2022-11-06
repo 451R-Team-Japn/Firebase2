@@ -69,6 +69,9 @@
 		color:#0066cc;
 		font-weight: bolder;
 		}
+		.pad{
+			padding-right: 2rem!important;
+		}
 	</style>
 	<title>Applicants</title>
 </head>
@@ -87,33 +90,33 @@
 	</div>
 
 	<div class="applicant-container container applicantspage my-5" style="width:80%">
-		<table class="table table-striped display nowrap" id="sortTable" style="width:100%">
+		<table class="table table-striped display nowrap" id="sortTable" style="max-width:100%">
 			<h3 class="mb-3"><span id="classname">"Class"</span> <span id="position">"Position"</span> position:</h3>
 
 			<div>
 				<div class="mb-3 pe-4 card filter card-filter" style="position:static ; border:none; box-shadow:none; display: -webkit-inline-box;">
-					<div>
+					<div style="display: inline-flex;">
 						<label class="filter-label pe-3">Major:</label>
 						<div class="form-check" id="major">
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="maj"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="maj"
 									value="CS">CS</label>
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="maj"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="maj"
 									value="IT">IT</label>
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="maj"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="maj"
 									value="EE">EE</label>
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="maj"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="maj"
 									value="ECE">ECE</label>
 						</div>
 					</div>
 					
-					<div>
+					<div style="display:inline-flex ;">
 						<label class="ps-3 filter-label pe-3">Level:</label>
 						<div class="form-check" id="level">
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="lev"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="lev"
 									value="BS">BS</label>
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="lev"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="lev"
 									value="MS">MS</label>
-							<label class="checkbox form-check-label pe-5"><input class="form-check-input" type="checkbox" name="lev"
+							<label class="checkbox form-check-label pad"><input class="form-check-input" type="checkbox" name="lev"
 									value="PhD">PhD</label>
 						</div>
 					</div>
