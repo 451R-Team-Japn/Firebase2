@@ -320,6 +320,12 @@ a#title:hover{
 }
 
 /*WELCOME AND ADMIN PAGE DESIGN*/
+.btn-card{
+  color: #0066CC;
+  background-color: #ffffff;
+  border-color: #0066CC;
+}
+
 .right-card-title{
   font-size: 75%;
 }
