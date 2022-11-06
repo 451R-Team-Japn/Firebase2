@@ -326,6 +326,12 @@ a#title:hover{
   border-color: #0066CC;
 }
 
+.btn-card:hover{
+  color: #0066CC;
+  background-color: #FFDD00;
+  border-color: #FFDD00;
+}
+
 .right-card-title{
   font-size: 75%;
 }
