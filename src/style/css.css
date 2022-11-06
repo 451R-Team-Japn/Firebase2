@@ -664,4 +664,7 @@ a{
   .filter-phone{
     display: block;
   }
+  .filter-label{
+    padding: 0!important;
+  }
 }
