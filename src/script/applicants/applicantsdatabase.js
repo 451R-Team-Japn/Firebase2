@@ -26,6 +26,7 @@ var coursetitle;
 const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
+	console.log("onAuthStateChanged()");
 	getCourse();
 });
 
@@ -80,6 +81,7 @@ $(document).on('change','#pdfbtn',async function(event){
 });
 
 async function getCourse(){
+	console.log("getCourse()");
 	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
@@ -109,6 +111,7 @@ async function getCourse(){
 }
 
 async function writeStudents(appobj, position) {
+	console.log("writeStudents()");	
 	var student;
 	var application;
 	for(var j=0;j<appobj.length;j++){
@@ -225,6 +228,7 @@ async function writeTable(student,application,position, file) {
 	}
 }
 async function writeApplicants(courseName,appobj) {
+	console.log("writeApplicants()");	
 	var appobj;
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
@@ -235,6 +239,7 @@ async function writeApplicants(courseName,appobj) {
 }
 
 async function writeTitle(course,positionname) {
+	console.log("writeTitle()");	
 	coursetitle = await course.CourseType+' '+course.CourseNumber;
 	$(classname).html(coursetitle);
 	$(position).html(positionname);	
