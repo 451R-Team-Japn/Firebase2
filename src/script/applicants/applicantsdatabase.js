@@ -106,7 +106,6 @@ async function getCourse(){
 }
 
 async function writeStudents(appobj, position) {
-	console.log("writeStudents()");	
 	var student;
 	var application;
 	for(var j=0;j<appobj.length;j++){
