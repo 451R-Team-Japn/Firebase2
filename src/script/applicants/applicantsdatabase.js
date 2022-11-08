@@ -83,10 +83,10 @@ async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
-	var appobj = [{
+	var appobj/* = [{
 		"StudentApp": "",
 		"FileName": "",
-	}];
+	}]*/;
 	var applicants = [];
 	var docSnap=await getCoursedoc('Courses',currentCourse);
 	
@@ -102,21 +102,21 @@ async function getCourse(){
 		position="Instructor";
 
 	writeTitle(courseObj,position);
-	appobj=await writeApplicants(currentCourse,appobj);
+	appobj=await writeApplicants(currentCourse);
 	await writeStudents(appobj, position);
 
 	table.draw();
 }
 
-async function writeStudents(studentappobj, studentposition) {
+async function writeStudents(appobj, position) {
 	console.log("writeStudents()");	
 	var student;
 	var application;
-	/*for(var j=0;j<studentappobj.length;j++){
-		student=await getCoursedoc('AccountStudent',studentappobj[j].StudentApp);
-		application=await getCoursedoc('Applicants',studentappobj[j].StudentApp);
-		writeTable(student,application.data(),studentposition, studentappobj[j].FileName);
-	}*/
+	for(var j=0;j<appobj.length;j++){
+		student=await getCoursedoc('AccountStudent',appobj[j].StudentApp);
+		application=await getCoursedoc('Applicants',appobj[j].StudentApp);
+		writeTable(student,application.data(),position, appobj[j].FileName);
+	}
 }
 
 async function writeTable(student,application,position, file) {
@@ -225,7 +225,7 @@ async function writeTable(student,application,position, file) {
 		gtaselect.setAttribute("student", student.id);		
 	}
 }
-async function writeApplicants(courseName,appobj) {
+async function writeApplicants(courseName) {
 	var appobj;
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
