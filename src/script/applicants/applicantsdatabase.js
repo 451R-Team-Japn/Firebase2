@@ -112,11 +112,11 @@ async function writeStudents(studentappobj, studentposition) {
 	console.log("writeStudents()");	
 	var student;
 	var application;
-	for(var j=0;j<studentappobj.length;j++){
+	/*for(var j=0;j<studentappobj.length;j++){
 		student=await getCoursedoc('AccountStudent',studentappobj[j].StudentApp);
 		application=await getCoursedoc('Applicants',studentappobj[j].StudentApp);
 		writeTable(student,application.data(),studentposition, studentappobj[j].FileName);
-	}
+	}*/
 }
 
 async function writeTable(student,application,position, file) {
