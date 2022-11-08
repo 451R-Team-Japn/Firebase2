@@ -83,10 +83,7 @@ async function getCourse(){
 	var table = $('#sortTable').DataTable();
 	var position;
 	var courseObj;	
-	var appobj/* = [{
-		"StudentApp": "",
-		"FileName": "",
-	}]*/;
+	var appobj;
 	var applicants = [];
 	var docSnap=await getCoursedoc('Courses',currentCourse);
 	
@@ -226,7 +223,10 @@ async function writeTable(student,application,position, file) {
 	}
 }
 async function writeApplicants(courseName) {
-	var appobj;
+	var appobj = [{
+		"StudentApp": "",
+		"FileName": "",
+	}];
 	var index=["Course1","Course2","Course3","Course4","Course5"];
 	
 	for(var j=0;j<index.length;j++){
