@@ -592,6 +592,10 @@ a{
   border:none;
 }
 
+.applicantspage{
+  max-width: 80%;
+}
+
 @media (max-width: 530px){
   .check-level{
     margin-right: 2px;
@@ -666,5 +670,8 @@ a{
   }
   .filter-label{
     padding-left: 0!important;
+  }
+  .applicantspage{
+    max-width: 100%;
   }
 }
