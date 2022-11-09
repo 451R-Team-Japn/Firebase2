@@ -205,9 +205,10 @@ async function writeTable(student,application,position, file) {
 		var GTAtext = ["Pending","Certified", "Not Certified"];
 		
 		gtaselect.classList.add("gtaselect");
-		gtaselect.classList.add("applicant-table-btn");
 		gtaselect.classList.add("btn"); 
 		gtaselect.classList.add("btn-primary");
+		gtaselect.classList.add("applicant-table-btn");
+
 		
 		for (var i = 0; i<GTAtext.length; i++){
 			opt = document.createElement('option');
