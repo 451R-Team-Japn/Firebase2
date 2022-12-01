@@ -202,7 +202,7 @@ async function writeTable(student,application,position, file) {
 	}
 	async function getGTAselect(){
 		var opt;
-		var GTAtext = ["Pending","Certified", "Not Certified"];
+		var GTAtext = ["Not Certified","Pending","Certified"];
 		
 		gtaselect.classList.add("gtaselect");
 		gtaselect.classList.add("btn"); 
